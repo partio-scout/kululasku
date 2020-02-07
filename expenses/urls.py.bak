@@ -1,0 +1,88 @@
+from django.urls import include, path
+from django.contrib import admin
+#from django.contrib.auth import urlpatterns
+from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+from expenseapp import views
+
+import os
+
+# Uncomment the next two lines to enable the admin:
+#from django.contrib import admin
+#admin.autodiscover()
+#app_name = 'expenseapp'
+
+urlpatterns =  [
+  # Uncomment the next line to enable the admin:
+  path('admin/', admin.site.urls),
+  path('', views.index, name='index'),
+  path('personinfo/', views.personinfo, name='personinfo'),
+  path(r'^i18n/(?P<lang>[a-z]+)$', views.language_activate, name='language_activate'),
+  path('pages/', include('django.contrib.flatpages.urls')),
+  #path('organisation/(?P<organisation_id>\d+)$', views.organisationedit, name='organisation_edit'),
+  path('organisation/<int:organisation_id>/', views.organisationedit, name='organisation_edit'),
+  path(r'^organisation/(?P<organisation_id>\d+)/annualreport/(?P<year>\d{4})$', views.annualreport, name='organisation_annualreport'),
+  path('expense/', views.organisationselection, name='expense_new'),
+  path('expense/own/', views.ownexpenses, name='expense_own'),
+  path(r'^expense/(?P<expense_id>\d+)$', views.showexpense, name='expense_view'),
+  path(r'^expense/(?P<expense_id>\d+)/xml$', views.xmlexpense, name='expense_viewxml'),
+  path(r'^expense/(?P<expense_id>\d+)/katre$', views.katreexpense, name='expense_viewkatre'),
+  path(r'^expense/new/(?P<organisation_id>\d+)$', views.expense, name='expense_new_form'),
+  path(r'^receipt/(?P<expenselineid>\d+)$', views.receipt_fetch, name='receipt_fetch'),
+  #path(r'(?P<path>Finvoice.xsl)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
+  #path(r'(?P<path>Finvoice.css)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
+  path('accounts/', include('registration.backends.default.urls')),
+
+  path('accounts/', include('django.contrib.auth.urls')),
+  #path(r'^logout/$', django.contrib.auth.views.logout, {'next_page': '/'}, name='logout'),
+
+  #    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='login'),
+  #    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
+
+
+
+#   path(r'^user/password/reset/$',
+#       django.contrib.auth.views.password_reset,
+#       {'post_reset_redirect' : '/user/password/reset/done/', 'template_name':'registration/password_reset_form.html'},
+#       name="auth_password_reset"),
+
+#   path(r'^user/password/reset/done/$',
+#       'django.contrib.auth.views.password_reset_done'),
+
+#   path(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+#       'django.contrib.auth.views.password_reset_confirm',
+#       {'post_reset_redirect' : '/user/password/done/'},
+#       name='password_reset_confirm'),
+
+#   path(r'^user/password/done/$',
+#       'django.contrib.auth.views.password_reset_complete'),
+      
+#   path(r'^user/change-password/$', 'django.contrib.auth.views.password_change', {
+#       'template_name': 'registration/password_change_form.html'}, name="password_change"),
+#   path(r'^user/change-password-done/$', 'django.contrib.auth.views.password_change_done', {
+#       'template_name': 'registration/password_change_done.html'
+#       }, name="password_change_done")
+  ]
+    # Examples:
+    # url(r'^$', 'expenses.views.home', name='home'),
+    # url(r'^expenses/', include('expenses.foo.urls')),
+
+    # Uncomment the admin/doc line below to enable admin documentation:
+    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    
+    
+
+#     
+#     
+#             
+#]
+
+if settings.DEBUG:
+    print(123)
+  #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns += patterns('',
+#   url(r'^', include('django.contrib.flatpages.urls')),
+# )

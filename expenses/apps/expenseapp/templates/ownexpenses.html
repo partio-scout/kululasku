@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "My expenses" %}</h1>
+<table class="pure-table pure-table-full pure-table-horizontal pure-table-striped">
+  <thead>
+    <tr>
+      <th>{% trans 'Description' %}</th>
+      <th>{% trans 'Amount' %}</th>
+      <th>{% trans 'Sent' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for expense in expenses %}
+    <tr>
+      <td><a href="{% url 'expense_view' expense_id=expense.id %}">{{ expense.description }}</a></td>
+      <td>{{ expense.amount | floatformat:"2" }} €</td>
+      <td>{{ expense.created_at | date:"j.n.Y H.i" }}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

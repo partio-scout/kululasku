@@ -1,0 +1,39 @@
+{% extends "django_registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans 'Log In'%} </h1>
+
+<form action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned">
+  {% csrf_token %}
+  {% if form.errors %}
+    <p class="error">{% blocktrans %}Login failed.{% endblocktrans %}</p>
+  {% endif %}
+
+  {# Include the hidden fields #}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  
+  {# Include the visible fields #}
+  {% for field in form.visible_fields %}
+    <div class="pure-control-group{% if field.field.required %} required{% endif %}">
+      {{ field.label_tag }}
+      {{ field }}
+    </div>
+  {% endfor %}
+
+   <div class="pure-controls">
+      <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary">
+   </div>
+   <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+<p>
+{% url 'auth_password_reset' as reset_url %}
+  {% blocktrans %}
+  If you can't remember your details, you can
+  <a href="{{ reset_url }}">reset your password</a>.
+  {% endblocktrans %}
+</p>
+{% endblock %}

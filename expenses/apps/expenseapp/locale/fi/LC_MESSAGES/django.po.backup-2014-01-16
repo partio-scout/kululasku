@@ -1,0 +1,637 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-16 16:45+0200\n"
+"PO-Revision-Date: 2014-01-16 17:00+0200\n"
+"Last-Translator: Joonas Mankki <joonas@avocado.fi>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.3\n"
+
+#: helpers.py:23
+msgid "Date\t\tType\t\tAmount\n"
+msgstr "Pvm\t\tTyyppi\t\tMäärä\n"
+
+#: helpers.py:28
+#, python-format
+msgid ""
+"Hi,\n"
+"\n"
+"You were CC'd in a new expense application for %s.\n"
+"\n"
+"Name:        %s\n"
+"Description: %s\n"
+"Memo:\n"
+"%s\n"
+"\n"
+"Expense lines:\n"
+" %s\n"
+"Total: %s\n"
+"\n"
+"Best regards,\n"
+"-- \n"
+"Finnish scout's expense system\n"
+msgstr ""
+"Hei,\n"
+"\n"
+"Sinulle lähetettiin kopiona uusi kululasku organisaatiolle %s.\n"
+"\n"
+"Nimi:   %s\n"
+"Kuvaus: %s\n"
+"Lisätietoja:\n"
+"%s\n"
+"\n"
+"Kulurivit:\n"
+" %s\n"
+"Yhteensä: %s\n"
+"\n"
+"Terveisin,\n"
+"-- \n"
+"Partion kululaskujärjestelmä\n"
+
+#: helpers.py:45
+msgid "New expense CC'd to you"
+msgstr "Kululasku lähetetty kopiona sinulle"
+
+#: models.py:23 models.py:28
+msgid "Enter a valid Finnish personal identity code."
+msgstr "Syötä kelvollinen suomalainen henkilötunnus."
+
+#: models.py:33
+msgid "Enter a valid Finnish business ID."
+msgstr "Syötä kelvollinen suomalainen Y-tunnus."
+
+#: models.py:41
+msgid "Enter a valid phone number without any spaces or dashes."
+msgstr "Syötä kelvollinen puhelinnumero ilman välilyöntejä ja -viivoja."
+
+#: models.py:47
+msgid "Enter your first and last name."
+msgstr "Syötä etu- ja sukunimesi"
+
+#: models.py:54 models.py:71 models.py:133 models.py:178 models.py:365
+#: views.py:93 views.py:162
+msgid "Name"
+msgstr "Nimi"
+
+#: models.py:55
+msgid "Business ID"
+msgstr "Y-tunnus"
+
+#: models.py:56
+msgid "Selectable"
+msgstr "Valittavissa"
+
+#: models.py:57
+msgid "Send active"
+msgstr "Lähetetään eräajossa"
+
+#: models.py:72
+msgid "Account dimension code"
+msgstr "Kustannuspaikan koodi"
+
+#: models.py:72
+msgid "Account dimension code(s). If multiple, separate with semicolons (;)."
+msgstr ""
+"Kustannuspaikan tai -paikkojen koodit. Jos useampi, erota puolipisteellä (;)."
+
+#: models.py:86
+msgid "Trustee"
+msgstr "Luottamushenkilö"
+
+#: models.py:87
+msgid "Employee"
+msgstr "Työntekijä"
+
+#: models.py:93 models.py:181 views.py:95 views.py:164
+msgid "Phone"
+msgstr "Puhelin"
+
+#: models.py:94 models.py:182 views.py:96 views.py:165
+msgid "Address"
+msgstr "Osoite"
+
+#: models.py:95 models.py:183 views.py:97 views.py:166
+msgid "Bank account no"
+msgstr "Tilinumero"
+
+#: models.py:96 models.py:184 views.py:98 views.py:167
+msgid "BIC no"
+msgstr "BIC-koodi"
+
+#: models.py:97 models.py:185 views.py:99 views.py:168
+msgid "Person number"
+msgstr "Henkilötunnus"
+
+#: models.py:98 models.py:135 models.py:366
+msgid "Type"
+msgstr "Tyyppi"
+
+#: models.py:117
+msgid "Mileage"
+msgstr "Kilometrikorvaus"
+
+#: models.py:118
+msgid "Full per diem"
+msgstr "Kokopäiväraha"
+
+#: models.py:119
+msgid "Partial per diem"
+msgstr "Osapäiväraha"
+
+#: models.py:120
+msgid "Foreign per diem"
+msgstr "Ulkomaan päiväraha"
+
+#: models.py:121
+msgid "Meal allowance"
+msgstr "Ateriakorvaus"
+
+#: models.py:122
+msgid "Other"
+msgstr "Muu"
+
+#: models.py:126
+msgid "km"
+msgstr "km"
+
+#: models.py:127
+msgid "days"
+msgstr "pv"
+
+#: models.py:128
+msgid "pieces"
+msgstr "kpl"
+
+#: models.py:129
+msgid "€"
+msgstr "€"
+
+#: models.py:134
+msgid "Active"
+msgstr "Valittavissa"
+
+#: models.py:136 models.py:153
+msgid "Requires receipt"
+msgstr "Vaatii kuitin"
+
+#: models.py:137 models.py:367
+msgid "Multiplier"
+msgstr "Kerroin"
+
+#: models.py:137 models.py:367
+msgid ""
+"The per price for the expense type (mileage: € per km, other expenses: 1, "
+"advances: -1)"
+msgstr ""
+"Kulutyypin yksikköhinta (kilometrikorvauksissa km-taksa, muissa kuluissa 1, "
+"ennakoissa -1)"
+
+#: models.py:138
+msgid "Account"
+msgstr "Tili"
+
+#: models.py:139
+msgid "Person type"
+msgstr "Henkilön tyyppi"
+
+#: models.py:140
+msgid "Unit"
+msgstr "Yksikkö"
+
+#: models.py:173
+msgid "Open"
+msgstr "Avoin"
+
+#: models.py:174 models.py:193 views.py:102 views.py:171
+#: templates/ownexpenses.html:11
+msgid "Sent"
+msgstr "Lähetetty"
+
+#: models.py:179
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+#: models.py:180
+msgid "CC email address"
+msgstr "Sähköpostiosoite kopiolle"
+
+#: models.py:180
+msgid ""
+"If entered, a notification about the expense application will be sent to "
+"this address without personal details except name."
+msgstr ""
+"Jos täytetty, osoitteeseen lähetetään ilmoitus kululaskusta ilman muita "
+"henkilötietoja kuin nimeä."
+
+#: models.py:188
+msgid "Purpose"
+msgstr "Tarkoitus"
+
+#: models.py:189 views.py:101 views.py:170
+msgid "Info"
+msgstr "Lisätietoja"
+
+#: models.py:189
+msgid "Names of the additional passengers, people in the meeting etc."
+msgstr "Lisämatkustajien ja kokousosanottajien nimet ym."
+
+#: models.py:191
+msgid "Status"
+msgstr "Tila"
+
+#: models.py:194
+msgid "Edited"
+msgstr "Muokattu"
+
+#: models.py:353 views.py:100 views.py:116 views.py:169 views.py:182
+#: templates/ownexpenses.html:9
+msgid "Description"
+msgstr "Kuvaus"
+
+#: models.py:353
+msgid ""
+"Description of the expense, eg. the route of the journey (travel expenses) "
+"or purpose of the purchased goods"
+msgstr ""
+"Kulun kuvaus, esim. matkareitti (matkakuluissa) tai ostettujen tuotteiden "
+"käyttötarkoitus"
+
+#: models.py:354 views.py:114 views.py:180 forms/__init__.py:47
+msgid "Begin at"
+msgstr "Alkoi"
+
+#: models.py:355 views.py:115 views.py:181 forms/__init__.py:49
+msgid "Ended at"
+msgstr "Päättyi"
+
+#: models.py:357 views.py:118 views.py:184
+msgid "Expense type"
+msgstr "Kulutyyppi"
+
+#: models.py:358
+msgid "Cost centre"
+msgstr "Kustannuspaikka"
+
+#: models.py:359 views.py:117 views.py:183 forms/__init__.py:54
+#: templates/ownexpenses.html:10
+msgid "Amount"
+msgstr "Summa"
+
+#: models.py:359 forms/__init__.py:55
+msgid "Amount of kilometres, days or the sum of the expense"
+msgstr "Kilometrien tai päivien määrä tai muun kulun summa"
+
+#: models.py:362 views.py:124 views.py:188
+msgid "Receipt"
+msgstr "Kuitti"
+
+#: models.py:362
+msgid ""
+"A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. "
+"Note: The receipt must clearly show what, when and how much has been paid!"
+msgstr ""
+"Kuva kuitista. Kuvamuotoina kelpaavat mm. PDF, PNG ja JPG.Huomaa: Kuitista "
+"täytyy ilmetä selvästi mitä, milloin ja kuinka paljon on maksettu!"
+
+#: views.py:94 views.py:163
+msgid "Email"
+msgstr "Sähköposti"
+
+#: views.py:119 views.py:185
+msgid "Sum"
+msgstr "Summa"
+
+#: views.py:128 views.py:172
+msgid "Total"
+msgstr "Yhteensä"
+
+#: views.py:129
+msgid ""
+"Please verify that all information is correct before submitting the "
+"application for review"
+msgstr ""
+"Tarkista että kaikki tiedot ovat oikein ennen kulukorvaushakemuksen "
+"lähettämistä"
+
+#: views.py:146
+msgid "Expense information saved."
+msgstr "Kulutiedot tallennettu."
+
+#: views.py:220
+msgid "Profile details updated."
+msgstr "Profiilitiedot päivitetty."
+
+#: views.py:252
+msgid "Organisation details updated."
+msgstr "Organisaatiotiedot päivitetty."
+
+#: forms/__init__.py:72
+msgid "Organisation ID was not found."
+msgstr "Organisaatiota ei löytynyt."
+
+#: forms/__init__.py:94
+msgid "This expense type requires a receipt!"
+msgstr "Tämä kulutyyppi vaatii kuitin!"
+
+#: forms/__init__.py:118
+msgid "First name"
+msgstr "Etunimi"
+
+#: forms/__init__.py:119
+msgid "Last name"
+msgstr "Sukunimi"
+
+#: templates/base.html:15
+msgid "Finnish scouts' expense application system"
+msgstr "Partion kululaskujärjestelmä"
+
+#: templates/base.html:19
+msgid "Create a new expense application"
+msgstr "Luo uusi kululasku"
+
+#: templates/base.html:20 templates/ownexpenses.html:5
+msgid "My expenses"
+msgstr "Omat kulut"
+
+#: templates/base.html:21
+msgid "User information"
+msgstr "Omat tiedot"
+
+#: templates/base.html:23
+msgid "Admin"
+msgstr "Ylläpito"
+
+#: templates/base.html:25
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: templates/base.html:27
+msgid "Sign up"
+msgstr "Rekisteröidy"
+
+#: templates/base.html:28 templates/registration/login.html:27
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+#: templates/expense-row-snippet.html:29
+msgid "Delete"
+msgstr "Poista"
+
+#: templates/expense.html:5 templates/showexpense.html:6
+#, python-format
+msgid "Expense for %(organisation_name)s"
+msgstr "Kulu organisaatiolle %(organisation_name)s"
+
+#: templates/expense.html:38 templates/showexpense.html:28
+msgid "Expenses"
+msgstr "Kulut"
+
+#: templates/expense.html:47 templates/organisationedit.html:53
+msgid "Add new row"
+msgstr "Lisää rivi"
+
+#: templates/expense.html:59
+msgid "Expense total"
+msgstr "Kululasku yhteensä"
+
+#: templates/expense.html:64
+msgid "Preview application"
+msgstr "Esikatsele hakemus"
+
+#: templates/organisationedit.html:5
+msgid "Organisation data"
+msgstr "Organisaatiotiedot"
+
+#: templates/organisationedit.html:9
+msgid "Annual report"
+msgstr "Vuosi-ilmoitukset"
+
+#: templates/organisationedit.html:42
+msgid "Expense types"
+msgstr "Kulutyyppi"
+
+#: templates/organisationedit.html:64
+msgid "Save information"
+msgstr "Tallenna tiedot"
+
+#: templates/organisationselection.html:5 templates/orgedit_selection.html:5
+msgid "Select your organisation to continue"
+msgstr "Valitse organisaatiosi"
+
+#: templates/personinfo.html:9
+msgid "User info"
+msgstr "Käyttäjätiedot"
+
+#: templates/personinfo.html:32
+msgid "Save"
+msgstr "Tallenna"
+
+#: templates/personinfo.html:38
+msgid "Organisation admin"
+msgstr "Organisaation ylläpito"
+
+#: templates/showexpense.html:37
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: templates/showexpense_preview.html:9
+msgid "Edit application"
+msgstr "Muokkaa hakemusta"
+
+#: templates/showexpense_preview.html:10
+msgid "Submit application for review"
+msgstr "Lähetä hakemus tarkastettavaksi"
+
+#: templates/registration/activate.html:5
+msgid "Activation complete"
+msgstr "Tili vahvistettu"
+
+#: templates/registration/activate.html:5
+msgid "Activation failed"
+msgstr "Tilin vahvistaminen epäonnistui"
+
+#: templates/registration/activate.html:10
+#, python-format
+msgid ""
+"You have activated your account. Visit your\n"
+"  <a href=\"%(profileurl)s\">user page</a>."
+msgstr ""
+"Käyttäjätilisi on vahvistettu. Käy\n"
+"  <a href=\"%(profileurl)s\">käyttäjäsivullasi</a>."
+
+#: templates/registration/activate.html:15
+msgid ""
+"Something went wrong. Try copying the link again, and make sure it\n"
+"  hasn't been broken up over multiple lines."
+msgstr ""
+"Jotain meni pieleen. Kokeile linkin kopiointia uudelleen ja varmista\n"
+"  ettei se ole jakautunut usealle riville."
+
+#: templates/registration/activation_complete.html:4
+#: templates/registration/registration_complete.html:5
+msgid "Registration complete"
+msgstr "Rekisteröinti valmis"
+
+#: templates/registration/activation_complete.html:5
+msgid ""
+"Your registration has been confirmed and you can now log in with the user "
+"name and password you provided."
+msgstr ""
+"Rekisteröintisi on nyt vahvistettu ja voit kirjautua sisään antamillasi "
+"tunnuksilla."
+
+#: templates/registration/activation_email.txt:1
+#, python-format
+msgid ""
+"Hi!\n"
+"\n"
+"Thank you for registering for the system. Visit this link to confirm your "
+"email address and activate your account:\n"
+"\n"
+"https://kululasku.partio.fi%(url)s\n"
+"\n"
+"If you didn't request the account, DO NOT click on the link. If you have any "
+"questions or concerns, you can reply to this email.\n"
+"\n"
+"Best regards,\n"
+"-- \n"
+"Site administration"
+msgstr ""
+"Hei,\n"
+"\n"
+"Kiitos rekisteröitymisestäsi! Avaa seuraava linkki vahvistaaksesi "
+"sähköpostiosoitteesi ja aktivoidaksesi käyttäjätilisi:\n"
+"\n"
+"https://kululasku.partio.fi%(url)s\n"
+"\n"
+"Jos et pyytänyt käyttäjätunnusta, ÄLÄ klikkaa linkkiä! Jos sinulla on "
+"kysyttävää, vastaa tähän viestiin.\n"
+"\n"
+"Terveisin,\n"
+"-- \n"
+"Sivuston ylläpito"
+
+#: templates/registration/activation_email_subject.txt:2
+msgid "Activate your account"
+msgstr "Aktivoi käyttäjätunnuksesi"
+
+#: templates/registration/login.html:5
+msgid "Log In"
+msgstr "Kirjaudu sisään"
+
+#: templates/registration/login.html:10
+#: templates/registration/password_reset_form.html:9
+msgid "Login failed."
+msgstr "Sisäänkirjautuminen epäonnistui."
+
+#: templates/registration/login.html:34
+#, python-format
+msgid ""
+"\n"
+"  If you can't remember your details, you can\n"
+"  <a href=\"%(reset_url)s\">reset your password</a>.\n"
+"  "
+msgstr ""
+"\n"
+"  Jos et muista tietojasi, voit\n"
+"  <a href=\"%(reset_url)s\">palauttaa salasanasi</a>.\n"
+"  "
+
+#: templates/registration/logout.html:5
+msgid "Logged Out"
+msgstr "Uloskirjautuminen onnistui"
+
+#: templates/registration/logout.html:6
+msgid "You were successfully logged out."
+msgstr "Sinut kirjattiin ulos järjestelmästä."
+
+#: templates/registration/password_reset_complete.html:4
+msgid "Password Reset Complete"
+msgstr "Salasana palautettu"
+
+#: templates/registration/password_reset_complete.html:7
+#, python-format
+msgid "Now <a href=\"%(login_url)s\">log in</a>."
+msgstr "Nyt voit <a href=\"%(login_url)s\">kirjautua sisään</a>."
+
+#: templates/registration/password_reset_confirm.html:4
+msgid "Reset Password"
+msgstr "Palauta salasana"
+
+#: templates/registration/password_reset_confirm.html:23
+#: templates/registration/password_reset_form.html:26
+msgid "Reset"
+msgstr "Palauta"
+
+#: templates/registration/password_reset_confirm.html:28
+msgid ""
+"\n"
+"  The link you clicked or typed in wasn't recognized. Try again,\n"
+"  making sure that the link isn't split over multiple lines.\n"
+"  "
+msgstr ""
+"\n"
+"  Klikkaamaasi linkkiä ei tunnistettu. Kokeile uudelleen,\n"
+"  varmistaen että linkki ei ole rivittynyt useammalle riville.\n"
+"  "
+
+#: templates/registration/password_reset_done.html:4
+msgid "Password Reset Sent"
+msgstr "Salasanan palautuslinkki lähetetty"
+
+#: templates/registration/password_reset_done.html:6
+msgid "The reset email has been sent."
+msgstr "Palautuslinkki lähetetty sähköpostitse."
+
+#: templates/registration/password_reset_form.html:4
+msgid "Password Reset"
+msgstr "Salasanan palautus"
+
+#: templates/registration/registration_complete.html:6
+msgid ""
+"Registration has been saved. An email containing a confirmation link has "
+"been sent to your email address.\n"
+"Please confirm your account by clicking on the link. You can only use your "
+"account after confirming the account."
+msgstr ""
+"Rekisteröinti on tallennettu. Vahvistuslinkin sisältävä sähköpostiviesti on "
+"lähetetty sähköpostiosoitteeseesi.\n"
+"Vahvista käyttäjätilisi klikkaamalla viestissä olevaa linkkiä. Voit käyttää "
+"käyttäjätiliäsi vasta, kun olet vahvistanut sähköpostiosoitteesi."
+
+#: templates/registration/registration_form.html:5
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: templates/registration/registration_form.html:28
+msgid "Submit application"
+msgstr "Lähetä hakemus"
+
+#~ msgid "Enter a valid IBAN without any spaces or dashes."
+#~ msgstr "Syötä kelvollinen IBAN-tilinumero ilman välilyöntejä ja -viivoja."
+
+#~ msgid "Enter a valid BIC without any spaces or dashes."
+#~ msgstr "Syötä kelvollinen BIC-koodi ilman välilyöntejä ja -viivoja."
+
+#~ msgid "Enter a Finnish BIC."
+#~ msgstr "Syötä suomalaisen pankin BIC-koodi."
+
+#~ msgid "Other expense"
+#~ msgstr "Muu kulu"
+
+#~ msgid "Advance"
+#~ msgstr "Ennakko"
+
+#~ msgid "The per price for the expense type"
+#~ msgstr "Kulutyypin á-hinta"

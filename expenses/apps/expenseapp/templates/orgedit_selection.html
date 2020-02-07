@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Select your organisation to continue" %}</h1>
+<ul>
+{% for organisation in organisations %}
+  <li><a href="{% url 'organisation_edit' organisation_id=organisation.id %}">{{ organisation.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

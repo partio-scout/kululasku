@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% blocktrans with organisation_name=organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
+<!-- <form action='{% url 'expense_new_form' organisation.id %}' id='expense-form' method='post' class="pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} data-validate="parsley"> -->
+<form action="{% url 'expense_new_form' organisation.id %}" id="expense-form" method="post" class="pure-form pure-form-aligned" enctype="multipart/form-data" novalidate data-validate="parsley">
+  {% csrf_token %}
+  <input type="hidden" name="preview" id="id_preview" value="1">
+  
+  {# Include the hidden fields #}
+  {% for hidden in exp_form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  
+  {# Include the visible fields #}
+  <div class="pure-g">
+    <div class="pure-u-2-5">
+    {% for field in exp_form.visible_fields %}
+      <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}"{{ field.field.required|yesno:" parsley-required" }}>
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        {% if field.help_text != '' %}
+          <span class="helptext">{{ field.help_text }}</span>
+        {% endif %}
+      </div>
+      {% if field.html_name == 'expenseform-personno' %}
+        </div><div class="pure-u-3-5">
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+  
+  {# Inline formsets #}
+  {{ exp_form.inlineformsets.expenselines.management_form }}
+  {{ exp_form.inlineformsets.expenselines.non_form_errors }}
+  
+  <h2>{% trans 'Expenses'%}</h2>
+  
+  <div id="expenses">
+  {% for expenselineform in exp_form.inlineformsets.expenselines.forms %}
+    {% include "expense-row-snippet.html" %}
+  {% endfor %}
+  </div>
+  
+  {# Button to add more formsets #}
+  <button class="pure-button pure-button-small" id="add-new-expenseline">{% trans "Add new row" %}</button>
+  
+  {# Hidden formset to use as a base for cloning #}
+  <div class="hidden" id="empty-expenseline-form">
+    {% with expenselineform=exp_form.inlineformsets.expenselines.empty_form %}
+      {% include "expense-row-snippet.html" %}
+    {% endwith %}
+  </div>
+  
+  {# Controls #}
+   <div class="pure-controls">
+      {# Total Sum #}
+      <h3 id="expense-total">{% trans "Expense total" %}: <span></span></h3>
+      {% comment %}
+        <input type='submit' value='{% trans "Submit application" %}' class="pure-button pure-button-primary">
+      {% endcomment %}
+      <input type="submit" id="preview-button" class="pure-button pure-button-primary" value="{% trans "Preview application" %}">
+   </div>
+</form>
+<div id="preview-wrapper" style="display: none; position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; z-index: 100;">
+  <div id="preview-background" style="position: absolute; background-color: #000000; width: 100%; height: 100%;"></div>
+  <div style="position: absolute; top: 80px; left: 80px; right: 80px; bottom: 80px;">
+    <iframe id="preview-frame" name="preview-frame" style="position: absolute; width: 100%; height: 100%; border: 0px;"></iframe>
+  </div>
+</div>
+{% endblock %}

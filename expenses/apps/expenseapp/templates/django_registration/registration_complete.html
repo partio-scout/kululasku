@@ -1,0 +1,8 @@
+{% extends "django_registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Registration complete" %}</h1>
+<p>{% blocktrans %}Registration has been saved. An email containing a confirmation link has been sent to your email address.
+Please confirm your account by clicking on the link. You can only use your account after confirming the account.{% endblocktrans %}</p>
+{% endblock %}

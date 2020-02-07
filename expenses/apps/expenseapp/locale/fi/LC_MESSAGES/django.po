@@ -1,0 +1,724 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-05 17:01+0200\n"
+"PO-Revision-Date: 2016-05-03 13:57+0200\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.9\n"
+
+#: forms/__init__.py:52 models.py:319 views.py:141 views.py:211
+msgid "Begin at"
+msgstr "Alkoi"
+
+#: forms/__init__.py:54 models.py:320 views.py:142 views.py:212
+msgid "Ended at"
+msgstr "Päättyi"
+
+#: forms/__init__.py:59 models.py:324 templates/ownexpenses.html:10
+#: views.py:144 views.py:214
+msgid "Amount"
+msgstr "Summa"
+
+#: forms/__init__.py:60 models.py:324
+msgid "Amount of kilometres, days or the sum of the expense"
+msgstr "Kilometrien tai päivien määrä tai muun kulun summa"
+
+#: forms/__init__.py:77
+msgid "Organisation ID was not found."
+msgstr "Organisaatiota ei löytynyt."
+
+#: forms/__init__.py:101
+msgid "This expense type requires an ending time!"
+msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+
+#: forms/__init__.py:104
+msgid "This expense type requires a receipt!"
+msgstr "Tämä kulutyyppi vaatii kuitin!"
+
+#: forms/__init__.py:128
+msgid "First name"
+msgstr "Etunimi"
+
+#: forms/__init__.py:129
+msgid "Last name"
+msgstr "Sukunimi"
+
+#: forms/__init__.py:130 views.py:114 views.py:194
+msgid "Email"
+msgstr "Sähköposti"
+
+#: forms/__init__.py:135
+msgid "Email already exists"
+msgstr "Sähköpostiosoite on jo käytössä"
+
+#: forms/__init__.py:149 models.py:202 models.py:332
+msgid "Multiplier"
+msgstr "Kerroin"
+
+#: helpers.py:27
+msgid "Date\t\tType\t\tAmount\n"
+msgstr "Pvm\t\tTyyppi\t\tMäärä\n"
+
+#: helpers.py:32
+#, python-format
+msgid ""
+"Hi,\n"
+"\n"
+"You were CC'd in a new expense application for %s.\n"
+"\n"
+"Name:        %s\n"
+"Description: %s\n"
+"Memo:\n"
+"%s\n"
+"\n"
+"Expense lines:\n"
+" %s\n"
+"Total: %s\n"
+"\n"
+"Best regards,\n"
+"-- \n"
+"Finnish scout's expense system\n"
+msgstr ""
+"Hei,\n"
+"\n"
+"Sinulle lähetettiin kopiona uusi kululasku organisaatiolle %s.\n"
+"\n"
+"Nimi:   %s\n"
+"Kuvaus: %s\n"
+"Lisätietoja:\n"
+"%s\n"
+"\n"
+"Kulurivit:\n"
+" %s\n"
+"Yhteensä: %s\n"
+"\n"
+"Terveisin,\n"
+"-- \n"
+"Partion kululaskujärjestelmä\n"
+
+#: helpers.py:49
+msgid "New expense CC'd to you"
+msgstr "Kululasku lähetetty kopiona sinulle"
+
+#: models.py:39 models.py:70
+msgid "Enter a valid Finnish personal identity code."
+msgstr "Syötä kelvollinen suomalainen henkilötunnus."
+
+#: models.py:64
+msgid "Enter a valid Finnish personal identity code or Finnish business ID."
+msgstr "Syötä kelvollinen suomalainen henkilötunnus tai Y-tunnus."
+
+#: models.py:75
+msgid "Enter a valid Finnish business ID."
+msgstr "Syötä kelvollinen suomalainen Y-tunnus."
+
+#: models.py:86
+msgid "Enter a valid phone number without any spaces or dashes."
+msgstr "Syötä kelvollinen puhelinnumero ilman välilyöntejä ja -viivoja."
+
+#: models.py:92
+msgid "Enter your first and last name."
+msgstr "Syötä etu- ja sukunimesi"
+
+#: models.py:100 models.py:124 models.py:198 models.py:258 models.py:330
+#: views.py:113 views.py:193
+msgid "Name"
+msgstr "Nimi"
+
+#: models.py:101
+msgid "Business ID"
+msgstr "Y-tunnus"
+
+#: models.py:102
+msgid "EmCe yritystunnus"
+msgstr ""
+
+#: models.py:103
+msgid "Katre-varmenteen Y-tunnus"
+msgstr ""
+
+#: models.py:104
+msgid "Selectable"
+msgstr "Valittavissa"
+
+#: models.py:105
+msgid "Send active"
+msgstr "Lähetetään eräajossa"
+
+#: models.py:125
+msgid "Account dimension code"
+msgstr "Kustannuspaikan koodi"
+
+#: models.py:125
+msgid "Account dimension code(s). If multiple, separate with semicolons (;)."
+msgstr ""
+"Kustannuspaikan tai -paikkojen koodit. Jos useampi, erota puolipisteellä (;)."
+
+#: models.py:139
+msgid "Trustee"
+msgstr "Luottamushenkilö"
+
+#: models.py:140
+msgid "Employee"
+msgstr "Työntekijä"
+
+#: models.py:146 models.py:261 views.py:115 views.py:195
+msgid "Phone"
+msgstr "Puhelin"
+
+#: models.py:147 models.py:262 views.py:116 views.py:196
+msgid "Address"
+msgstr "Osoite"
+
+#: models.py:148 models.py:263 views.py:117 views.py:197
+msgid "Bank account no"
+msgstr "Tilinumero"
+
+#: models.py:149 models.py:264 views.py:118 views.py:198
+msgid "BIC no"
+msgstr "BIC-koodi"
+
+#: models.py:150 models.py:265 views.py:119 views.py:199
+msgid "Person number"
+msgstr "Henkilötunnus"
+
+#: models.py:150
+msgid ""
+"Person number is required for every expense application for annual "
+"announcements to the tax authority. If you don't want to save it here, you "
+"can enter it to each expense application separately."
+msgstr ""
+"Henkilötunnus vaaditaan jokaiseen kululaskuun verottajan vuosi-ilmoitusta "
+"varten. Mikäli et halua tallentaa sitä omiin tietoihisi, voit syöttää sen "
+"jokaiseen kululaskuun erikseen."
+
+#: models.py:151 models.py:200 models.py:331
+msgid "Type"
+msgstr "Tyyppi"
+
+#: models.py:152
+msgid "Site language"
+msgstr "Sivuston kieli"
+
+#: models.py:182
+msgid "Mileage"
+msgstr "Kilometrikorvaus"
+
+#: models.py:183
+msgid "Full per diem"
+msgstr "Kokopäiväraha"
+
+#: models.py:184
+msgid "Partial per diem"
+msgstr "Osapäiväraha"
+
+#: models.py:185
+msgid "Foreign per diem"
+msgstr "Ulkomaan päiväraha"
+
+#: models.py:186
+msgid "Meal allowance"
+msgstr "Ateriakorvaus"
+
+#: models.py:187
+msgid "Other"
+msgstr "Muu"
+
+#: models.py:191
+msgid "km"
+msgstr "km"
+
+#: models.py:192
+msgid "days"
+msgstr "pv"
+
+#: models.py:193
+msgid "pieces"
+msgstr "kpl"
+
+#: models.py:194
+msgid "€"
+msgstr "€"
+
+#: models.py:199
+msgid "Active"
+msgstr "Valittavissa"
+
+#: models.py:201 models.py:225
+msgid "Requires receipt"
+msgstr "Vaatii kuitin"
+
+#: models.py:202 models.py:332
+msgid ""
+"The per price for the expense type (mileage: € per km, other expenses: 1, "
+"advances: -1)"
+msgstr ""
+"Kulutyypin yksikköhinta (kilometrikorvauksissa km-taksa, muissa kuluissa 1, "
+"ennakoissa -1)"
+
+#: models.py:203 models.py:227
+msgid "Requires ending time"
+msgstr "Vaatii päättymisajan"
+
+#: models.py:204
+msgid "Person type"
+msgstr "Henkilön tyyppi"
+
+#: models.py:205
+msgid "Account"
+msgstr "Tili"
+
+#: models.py:206
+msgid "Unit"
+msgstr "Yksikkö"
+
+#: models.py:247 models.py:252
+msgid "Open"
+msgstr "Avoin"
+
+#: models.py:248 models.py:254 models.py:274 templates/ownexpenses.html:11
+#: views.py:122 views.py:202
+msgid "Sent"
+msgstr "Lähetetty"
+
+#: models.py:253
+msgid "Not needed"
+msgstr ""
+
+#: models.py:259
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+#: models.py:260
+msgid "CC email address"
+msgstr "Sähköpostiosoite kopiolle"
+
+#: models.py:260
+msgid ""
+"If entered, a notification about the expense application will be sent to "
+"this address without personal details except name."
+msgstr ""
+"Jos täytetty, osoitteeseen lähetetään ilmoitus kululaskusta ilman muita "
+"henkilötietoja kuin nimeä."
+
+#: models.py:268
+msgid "Purpose"
+msgstr "Tarkoitus"
+
+#: models.py:269 views.py:121 views.py:201
+msgid "Info"
+msgstr "Lisätietoja"
+
+#: models.py:269
+msgid "Names of the additional passengers, people in the meeting etc."
+msgstr "Lisämatkustajien ja kokousosanottajien nimet ym."
+
+#: models.py:271
+msgid "Status"
+msgstr "Tila"
+
+#: models.py:272
+msgid "Katre status"
+msgstr ""
+
+#: models.py:275
+msgid "Edited"
+msgstr "Muokattu"
+
+#: models.py:318 templates/ownexpenses.html:9 views.py:120 views.py:143
+#: views.py:200 views.py:213
+msgid "Description"
+msgstr "Kuvaus"
+
+#: models.py:318
+msgid ""
+"Description of the expense, eg. the route of the journey (travel expenses) "
+"or purpose of the purchased goods"
+msgstr ""
+"Kulun kuvaus, esim. matkareitti (matkakuluissa) tai ostettujen tuotteiden "
+"käyttötarkoitus"
+
+#: models.py:322 views.py:145 views.py:215
+msgid "Expense type"
+msgstr "Kulutyyppi"
+
+#: models.py:323
+msgid "Cost centre"
+msgstr "Kustannuspaikka"
+
+#: models.py:327 views.py:151 views.py:219
+msgid "Receipt"
+msgstr "Kuitti"
+
+#: models.py:327
+msgid ""
+"A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. "
+"Note: The receipt must clearly show what, when and how much has been paid!"
+msgstr ""
+"Kuva kuitista. Kuvamuotoina kelpaavat mm. PDF, PNG ja JPG.Huomaa: Kuitista "
+"täytyy ilmetä selvästi mitä, milloin ja kuinka paljon on maksettu!"
+
+#: templates/base.html:15
+msgid "Finnish scouts' expense application system"
+msgstr "Partion kululaskujärjestelmä"
+
+#: templates/base.html:19
+msgid "Create a new expense application"
+msgstr "Luo uusi kululasku"
+
+#: templates/base.html:20 templates/ownexpenses.html:5
+msgid "My expenses"
+msgstr "Omat kulut"
+
+#: templates/base.html:21
+msgid "User information"
+msgstr "Omat tiedot"
+
+#: templates/base.html:23
+msgid "Admin"
+msgstr "Ylläpito"
+
+#: templates/base.html:25
+msgid "Log out"
+msgstr "Kirjaudu ulos"
+
+#: templates/base.html:28
+msgid "Sign up"
+msgstr "Rekisteröidy"
+
+#: templates/base.html:29 templates/django_registration/login.html:27
+msgid "Log in"
+msgstr "Kirjaudu sisään"
+
+#: templates/base.html:57
+msgid "Issues with the service?"
+msgstr "Ongelmia palvelun käytössä?"
+
+#: templates/django_registration/activate.html:5
+msgid "Activation complete"
+msgstr "Tili vahvistettu"
+
+#: templates/django_registration/activate.html:5
+msgid "Activation failed"
+msgstr "Tilin vahvistaminen epäonnistui"
+
+#: templates/django_registration/activate.html:10
+#, python-format
+msgid ""
+"You have activated your account. Visit your\n"
+"  <a href=\"%(profileurl)s\">user page</a>."
+msgstr ""
+"Käyttäjätilisi on vahvistettu. Käy\n"
+"  <a href=\"%(profileurl)s\">käyttäjäsivullasi</a>."
+
+#: templates/django_registration/activate.html:15
+msgid ""
+"Something went wrong. Try copying the link again, and make sure it\n"
+"  hasn't been broken up over multiple lines."
+msgstr ""
+"Jotain meni pieleen. Kokeile linkin kopiointia uudelleen ja varmista\n"
+"  ettei se ole jakautunut usealle riville."
+
+#: templates/django_registration/activation_complete.html:4
+#: templates/django_registration/registration_complete.html:5
+msgid "Registration complete"
+msgstr "Rekisteröinti valmis"
+
+#: templates/django_registration/activation_complete.html:5
+msgid ""
+"Your registration has been confirmed and you can now log in with the user "
+"name and password you provided."
+msgstr ""
+"Rekisteröintisi on nyt vahvistettu ja voit kirjautua sisään antamillasi "
+"tunnuksilla."
+
+#: templates/django_registration/activation_email.txt:1
+#, python-format
+msgid ""
+"Hi!\n"
+"\n"
+"Thank you for registering for the system. Visit this link to confirm your "
+"email address and activate your account:\n"
+"\n"
+"https://kululasku.partio.fi%(url)s\n"
+"\n"
+"If you didn't request the account, DO NOT click on the link. If you have any "
+"questions or concerns, you can reply to this email.\n"
+"\n"
+"Best regards,\n"
+"-- \n"
+"Site administration"
+msgstr ""
+"Hei,\n"
+"\n"
+"Kiitos rekisteröitymisestäsi! Avaa seuraava linkki vahvistaaksesi "
+"sähköpostiosoitteesi ja aktivoidaksesi käyttäjätilisi:\n"
+"\n"
+"https://kululasku.partio.fi%(url)s\n"
+"\n"
+"Jos et pyytänyt käyttäjätunnusta, ÄLÄ klikkaa linkkiä! Jos sinulla on "
+"kysyttävää, vastaa tähän viestiin.\n"
+"\n"
+"Terveisin,\n"
+"-- \n"
+"Sivuston ylläpito"
+
+#: templates/django_registration/activation_email_body.txt:2
+msgid "This is body text"
+msgstr ""
+
+#: templates/django_registration/activation_email_subject.txt:2
+msgid "Activate your account"
+msgstr "Aktivoi käyttäjätunnuksesi"
+
+#: templates/django_registration/login.html:5
+msgid "Log In"
+msgstr "Kirjaudu sisään"
+
+#: templates/django_registration/login.html:10
+#: templates/django_registration/password_reset_form.html:9
+msgid "Login failed."
+msgstr "Sisäänkirjautuminen epäonnistui."
+
+#: templates/django_registration/login.html:34
+#, python-format
+msgid ""
+"\n"
+"  If you can't remember your details, you can\n"
+"  <a href=\"%(reset_url)s\">reset your password</a>.\n"
+"  "
+msgstr ""
+"\n"
+"  Jos et muista tietojasi, voit\n"
+"  <a href=\"%(reset_url)s\">palauttaa salasanasi</a>.\n"
+"  "
+
+#: templates/django_registration/logout.html:5
+msgid "Logged Out"
+msgstr "Uloskirjautuminen onnistui"
+
+#: templates/django_registration/logout.html:6
+msgid "You were successfully logged out."
+msgstr "Sinut kirjattiin ulos järjestelmästä."
+
+#: templates/django_registration/password_change_done.html:4
+msgid "Password Changed"
+msgstr "Salasana vaihdettu"
+
+#: templates/django_registration/password_change_form.html:4
+msgid "Password Change"
+msgstr "Salasanan vaihto"
+
+#: templates/django_registration/password_change_form.html:9
+msgid "Something failed."
+msgstr "Jokin meni pieleen."
+
+#: templates/django_registration/password_change_form.html:27
+#: templates/personinfo.html:32
+msgid "Save"
+msgstr "Tallenna"
+
+#: templates/django_registration/password_reset_complete.html:4
+msgid "Password Reset Complete"
+msgstr "Salasana palautettu"
+
+#: templates/django_registration/password_reset_complete.html:7
+#, python-format
+msgid "Now <a href=\"%(login_url)s\">log in</a>."
+msgstr "Nyt voit <a href=\"%(login_url)s\">kirjautua sisään</a>."
+
+#: templates/django_registration/password_reset_confirm.html:4
+msgid "Reset Password"
+msgstr "Palauta salasana"
+
+#: templates/django_registration/password_reset_confirm.html:24
+#: templates/django_registration/password_reset_form.html:27
+msgid "Reset"
+msgstr "Palauta"
+
+#: templates/django_registration/password_reset_confirm.html:30
+msgid ""
+"\n"
+"  The link you clicked or typed in wasn't recognized. Try again,\n"
+"  making sure that the link isn't split over multiple lines.\n"
+"  "
+msgstr ""
+"\n"
+"  Klikkaamaasi linkkiä ei tunnistettu. Kokeile uudelleen,\n"
+"  varmistaen että linkki ei ole rivittynyt useammalle riville.\n"
+"  "
+
+#: templates/django_registration/password_reset_done.html:4
+msgid "Password Reset Sent"
+msgstr "Salasanan palautuslinkki lähetetty"
+
+#: templates/django_registration/password_reset_done.html:6
+msgid "The reset email has been sent."
+msgstr "Palautuslinkki lähetetty sähköpostitse."
+
+#: templates/django_registration/password_reset_form.html:4
+msgid "Password Reset"
+msgstr "Salasanan palautus"
+
+#: templates/django_registration/registration_complete.html:6
+msgid ""
+"Registration has been saved. An email containing a confirmation link has "
+"been sent to your email address.\n"
+"Please confirm your account by clicking on the link. You can only use your "
+"account after confirming the account."
+msgstr ""
+"Rekisteröinti on tallennettu. Vahvistuslinkin sisältävä sähköpostiviesti on "
+"lähetetty sähköpostiosoitteeseesi.\n"
+"Vahvista käyttäjätilisi klikkaamalla viestissä olevaa linkkiä. Voit käyttää "
+"käyttäjätiliäsi vasta, kun olet vahvistanut sähköpostiosoitteesi."
+
+#: templates/django_registration/registration_form.html:5
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: templates/django_registration/registration_form.html:29
+msgid "Submit application"
+msgstr "Lähetä hakemus"
+
+#: templates/expense-row-snippet.html:29
+msgid "Delete"
+msgstr "Poista"
+
+#: templates/expense-type-snippet.html:17
+msgid "Default"
+msgstr "Oletus"
+
+#: templates/expense.html:5 templates/showexpense.html:6
+#, python-format
+msgid "Expense for %(organisation_name)s"
+msgstr "Kulu organisaatiolle %(organisation_name)s"
+
+#: templates/expense.html:39 templates/showexpense.html:28
+msgid "Expenses"
+msgstr "Kulut"
+
+#: templates/expense.html:48 templates/organisationedit.html:55
+msgid "Add new row"
+msgstr "Lisää rivi"
+
+#: templates/expense.html:60
+msgid "Expense total"
+msgstr "Kululasku yhteensä"
+
+#: templates/expense.html:65
+msgid "Preview application"
+msgstr "Esikatsele hakemus"
+
+#: templates/organisationedit.html:5
+msgid "Organisation data"
+msgstr "Organisaatiotiedot"
+
+#: templates/organisationedit.html:9
+msgid "Annual report"
+msgstr "Vuosi-ilmoitukset"
+
+#: templates/organisationedit.html:44
+msgid "Expense types"
+msgstr "Kulutyyppi"
+
+#: templates/organisationedit.html:46
+msgid ""
+"Guide for using the expense types can be found from <a href=\"/organisation/"
+"help/\" target=\"_blank\">here</a>."
+msgstr ""
+"Ohje kulutyyppien käyttämiseen löytyy <a href=\"/organisation/help/\" target="
+"\"_blank\">täältä</a>."
+
+#: templates/organisationedit.html:66
+msgid "Save information"
+msgstr "Tallenna tiedot"
+
+#: templates/organisationselection.html:5 templates/orgedit_selection.html:5
+msgid "Select your organisation to continue"
+msgstr "Valitse organisaatiosi"
+
+#: templates/personinfo.html:9
+msgid "User info"
+msgstr "Käyttäjätiedot"
+
+#: templates/personinfo.html:34
+msgid "Change password"
+msgstr "Vaihda salasana"
+
+#: templates/personinfo.html:39
+msgid "Organisation admin"
+msgstr "Organisaation ylläpito"
+
+#: templates/showexpense.html:37
+msgid "Date"
+msgstr "Päivämäärä"
+
+#: templates/showexpense_preview.html:9
+msgid "Edit application"
+msgstr "Muokkaa hakemusta"
+
+#: templates/showexpense_preview.html:11
+msgid "Submit application for review"
+msgstr "Lähetä hakemus tarkastettavaksi"
+
+#: views.py:146 views.py:216
+msgid "Sum"
+msgstr "Summa"
+
+#: views.py:155 views.py:203
+msgid "Total"
+msgstr "Yhteensä"
+
+#: views.py:156
+msgid ""
+"Please verify that all information is correct before submitting the "
+"application for review"
+msgstr ""
+"Tarkista että kaikki tiedot ovat oikein ennen kuin lähetät "
+"kulukorvaushakemuksen tarkastettavaksi"
+
+#: views.py:177
+msgid "Expense information saved."
+msgstr "Kulutiedot tallennettu."
+
+#: views.py:269 views.py:274
+msgid "Profile details updated."
+msgstr "Profiilitiedot päivitetty."
+
+#: views.py:275
+msgid "Please verify that all information is correct."
+msgstr "Tarkista että kaikki tiedot ovat oikein."
+
+#: views.py:306
+msgid "Organisation details updated."
+msgstr "Organisaatiotiedot päivitetty."
+
+#~ msgid "Enter a valid IBAN without any spaces or dashes."
+#~ msgstr "Syötä kelvollinen IBAN-tilinumero ilman välilyöntejä ja -viivoja."
+
+#~ msgid "Enter a valid BIC without any spaces or dashes."
+#~ msgstr "Syötä kelvollinen BIC-koodi ilman välilyöntejä ja -viivoja."
+
+#~ msgid "Enter a Finnish BIC."
+#~ msgstr "Syötä suomalaisen pankin BIC-koodi."
+
+#~ msgid "Other expense"
+#~ msgstr "Muu kulu"
+
+#~ msgid "Advance"
+#~ msgstr "Ennakko"
+
+#~ msgid "The per price for the expense type"
+#~ msgstr "Kulutyypin á-hinta"

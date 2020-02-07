@@ -1,0 +1,6 @@
+{% extends "django_registration/base.html" %}{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Registration complete" %}</h1>
+<p>{% blocktrans %}Your registration has been confirmed and you can now log in with the user name and password you provided.{% endblocktrans %}</p>
+{% endblock %}

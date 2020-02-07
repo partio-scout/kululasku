@@ -1,0 +1,353 @@
+body {
+  background: #fafafa;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #333;
+}
+
+h2.pure-menu-heading {
+  margin-bottom: 0;
+}
+
+a {
+  color: #0078e7;
+}
+
+#masthead {
+  background: #0078e7;
+  color: #fff;
+}
+  #masthead nav {
+    width: 960px;
+    margin: 0 auto;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  #masthead a {
+    color: #fff;
+  }
+    #masthead a:hover {
+      background: #0068d7;
+    }
+
+#main {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 30px 30px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.main-column {
+  float: left;
+  width: 68%;
+}
+
+.sidebar {
+  width: 30%;
+  float: right;
+}
+
+.pure-form {
+  margin-bottom: 2em;
+}
+
+.pure-form textarea {
+  height: 100px;
+}
+
+.pure-form .helptext {
+  display: inline-block;
+  vertical-align: middle;
+  margin: .5em 0 .2em 11.2em;
+  color: #999;
+  font-size: 90%;
+}
+
+.pure-form .pure-button-primary {
+  border: 0;
+  font-size: 100%;
+  box-shadow: none;
+}
+
+.pure-form .pure-button-small {
+  font-size: 85%;
+}
+
+.pure-form .pure-button-xsmall {
+  font-size: 75%;
+}
+  .pure-form .pure-button-xsmall i {
+    font-size: 115%;
+  }
+
+.pure-form .required label:after {
+  content: '*';
+  color: #b00;
+  margin-left: 2px;
+}
+.pure-form .error input,
+.pure-form .error textarea,
+.pure-form .error select {
+  border: 1px solid #b00;
+}
+.pure-form .errorlist {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 80%;
+  color: #b00;
+  margin-left: 160px;
+}
+  .pure-form .field-ended_at .errorlist,
+  .pure-form .field-receipt .errorlist {
+    margin-left: 50px;
+  }
+
+.pure-form-aligned .pure-controls {
+  border-top: 1px solid #ddd;
+  margin: 1em 0 0;
+  padding: 1.5em 0 0 10em;
+}
+  .pure-form-aligned .pure-controls h3 {
+    margin-top: 0;
+  }
+
+.pure-table-full {
+  width: 100%;
+}
+
+input[type=file] {
+  border: 0;
+  box-shadow: none;
+}
+
+.form-block {
+  padding: 15px 0 10px;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+}
+  .form-block:nth-child(odd) {
+    background: #fbfbfb;
+  }
+  .form-block + .form-block {
+    border-top: 0;
+  }
+  
+.inline-help-text {
+  color: #0078e7;
+  position: relative;
+}
+  .inline-help-text:hover {
+    cursor: help;
+  }
+
+  .inline-help-text:hover span {
+    display: block;
+  }
+
+  .inline-help-text span {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: -5px;
+    left: 100%;
+    margin-left: 5px;
+    max-width: 350px;
+    min-width: 200px;
+    background: #E6E6E6;
+    padding: 5px 10px;
+    font-size: 80%;
+    color: #444;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+    background-image: -ms-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset, 2px 2px 6px rgba(0,0,0, 0.2);
+  }
+  .inline-help-text span:before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 3px solid transparent;
+    border-right: 3px solid #a6a6a6;
+  }
+
+.field-description input,
+.field-expensetype select {
+  width: 59.5%;
+}
+
+.field-begin_at i,
+.field-ended_at i {
+  margin-left: -28px;
+  color: #ccc;
+  cursor: text;
+}
+
+.field-begin_at,
+.field-ended_at {
+  width: 43.1%;
+}
+  .pure-form .field-ended_at label {
+    width: auto;
+  }
+  
+.delete-expenseline,
+.delete-expensetype {
+  font-size: 90%;
+  
+}  
+  
+#add-new-expenseline,
+#add-new-expensetype {
+  margin: 1em 0 1em 12em;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+ul.messages {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.alert {
+  color: #c09853;
+}
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.alert-info,
+.alert-debug {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+dl {
+  margin-bottom: 20px;
+  font-size: 90%;
+}
+
+dt,
+dd {
+  line-height: 20px;
+}
+
+dt {
+  color: #999;
+}
+
+dd {
+  margin-left: 10px;
+}
+
+.dl-horizontal {
+  *zoom: 1;
+}
+
+.dl-horizontal:before,
+.dl-horizontal:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.dl-horizontal:after {
+  clear: both;
+}
+
+.dl-horizontal dt {
+  float: left;
+  width: 160px;
+  overflow: hidden;
+  clear: left;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dl-horizontal dd {
+  float: left;
+}
+
+.expenserow {
+  list-style: none;
+  padding: 0;
+}
+
+.expenserow dl {
+  margin: 0;
+}
+
+.expenseline .inline-help-text {
+  top: 2px;
+  left: -12px;
+}
+.expenseline label + input,
+.expenseline label + select {
+  margin-left: 18px;
+}
+
+.submit-button-wrapper {
+  background-image: url("../img/loader.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.submit-button-wrapper.loading {
+  background-image: url("../img/loader.gif");
+}
+
+.submit-button-wrapper.loading>* {
+  visibility: hidden;
+}
+
+.support {
+  text-align: right;
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 30px 30px;
+  font-size: 12px;
+}
+.support a {
+  color: #444;
+  color: rgba(0,0,0,.8);
+}

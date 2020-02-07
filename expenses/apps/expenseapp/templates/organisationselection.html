@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1 class="pure-menu-heading">{% trans "Select your organisation to continue" %}</h1>
+<section class="pure-menu pure-menu-open">
+<ul>
+{% for organisation in organisations %}
+  <li><a href="{% url 'expense_new_form' organisation.id %}">{{ organisation.name }}</a></li>
+{% endfor %}
+</ul>
+</section>
+{% endblock %}

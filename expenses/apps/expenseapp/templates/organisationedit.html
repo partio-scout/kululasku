@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% blocktrans %}Organisation data{% endblocktrans %}</h1>
+
+<aside class="sidebar">
+  <section class="pure-menu pure-menu-open">
+    <h2 class="pure-menu-heading">{% trans "Annual report" %}</h2>
+    <ul>
+    {% for year in years %}
+      <li><a href="{% url 'organisation_annualreport' organisation_id=orgid year=year %}">{{ year }}</a></li>
+    {% endfor %}
+    </ul>
+  </section>
+</aside>
+
+<form action='{% url 'organisation_edit' orgid %}' id='organisation-form' method='post' class="pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+  {% csrf_token %}
+  
+  {# Include the hidden fields #}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  
+  {# Include the visible fields #}
+  {% for field in form.visible_fields %}
+  {% if field.name != "default_expense_type" %}
+    <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
+      {{ field.label_tag }}
+      {{ field }}
+      {{ field.errors }}
+      {% if field.help_text != '' %}
+        <span class="helptext">{{ field.help_text }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% endfor %}
+
+  {# Inline formsets #}
+  {{ form.inlineformsets.expensetypes.management_form }}
+  {{ form.inlineformsets.expensetypes.non_form_errors }}
+  
+  <h2>{% trans 'Expense types'%}</h2>
+
+  <p>{% blocktrans %}Guide for using the expense types can be found from <a href="/organisation/help/" target="_blank">here</a>.{% endblocktrans %}</p>
+  
+  <div id="expensetypes">
+  {% for expensetypeform in form.inlineformsets.expensetypes.forms %}
+    {% include "expense-type-snippet.html" %}
+  {% endfor %}
+  </div>
+  
+  {# Button to add more formsets #}
+  <button class="pure-button pure-button-small" id="add-new-expensetype">{% trans "Add new row" %}</button>
+  
+  {# Hidden formset to use as a base for cloning #}
+  <div class="hidden" id="empty-expensetype-form">
+    {% with expensetypeform=form.inlineformsets.expensetypes.empty_form %}
+      {% include "expense-type-snippet.html" %}
+    {% endwith %}
+  </div>
+  
+  {# Controls #}
+   <div class="pure-controls">
+      <input type='submit' value='{% trans "Save information" %}' class="pure-button pure-button-primary">
+   </div>
+</form>
+
+{% endblock %}

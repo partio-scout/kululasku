@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }} -->
+
+<h1>{% blocktrans %}User info{% endblocktrans %}</h1>
+<form action='{% url 'personinfo' %}' id='person-form' method='post' class="main-column pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+  {% csrf_token %}
+  
+  {# Include the hidden fields #}
+  {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+  {% endfor %}
+  
+  {# Include the visible fields #}
+  {% for field in form.visible_fields %}
+    <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
+      {{ field.label_tag }}
+      {{ field }}
+      {{ field.errors }}
+      {% if field.help_text != '' %}
+        <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>
+      {% endif %}
+    </div>
+  {% endfor %}
+  
+  {# Controls #}
+   <div class="pure-controls">
+      <input type='submit' value='{% trans "Save" %}' class="pure-button pure-button-primary">
+   </div>
+     <p><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></p>
+</form>
+
+<aside class="sidebar">
+  <section class="pure-menu pure-menu-open">
+    <h2 class="pure-menu-heading">{% trans "Organisation admin" %}</h2>
+    <ul>
+    {% for organisation in orgs %}
+      <li><a href="{% url 'organisation_edit' organisation_id=organisation.id %}">{{ organisation.name }}</a></li>
+    {% endfor %}
+    </ul>
+  </section>
+</aside>
+{% endblock %}

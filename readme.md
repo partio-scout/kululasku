@@ -1,0 +1,1 @@
+Kululasku on Partion käyttämä

@@ -1,0 +1,14 @@
+kululasku.sqlite
+testikanta.sqlite
+.env
+*.sql
+
+*/__pycache__/
+__pycache__
+.DS_Store
+*.DS_Store
+*.pyc
+sendgrid.env
+staticfiles/*
+.vscode/*
+static/*

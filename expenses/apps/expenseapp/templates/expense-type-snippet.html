@@ -1,0 +1,21 @@
+{% load i18n %}
+    <div class="expensetype form-block pure-g" style="position: relative;">
+    {% for field in expensetypeform.visible_fields %}
+      <div class="pure-u-{% cycle '1-2' '3-8' %} pure-control-group field-{{ field.name }}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        {% if forloop.last %}
+          {% for hidden in expensetypeform.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% spaceless %}
+      <div class="pure-u-1" style="position: absolute; width: auto; top: 15px; right: 15px;">
+        <label for="default_expense_type_{{ expensetypeform.instance.pk|default:"" }}" style="position: relative; top: 1px; color: #999;">{% trans "Default" %}&nbsp;</label>
+        <input type="radio" id="default_expense_type_{{ expensetypeform.instance.pk|default:"" }}" name="organisationform-default_expense_type" value="{{ expensetypeform.instance.pk|default:"" }}"{% if form.instance.default_expense_type.pk == expensetypeform.instance.pk and expensetypeform.instance.pk %} checked{% endif %}>
+      </div>
+    {% endspaceless %}
+    </div>

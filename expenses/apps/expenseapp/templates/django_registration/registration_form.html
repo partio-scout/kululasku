@@ -1,0 +1,34 @@
+{% extends "django_registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans 'Register' %}</h1>
+
+<form action="{% url 'django_registration_register' %}" method="POST" class="pure-form pure-form-aligned">
+  {% csrf_token %}
+  {# Include the hidden fields #}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+    
+    {# Include the visible fields #}
+    {% for field in form.visible_fields %}
+      <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+        {% if field.help_text != '' %}
+          <span class="helptext">{{ field.help_text }}</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+    
+  {# Controls #}
+   <div class="pure-controls">
+      <span class="submit-button-wrapper">
+        <input type='submit' value='{% trans "Submit application" %}' class="pure-button pure-button-primary">
+      </span>
+   </div>
+
+</form>
+{% endblock %}

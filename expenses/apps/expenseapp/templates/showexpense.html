@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>{% blocktrans with organisation_name=expense.organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
+
+<div class="pure-g">
+  <dl class="pure-u-2-5 dl-horizontal">
+  {% for id, field in fields.items %}
+    <dt>{{ field.label}}</dt>
+    {% if id == 'total' %}
+    <dd>{{ field.value | floatformat:"2" }} €</dd>    
+    {% elif id == 'date' %}
+    <dd>{{ field.value | date:"j.n.Y H.i" }}</dd>    
+    {% else %}
+    <dd>{{ field.value }}</dd>
+    {% endif %}
+    
+    {# Split to second column #}
+    {% if id == 'personno' %}
+      </dl>  <dl class="pure-u-3-5 dl-horizontal">
+    {% endif %}
+  {% endfor %}
+  </dl>
+</div>
+
+<h2>{% trans 'Expenses'%}</h2>
+
+<ul class="expenserow">
+  {% for line in lines %}
+  <li class="form-block">
+    <dl class="dl-horizontal">
+      <dt>{{ line.description.label }}</dt>
+      <dd>{{ line.description.value }}</dd>
+      
+      <dt>{% trans "Date" %}</dt>
+      <dd>{{ line.begin_at.value | date:"j.n.Y H.i" }} – {{ line.ended_at.value | date:"j.n.Y H.i" }}</dd>
+      
+      <dt>{{ line.expensetype.label }}</dt>
+      <dd>{{ line.expensetype.value }}</dd>
+      
+      <dt>{{ line.sum.label }}</dt>
+      <dd>{{ line.basis.value | floatformat:"-2" }} × {{ line.expensetype.value.multiplier | floatformat:"-2" }} = {{ line.sum.value | floatformat:"2" }} €</dd>
+      
+      {% if line.receipt %}
+      <dt>{{ line.receipt.label }}</dt>
+      <dd>
+        {% if line.id %}
+        <a href="{% url 'receipt_fetch' expenselineid=line.id %}">{{ line.receipt.filename }}</a>
+        {% else %}
+        {{ line.receipt.filename }}
+        {% endif %}
+      </dd>
+      {% endif %}
+    </dl>
+  </li>
+  {% endfor %}
+</ul>
+
+{% block content_footer %}{% endblock %}
+
+{% endblock %}

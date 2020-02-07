@@ -1,0 +1,20 @@
+{% extends "django_registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% if account %}{% trans "Activation complete" %}{% else %}{% trans "Activation failed" %}{% endif %}</h1>
+
+{% if account %}
+<p>
+  {% url profile as profileurl %}
+  {% blocktrans with profileurl=profileurl %}You have activated your account. Visit your
+  <a href="{{ profileurl }}">user page</a>.{% endblocktrans %}
+</p>
+{% else %}
+<p>
+  {% blocktrans %}Something went wrong. Try copying the link again, and make sure it
+  hasn't been broken up over multiple lines.{% endblocktrans %}
+</p>
+{% endif %}
+{% endblock %}
+

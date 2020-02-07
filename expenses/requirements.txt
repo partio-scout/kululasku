@@ -1,0 +1,16 @@
+django==2.2
+south
+-e git+https://github.com/macropin/django-registration.git#egg=django-registration
+python-gettext
+ordereddict
+-e git+https://github.com/aucor/django-request-local.git#egg=django-request-local
+django-parsley
+lxml
+flup
+paramiko
+Pillow
+django-extensions
+python-stdnum
+django-iban
+pytz
+#django_queue_mailer

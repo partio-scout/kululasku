@@ -1,0 +1,17 @@
+{% extends "showexpense.html" %}
+{% load i18n %}
+
+{% block header %}{% endblock %}
+
+{% block content_footer %}
+
+	<div id="expense-preview-buttons" style="overflow: hidden;">
+		<button id="close-preview-button" class="pure-button pure-button-secondary" style="float: left;">{% trans "Edit application" %}</button>
+		<span id="confirm-expense-button-wrapper" class="submit-button-wrapper" style="float: right;">
+			<button id="confirm-expense-button" class="pure-button pure-button-primary">{% trans "Submit application for review" %} &raquo;</button>
+		</span>
+	</div>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
