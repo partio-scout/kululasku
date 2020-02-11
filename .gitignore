@@ -12,3 +12,4 @@ sendgrid.env
 staticfiles/*
 .vscode/*
 static/*
+uploads/*

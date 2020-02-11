@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext, ugettext_lazy
-from . import locale
+import locale
 
 # Lähde: http://www.ohjelmointiputka.net/koodivinkit/26782-python-viitenumerolaskuri
 def viitenumeron_tarkiste(viitenumero_raaka):
@@ -17,7 +17,7 @@ def decimal_in_r82(number):
 
 def decimal_without_separator(number):
   return int(round(float(number)*100))
-
+  
 def cc_expense(instance):
   from django.core.mail import send_mail
   from expenseapp.models import ExpenseLine

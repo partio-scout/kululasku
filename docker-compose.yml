@@ -26,5 +26,7 @@ services:
       - 8000:8000
     depends_on:
       - db
+    environment:
+      - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
 volumes:
   postgres_data:

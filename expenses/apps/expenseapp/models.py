@@ -20,15 +20,6 @@ from django.utils import timezone
 from .finvoice import createFinvoice
 from .katre import createKatreReport
 
-def wrapper(instance, filename):
-    import os
-    filename = filename.encode('ascii', 'ignore')
-    return os.path.join(path, filename)
-
-def receipt_path(path):
-  
-  return wrapper
-
 def validate_hetu(value):
   from stdnum.fi.hetu import is_valid, validate
   from stdnum.exceptions import InvalidChecksum, InvalidFormat
@@ -314,6 +305,11 @@ class Expense(models.Model):
 #     return os.path.join(path, filename)
 #   return wrapper
 
+def receipt_path(path, filename):
+    import os
+    filename = str(filename.encode('ascii', 'ignore'))
+    return os.path.join(path, filename)
+
 class ExpenseLine(models.Model):
   description = models.CharField(ugettext_lazy('Description'), max_length=255, help_text=ugettext_lazy('Description of the expense, eg. the route of the journey (travel expenses) or purpose of the purchased goods'))
   begin_at = models.DateTimeField(ugettext_lazy('Begin at'))
@@ -324,7 +320,7 @@ class ExpenseLine(models.Model):
   basis = models.DecimalField(ugettext_lazy('Amount'), max_digits=10, decimal_places=2, help_text=ugettext_lazy('Amount of kilometres, days or the sum of the expense'))
   expense = models.ForeignKey(Expense, on_delete=models.CASCADE)
 
-  receipt = models.FileField(ugettext_lazy('Receipt'), upload_to=receipt_path('receipts'), blank=True, null=True, help_text=ugettext_lazy('A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
+  receipt = models.FileField(ugettext_lazy('Receipt'), upload_to='receipts', blank=True, null=True, help_text=ugettext_lazy('A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
 
   # These are in the ExpenseType too, but need to be duplicated to make sure that the data is retained after types are edited
   expensetype_name = models.CharField(ugettext_lazy('Name'), max_length=255)

@@ -108,7 +108,7 @@ def expense(request, organisation_id):
       expense.user = request.user
 
       fields = OrderedDict()
-      fields['name']        = {'label': _('Name'),            'value': expense_form.cleaned_data['name'],}
+      fields['name']        = {'label': _('Applicant Name'),            'value': expense_form.cleaned_data['name'],}
       fields['email']       = {'label': _('Email'),           'value': expense_form.cleaned_data['email'],}
       fields['phone']       = {'label': _('Phone'),           'value': expense_form.cleaned_data['phone'],}
       fields['address']     = {'label': _('Address'),         'value': expense_form.cleaned_data['address'],}

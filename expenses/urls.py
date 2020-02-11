@@ -1,6 +1,5 @@
 from django.urls import include, path, re_path
 from django.contrib import admin
-#from django.contrib.auth import urlpatterns
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -21,9 +20,8 @@ urlpatterns =  [
   path('personinfo/', views.personinfo, name='personinfo'),
   #TODO this bad boy :D
   path('i18n/', include('django.conf.urls.i18n')),
-
   #re_path(r'^i18n/(?P<lang>[a-z]+)$', views.language_activate, name='language_activate'),
-  path('organisation/<int:organisation_id>/', views.organisationedit, name='organisation_edit'),
+  path('organisation/<int:organisation_id>', views.organisationedit, name='organisation_edit'),
   path('organisation/<int:organisation_id>/annualreport/<str:year>', views.annualreport, name='organisation_annualreport'),
   path('expense/', views.organisationselection, name='expense_new'),
   path('expense/own/', views.ownexpenses, name='expense_own'),
@@ -31,7 +29,9 @@ urlpatterns =  [
   path('expense/<int:expense_id>/xml', views.xmlexpense, name='expense_viewxml'),
   path('expense/<int:expense_id>/katre', views.katreexpense, name='expense_viewkatre'),
   path('expense/new/<int:organisation_id>', views.expense, name='expense_new_form'),
-  path('receipt/<int:organisation_id>', views.receipt_fetch, name='receipt_fetch'),
+  #path('receipt/<int:organisation_id>', views.receipt_fetch, name='receipt_fetch'),
+  path('receipt/<int:expenselineid>', views.receipt_fetch, name='receipt_fetch'),
+
   #TODO this bad boy :D
   #path(r'(?P<path>Finvoice.xsl)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
   #(r'(?P<path>Finvoice.css)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
@@ -44,6 +44,8 @@ urlpatterns =  [
   path('accounts/password/reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_reset_done.html'), name='auth_password_reset_done'),
   path('', flatviews.flatpage, {'url': '/index/'}, name='index'),
   path('', include('django.contrib.flatpages.urls')),
+  # Uncomment the admin/doc line below to enable admin documentation:
+  # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 #   path(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
 #       'django.contrib.auth.views.password_reset_confirm',
 #       {'post_reset_redirect' : '/user/password/done/'},
@@ -58,19 +60,8 @@ urlpatterns =  [
     # url(r'^$', 'expenses.views.home', name='home'),
     # url(r'^expenses/', include('expenses.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    
-    
 
-#     
-#     
-#             
-#]
-
-if settings.DEBUG:
-    print((123))
   #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # urlpatterns += patterns('',

@@ -2,8 +2,6 @@
 
 import os
 import sys
-#import django
-#django.setup()
 from django.urls import reverse
 import locale
 from django.utils.translation import ugettext_lazy as _
@@ -11,6 +9,14 @@ from django.utils.translation import ugettext_lazy as _
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__).replace('settings', ''), ''))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -21,8 +27,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-EMAIL_BACKEND = "django_queue_mailer.backend.DbBackend"
-DJANGO_QUEUE_MAILER_EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 DATABASES = {
     'default': {
