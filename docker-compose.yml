@@ -22,6 +22,7 @@ services:
       - SQL_HOST=db
       - SQL_PORT=5432
       - DATABASE=postgres
+      - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
     ports:
       - 8000:8000
     depends_on:
