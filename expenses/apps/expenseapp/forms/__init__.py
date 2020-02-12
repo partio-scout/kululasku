@@ -5,11 +5,8 @@ from django import forms
 from django.contrib import messages
 from django.forms.models import inlineformset_factory
 from crum import get_current_request
-#from django_request_local.middleware import RequestLocal
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db.models import Q
-
-#from parsley.decorators import parsleyfy
 
 from expenseapp.forms import inline_snippet
 from expenseapp.models import Expense, ExpenseLine, ExpenseType, Person, Organisation, User
@@ -17,9 +14,6 @@ from expenseapp.models import Expense, ExpenseLine, ExpenseType, Person, Organis
 class ModelForm(inline_snippet.ModelForm):
   def __new__(cls, *args, **kwargs):
     new_class = super(ModelForm, cls).__new__(cls)
-    #new_class = super(ModelForm, cls).__new__(*args)
-    #new_class = super(ModelForm, cls).__new__(**kwargs)
-    #new_class = super(ModelForm, cls).__new__(cls, *args, **kwargs)
     for field in list(new_class.base_fields.values()):
         if isinstance(field, forms.DecimalField):
           field.localize = True
@@ -91,7 +85,6 @@ class ExpenseLineForm(ModelForm):
     self.fields["expensetype_data"].initial = json.dumps(expensetypedata)
 
   def clean(self):
-    #cleaned_data = super(ExpenseLineForm, self).clean()
     cleaned_data = super().clean()
     expensetype = cleaned_data.get("expensetype")
     ended_at = cleaned_data.get("ended_at")
@@ -153,7 +146,6 @@ class ExpenseTypeForm(ModelForm):
     fields = '__all__'
 
   def __init__(self, *args, **kwargs):
-    #super(ExpenseTypeForm, self).__init__(*args, **kwargs)
     super().__init__(*args, **kwargs)
     self.fields['account'].widget.attrs['class'] = "pure-input-1-3"
     self.fields['multiplier'].localize = False

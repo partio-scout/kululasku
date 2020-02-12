@@ -105,13 +105,13 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
 
     def _get_formset_prefix(self, key):
         return '%s_%s' % (self.prefix, key.upper())
-# TODO this bad boy ;D;:D:D
-    # def clean(self):
-    #     super()._clean_form()
-    #     for key, fset in list(self.inlineformsets.items()):
-    #         for i in range(0, fset.total_form_count()):
-    #             f = fset.forms[i]
-    #             if f._errors:
-    #                 self._errors['_%s_%d' %(fset.prefix, i)] = f.non_field_errors
+
+    def _clean_form(self):
+        super()._clean_form()
+        for key, fset in self.inlineformsets.items():
+            for i in range(0, fset.total_form_count()):
+                f = fset.forms[i]
+                if f.errors:
+                    self._errors['_%s_%d' %(fset.prefix, i)] = f.non_field_errors
 
 # Endofsnippet

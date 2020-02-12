@@ -170,9 +170,7 @@ def expense(request, organisation_id):
     expense = expense_form.save()
 
     # Send the email
-    print('sending')
     cc_expense(expense)
-    print('sent?')
 
     messages.success(request, _('Expense information saved.'))
     return HttpResponseRedirect(reverse('expense_view', kwargs={'expense_id': expense.id}))
