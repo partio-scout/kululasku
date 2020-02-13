@@ -29,7 +29,6 @@ urlpatterns =  [
   path('expense/<int:expense_id>/xml', views.xmlexpense, name='expense_viewxml'),
   path('expense/<int:expense_id>/katre', views.katreexpense, name='expense_viewkatre'),
   path('expense/new/<int:organisation_id>', views.expense, name='expense_new_form'),
-  #path('receipt/<int:organisation_id>', views.receipt_fetch, name='receipt_fetch'),
   path('receipt/<int:expenselineid>', views.receipt_fetch, name='receipt_fetch'),
 
   #TODO this bad boy :D
