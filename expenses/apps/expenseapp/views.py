@@ -50,7 +50,7 @@ def receipt_fetch(request, expenselineid):
 
 @login_required()
 def organisationselection(request):
-  organisations = Organisation.objects.filter(active=True)
+  organisations = Organisation.objects.filter(active=True).order_by('name')
   orgs = []
 
   for organisation in organisations:
