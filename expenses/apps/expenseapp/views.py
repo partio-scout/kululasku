@@ -29,12 +29,13 @@ def language_activate(request, lang):
       'sv': 'sv-SE',
       'en': 'en-EN',
   }
+  response = redirect('/expense/')
 
   if lang in languages:
-      translation.activate(languages.get(lang))
-      request.session['django_language'] = languages.get(lang)
-    
-  return redirect('/')
+      language = languages.get(lang)
+      response.set_cookie('django_language', language)
+      translation.activate(language)
+  return response
 
 
 @login_required()

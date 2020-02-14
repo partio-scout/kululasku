@@ -16,11 +16,8 @@ import os
 urlpatterns =  [
   # Uncomment the next line to enable the admin:
   path('admin/', admin.site.urls),
-  #path('', views.index, name='index'),
   path('personinfo/', views.personinfo, name='personinfo'),
-  #TODO this bad boy :D
-  path('i18n/', include('django.conf.urls.i18n')),
-  #re_path(r'^i18n/(?P<lang>[a-z]+)$', views.language_activate, name='language_activate'),
+  path('i18n/<str:lang>', views.language_activate, name='language_activate'),
   path('organisation/<int:organisation_id>', views.organisationedit, name='organisation_edit'),
   path('organisation/<int:organisation_id>/annualreport/<str:year>', views.annualreport, name='organisation_annualreport'),
   path('expense/', views.organisationselection, name='expense_new'),
