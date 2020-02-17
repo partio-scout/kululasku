@@ -4,7 +4,7 @@
 {% block content %}
 <h1>{% trans 'Register' %}</h1>
 
-<form action="{% url 'django_registration_register' %}" method="POST" class="pure-form pure-form-aligned">
+<form action="{% url 'django_registration_register' %}" method="POST" class="pure-form pure-form-stacked">
   {% csrf_token %}
   {# Include the hidden fields #}
     {% for hidden in form.hidden_fields %}

@@ -25,9 +25,14 @@
 
    <div class="pure-controls">
       <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary">
+      
    </div>
+   <p class="pure-button pure-button-secondary">Rekisteröidy</p>
    <input type="hidden" name="next" value="{{ next }}" />
+   
 </form>
+
+
 
 <p>
 {% url 'auth_password_reset' as reset_url %}

@@ -2,6 +2,34 @@ body {
   background: #fafafa;
 }
 
+/* If the screen size is 1201px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1201px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* If the screen size is 1200px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1200px) {
+  body {
+    font-size: 32px;
+  }
+}
+
+.pure-button-primary {
+  background-color: #253764;
+}
+
+a:hover {
+  font-weight: 140;
+}
+
+ul li a {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+
 h1, h2, h3 {
   font-weight: normal;
   color: #253764;
@@ -12,27 +40,27 @@ h2.pure-menu-heading {
 }
 
 a {
-  color: #0078e7;
+  color: #253764;
+  text-decoration: none;
 }
 
 #masthead {
   background: #253764;
   color: #fff;
+  height: 120px;
 }
   #masthead nav {
+    height: inherit;
     margin: 0 auto;
     background: transparent;
     -webkit-font-smoothing: antialiased;
   }
+
   #masthead a {
     color: #fff;
   }
-    #masthead a:hover {
-      background: #0068d7;
-    }
 
 #main {
-  width: 80%;
   margin: 0 auto;
   overflow: hidden;
   padding: 20px 30px 30px;
@@ -43,6 +71,17 @@ a {
 .main-column {
   float: left;
   width: 68%;
+}
+
+.arrow {
+  right: 0px;
+  position: absolute;
+}
+
+.orgitem {
+  padding: 15px;
+  border-bottom-style: solid;
+  border-bottom-color: gray;
 }
 
 .sidebar {
@@ -339,8 +378,6 @@ dd {
 }
 
 .support {
-  text-align: right;
-  width: 900px;
   margin: 0 auto;
   overflow: hidden;
   padding: 20px 30px 30px;

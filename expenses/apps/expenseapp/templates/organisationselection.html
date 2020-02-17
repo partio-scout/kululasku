@@ -2,11 +2,13 @@
 {% load i18n %}
 
 {% block content %}
-<h1 class="pure-menu-heading">{% trans "Select your organisation to continue" %}</h1>
+<h1>{% trans "Select your organisation to continue" %}</h1>
 <section class="pure-menu pure-menu-open">
-<ul>
+<ul class="pure-menu-list">
 {% for organisation in organisations %}
-  <li><a href="{% url 'expense_new_form' organisation.id %}">{{ organisation.name }}</a></li>
+  <li class="orglist pure-menu-item">
+    <a href="{% url 'expense_new_form' organisation.id %}">{{ organisation.name }} <span class="arrow">></span></a>
+  </li>
 {% endfor %}
 </ul>
 </section>
