@@ -120,7 +120,7 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-LOGIN_REDIRECT_URL = '/personinfo/'
+LOGIN_REDIRECT_URL = '/expense/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 

@@ -11,5 +11,5 @@ __pycache__
 sendgrid.env
 staticfiles/*
 .vscode/*
-static/*
+static/uploads/receipts/*
 expenses/uploads/receipts

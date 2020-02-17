@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <head>
   {% load staticfiles %}
-  <link rel="stylesheet" href="{% static 'expenseapp/css/pure.0.3.0.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'expenseapp/css/pure-min.css' %}" />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
   <link rel="stylesheet" href="{% static 'expenseapp/css/style.css' %}" />
   <link rel="stylesheet" href="{% static 'expenseapp/css/timepicker.css' %}" />
@@ -54,7 +54,7 @@
     {% block content %}
     {% endblock content %}
   </div>
-  <p class="support"><a href="mailto:tuki@aucor.fi?subject=Tukipyyntö%20Partion%20kululaskujärjestelmän%20käyttöön">{% trans "Issues with the service?" %}</a></p>
+  <p class="support"><a href="mailto:tuki@perfektio.fi?subject=Tukipyyntö%20Partion%20kululaskujärjestelmän%20käyttöön">{% trans "Issues with the service?" %}</a></p>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="{% static 'expenseapp/js/libs/jquery-1.9.1.min.js' %}"><\/script>')</script>
   <script src="{% static 'expenseapp/js/libs/anytime.min.js' %}"></script>

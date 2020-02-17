@@ -4,7 +4,7 @@ body {
 
 h1, h2, h3 {
   font-weight: normal;
-  color: #333;
+  color: #253764;
 }
 
 h2.pure-menu-heading {
@@ -16,11 +16,10 @@ a {
 }
 
 #masthead {
-  background: #0078e7;
+  background: #253764;
   color: #fff;
 }
   #masthead nav {
-    width: 960px;
     margin: 0 auto;
     background: transparent;
     -webkit-font-smoothing: antialiased;
@@ -33,7 +32,7 @@ a {
     }
 
 #main {
-  width: 900px;
+  width: 80%;
   margin: 0 auto;
   overflow: hidden;
   padding: 20px 30px 30px;
@@ -91,7 +90,7 @@ a {
 }
 .pure-form .error input,
 .pure-form .error textarea,
-.pure-form .error select {
+.pure-form .error selesct {
   border: 1px solid #b00;
 }
 .pure-form .errorlist {
