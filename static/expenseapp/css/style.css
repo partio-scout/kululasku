@@ -2,18 +2,241 @@ body {
   background: #fafafa;
 }
 
-/* If the screen size is 1201px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 1201px) {
+#menu-toggle
+{
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menu-toggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+
+#menu-toggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+* Just a quick hamburger
+*/
+#menu-toggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menu-toggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menu-toggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
+#menu-toggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #ffffff;
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+
+#menu li
+{
+  padding: 5px 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/*
+* And let's slide it in from the left
+*/
+#menu-toggle input:checked ~ ul
+{
+  transform: none;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
   body {
     font-size: 18px;
   }
+
+  #menu {
+    left: 0;
+    top: 0px;
+    position: absolute;
+    width: 100vw;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 100px;
+    background: #253764;
+  }
+
+  #menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #menu li {
+    float: left;
+  }
+  
+  #menu-toggle {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100vw;
+    height: 84px;
+  }
+
+  #menu-toggle input {
+    visibility: hidden;
+  }
+
+  #menu-toggle span {
+    visibility: hidden;
+  }
+
+  #masthead {
+    background: #253764;
+    color: #fff;
+    height: 84px;
+  }
+
+  #masthead nav {
+    height: inherit;
+    margin: 0 auto;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #masthead a {
+    color: #fff;
+  }  
 }
 
-/* If the screen size is 1200px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 1200px) {
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
   body {
-    font-size: 32px;
+    font-size: 16px;
   }
+
+  .logo {
+    visibility: hidden;
+  }
+
+  #masthead {
+    background: #fff;
+    color: #fff;
+  }
+
+  #masthead nav {
+    height: inherit;
+    margin: 0 auto;
+    background: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #masthead a {
+    color: #fff;
+  }
+
+  #menu
+{
+  left: -80vw;
+  position: absolute;
+  width: 86vw;
+  height: 120vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 100px;
+  background: #253764;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+}
+
+body
+{
+  margin: 0;
+  padding: 0;
+  background: #232323;
+  color: #cdcdcd;
+}
+
+
+
+.language-menu {
+  background: #253764;
 }
 
 .pure-button-primary {
@@ -44,33 +267,23 @@ a {
   text-decoration: none;
 }
 
-#masthead {
-  background: #253764;
-  color: #fff;
-  height: 120px;
-}
-  #masthead nav {
-    height: inherit;
-    margin: 0 auto;
-    background: transparent;
-    -webkit-font-smoothing: antialiased;
-  }
 
-  #masthead a {
-    color: #fff;
-  }
+
 
 #main {
   margin: 0 auto;
   overflow: hidden;
   padding: 20px 30px 30px;
   background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .main-column {
   float: left;
   width: 68%;
+}
+
+.middle-headline {
+  text-align: center;
 }
 
 .arrow {
