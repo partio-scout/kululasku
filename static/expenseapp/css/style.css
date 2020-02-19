@@ -1,5 +1,6 @@
+
 body {
-  background: #fafafa;
+  background: #fff;
 }
 
 #menu-toggle
@@ -96,45 +97,73 @@ body {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-
-
 #menu li
 {
-  padding: 5px 0;
+  padding: 5px 5px;
   font-size: 18px;
   color: #ffffff;
+  margin: 0px 5px;
 }
 
 /*
 * And let's slide it in from the left
 */
-#menu-toggle input:checked ~ ul
+#menu-toggle input:checked ~ div
 {
   transform: none;
 }
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 601px) {
+/* If the screen size is 801px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 801px) {
   body {
     font-size: 18px;
   }
 
-  #menu {
-    left: 0;
-    top: 0px;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
     position: absolute;
-    width: 100vw;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 100px;
+    background-color: #253764;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .drop-item {
+    border-bottom-color: #D2D2D2;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
     background: #253764;
   }
 
-  #menu ul {
+  .drop-item-link {
+    min-width: 150px;
+  }
+
+  .menu-list {
+    top: 20px;
+    float: right;
+    text-align: center;
+    list-style: none;
+    position: relative;
+  }
+
+  #menu {
+        /* left: 0; */
+        top: -50px;
+        position: relative;
+        /* width: 100vw; */
+        /* background: #253764;*/
+  }
+
+  #menu div {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
   }
   
   #menu li {
@@ -144,7 +173,6 @@ body {
   #menu-toggle {
     display: block;
     position: absolute;
-    left: 0;
     top: 0;
     z-index: 1;
     -webkit-user-select: none;
@@ -179,10 +207,31 @@ body {
   }  
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
+.log-button {
+  display: inline-block;
+  height: 50px;
+  width: 184px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  top: -11px;
+  border: 1px solid #FFFFFF;
+}
+
+/* If the screen size is 800px wide or less, set the font-size of <div> to 16px */
+@media screen and (max-width: 800px) {
   body {
     font-size: 16px;
+  }
+
+  .pure-menu-allow-hover {
+    visibility: hidden;
+  }
+
+  .menu-list {
+    text-align: center;
+    list-style: none;
+    padding: 50px;
   }
 
   .logo {
@@ -207,13 +256,12 @@ body {
 
   #menu
 {
-  left: -80vw;
-  position: absolute;
-  width: 86vw;
-  height: 120vh;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 100px;
+  left: 0;
+  top: 0;
+  position: fixed;
+  overflow: auto;
+  width: 100vw;
+  height: 100vh;
   background: #253764;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -224,27 +272,12 @@ body {
 
 
 }
-
-body
-{
-  margin: 0;
-  padding: 0;
-  background: #232323;
-  color: #cdcdcd;
-}
-
-
-
 .language-menu {
   background: #253764;
 }
 
 .pure-button-primary {
   background-color: #253764;
-}
-
-a:hover {
-  font-weight: 140;
 }
 
 ul li a {
@@ -266,9 +299,6 @@ a {
   color: #253764;
   text-decoration: none;
 }
-
-
-
 
 #main {
   margin: 0 auto;
@@ -294,8 +324,16 @@ a {
 .orgitem {
   padding: 15px;
   border-bottom-style: solid;
-  border-bottom-color: gray;
+  border-bottom-width: 1px;
+  border-bottom-color: #D2D2D2;
 }
+a:hover {
+  background-color: rgba(40,170,225,0.1);
+}
+
+/* .orgitem:hover {
+  background-color: rgba(40,170,225,0.1);
+} */
 
 .sidebar {
   width: 30%;

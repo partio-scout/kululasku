@@ -29,42 +29,41 @@
         <span></span>
         <span></span>
         
-        <ul id="menu">
+        <div id="menu">
+          <ul class="menu-list">
             {% if user.is_authenticated %}
-              <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="{% url 'expense_new' %}">{% trans "New expense application" %}</a></li>
-                <li class="pure-menu-item"><a href="{% url 'expense_own' %}">{% trans "My expenses" %}</a></li>
-                <li class="pure-menu-item"><a href="{% url 'personinfo' %}">{% trans "User information" %}</a></li>
+                <li ><a href="{% url 'expense_new' %}">{% trans "New expense application" %}</a></li>
+                <li ><a href="{% url 'expense_own' %}">{% trans "My expenses" %}</a></li>
+                <li ><a href="{% url 'personinfo' %}">{% trans "User information" %}</a></li>
                 {% if user.is_staff %}
-                <li class="pure-menu-item"><a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
+                <li ><a href="{% url 'admin:index' %}">{% trans 'Admin' %}</a></li>
                 {% endif %}
-              </ul>
             {% endif %}
-
-            <!-- <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-              <a href="#" id="menuLink1">{% trans 'Languages' %}</a>
-              <ul class="pure-menu-children">
+            <li class="dropdown">
+              <a href="#" class="pure-menu-allow-hover">{% trans 'Languages' %}</a>
+              <ul class="dropdown-content" style="list-style: none; padding-left: 0px;">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE != 'fi-fi' %}
-                  <li class="pure-menu-item"><a href="/i18n/fi" class="pure-menu-link">suomeksi</a></li>
+                  <li class="drop-item"><a href="/i18n/fi" class="drop-item-link">suomeksi</a></li>
                 {% endif %}
 
                 {% if LANGUAGE_CODE != 'sv-se' %}
-                  <li class="pure-menu-item"><a href="/i18n/sv" class="pure-menu-link">på svenska</a></li>
+                  <li class="drop-item"><a href="/i18n/sv" class="drop-item-link">på svenska</a></li>
                 {% endif %}
                 {% if LANGUAGE_CODE != 'en-en' %}
-                  <li class="pure-menu-item"><a href="/i18n/en" class="pure-menu-link">in English</a></li>
+                  <li class="drop-item"><a href="/i18n/en" class="drop-item-link">in English</a></li>
                 {% endif %}
               </ul>
-            </li> -->
+            </li>
           
             {% if user.is_authenticated %}
-              <li class="pure-menu-item"><a href="{% url 'logout' %}">{% trans "Log out" %}</a></li>
+              <li ><a href="{% url 'logout' %}" class="log-button">{% trans "Log out" %}</a></li>
             {% else %}
-              <li class="pure-menu-item"><a href="{% url 'django_registration_register' %}">{% trans "Sign up" %}</a></li>
-              <li class="pure-menu-item sign-in-out"><a href="{% url 'auth_login' %}">{% trans "Log in" %}</a></li>
+              <li ><a href="{% url 'django_registration_register' %}">{% trans "Sign up" %}</a></li>
+              <li><a href="{% url 'auth_login' %}" class="log-button" >{% trans "Log in" %}</a></li>
             {% endif%}
-        </ul>
+            </ul>
+          </div>
       </div>
     </nav>
 
@@ -98,14 +97,15 @@
 
     {% block content %}
     {% endblock content %}
+    <p class="support"><a href="mailto:tuki@perfektio.fi?subject=Tukipyyntö%20Partion%20kululaskujärjestelmän%20käyttöön">{% trans "Issues with the service?" %}</a></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'expenseapp/js/libs/jquery-1.9.1.min.js' %}"><\/script>')</script>
+    <script src="{% static 'expenseapp/js/libs/anytime.min.js' %}"></script>
+    <script src="{% static 'expenseapp/js/libs/parsley.min.js' %}"></script>
+    <script src="{% static 'expenseapp/js/main.js' %}"></script>
   </div>
-  <p class="support"><a href="mailto:tuki@perfektio.fi?subject=Tukipyyntö%20Partion%20kululaskujärjestelmän%20käyttöön">{% trans "Issues with the service?" %}</a></p>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="{% static 'expenseapp/js/libs/jquery-1.9.1.min.js' %}"><\/script>')</script>
-  <script src="{% static 'expenseapp/js/libs/anytime.min.js' %}"></script>
-  <script src="{% static 'expenseapp/js/libs/parsley.min.js' %}"></script>
-  <script src="{% static 'expenseapp/js/main.js' %}"></script>
+  
 
 {% block footer %}
-</body>
 {% endblock footer %}
+</body>

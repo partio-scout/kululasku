@@ -6,8 +6,8 @@
 <section class="pure-menu pure-menu-open">
 <ul class="pure-menu-list">
 {% for organisation in organisations %}
-  <li class="orglist pure-menu-item">
-    <a href="{% url 'expense_new_form' organisation.id %}">{{ organisation.name }} <span class="arrow">></span></a>
+  <li class="pure-menu-item">
+    <a href="{% url 'expense_new_form' organisation.id %}" class="orgitem">{{ organisation.name }} <span class="arrow">></span></a>
   </li>
 {% endfor %}
 </ul>
