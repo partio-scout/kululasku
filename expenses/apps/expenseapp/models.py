@@ -13,7 +13,7 @@ from locale import currency
 from django.contrib.auth.models import Permission
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
-from django_iban.fields import IBANField, SWIFTBICField
+from localflavor.generic.models import IBANField, BICField
 from django.template import defaultfilters
 from django.utils import timezone
 
@@ -137,7 +137,7 @@ class Person(models.Model):
   phone = models.CharField(ugettext_lazy('Phone'), max_length=255, blank=True, null=True, validators=validators['phoneno'])
   address = models.CharField(ugettext_lazy('Address'), max_length=255, blank=True, null=True, validators=validators['address'])
   iban = IBANField(ugettext_lazy('Bank account no'))
-  swift_bic = SWIFTBICField(ugettext_lazy('BIC no'), blank=True, null=True)
+  swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
   personno = models.CharField(ugettext_lazy('Person number'), max_length=11, blank=True, null=True, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('Person number is required for every expense application for annual announcements to the tax authority. If you don\'t want to save it here, you can enter it to each expense application separately.'))
   type = models.IntegerField(ugettext_lazy('Type'), choices=PERSONTYPE_CHOICES, default=1)
   language = models.CharField(ugettext_lazy('Site language'), max_length=6, blank=True, null=True, choices=settings.LANGUAGES)
@@ -248,11 +248,11 @@ KATRE_STATUSES = (
 class Expense(models.Model):
   name = models.CharField(ugettext_lazy('Name'), max_length=255, validators=validators['name'])
   email = models.EmailField(ugettext_lazy('Email address'), validators=validators['email'])
-  cc_email = models.EmailField(ugettext_lazy('CC email address'), blank=True, null=True, help_text=ugettext_lazy('If entered, a notification about the expense application will be sent to this address without personal details except name.'), validators=validators['email'])
+  cc_email = models.EmailField(ugettext_lazy('CC email address'), blank=True, null=True, help_text=ugettext_lazy('Copy of the expense will be sent to the email.'), validators=validators['email'])
   phone = models.CharField(ugettext_lazy('Phone'), max_length=255, validators=validators['phoneno'])
   address = models.CharField(ugettext_lazy('Address'), max_length=255, validators=validators['address'])
   iban = IBANField(ugettext_lazy('Bank account no'))
-  swift_bic = SWIFTBICField(ugettext_lazy('BIC no'), blank=True, null=True)
+  swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
   personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'])
   user = models.ForeignKey(User,on_delete=models.CASCADE)
 

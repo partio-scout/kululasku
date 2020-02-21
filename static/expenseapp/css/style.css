@@ -105,12 +105,47 @@ body {
   margin: 0px 5px;
 }
 
-/*
-* And let's slide it in from the left
-*/
 #menu-toggle input:checked ~ div
 {
   transform: none;
+}
+
+.pure-form-aligned .pure-control-group {
+  letter-spacing: normal;
+  display: inline-block;
+  margin: 10px;
+}
+
+.pure-form-aligned .pure-control-group label {
+  text-align: left;
+  display: inline;
+}
+
+.blue-bottom {
+  padding: 30px;
+  border-bottom: solid 2px #28AAE1;
+}
+
+.pure-form input[type=text], .pure-form input[type=password],  .pure-form input[type=email], .pure-form textarea, .field-expensetype select {
+  display: block;
+  width: 28vw;
+  border: 1px solid #ccc;
+}
+
+
+.primary-blue {
+  background-color: #253764;
+  color: #FFFFFF
+}
+
+.secondary-blue {
+  background-color: #28AAE1;
+  color: #FFFFFF
+}
+
+.secondary-green {
+  background-color: #14A54B;
+  color: #FFFFFF
 }
 
 /* If the screen size is 801px wide or more, set the font-size of <div> to 80px */
@@ -155,11 +190,8 @@ body {
   }
 
   #menu {
-        /* left: 0; */
-        top: -50px;
-        position: relative;
-        /* width: 100vw; */
-        /* background: #253764;*/
+    top: -50px;
+    position: relative;
   }
 
   #menu div {
@@ -222,6 +254,20 @@ body {
 @media screen and (max-width: 800px) {
   body {
     font-size: 16px;
+  }
+
+  .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, select  {
+    display: block;
+    width: 70vw;
+    border: 1px solid #ccc;
+  }
+
+  .pure-u-1-1 {
+    text-align: center;
+  }
+
+  .pure-control-group {
+    text-align: left;
   }
 
   .pure-menu-allow-hover {
@@ -303,7 +349,7 @@ a {
 #main {
   margin: 0 auto;
   overflow: hidden;
-  padding: 20px 30px 30px;
+  padding: 80px 30px 30px;
   background: #fff;
 }
 
@@ -349,11 +395,10 @@ a:hover {
 }
 
 .pure-form .helptext {
-  display: inline-block;
   vertical-align: middle;
   margin: .5em 0 .2em 11.2em;
   color: #999;
-  font-size: 90%;
+  font-size: 190%;
 }
 
 .pure-form .pure-button-primary {
@@ -380,17 +425,17 @@ a:hover {
 }
 .pure-form .error input,
 .pure-form .error textarea,
-.pure-form .error selesct {
+.pure-form .error select {
   border: 1px solid #b00;
 }
-.pure-form .errorlist {
+
+.errorlist {
   display: inline-block;
   margin: 0;
   padding: 0;
   list-style: none;
   font-size: 80%;
   color: #b00;
-  margin-left: 160px;
 }
   .pure-form .field-ended_at .errorlist,
   .pure-form .field-receipt .errorlist {
@@ -473,36 +518,26 @@ input[type=file] {
     border-right: 3px solid #a6a6a6;
   }
 
-.field-description input,
-.field-expensetype select {
-  width: 59.5%;
-}
-
 .field-begin_at i,
 .field-ended_at i {
   margin-left: -28px;
   color: #ccc;
   cursor: text;
 }
-
-.field-begin_at,
-.field-ended_at {
-  width: 43.1%;
-}
   .pure-form .field-ended_at label {
     width: auto;
   }
   
-.delete-expenseline,
+/* .delete-expenseline,
 .delete-expensetype {
   font-size: 90%;
   
-}  
+}   */
   
-#add-new-expenseline,
+/* #add-new-expenseline,
 #add-new-expensetype {
   margin: 1em 0 1em 12em;
-}
+} */
 
 .hidden {
   display: none;
@@ -604,14 +639,14 @@ dd {
   margin: 0;
 }
 
-.expenseline .inline-help-text {
+/* .expenseline .inline-help-text {
   top: 2px;
   left: -12px;
 }
 .expenseline label + input,
 .expenseline label + select {
   margin-left: 18px;
-}
+} */
 
 .submit-button-wrapper {
   background-image: url("../img/loader.gif");
@@ -629,12 +664,11 @@ dd {
 }
 
 .support {
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 20px 30px 30px;
-  font-size: 12px;
+  margin-top: 50px;
+  text-align: center;
 }
 .support a {
+  text-decoration: underline;
   color: #444;
   color: rgba(0,0,0,.8);
 }

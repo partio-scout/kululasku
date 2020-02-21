@@ -1,8 +1,9 @@
 {% load i18n %}
-    <div class="expenseline form-block pure-g">
+    <div class="expenseline pure-g blue-bottom">
+        <div class="pure-u-1-1">
     
     {% for field in expenselineform.visible_fields %}
-      <div class="pure-u-7-8 pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
+      <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
         {{ field.label_tag }}
         {% if field.help_text %}
           <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>
@@ -11,7 +12,6 @@
         {{ field }}
         
         {% if field.name == 'begin_at' or field.name == 'ended_at' %}
-          <i class="icon-calendar"></i>
         {% endif %}
         
         {{ field.errors }}
@@ -24,11 +24,13 @@
       
       </div>
       
-      {% if forloop.first %}
-      <div class="pure-u-1-8">
-        <a href="#" class="delete-expenseline pure-button pure-button-xsmall"><i class=" icon-trash"></i> {% trans "Delete" %}</a>
-      </div>
-      {% endif %}
+      
       
     {% endfor %}
+      <div class="pure-u-1-1">
+        <div class="pure-control-group">
+          <a href="#" class="delete-expenseline pure-button pure-button-xsmall primary-blue"><i class=" icon-trash"></i> {% trans "Delete" %}</a>
+        </div>
+      </div>
     </div>
+  </div>

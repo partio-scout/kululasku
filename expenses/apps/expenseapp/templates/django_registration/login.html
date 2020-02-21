@@ -2,9 +2,9 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{% trans 'Log In'%} </h1>
+<h1 style="text-align: center;">{% trans 'Log In'%} </h1>
 
-<form action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned">
+<form style="text-align: center;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned">
   {% csrf_token %}
   {% if form.errors %}
     <p class="error">{% blocktrans %}Login failed.{% endblocktrans %}</p>
@@ -23,22 +23,25 @@
     </div>
   {% endfor %}
 
-   <div class="pure-controls">
-      <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary">
-      
+   <div style="padding: 30px;">
+      <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary" style="margin: 20px;">
    </div>
-   <p class="pure-button pure-button-secondary">Rekisteröidy</p>
+   
+   <p style="text-decoration: underline;"><strong>{% trans "Sign up" %}</p></strong>
    <input type="hidden" name="next" value="{{ next }}" />
    
 </form>
 
 
+<div style="text-align: center;">
+  <p >
+    <small>{% url 'auth_password_reset' as reset_url %}
+    {% blocktrans %}
+    Forgot your password?</small>
+  </p>
 
-<p>
-{% url 'auth_password_reset' as reset_url %}
-  {% blocktrans %}
-  If you can't remember your details, you can
-  <a href="{{ reset_url }}">reset your password</a>.
+  <a href="{{ reset_url }}" style="text-decoration: underline;"><strong>Reset your password</strong></a>.
   {% endblocktrans %}
-</p>
+</div>
+
 {% endblock %}

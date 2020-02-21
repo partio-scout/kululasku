@@ -7,6 +7,7 @@ from django.forms.models import inlineformset_factory
 from crum import get_current_request
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db.models import Q
+from localflavor.generic.forms import BICFormField, IBANFormField
 
 from expenseapp.forms import inline_snippet
 from expenseapp.models import Expense, ExpenseLine, ExpenseType, Person, Organisation, User
@@ -103,12 +104,14 @@ ExpenseLineFormset = inlineformset_factory(Expense, ExpenseLine, form=ExpenseLin
 #@parsleyfy
 class ExpenseForm(ModelForm):
   required_css_class = 'required'
+  cc_email = forms.EmailField(label=ugettext_lazy('CC Email'), max_length=255, required=False, 
+  widget=forms.EmailInput(attrs={'placeholder':'Copy of expense will be sent to the email.'}))
   class Meta:
     model = Expense
     exclude = ('status', 'katre_status')
     widgets = {
       'organisation': forms.HiddenInput,
-      'user': forms.HiddenInput,
+      'user': forms.HiddenInput
    }
 
   class Forms:

@@ -2,6 +2,7 @@ django==2.2.10
 python-gettext
 ordereddict
 psycopg2
+django-localflavor==3.0
 lxml
 flup
 paramiko
@@ -13,6 +14,3 @@ python-stdnum
 django-iban
 pytz
 gunicorn
-#django-parsley
-#django_queue_mailer RIKKOO
-#-e git+https://github.com/aucor/django-request-local.git#egg=django-request-local
