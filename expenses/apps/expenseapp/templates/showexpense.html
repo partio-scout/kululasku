@@ -6,30 +6,57 @@
 <h1>{% blocktrans with organisation_name=expense.organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
 
 <div class="pure-g">
-  <dl class="pure-u-2-5 dl-horizontal">
+  <div class="pure-u-1-1 dl-horizontal">
   {% for id, field in fields.items %}
-    <dt>{{ field.label}}</dt>
+    <p>{{ field.label}}
     {% if id == 'total' %}
-    <dd>{{ field.value | floatformat:"2" }} €</dd>    
+    <span>{{ field.value | floatformat:"2" }} €</span>    
     {% elif id == 'date' %}
-    <dd>{{ field.value | date:"j.n.Y H.i" }}</dd>    
+    <span>{{ field.value | date:"j.n.Y H.i" }}</span>    
     {% else %}
-    <dd>{{ field.value }}</dd>
+    <span>{{ field.value }}</span>
     {% endif %}
+    </p>
     
     {# Split to second column #}
     {% if id == 'personno' %}
-      </dl>  <dl class="pure-u-3-5 dl-horizontal">
+      </div>  <div class="pure-u-1-1 dl-horizontal">
     {% endif %}
   {% endfor %}
-  </dl>
+  </div>
 </div>
 
 <h2>{% trans 'Expenses'%}</h2>
 
-<ul class="expenserow">
+<!-- <ul class="expenserow"> -->
+  <table>
   {% for line in lines %}
-  <li class="form-block">
+  
+    <tr>
+      <th>{{ line.description.label }}</th>
+      <th>{% trans "Date" %}</th>
+      <th>{{ line.expensetype.label }}</th>
+      <th>{{ line.sum.label }}</th>
+      {% if line.receipt %}
+        <th>{{ line.receipt.label }}</th>
+      {% endif %}
+
+      <tr>
+        <td>{{ line.description.value }}</td>
+        <td>{{ line.begin_at.value | date:"j.n.Y H.i" }} – {{ line.ended_at.value | date:"j.n.Y H.i" }}</td>
+        <td>{{ line.expensetype.value }}</td>
+        <td>{{ line.basis.value | floatformat:"-2" }} × {{ line.expensetype.value.multiplier | floatformat:"-2" }} = {{ line.sum.value | floatformat:"2" }} €</td>
+
+        <td>{% if line.id %}
+          <a href="{% url 'receipt_fetch' expenselineid=line.id %}">{{ line.receipt.filename }}</a>
+          {% else %}
+          {{ line.receipt.filename }}
+          {% endif %}</td>
+      </tr>
+    </tr>
+
+ 
+  <!-- <li class="form-block">
     <dl class="dl-horizontal">
       <dt>{{ line.description.label }}</dt>
       <dd>{{ line.description.value }}</dd>
@@ -54,9 +81,10 @@
       </dd>
       {% endif %}
     </dl>
-  </li>
+  </li> -->
   {% endfor %}
-</ul>
+</table>
+<!-- </ul> -->
 
 {% block content_footer %}{% endblock %}
 

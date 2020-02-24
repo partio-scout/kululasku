@@ -116,6 +116,10 @@ body {
   margin: 10px;
 }
 
+.pure-g {
+  letter-spacing: normal;
+}
+
 .pure-form-aligned .pure-control-group label {
   text-align: left;
   display: inline;
@@ -148,8 +152,8 @@ body {
   color: #FFFFFF
 }
 
-/* If the screen size is 801px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 801px) {
+/* If the screen size is 1001px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1001px) {
   body {
     font-size: 18px;
   }
@@ -250,19 +254,29 @@ body {
   border: 1px solid #FFFFFF;
 }
 
-/* If the screen size is 800px wide or less, set the font-size of <div> to 16px */
-@media screen and (max-width: 800px) {
+.wrapper-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  flex-wrap: wrap;
+}
+
+
+/* If the screen size is 1000px wide or less, set the font-size of <div> to 16px */
+@media screen and (max-width: 1000px) {
   body {
     font-size: 16px;
   }
 
-  .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, select  {
+  .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, .pure-form select  {
     display: block;
     width: 70vw;
     border: 1px solid #ccc;
   }
 
-  .pure-u-1-1 {
+  .wrapper-container {
     text-align: center;
   }
 
@@ -442,8 +456,8 @@ a:hover {
 
 .pure-form-aligned .pure-controls {
   border-top: 1px solid #ddd;
-  margin: 1em 0 0;
-  padding: 1.5em 0 0 10em;
+  margin: 2vh;
+  padding: 2vh;
 }
   .pure-form-aligned .pure-controls h3 {
     margin-top: 0;

@@ -3,7 +3,6 @@
 
 {% block content %}
 <h1>{% blocktrans with organisation_name=organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
-<!-- <form action='{% url 'expense_new_form' organisation.id %}' id='expense-form' method='post' class="pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %} data-validate="parsley"> -->
 <form action="{% url 'expense_new_form' organisation.id %}" id="expense-form" method="post" class="pure-form pure-form-aligned" enctype="multipart/form-data" novalidate data-validate="parsley">
   {% csrf_token %}
   <input type="hidden" name="preview" id="id_preview" value="1">
@@ -15,7 +14,7 @@
   
   {# Include the visible fields #}
   <div class="pure-g blue-bottom">
-    <div class="pure-u-1-1">
+    <div class="wrapper-container">
     {% for field in exp_form.visible_fields %}
       <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}"{{ field.field.required|yesno:" parsley-required" }}>
         {{ field.label_tag }}
@@ -26,7 +25,8 @@
         {% endif %}
       </div>
       {% if field.html_name == 'expenseform-personno' %}
-        </div><div class="pure-u-1-1">
+        </div>
+        <div class="wrapper-container" style="display: flex;">
       {% endif %}
     {% endfor %}
     </div>

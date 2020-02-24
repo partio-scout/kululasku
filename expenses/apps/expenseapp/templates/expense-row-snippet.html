@@ -1,6 +1,6 @@
 {% load i18n %}
     <div class="expenseline pure-g blue-bottom">
-        <div class="pure-u-1-1">
+        <div class="wrapper-container">
     
     {% for field in expenselineform.visible_fields %}
       <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
@@ -27,7 +27,7 @@
       
       
     {% endfor %}
-      <div class="pure-u-1-1">
+      <div class="wrapper-container">
         <div class="pure-control-group">
           <a href="#" class="delete-expenseline pure-button pure-button-xsmall primary-blue"><i class=" icon-trash"></i> {% trans "Delete" %}</a>
         </div>

@@ -14,14 +14,15 @@
   {% for hidden in form.hidden_fields %}
     {{ hidden }}
   {% endfor %}
-  
-  {# Include the visible fields #}
-  {% for field in form.visible_fields %}
-    <div class="pure-control-group{% if field.field.required %} required{% endif %}">
-      {{ field.label_tag }}
-      {{ field }}
-    </div>
-  {% endfor %}
+  <div>
+    {# Include the visible fields #}
+    {% for field in form.visible_fields %}
+      <div class="pure-control-group{% if field.field.required %} required{% endif %}">
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
+  </div>
 
    <div style="padding: 30px;">
       <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary" style="margin: 20px;">

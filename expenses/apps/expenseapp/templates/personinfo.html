@@ -7,7 +7,9 @@
 <!-- Current language: {{ LANGUAGE_CODE }} -->
 
 <h1>{% blocktrans %}User info{% endblocktrans %}</h1>
-<form action='{% url 'personinfo' %}' id='person-form' method='post' class="main-column pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+<div class="blue-bottom" style="text-align: center;">
+
+<form action='{% url 'personinfo' %}' id='person-form' method='post' class="pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
   {% csrf_token %}
   
   {# Include the hidden fields #}
@@ -33,15 +35,18 @@
    </div>
      <p><a href="{% url 'auth_password_change' %}">{% trans "Change password" %}</a></p>
 </form>
+</div>
 
-<aside class="sidebar">
-  <section class="pure-menu pure-menu-open">
-    <h2 class="pure-menu-heading">{% trans "Organisation admin" %}</h2>
-    <ul>
+<div>
+  <div>
+    <h2 class="middle-headline">{% trans "Organisation admin" %}</h2>
+    <ul class="pure-menu-list">
     {% for organisation in orgs %}
-      <li><a href="{% url 'organisation_edit' organisation_id=organisation.id %}">{{ organisation.name }}</a></li>
+      <li class="pure-menu-item">
+        <a href="{% url 'organisation_edit' organisation_id=organisation.id %}" class="orgitem">{{ organisation.name }}</a>
+      </li>
     {% endfor %}
     </ul>
-  </section>
-</aside>
+  </div>
+</div>
 {% endblock %}
