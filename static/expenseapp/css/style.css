@@ -395,10 +395,8 @@ a:hover {
 }
 
 .pure-form .helptext {
-  vertical-align: middle;
-  margin: .5em 0 .2em 11.2em;
   color: #999;
-  font-size: 190%;
+  font-size: 90%;
 }
 
 .pure-form .pure-button-primary {
