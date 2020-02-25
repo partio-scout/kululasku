@@ -6,55 +6,65 @@
 <h1>{% blocktrans with organisation_name=expense.organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
 
 <div class="pure-g">
-  <div class="pure-u-1-1 dl-horizontal">
-  {% for id, field in fields.items %}
-    <p>{{ field.label}}
-    {% if id == 'total' %}
-    <span>{{ field.value | floatformat:"2" }} €</span>    
-    {% elif id == 'date' %}
-    <span>{{ field.value | date:"j.n.Y H.i" }}</span>    
-    {% else %}
-    <span>{{ field.value }}</span>
+  <div class="pure-u-1 blue-bottom">
+    <h2>{% trans 'Ilmoittajan tiedot'%}</h2>
+    {% for id, field in fields.items %}
+      <p class="subject">{{ field.label}}:</p>
+        {% if id == 'total' %}
+      <p class="value">{{ field.value | floatformat:"2" }} €</p>    
+        {% elif id == 'date' %}
+      <p class="value">{{ field.value | date:"j.n.Y H.i" }}</p>    
+        {% else %}
+      <p class="value">{{ field.value }}</p>
     {% endif %}
-    </p>
     
     {# Split to second column #}
     {% if id == 'personno' %}
-      </div>  <div class="pure-u-1-1 dl-horizontal">
+      </div> 
+        
+      <div class="pure-u-1 blue-bottom">
+        <h2 class="ykskaks">{% trans "Kululaskun tiedot" %}</h2>
     {% endif %}
   {% endfor %}
   </div>
 </div>
 
-<h2>{% trans 'Expenses'%}</h2>
 
-<!-- <ul class="expenserow"> -->
-  <table>
+
+<div class="pure-g">
+  <div class="pure-u-1" style="padding: 30px;">
+  <h2>{% trans 'Expenses'%}</h2>
   {% for line in lines %}
   
-    <tr>
-      <th>{{ line.description.label }}</th>
-      <th>{% trans "Date" %}</th>
-      <th>{{ line.expensetype.label }}</th>
-      <th>{{ line.sum.label }}</th>
+    <h3> {% trans "Expense "%} {{ forloop.counter }}</h3>
+      <p class="subject">{{ line.description.label }}:</p>
+      <p class="value"> {{ line.description.value }}</p>
+
+      <p class="subject">{% trans "Date" %}:</p>
+      <p class="value"> {{ line.begin_at.value | date:"j.n.Y H.i" }} – {{ line.ended_at.value | date:"j.n.Y H.i" }}</p>
+
+      <p class="subject">{{ line.expensetype.label }}:</p>
+      <p class="value">  {{ line.expensetype.value }}</p>
+
+      <p class="subject">{{ line.sum.label }}:</p>
+      <p class="value"> {{ line.basis.value | floatformat:"-2" }} × {{ line.expensetype.value.multiplier | floatformat:"-2" }} = {{ line.sum.value | floatformat:"2" }} €</p>
+
       {% if line.receipt %}
-        <th>{{ line.receipt.label }}</th>
-      {% endif %}
-
-      <tr>
-        <td>{{ line.description.value }}</td>
-        <td>{{ line.begin_at.value | date:"j.n.Y H.i" }} – {{ line.ended_at.value | date:"j.n.Y H.i" }}</td>
-        <td>{{ line.expensetype.value }}</td>
-        <td>{{ line.basis.value | floatformat:"-2" }} × {{ line.expensetype.value.multiplier | floatformat:"-2" }} = {{ line.sum.value | floatformat:"2" }} €</td>
-
-        <td>{% if line.id %}
-          <a href="{% url 'receipt_fetch' expenselineid=line.id %}">{{ line.receipt.filename }}</a>
+        <p class="subject">{{ line.receipt.label }}:</p>
+        {% if line.id %}
+          <a href="{% url 'receipt_fetch' expenselineid=line.id %}" style="font-style: italic;">{{ line.receipt.filename }}</a>
           {% else %}
-          {{ line.receipt.filename }}
-          {% endif %}</td>
-      </tr>
-    </tr>
+            {{ line.receipt.filename }}
+          {% endif %}
+      {% endif %}
+      <div style="border-bottom-color: #D2D2D2;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;"></div>
 
+      {% endfor %}
+    </div>
+
+      
  
   <!-- <li class="form-block">
     <dl class="dl-horizontal">
@@ -82,8 +92,8 @@
       {% endif %}
     </dl>
   </li> -->
-  {% endfor %}
-</table>
+  
+</div>
 <!-- </ul> -->
 
 {% block content_footer %}{% endblock %}

@@ -5,11 +5,18 @@
 
 {% block content_footer %}
 
-	<div id="expense-preview-buttons" style="overflow: hidden;">
-		<button id="close-preview-button" class="pure-button pure-button-secondary" style="float: left;">{% trans "Edit application" %}</button>
-		<span id="confirm-expense-button-wrapper" class="submit-button-wrapper" style="float: right;">
-			<button id="confirm-expense-button" class="pure-button pure-button-primary">{% trans "Submit application for review" %} &raquo;</button>
-		</span>
+	<div id="expense-preview-buttons" style="overflow: hidden; text-align: center;">
+		<div class="submit-button-wrapper">
+			<button id="close-preview-button" class="pure-button" style="width: 300px;
+			background-color: white;
+			border-color: #253764;
+			border-style: solid;
+			border-width: 1px;
+			border-radius: 4px;">{% trans "Edit application" %}</button>
+		</div>
+		<div id="confirm-expense-button-wrapper" class="submit-button-wrapper" style="margin: 20px;">
+			<button id="confirm-expense-button" class="pure-button secondary-green" style="width: 300px; height: 48px;">{% trans "Submit for review" %} &raquo;</button>
+		</div>
 	</div>
 
 {% endblock %}
