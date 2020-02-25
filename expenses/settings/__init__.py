@@ -18,13 +18,14 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-DEBUG = True
-#DEBUG = False
+#DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    ('Perfektio Webmaster', 'admin@perfektio.fi'),
-)
+ADMINS = ();
+# ADMINS = (
+#     ('Perfektio Webmaster', 'admin@perfektio.fi'),
+# )
 
 MANAGERS = ADMINS
 
