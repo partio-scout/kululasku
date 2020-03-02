@@ -40,12 +40,12 @@ $(function() {
       // Add the cloned empty form to the form
       clone.appendTo('#expenses');
       
-      // Fix indexes (to make the validation and datepickers bind correctly)
+      // Fix indexes (to make the validation and s bind correctly)
       fixIndexes();
       
       // Add datetimepickers to the new form
-      clone.find(".field-begin_at input, .field-ended_at input")
-        .AnyTime_picker(anytime_settings);
+      // clone.find(".field-begin_at_date input, .field-ended_at_date input")
+      //   .datepicker();
           
       // Add validation to the new form
       var form = $('#expense-form');
@@ -61,9 +61,9 @@ $(function() {
       var line = $(this).closest('.expenseline');
       
       // Remove Datetimepickers
-      line.find(".field-begin_at input, .field-ended_at input")
-          .AnyTime_noPicker()
-          .end()
+      // line.find(".field-begin_at_date input, .field-ended_at_date input")
+      //     .AnyTime_noPicker()
+      //     .end()
       
       // Remove validations
       var form = $('#expense-form');
@@ -145,12 +145,12 @@ $(function() {
     /* Calculate whole form total */
     
     /* Delegate clicks to calendar icon to the actual input element */
-    $('#expenses').on('click', 'i.icon-calendar', function() {
-      $(this)
-        .parent()
-        .find('input')
-        .focus();
-    });
+    // $('#expenses').on('click', 'i.icon-calendar', function() {
+    //   $(this)
+    //     .parent()
+    //     .find('input')
+    //     .focus();
+    // });
     
     /* Fix indexes and management form on form submit */
     $('#expense-form').on('submit', function() {
@@ -165,7 +165,7 @@ $(function() {
     });
     
     /* Init datetimepickers */
-    $(".field-begin_at input, .field-ended_at input").AnyTime_picker(anytime_settings);
+    // $(".field-begin_at_date input, .field-ended_at_date input").datepicker();
     
     /* Make enter to submit the form instead of adding more rows */
     $(window).keydown(function(event){

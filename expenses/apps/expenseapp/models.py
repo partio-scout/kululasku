@@ -191,7 +191,8 @@ class ExpenseType(models.Model):
   type = models.CharField(ugettext_lazy('Type'), max_length=5, choices=EXPENSE_TYPES)
   requires_receipt = models.BooleanField(ugettext_lazy('Requires receipt'), default=False)
   multiplier = models.DecimalField(ugettext_lazy('Multiplier'), max_digits=10, decimal_places=2, help_text=ugettext_lazy('The per price for the expense type (mileage: € per km, other expenses: 1, advances: -1)'))
-  requires_endtime = models.BooleanField(ugettext_lazy('Requires ending time'), default=False)
+  requires_endtime = models.BooleanField(ugettext_lazy('Requires ending date and time'), default=False)
+  requires_start_time = models.BooleanField(ugettext_lazy('Requires starting time'), default=False)
   persontype = models.IntegerField(ugettext_lazy('Person type'), null=True, default=None, blank=True, choices=PERSONTYPE_CHOICES)
   account = models.CharField(ugettext_lazy('Account'), max_length=20)
   unit = models.CharField(ugettext_lazy('Unit'), max_length=5, choices=UNITS)
@@ -216,6 +217,8 @@ class ExpenseType(models.Model):
       return self.name + ' (' + ugettext('Requires receipt') + ')'
     if self.requires_endtime:
       return self.name + ' (' + ugettext('Requires ending time') + ')'
+    if self.requires_start_time:
+          return self.name + ' (' + ugettext('Requires starting time') + ')'
 
     return self.name
 
@@ -226,7 +229,7 @@ class ExpenseTypeInline(admin.TabularInline):
   model = ExpenseType
   extra = 0
   can_delete = False
-  fields = ('name', 'active', 'type', 'persontype', 'multiplier', 'requires_receipt', 'requires_endtime', 'account', 'unit',)
+  fields = ('name', 'active', 'type', 'persontype', 'multiplier', 'requires_receipt', 'requires_endtime','requires_start_time', 'account', 'unit',)
 
 class OrganisationAdmin(admin.ModelAdmin):
   inlines = [
@@ -253,7 +256,7 @@ class Expense(models.Model):
   address = models.CharField(ugettext_lazy('Address'), max_length=255, validators=validators['address'])
   iban = IBANField(ugettext_lazy('Bank account no'))
   swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
-  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'])
+  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja.'))
   user = models.ForeignKey(User,on_delete=models.CASCADE)
 
   description = models.CharField(ugettext_lazy('Purpose'), max_length=255)
@@ -296,7 +299,6 @@ class Expense(models.Model):
     expenselines = ExpenseLine.objects.filter(expense=expense)
 
     return createKatreReport(expense, expenselines)
-# TODO Siirretty filun alkuun mergessä. toimi?
 
 # def receipt_path(path):
 #   def wrapper(instance, filename):

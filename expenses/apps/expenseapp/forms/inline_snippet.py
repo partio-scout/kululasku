@@ -1,6 +1,8 @@
 from django import forms
 from django.forms.models import ModelFormMetaclass
 from django.forms.models import inlineformset_factory
+from expenseapp.models import ExpenseLine
+from datetime import datetime
 
 
 # Inline formset-snippet:
@@ -88,6 +90,26 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
                 fset = FormSet(self.data, self.files, prefix=self._get_formset_prefix(key),
                                instance=instance)
                 if fset.is_valid():
+                    if(fset.model == ExpenseLine):
+                        for i in range(0, fset.total_form_count()):
+                            form = fset.forms[i]
+
+                            begin_at_date_str = form.cleaned_data['begin_at_date']
+                            begin_at_time_str = form.cleaned_data['begin_at_time'] 
+
+                            ended_at_date_str = form.cleaned_data['ended_at_date']
+                            ended_at_time_str = form.cleaned_data['ended_at_time']
+
+                            begin_at_str = '%s %s'%(begin_at_date_str, begin_at_time_str)
+                            begin_at = datetime.strptime(begin_at_str, "%Y-%m-%d %H:%M:%S")
+                            ended_at_str = '%s %s'%(ended_at_date_str, ended_at_time_str)
+                            ended_at = datetime.strptime(ended_at_str, "%Y-%m-%d %H:%M:%S")
+
+                            instance.begin_at = begin_at
+                            res = form.save(commit=False)
+                            res.begin_at = begin_at
+                            res.ended_at = ended_at
+                            res.save()
                     fset.save()
         return instance
 

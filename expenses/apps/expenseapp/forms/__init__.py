@@ -2,6 +2,7 @@ import re
 import json
 
 from django import forms
+from django.forms import SplitDateTimeWidget, DateInput, TimeInput
 from django.contrib import messages
 from django.forms.models import inlineformset_factory
 from crum import get_current_request
@@ -42,13 +43,17 @@ class BasisField(forms.CharField):
     value = value.replace(',', '.')
     return super(BasisField, self).to_python(value)
 
-#@parsleyfy
 class ExpenseLineForm(ModelForm):
-  begin_at = forms.DateTimeField(label=ugettext_lazy('Begin at'),
-    input_formats=('%d.%m.%Y %H.%M',))
-  ended_at = forms.DateTimeField(label=ugettext_lazy('Ended at'),
-    input_formats=('%d.%m.%Y %H.%M',),
-    required=False)
+  begin_at = forms.DateTimeField(widget=forms.HiddenInput, required=False)
+  ended_at = forms.DateTimeField(widget=forms.HiddenInput, required=False)
+  begin_at_date = forms.DateField(label=ugettext_lazy('Begin at date'), widget=DateInput(attrs={'placeholder':'DD.MM.YYYY', 'class':'short-input'}),
+   input_formats=('%d.%m.%Y',), required=True)
+  begin_at_time = forms.TimeField(label=ugettext_lazy('Begin at time'), input_formats=('%H.%M',), widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'short-input'}), required=False)
+  ended_at_date = forms.DateField(label=ugettext_lazy('Ended at date'),
+    input_formats=('%d.%m.%Y',),
+    required=False, widget=DateInput(attrs={'placeholder':'DD.MM.YYYY', 'class':'short-input'}))
+  ended_at_time = forms.TimeField(label=ugettext_lazy('Ended at time'),
+    input_formats=('%H.%M',), required=False, widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'short-input'}))
   basis = BasisField(required=True,
     widget=forms.TextInput(attrs={'data-regexp':'^-?\d+([\,,\.](\d){1,2})?$', 'localization': True}),
     label=ugettext_lazy('Amount'),
@@ -59,10 +64,10 @@ class ExpenseLineForm(ModelForm):
 
   class Meta:
     model = ExpenseLine
-    exclude = ('expensetype_type', 'expensetype_name', 'multiplier', 'accountdimension',)
+    exclude = ('expensetype_type', 'expensetype_name', 'multiplier', 'accountdimension')
+  field_order = ('expensetype','begin_at_date', 'begin_at_time','ended_at_date', 'ended_at_time', 'description','basis','receipt')
 
   def __init__(self, *args, **kwargs):
-    #super(ExpenseLineForm, self).__init__(*args, **kwargs)
     super().__init__(*args, **kwargs)
     current_request = get_current_request()
     r = re.compile(r'^/expense/new/(?P<organisation_id>\d+)$')
@@ -88,20 +93,32 @@ class ExpenseLineForm(ModelForm):
   def clean(self):
     cleaned_data = super().clean()
     expensetype = cleaned_data.get("expensetype")
+    begin_at_date = cleaned_data.get("begin_at_date")
+    begin_at_time = cleaned_data.get("begin_at_time")
+    ended_at_date = cleaned_data.get("ended_at_date")
+    ended_at_time = cleaned_data.get("ended_at_time")
     ended_at = cleaned_data.get("ended_at")
     receipt = cleaned_data.get("receipt")
 
-    if expensetype and expensetype.requires_endtime and not ended_at:
-      self._errors["ended_at"] = self.error_class([ugettext_lazy('This expense type requires an ending time!')])
+    if expensetype and expensetype.requires_endtime and not ended_at_date:
+        self._errors["ended_at_date"] = self.error_class([ugettext_lazy('This expense type requires an ending date!')])
+    
+    if expensetype and expensetype.requires_endtime and not ended_at_time:
+        self._errors["ended_at_time"] = self.error_class([ugettext_lazy('This expense type requires an ending time!')])
+    
+    if expensetype and expensetype.requires_start_time and not begin_at_date:
+        self._errors["begin_at_date"] = self.error_class([ugettext_lazy('This expense type requires a beginning date!')])
+    
+    if expensetype and expensetype.requires_start_time and not begin_at_time:
+        self._errors["begibegin_at_timen_at_date"] = self.error_class([ugettext_lazy('This expense type requires a beginning time!')])
 
     if expensetype and expensetype.requires_receipt and not receipt:
-      self._errors["receipt"] = self.error_class([ugettext_lazy('This expense type requires a receipt!')])
+        self._errors["receipt"] = self.error_class([ugettext_lazy('This expense type requires a receipt!')])
 
     return cleaned_data
 
 ExpenseLineFormset = inlineformset_factory(Expense, ExpenseLine, form=ExpenseLineForm, extra=1, can_delete=False)
 
-#@parsleyfy
 class ExpenseForm(ModelForm):
   required_css_class = 'required'
   cc_email = forms.EmailField(label=ugettext_lazy('CC Email'), max_length=255, required=False, 

@@ -75,10 +75,6 @@ body {
   transform-origin: 0% 100%;
 }
 
-/* 
-* Transform all the slices of hamburger
-* into a crossmark.
-*/
 #menu-toggle input:checked ~ span
 {
   opacity: 1;
@@ -114,6 +110,12 @@ body {
   letter-spacing: normal;
   display: inline-block;
   margin: 10px;
+  max-width: min-content;
+}
+
+.account-wrapper {
+  max-width: 60%;
+  margin: auto;
 }
 
 .pure-g {
@@ -134,6 +136,10 @@ body {
   display: block;
   width: 28vw;
   border: 1px solid #ccc;
+}
+
+.pure-form .pure-control-group .short-input {
+  width: 12vw;
 }
 
 
@@ -162,10 +168,16 @@ body {
   margin: 0;
 }
 
-/* If the screen size is 1001px wide or more, set the font-size of <div> to 80px */
-@media screen and (min-width: 1001px) {
+/* If the screen size is 1201px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 1201px) {
   body {
     font-size: 18px;
+  }
+
+  .logo {
+    top: 25px;
+    left: 75px;
+    position: absolute;
   }
 
   .dropdown {
@@ -197,10 +209,10 @@ body {
 
   .menu-list {
     top: 20px;
-    float: right;
+    right: -40px;
     text-align: center;
     list-style: none;
-    position: relative;
+    position: absolute;
   }
 
   #menu {
@@ -273,9 +285,8 @@ body {
   flex-wrap: wrap;
 }
 
-
 /* If the screen size is 1000px wide or less, set the font-size of <div> to 16px */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   body {
     font-size: 16px;
   }
@@ -284,6 +295,12 @@ body {
     display: block;
     width: 70vw;
     border: 1px solid #ccc;
+  }
+  
+
+  .logo {
+    padding: 30px;
+    text-align: center;
   }
 
   .wrapper-container {
@@ -298,14 +315,14 @@ body {
     visibility: hidden;
   }
 
+  .pure-form .pure-control-group .short-input {
+    width: 34vw;
+  }
+
   .menu-list {
     text-align: center;
     list-style: none;
     padding: 50px;
-  }
-
-  .logo {
-    visibility: hidden;
   }
 
   #masthead {
