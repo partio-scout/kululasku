@@ -130,34 +130,32 @@ def expense(request, organisation_id):
         line = ExpenseLine()
         try:
           line.basis = Decimal(request.POST.get("%sbasis" % line_prefix).replace(",", "."))
-        except Exception as e:
-          line.basis = 0
-        line.expensetype = ExpenseType.objects.get(pk=request.POST.get("%sexpensetype" % line_prefix))
-
-        ended_at_date_input = request.POST.get("%sended_at_date" % line_prefix, None)
-        ended_at_time_input = request.POST.get("%sended_at_time" % line_prefix, None)
-        begin_at_date_input = request.POST.get("%sbegin_at_date" % line_prefix, None)
-        begin_at_time_input = request.POST.get("%sbegin_at_time" % line_prefix, None)
-
-        if(ended_at_date_input == ''):
-          if(ended_at_time_input == ''):
-            ended_at = None
+          line.expensetype = ExpenseType.objects.get(pk=request.POST.get("%sexpensetype" % line_prefix))
+          ended_at_date_input = request.POST.get("%sended_at_date" % line_prefix, None)
+          ended_at_time_input = request.POST.get("%sended_at_time" % line_prefix, None)
+          begin_at_date_input = request.POST.get("%sbegin_at_date" % line_prefix, None)
+          begin_at_time_input = request.POST.get("%sbegin_at_time" % line_prefix, None)
+          if(ended_at_date_input == ''):
+              ended_at = None
           else:
-            ended_at_time_str = "00:00"
-        else:    
-          ended_at_date_str = None
-          ended_at_time_str = "00:00"
-          
-
-        ended_at_time_str = request.POST.get("%sended_at_time" % line_prefix, None)
-        begin_at_date_str = request.POST.get("%sbegin_at_date" % line_prefix, None)
-        begin_at_time_str = request.POST.get("%sbegin_at_time" % line_prefix, None)
-        begin_at_str = '%s %s'%(begin_at_date_str, begin_at_time_str)
-
-        if ended_at_str:
-          ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H:%M")
+            if(ended_at_time_input == ''):
+              ended_at_time_str = "00.00"
+              ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
+              ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H.%M")
+            else:
+              ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
+              ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H.%M")
+        except Exception as e:
+          messages.error(request, _('Please verify that all information is correct.'))
+        
+        if(begin_at_date_input == ''):
+          return HttpResponse("<script>window.top.$('#id_preview').val(0); window.top.$('#expense-form').off('submit.open_preview').attr('target', '').submit();</script>")
         else:
-          ended_at = None
+          if(begin_at_time_input == ''):
+            begin_at_time_input = "00.00"
+
+          
+        begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
 
         begin_at = datetime.strptime(begin_at_str, "%d.%m.%Y %H.%M")
         expense_form.cleaned_data['expenseform_EXPENSELINES-0-begin_at'] = begin_at
@@ -194,43 +192,8 @@ def expense(request, organisation_id):
   #time.sleep(5)
 
   if expense_form.is_valid():
-    expense_form.cleaned_data['expenseform_EXPENSELINES-0-begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
-    expense_form.cleaned_data['begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
-    print(expense_form.cleaned_data)
-    #print(request.POST['expenseform_EXPENSELINES-0-begin_at_date'])
-    # lines = []
-    # num_lines = int(request.POST.get('expenseform_EXPENSELINES-TOTAL_FORMS'))
-    # for line_num in range(num_lines):
-    #   line_prefix = "expenseform_EXPENSELINES-%s-" % line_num
-    #   tmp = OrderedDict()
-    #   line = ExpenseLine()
-    #   try:
-    #     line.basis = Decimal(request.POST.get("%sbasis" % line_prefix).replace(",", "."))
-    #   except Exception as e:
-    #     line.basis = 0
-    #   line.expensetype = ExpenseType.objects.get(pk=request.POST.get("%sexpensetype" % line_prefix))
-
-    #   ended_at_date_str = request.POST.get("%sended_at_date" % line_prefix, None)
-    #   ended_at_time_str = request.POST.get("%sended_at_time" % line_prefix, None)
-    #   ended_at_str = '%s %s'%(ended_at_date_str, ended_at_time_str)
-
-    #   begin_at_date_str = request.POST.get("%sbegin_at_date" % line_prefix, None)
-    #   begin_at_time_str = request.POST.get("%sbegin_at_time" % line_prefix, None)
-    #   begin_at_str = '%s %s'%(begin_at_date_str, begin_at_time_str)
-
-    #   #ended_at_str = request.POST.get("%sended_at" % line_prefix, None)
-    #   if ended_at_str:
-    #     line.ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H.%M")
-    #   else:
-    #     line.ended_at = None
-
-    #   line.begin_at = datetime.strptime(begin_at_str, "%d.%m.%Y %H.%M")
-    #   #print(777777, expense_form.cleaned_data['begin_at'] = timestamp)# = begin_at
-    #   #expense_form.cleaned_data[('%sended_at') % line_prefix] = ended_at
-    #   #print(expense_form.cleaned_data)
-    #   lines.append(line)
-    # expense_form.cleaned_data['lines'] = lines
-    # print(123456789, lines)
+    #expense_form.cleaned_data['expenseform_EXPENSELINES-0-begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
+    #expense_form.cleaned_data['begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
     expense = expense_form.save()
 
     # Send the email
