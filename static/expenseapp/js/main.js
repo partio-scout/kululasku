@@ -54,6 +54,24 @@ $(function() {
           form.parsley( 'addItem', $(this));
         });
     });
+
+    // findExpensetypeData2 =function findExpensetypeData2(seekFor) {
+    //   var correct;
+    //   $.each(expensetype_data, function(i, el) {
+    //     if (el.name == seekFor) {
+    //       correct = el;
+    //       return false;
+    //     }
+    //   });
+    //   return correct;
+    // }
+
+    // /* Update date and time requirements*/
+    // $('select').on('change', function() {
+    //   var line = $(this).closest('.expenseline');
+    //   var expensetype_data = JSON.parse($('[id$="expensetype_data"]').first().val());
+    //   console.log( this.value, line, expensetype_data );
+    // });
     
     /* Delete single expenselines */
     $('#expenses').on('click', '.delete-expenseline', function(e) {
@@ -105,7 +123,7 @@ $(function() {
         var $type_data = findExpensetypeData($type.text()),
             $basis = $row.find('input[id$=basis]'),
             subtotal_text = '';
-        
+        // console.log($type_data);
         if($type_data) {
           subtotal_text = ' ' + $type_data.unit + ' × ' + $type_data.multiplier.toString().replace('.', ',') + ' = ';
           

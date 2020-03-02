@@ -232,6 +232,7 @@ class ExpenseTypeInline(admin.TabularInline):
   fields = ('name', 'active', 'type', 'persontype', 'multiplier', 'requires_receipt', 'requires_endtime','requires_start_time', 'account', 'unit',)
 
 class OrganisationAdmin(admin.ModelAdmin):
+  ordering = ['name']
   inlines = [
     ExpenseTypeInline,
     AccountDimensionInline,
@@ -328,7 +329,7 @@ class ExpenseLine(models.Model):
   expensetype_name = models.CharField(ugettext_lazy('Name'), max_length=255)
   expensetype_type = models.CharField(ugettext_lazy('Type'), max_length=5, choices=EXPENSE_TYPES)
   multiplier = models.DecimalField(ugettext_lazy('Multiplier'), max_digits=10, decimal_places=2, help_text=ugettext_lazy('The per price for the expense type (mileage: € per km, other expenses: 1, advances: -1)'))
-
+  
   def save(self):
     self.multiplier = self.expensetype.multiplier
     self.expensetype_type = self.expensetype.type

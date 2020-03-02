@@ -110,7 +110,7 @@ class ExpenseLineForm(ModelForm):
         self._errors["begin_at_date"] = self.error_class([ugettext_lazy('This expense type requires a beginning date!')])
     
     if expensetype and expensetype.requires_start_time and not begin_at_time:
-        self._errors["begibegin_at_timen_at_date"] = self.error_class([ugettext_lazy('This expense type requires a beginning time!')])
+        self._errors["begin_at_time"] = self.error_class([ugettext_lazy('This expense type requires a beginning time!')])
 
     if expensetype and expensetype.requires_receipt and not receipt:
         self._errors["receipt"] = self.error_class([ugettext_lazy('This expense type requires a receipt!')])
@@ -144,7 +144,12 @@ class PersonForm(ModelForm):
 
   def clean_email(self):
    email = self.cleaned_data['email']
-   if User.objects.filter(email=email).exclude(pk=self.instance.pk).exists():
+   print(self.instance.__dict__)
+   res = User.objects.filter(email=email).exclude(pk=self.instance.pk).exists()
+   #print(123456789, res)
+   search = User.objects.filter(email=email)
+   print(search[0].__dict__)
+   if User.objects.filter(email=email).exclude(pk=self.instance.user_id).exists():
        raise forms.ValidationError(ugettext_lazy("Email already exists"))
    return email
 
