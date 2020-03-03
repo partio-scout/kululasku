@@ -55,23 +55,16 @@ $(function() {
         });
     });
 
-    // findExpensetypeData2 =function findExpensetypeData2(seekFor) {
-    //   var correct;
-    //   $.each(expensetype_data, function(i, el) {
-    //     if (el.name == seekFor) {
-    //       correct = el;
-    //       return false;
-    //     }
-    //   });
-    //   return correct;
-    // }
-
-    // /* Update date and time requirements*/
-    // $('select').on('change', function() {
-    //   var line = $(this).closest('.expenseline');
-    //   var expensetype_data = JSON.parse($('[id$="expensetype_data"]').first().val());
-    //   console.log( this.value, line, expensetype_data );
-    // });
+    findExpensetypeData2 =function findExpensetypeData2(seekFor) {
+      var correct;
+      $.each(expensetype_data, function(i, el) {
+        if (el.name == seekFor) {
+          correct = el;
+          return false;
+        }
+      });
+      return correct;
+    }
     
     /* Delete single expenselines */
     $('#expenses').on('click', '.delete-expenseline', function(e) {
@@ -123,9 +116,30 @@ $(function() {
         var $type_data = findExpensetypeData($type.text()),
             $basis = $row.find('input[id$=basis]'),
             subtotal_text = '';
-        // console.log($type_data);
         if($type_data) {
           subtotal_text = ' ' + $type_data.unit + ' × ' + $type_data.multiplier.toString().replace('.', ',') + ' = ';
+
+          if($type_data.requires_endtime) {
+            $row.find(".ended_at_date").parent().addClass('required');
+            $row.find(".ended_at_date").parent().css('visibility', 'visible')
+    
+            $row.find(".ended_at_time").parent().addClass('required');
+            $row.find(".ended_at_time").parent().css("visibility", 'visible')
+          } else {
+            $row.find(".ended_at_date").parent().removeClass('required');
+            $row.find(".ended_at_date").parent().css("visibility", "hidden");
+    
+            $row.find(".ended_at_time").parent().removeClass('required');
+            $row.find(".ended_at_time").parent().css("visibility", "hidden");
+          }
+    
+          if($type_data.requires_start_time) {
+            $row.find(".begin_at_time").parent().addClass('required');
+            $row.find(".begin_at_time").parent().css('visibility', 'visible')
+          } else {
+            $row.find(".begin_at_time").parent().removeClass('required');
+            $row.find(".begin_at_time").parent().css("visibility", "hidden");
+          }
           
          if($basis.val() != '') {
             var basis = parseFloat($basis.val().replace(',', '.'));

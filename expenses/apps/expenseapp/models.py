@@ -207,9 +207,11 @@ class ExpenseType(models.Model):
 
   def js_data(self):
     return {
-      'name': self.__unicode__(),
+      'name': self.name,
       'multiplier': str(self.multiplier),
-      'unit': self.unit
+      'unit': self.unit,
+      'requires_endtime': self.requires_endtime,
+      'requires_start_time': self.requires_start_time
     }
 
   def __unicode__(self):
