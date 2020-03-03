@@ -111,6 +111,7 @@ body {
   display: inline-block;
   margin: 10px;
   max-width: min-content;
+  vertical-align: top;
 }
 
 .account-wrapper {
@@ -123,6 +124,7 @@ body {
 }
 
 .pure-form-aligned .pure-control-group label {
+  white-space: nowrap;
   text-align: left;
   display: inline;
 }

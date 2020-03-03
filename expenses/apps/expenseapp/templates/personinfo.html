@@ -7,7 +7,7 @@
 <!-- Current language: {{ LANGUAGE_CODE }} -->
 
 <h1>{% blocktrans %}User info{% endblocktrans %}</h1>
-<div class="blue-bottom" style="text-align: center;">
+<div class="blue-bottom">
 
 <form action='{% url 'personinfo' %}' id='person-form' method='post' class="pure-form pure-form-aligned" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
   {% csrf_token %}
