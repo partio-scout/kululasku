@@ -120,25 +120,32 @@ $(function() {
           subtotal_text = ' ' + $type_data.unit + ' × ' + $type_data.multiplier.toString().replace('.', ',') + ' = ';
 
           if($type_data.requires_endtime) {
+
             $row.find(".ended_at_date").parent().addClass('required');
             $row.find(".ended_at_date").parent().css('visibility', 'visible')
+            $row.find(".ended_at_date").prop("disabled", false)
     
             $row.find(".ended_at_time").parent().addClass('required');
             $row.find(".ended_at_time").parent().css("visibility", 'visible')
+            $row.find(".ended_at_time").prop("disabled", false)
           } else {
             $row.find(".ended_at_date").parent().removeClass('required');
             $row.find(".ended_at_date").parent().css("visibility", "hidden");
+            $row.find(".ended_at_time").prop("disabled", true)
     
             $row.find(".ended_at_time").parent().removeClass('required');
             $row.find(".ended_at_time").parent().css("visibility", "hidden");
+            $row.find(".ended_at_time").prop("disabled", true)
           }
     
           if($type_data.requires_start_time) {
             $row.find(".begin_at_time").parent().addClass('required');
             $row.find(".begin_at_time").parent().css('visibility', 'visible')
+            $row.find(".begin_at_time").prop("disabled", false)
           } else {
             $row.find(".begin_at_time").parent().removeClass('required');
             $row.find(".begin_at_time").parent().css("visibility", "hidden");
+            $row.find(".begin_at_time").prop("disabled", true)
           }
           
          if($basis.val() != '') {

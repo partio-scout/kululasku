@@ -135,29 +135,42 @@ def expense(request, organisation_id):
           ended_at_time_input = request.POST.get("%sended_at_time" % line_prefix, None)
           begin_at_date_input = request.POST.get("%sbegin_at_date" % line_prefix, None)
           begin_at_time_input = request.POST.get("%sbegin_at_time" % line_prefix, None)
-          if(ended_at_date_input == ''):
-              ended_at = None
-          else:
+        except Exception as e:
+          messages.error(request, _('Please verify that all information is correct.'))
+          
+        
+        if(line.expensetype.requires_endtime):
+          try:
             if(ended_at_time_input == ''):
               ended_at_time_str = "00.00"
               ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
               ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H.%M")
             else:
-              ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
+              ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_input)
               ended_at = datetime.strptime(ended_at_str, "%d.%m.%Y %H.%M")
-        except Exception as e:
-          messages.error(request, _('Please verify that all information is correct.'))
-        
-        if(begin_at_date_input == ''):
-          return HttpResponse("<script>window.top.$('#id_preview').val(0); window.top.$('#expense-form').off('submit.open_preview').attr('target', '').submit();</script>")
+          except Exception as e:
+            messages.error(request, _('Please verify ending dates are correct.'))
         else:
-          if(begin_at_time_input == ''):
-            begin_at_time_input = "00.00"
-
+          ended_at = None
           
-        begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
-
-        begin_at = datetime.strptime(begin_at_str, "%d.%m.%Y %H.%M")
+        if(line.expensetype.requires_start_time):
+          try:
+            if(begin_at_date_input == ''):
+                return HttpResponse("<script>window.top.$('#id_preview').val(0); window.top.$('#expense-form').off('submit.open_preview').attr('target', '').submit();</script>")
+            else:
+              if(begin_at_time_input == ''):
+                begin_at_time_input = "00.00"
+            begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
+            begin_at = datetime.strptime(begin_at_str, "%d.%m.%Y %H.%M")
+          except Exception as e:
+            messages.error(request, _('Please verify dates are correct.'))
+        else:
+          begin_at_time_input = "00.00"
+          begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
+          begin_at = datetime.strptime(begin_at_str, "%d.%m.%Y %H.%M")
+        
+          
+        
         expense_form.cleaned_data['expenseform_EXPENSELINES-0-begin_at'] = begin_at
 
         tmp['id']           = None
@@ -192,8 +205,6 @@ def expense(request, organisation_id):
   #time.sleep(5)
 
   if expense_form.is_valid():
-    #expense_form.cleaned_data['expenseform_EXPENSELINES-0-begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
-    #expense_form.cleaned_data['begin_at'] = datetime.strptime('12.12.2020 12.12', "%d.%m.%Y %H.%M")
     expense = expense_form.save()
 
     # Send the email

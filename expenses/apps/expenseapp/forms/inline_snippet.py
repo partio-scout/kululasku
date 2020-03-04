@@ -94,20 +94,35 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
                         for i in range(0, fset.total_form_count()):
                             form = fset.forms[i]
 
-                            begin_at_date_str = form.cleaned_data['begin_at_date']
-                            begin_at_time_str = form.cleaned_data['begin_at_time'] 
+                            ended_at_date_input = form.cleaned_data['ended_at_date']
+                            ended_at_time_input = form.cleaned_data['ended_at_time']
+                            begin_at_date_input = form.cleaned_data['begin_at_date']
+                            begin_at_time_input = form.cleaned_data['begin_at_time']
 
-                            ended_at_date_str = form.cleaned_data['ended_at_date']
-                            ended_at_time_str = form.cleaned_data['ended_at_time']
+                            if(ended_at_date_input == None):
+                                ended_at = None
+                            else:
+                                if(ended_at_time_input == None):
+                                    ended_at_time_str = "00:00:00"
+                                    ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
+                                    ended_at = datetime.strptime(ended_at_str, '%Y-%m-%d %H:%M:%S')
+                                else:
+                                    ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_input)
+                                    ended_at = datetime.strptime(ended_at_str, '%Y-%m-%d %H:%M:%S')
+                            
+                            if(begin_at_date_input == None):
+                                return HttpResponse("<script>window.top.$('#id_preview').val(0); window.top.$('#expense-form').off('submit.open_preview').attr('target', '').submit();</script>")
+                            else:
+                                if(begin_at_time_input == None):
+                                    begin_at_time_input = "00:00:00"
 
-                            begin_at_str = '%s %s'%(begin_at_date_str, begin_at_time_str)
-                            begin_at = datetime.strptime(begin_at_str, "%Y-%m-%d %H:%M:%S")
-                            ended_at_str = '%s %s'%(ended_at_date_str, ended_at_time_str)
-                            ended_at = datetime.strptime(ended_at_str, "%Y-%m-%d %H:%M:%S")
+                                
+                            begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
+                            begin_at = datetime.strptime(begin_at_str, '%Y-%m-%d %H:%M:%S')
+                        
 
-                            instance.begin_at = begin_at
                             res = form.save(commit=False)
-                            res.begin_at = begin_at
+                            res.begin_at = begin_at_str
                             res.ended_at = ended_at
                             res.save()
                     fset.save()
