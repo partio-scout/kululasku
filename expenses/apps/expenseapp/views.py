@@ -14,7 +14,7 @@ from collections import deque
 from django.urls import reverse
 from django.contrib import messages
 from locale import currency
-from expenses.settings import MEDIA_ROOT, STATIC_URL
+from expenses.settings import MEDIA_ROOT, MEDIA_URL
 from os.path import basename
 from django.utils.encoding import smart_text
 from expenseapp.helpers import cc_expense
@@ -47,7 +47,7 @@ def receipt_fetch(request, expenselineid):
 
   response = HttpResponse()
   response['Content-Disposition'] = 'attachment; filename=%s' % smart_text(basename(expenseline.receipt.name))
-  response['X-Accel-Redirect'] = STATIC_URL + expenseline.receipt.url
+  response['X-Accel-Redirect'] = expenseline.receipt.url
   return response
 
 @login_required()

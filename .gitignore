@@ -13,3 +13,4 @@ staticfiles/*
 .vscode/*
 static/uploads/receipts/*
 expenses/uploads/receipts
+media/receipts/*
