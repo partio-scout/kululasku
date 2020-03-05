@@ -300,7 +300,7 @@ msgstr ""
 
 #: models.py:259
 msgid "Email address"
-msgstr "E-postadress"
+msgstr "E-postadressen"
 
 #: models.py:260
 msgid "CC email address"

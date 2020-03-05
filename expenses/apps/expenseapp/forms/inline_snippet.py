@@ -99,6 +99,8 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
                             begin_at_date_input = form.cleaned_data['begin_at_date']
                             begin_at_time_input = form.cleaned_data['begin_at_time']
 
+                            file_input = form.cleaned_data['receipt']
+
                             if(ended_at_date_input == None):
                                 ended_at = None
                             else:

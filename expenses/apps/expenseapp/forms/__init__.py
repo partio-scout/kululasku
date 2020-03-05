@@ -9,6 +9,7 @@ from crum import get_current_request
 from django.utils.translation import ugettext_lazy, ugettext as _
 from django.db.models import Q
 from localflavor.generic.forms import BICFormField, IBANFormField
+from expenses.settings import MAX_UPLOAD_SIZE
 
 from expenseapp.forms import inline_snippet
 from expenseapp.models import Expense, ExpenseLine, ExpenseType, Person, Organisation, User
@@ -99,6 +100,11 @@ class ExpenseLineForm(ModelForm):
     ended_at_time = cleaned_data.get("ended_at_time")
     ended_at = cleaned_data.get("ended_at")
     receipt = cleaned_data.get("receipt")
+
+    print(33333, receipt.__dict__)
+
+    if receipt and receipt._size > MAX_UPLOAD_SIZE:
+        self._errors["receipt"] = self.error_class([ugettext_lazy('Please choose smaller file. Size limit is 5MB and your file is %s' %  receipt._size)])
 
     if expensetype and expensetype.requires_endtime and not ended_at_date:
         self._errors["ended_at_date"] = self.error_class([ugettext_lazy('This expense type requires an ending date!')])

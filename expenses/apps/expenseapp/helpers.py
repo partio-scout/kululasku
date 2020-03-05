@@ -29,7 +29,7 @@ def cc_expense(instance):
     for line in lines:
       rows = rows + rowtemplate % (line.begin_at.strftime('%d.%m.%Y'), line.expensetype, line.basis, line.multiplier, locale.currency(line.sum(), False), line.description)
 
-    body = ugettext("""Hi,
+    body = ("""Hi,
 
 You were CC'd in a new expense application for %s.
 

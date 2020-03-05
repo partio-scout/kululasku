@@ -3,59 +3,50 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-05 08:55+0000\n"
-"PO-Revision-Date: 2016-05-03 13:57+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fi\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.9\n"
 
 #: expenses/apps/expenseapp/forms/__init__.py:50
-#, fuzzy
-#| msgid "Begin at"
 msgid "Begin at date"
-msgstr "Alkoi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:52
-#, fuzzy
-#| msgid "Begin at"
 msgid "Begin at time"
-msgstr "Alkoi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:53
-#, fuzzy
-#| msgid "Ended at"
 msgid "Ended at date"
-msgstr "Päättyi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:56
-#, fuzzy
-#| msgid "Ended at"
 msgid "Ended at time"
-msgstr "Päättyi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:60
 #: expenses/apps/expenseapp/models.py:325 expenses/apps/expenseapp/views.py:187
 #: expenses/apps/expenseapp/views.py:255
 msgid "Amount"
-msgstr "Summa"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:61
 #: expenses/apps/expenseapp/models.py:325
 msgid "Amount of kilometres, days or the sum of the expense"
-msgstr "Kilometrien tai päivien määrä tai muun kulun summa"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:78
 msgid "Organisation ID was not found."
-msgstr "Organisaatiota ei löytynyt."
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:107
 #, python-format
@@ -63,98 +54,90 @@ msgid "Please choose smaller file. Size limit is 5MB and your file is %s"
 msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:110
-#, fuzzy
-#| msgid "This expense type requires an ending time!"
 msgid "This expense type requires an ending date!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:113
 msgid "This expense type requires an ending time!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:116
-#, fuzzy
-#| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning date!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:119
-#, fuzzy
-#| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning time!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:122
 msgid "This expense type requires a receipt!"
-msgstr "Tämä kulutyyppi vaatii kuitin!"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:130
-#, fuzzy
-#| msgid "Email"
 msgid "CC Email"
-msgstr "Sähköposti"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:147
 msgid "First name"
-msgstr "Etunimi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:148
 msgid "Last name"
-msgstr "Sukunimi"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:149
 #: expenses/apps/expenseapp/views.py:114 expenses/apps/expenseapp/views.py:235
 msgid "Email"
-msgstr "Sähköposti"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:159
 msgid "Email already exists"
-msgstr "Sähköpostiosoite on jo käytössä"
+msgstr ""
 
 #: expenses/apps/expenseapp/forms/__init__.py:173
 #: expenses/apps/expenseapp/models.py:193
 #: expenses/apps/expenseapp/models.py:333
 msgid "Multiplier"
-msgstr "Kerroin"
+msgstr ""
 
 #: expenses/apps/expenseapp/helpers.py:27
 msgid "Date\t\tType\t\tAmount\n"
-msgstr "Pvm\t\tTyyppi\t\tMäärä\n"
+msgstr ""
 
 #: expenses/apps/expenseapp/helpers.py:49
 msgid "New expense CC'd to you"
-msgstr "Kululasku lähetetty kopiona sinulle"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:30 expenses/apps/expenseapp/models.py:61
 msgid "Enter a valid Finnish personal identity code."
-msgstr "Syötä kelvollinen suomalainen henkilötunnus."
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:55
 msgid "Enter a valid Finnish personal identity code or Finnish business ID."
-msgstr "Syötä kelvollinen suomalainen henkilötunnus tai Y-tunnus."
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:66
 msgid "Enter a valid Finnish business ID."
-msgstr "Syötä kelvollinen suomalainen Y-tunnus."
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:77
 msgid "Enter a valid phone number without any spaces or dashes."
-msgstr "Syötä kelvollinen puhelinnumero ilman välilyöntejä ja -viivoja."
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:83
 msgid "Enter your first and last name."
-msgstr "Syötä etu- ja sukunimesi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:91 expenses/apps/expenseapp/models.py:115
 #: expenses/apps/expenseapp/models.py:189
 #: expenses/apps/expenseapp/models.py:255
 #: expenses/apps/expenseapp/models.py:331 expenses/apps/expenseapp/views.py:234
 msgid "Name"
-msgstr "Nimi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:92
 msgid "Business ID"
-msgstr "Y-tunnus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:93
 msgid "EmCe yritystunnus"
@@ -166,58 +149,57 @@ msgstr ""
 
 #: expenses/apps/expenseapp/models.py:95
 msgid "Selectable"
-msgstr "Valittavissa"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:96
 msgid "Send active"
-msgstr "Lähetetään eräajossa"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:116
 msgid "Account dimension code"
-msgstr "Kustannuspaikan koodi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:116
 msgid "Account dimension code(s). If multiple, separate with semicolons (;)."
 msgstr ""
-"Kustannuspaikan tai -paikkojen koodit. Jos useampi, erota puolipisteellä (;)."
 
 #: expenses/apps/expenseapp/models.py:130
 msgid "Trustee"
-msgstr "Luottamushenkilö"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:131
 msgid "Employee"
-msgstr "Työntekijä"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:137
 #: expenses/apps/expenseapp/models.py:258 expenses/apps/expenseapp/views.py:115
 #: expenses/apps/expenseapp/views.py:236
 msgid "Phone"
-msgstr "Puhelin"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:138
 #: expenses/apps/expenseapp/models.py:259 expenses/apps/expenseapp/views.py:116
 #: expenses/apps/expenseapp/views.py:237
 msgid "Address"
-msgstr "Osoite"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:139
 #: expenses/apps/expenseapp/models.py:260 expenses/apps/expenseapp/views.py:117
 #: expenses/apps/expenseapp/views.py:238
 msgid "Bank account no"
-msgstr "Tilinumero"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:140
 #: expenses/apps/expenseapp/models.py:261 expenses/apps/expenseapp/views.py:118
 #: expenses/apps/expenseapp/views.py:239
 msgid "BIC no"
-msgstr "BIC-koodi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:141
 #: expenses/apps/expenseapp/models.py:262 expenses/apps/expenseapp/views.py:119
 #: expenses/apps/expenseapp/views.py:240
 msgid "Person number"
-msgstr "Henkilötunnus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:141
 msgid ""
@@ -225,68 +207,65 @@ msgid ""
 "announcements to the tax authority. If you don't want to save it here, you "
 "can enter it to each expense application separately."
 msgstr ""
-"Henkilötunnus vaaditaan jokaiseen kululaskuun verottajan vuosi-ilmoitusta "
-"varten. Mikäli et halua tallentaa sitä omiin tietoihisi, voit syöttää sen "
-"jokaiseen kululaskuun erikseen."
 
 #: expenses/apps/expenseapp/models.py:142
 #: expenses/apps/expenseapp/models.py:191
 #: expenses/apps/expenseapp/models.py:332
 msgid "Type"
-msgstr "Tyyppi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:143
 msgid "Site language"
-msgstr "Sivuston kieli"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:173
 msgid "Mileage"
-msgstr "Kilometrikorvaus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:174
 msgid "Full per diem"
-msgstr "Kokopäiväraha"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:175
 msgid "Partial per diem"
-msgstr "Osapäiväraha"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:176
 msgid "Foreign per diem"
-msgstr "Ulkomaan päiväraha"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:177
 msgid "Meal allowance"
-msgstr "Ateriakorvaus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:178
 msgid "Other"
-msgstr "Muu"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:182
 msgid "km"
-msgstr "km"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:183
 msgid "days"
-msgstr "pv"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:184
 msgid "pieces"
-msgstr "kpl"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:185
 msgid "€"
-msgstr "€"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:190
 msgid "Active"
-msgstr "Valittavissa"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:192
 #: expenses/apps/expenseapp/models.py:219
 msgid "Requires receipt"
-msgstr "Vaatii kuitin"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:193
 #: expenses/apps/expenseapp/models.py:333
@@ -294,49 +273,43 @@ msgid ""
 "The per price for the expense type (mileage: € per km, other expenses: 1, "
 "advances: -1)"
 msgstr ""
-"Kulutyypin yksikköhinta (kilometrikorvauksissa km-taksa, muissa kuluissa 1, "
-"ennakoissa -1)"
 
 #: expenses/apps/expenseapp/models.py:194
-#, fuzzy
-#| msgid "Requires ending time"
 msgid "Requires ending date and time"
-msgstr "Vaatii päättymisajan"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:195
 #: expenses/apps/expenseapp/models.py:223
-#, fuzzy
-#| msgid "Requires ending time"
 msgid "Requires starting time"
-msgstr "Vaatii päättymisajan"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:196
 msgid "Person type"
-msgstr "Henkilön tyyppi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:197
 msgid "Account"
-msgstr "Tili"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:198
 msgid "Unit"
-msgstr "Yksikkö"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:221
 msgid "Requires ending time"
-msgstr "Vaatii päättymisajan"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:244
 #: expenses/apps/expenseapp/models.py:249
 msgid "Open"
-msgstr "Avoin"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:245
 #: expenses/apps/expenseapp/models.py:251
 #: expenses/apps/expenseapp/models.py:271 expenses/apps/expenseapp/views.py:122
 #: expenses/apps/expenseapp/views.py:243
 msgid "Sent"
-msgstr "Lähetetty"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:250
 msgid "Not needed"
@@ -344,11 +317,11 @@ msgstr ""
 
 #: expenses/apps/expenseapp/models.py:256
 msgid "Email address"
-msgstr "Sähköpostiosoite"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:257
 msgid "CC email address"
-msgstr "Sähköpostiosoite kopiolle"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:257
 msgid "Copy of the expense will be sent to the email."
@@ -362,20 +335,20 @@ msgstr ""
 
 #: expenses/apps/expenseapp/models.py:265
 msgid "Purpose"
-msgstr "Tarkoitus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:266 expenses/apps/expenseapp/views.py:121
 #: expenses/apps/expenseapp/views.py:242
 msgid "Info"
-msgstr "Lisätietoja"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:266
 msgid "Names of the additional passengers, people in the meeting etc."
-msgstr "Lisämatkustajien ja kokousosanottajien nimet ym."
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:268
 msgid "Status"
-msgstr "Tila"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:269
 msgid "Katre status"
@@ -383,104 +356,96 @@ msgstr ""
 
 #: expenses/apps/expenseapp/models.py:272
 msgid "Edited"
-msgstr "Muokattu"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:319 expenses/apps/expenseapp/views.py:120
 #: expenses/apps/expenseapp/views.py:186 expenses/apps/expenseapp/views.py:241
 #: expenses/apps/expenseapp/views.py:254
 msgid "Description"
-msgstr "Kuvaus"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:319
 msgid ""
 "Description of the expense, eg. the route of the journey (travel expenses) "
 "or purpose of the purchased goods"
 msgstr ""
-"Kulun kuvaus, esim. matkareitti (matkakuluissa) tai ostettujen tuotteiden "
-"käyttötarkoitus"
 
 #: expenses/apps/expenseapp/models.py:320 expenses/apps/expenseapp/views.py:184
 #: expenses/apps/expenseapp/views.py:252
 msgid "Begin at"
-msgstr "Alkoi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:321 expenses/apps/expenseapp/views.py:185
 #: expenses/apps/expenseapp/views.py:253
 msgid "Ended at"
-msgstr "Päättyi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:323 expenses/apps/expenseapp/views.py:188
 #: expenses/apps/expenseapp/views.py:256
 msgid "Expense type"
-msgstr "Kulutyyppi"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:324
 msgid "Cost centre"
-msgstr "Kustannuspaikka"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:328 expenses/apps/expenseapp/views.py:144
 #: expenses/apps/expenseapp/views.py:260
 msgid "Receipt"
-msgstr "Kuitti"
+msgstr ""
 
 #: expenses/apps/expenseapp/models.py:328
 msgid ""
 "A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. "
 "Note: The receipt must clearly show what, when and how much has been paid!"
 msgstr ""
-"Kuva kuitista. Kuvamuotoina kelpaavat mm. PDF, PNG ja JPG.Huomaa: Kuitista "
-"täytyy ilmetä selvästi mitä, milloin ja kuinka paljon on maksettu!"
 
 #: expenses/apps/expenseapp/templates/base.html:36
-#, fuzzy
-#| msgid "Create a new expense application"
 msgid "New expense application"
-msgstr "Luo uusi kululasku"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:37
 #: expenses/apps/expenseapp/templates/ownexpenses.html:5
 msgid "My expenses"
-msgstr "Omat kulut"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:38
 msgid "User information"
-msgstr "Omat tiedot"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:40
 msgid "Admin"
-msgstr "Ylläpito"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:44
-#, fuzzy
-#| msgid "Site language"
 msgid "Languages"
-msgstr "Sivuston kieli"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:61
 msgid "Log out"
-msgstr "Kirjaudu ulos"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:63
 #: expenses/apps/expenseapp/templates/django_registration/login.html:43
 msgid "Sign up"
-msgstr "Rekisteröidy"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:64
 #: expenses/apps/expenseapp/templates/django_registration/login.html:39
 msgid "Log in"
-msgstr "Kirjaudu sisään"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/base.html:84
 msgid "Issues with the service?"
-msgstr "Ongelmia palvelun käytössä?"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/activate.html:5
 msgid "Activation complete"
-msgstr "Tili vahvistettu"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/activate.html:5
 msgid "Activation failed"
-msgstr "Tilin vahvistaminen epäonnistui"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/activate.html:10
 #, python-format
@@ -488,29 +453,23 @@ msgid ""
 "You have activated your account. Visit your\n"
 "  <a href=\"%(profileurl)s\">user page</a>."
 msgstr ""
-"Käyttäjätilisi on vahvistettu. Käy\n"
-"  <a href=\"%(profileurl)s\">käyttäjäsivullasi</a>."
 
 #: expenses/apps/expenseapp/templates/django_registration/activate.html:15
 msgid ""
 "Something went wrong. Try copying the link again, and make sure it\n"
 "  hasn't been broken up over multiple lines."
 msgstr ""
-"Jotain meni pieleen. Kokeile linkin kopiointia uudelleen ja varmista\n"
-"  ettei se ole jakautunut usealle riville."
 
 #: expenses/apps/expenseapp/templates/django_registration/activation_complete.html:4
 #: expenses/apps/expenseapp/templates/django_registration/registration_complete.html:5
 msgid "Registration complete"
-msgstr "Rekisteröinti valmis"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/activation_complete.html:5
 msgid ""
 "Your registration has been confirmed and you can now log in with the user "
 "name and password you provided."
 msgstr ""
-"Rekisteröintisi on nyt vahvistettu ja voit kirjautua sisään antamillasi "
-"tunnuksilla."
 
 #: expenses/apps/expenseapp/templates/django_registration/activation_email.txt:1
 #, python-format
@@ -529,19 +488,6 @@ msgid ""
 "-- \n"
 "Site administration"
 msgstr ""
-"Hei,\n"
-"\n"
-"Kiitos rekisteröitymisestäsi! Avaa seuraava linkki vahvistaaksesi "
-"sähköpostiosoitteesi ja aktivoidaksesi käyttäjätilisi:\n"
-"\n"
-"https://kululasku.partio.fi%(url)s\n"
-"\n"
-"Jos et pyytänyt käyttäjätunnusta, ÄLÄ klikkaa linkkiä! Jos sinulla on "
-"kysyttävää, vastaa tähän viestiin.\n"
-"\n"
-"Terveisin,\n"
-"-- \n"
-"Sivuston ylläpito"
 
 #: expenses/apps/expenseapp/templates/django_registration/activation_email_body.txt:2
 msgid "This is body text"
@@ -549,16 +495,16 @@ msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/activation_email_subject.txt:2
 msgid "Activate your account"
-msgstr "Aktivoi käyttäjätunnuksesi"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/login.html:5
 msgid "Log In"
-msgstr "Kirjaudu sisään"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/login.html:12
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_form.html:9
 msgid "Login failed."
-msgstr "Sisäänkirjautuminen epäonnistui."
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/login.html:52
 #, python-format
@@ -574,46 +520,46 @@ msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/logout.html:5
 msgid "Logged Out"
-msgstr "Uloskirjautuminen onnistui"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/logout.html:6
 msgid "You were successfully logged out."
-msgstr "Sinut kirjattiin ulos järjestelmästä."
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_change_done.html:4
 msgid "Password Changed"
-msgstr "Salasana vaihdettu"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_change_form.html:4
 msgid "Password Change"
-msgstr "Salasanan vaihto"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_change_form.html:9
 msgid "Something failed."
-msgstr "Jokin meni pieleen."
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_change_form.html:27
 #: expenses/apps/expenseapp/templates/personinfo.html:34
 msgid "Save"
-msgstr "Tallenna"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_complete.html:4
 msgid "Password Reset Complete"
-msgstr "Salasana palautettu"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_complete.html:7
 #, python-format
 msgid "Now <a href=\"%(login_url)s\">log in</a>."
-msgstr "Nyt voit <a href=\"%(login_url)s\">kirjautua sisään</a>."
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_confirm.html:4
 msgid "Reset Password"
-msgstr "Palauta salasana"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_confirm.html:24
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_form.html:27
 msgid "Reset"
-msgstr "Palauta"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_confirm.html:30
 msgid ""
@@ -622,22 +568,18 @@ msgid ""
 "  making sure that the link isn't split over multiple lines.\n"
 "  "
 msgstr ""
-"\n"
-"  Klikkaamaasi linkkiä ei tunnistettu. Kokeile uudelleen,\n"
-"  varmistaen että linkki ei ole rivittynyt useammalle riville.\n"
-"  "
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_done.html:4
 msgid "Password Reset Sent"
-msgstr "Salasanan palautuslinkki lähetetty"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_done.html:6
 msgid "The reset email has been sent."
-msgstr "Palautuslinkki lähetetty sähköpostitse."
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/password_reset_form.html:4
 msgid "Password Reset"
-msgstr "Salasanan palautus"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/registration_complete.html:6
 msgid ""
@@ -646,91 +588,85 @@ msgid ""
 "Please confirm your account by clicking on the link. You can only use your "
 "account after confirming the account."
 msgstr ""
-"Rekisteröinti on tallennettu. Vahvistuslinkin sisältävä sähköpostiviesti on "
-"lähetetty sähköpostiosoitteeseesi.\n"
-"Vahvista käyttäjätilisi klikkaamalla viestissä olevaa linkkiä. Voit käyttää "
-"käyttäjätiliäsi vasta, kun olet vahvistanut sähköpostiosoitteesi."
 
 #: expenses/apps/expenseapp/templates/django_registration/registration_form.html:5
 msgid "Register"
-msgstr "Rekisteröidy"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/django_registration/registration_form.html:34
 msgid "Submit application"
-msgstr "Lähetä hakemus"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense-row-snippet.html:32
 msgid "Delete"
-msgstr "Poista"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense-type-snippet.html:17
 msgid "Default"
-msgstr "Oletus"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense.html:5
 #: expenses/apps/expenseapp/templates/showexpense.html:6
 #, python-format
 msgid "Expense for %(organisation_name)s"
-msgstr "Kulu organisaatiolle %(organisation_name)s"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense.html:42
 #: expenses/apps/expenseapp/templates/showexpense.html:36
 msgid "Expenses"
-msgstr "Kulut"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense.html:51
 #: expenses/apps/expenseapp/templates/organisationedit.html:55
 msgid "Add new row"
-msgstr "Lisää rivi"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense.html:63
 msgid "Expense total"
-msgstr "Kululasku yhteensä"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/expense.html:68
 msgid "Preview application"
-msgstr "Esikatsele hakemus"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/organisationedit.html:5
 msgid "Organisation data"
-msgstr "Organisaatiotiedot"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/organisationedit.html:9
 msgid "Annual report"
-msgstr "Vuosi-ilmoitukset"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/organisationedit.html:44
 msgid "Expense types"
-msgstr "Kulutyyppi"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/organisationedit.html:46
 msgid ""
 "Guide for using the expense types can be found from <a href=\"/organisation/"
 "help/\" target=\"_blank\">here</a>."
 msgstr ""
-"Ohje kulutyyppien käyttämiseen löytyy <a href=\"/organisation/help/\" target="
-"\"_blank\">täältä</a>."
 
 #: expenses/apps/expenseapp/templates/organisationedit.html:66
 msgid "Save information"
-msgstr "Tallenna tiedot"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/organisationselection.html:5
 #: expenses/apps/expenseapp/templates/orgedit_selection.html:5
 msgid "Select your organisation to continue"
-msgstr "Valitse organisaatiosi"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/personinfo.html:9
 msgid "User info"
-msgstr "Käyttäjätiedot"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/personinfo.html:36
 msgid "Change password"
-msgstr "Vaihda salasana"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/personinfo.html:42
 msgid "Organisation admin"
-msgstr "Organisaation ylläpito"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/showexpense.html:10
 msgid "Ilmoittajan tiedot"
@@ -741,25 +677,21 @@ msgid "Kululaskun tiedot"
 msgstr ""
 
 #: expenses/apps/expenseapp/templates/showexpense.html:39
-#, fuzzy
-#| msgid "Expenses"
 msgid "Expense "
-msgstr "Kulut"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/showexpense.html:43
 #: expenses/apps/expenseapp/templates/showexpense.html:74
 msgid "Date"
-msgstr "Päivämäärä"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/showexpense_preview.html:15
 msgid "Edit application"
-msgstr "Muokkaa hakemusta"
+msgstr ""
 
 #: expenses/apps/expenseapp/templates/showexpense_preview.html:18
-#, fuzzy
-#| msgid "Submit application for review"
 msgid "Submit for review"
-msgstr "Lähetä hakemus tarkastettavaksi"
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:113
 msgid "Applicant Name"
@@ -767,124 +699,42 @@ msgstr ""
 
 #: expenses/apps/expenseapp/views.py:139 expenses/apps/expenseapp/views.py:310
 msgid "Please verify that all information is correct."
-msgstr "Tarkista että kaikki tiedot ovat oikein."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:146
-#, fuzzy
-#| msgid "Please verify that all information is correct."
 msgid "Please verify the given file."
-msgstr "Tarkista että kaikki tiedot ovat oikein."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:159
-#, fuzzy
-#| msgid "Please verify that all information is correct."
 msgid "Please verify ending dates are correct."
-msgstr "Tarkista että kaikki tiedot ovat oikein."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:173
-#, fuzzy
-#| msgid "Please verify that all information is correct."
 msgid "Please verify dates are correct."
-msgstr "Tarkista että kaikki tiedot ovat oikein."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:189 expenses/apps/expenseapp/views.py:257
 msgid "Sum"
-msgstr "Summa"
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:196 expenses/apps/expenseapp/views.py:244
 msgid "Total"
-msgstr "Yhteensä"
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:197
 msgid ""
 "Please verify that all information is correct before submitting the "
 "application for review"
 msgstr ""
-"Tarkista että kaikki tiedot ovat oikein ennen kuin lähetät "
-"kulukorvaushakemuksen tarkastettavaksi"
 
 #: expenses/apps/expenseapp/views.py:218
 msgid "Expense information saved."
-msgstr "Kulutiedot tallennettu."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:307
 msgid "Profile details updated."
-msgstr "Profiilitiedot päivitetty."
+msgstr ""
 
 #: expenses/apps/expenseapp/views.py:341
 msgid "Organisation details updated."
-msgstr "Organisaatiotiedot päivitetty."
-
-#~ msgid ""
-#~ "Hi,\n"
-#~ "\n"
-#~ "You were CC'd in a new expense application for %s.\n"
-#~ "\n"
-#~ "Name:        %s\n"
-#~ "Description: %s\n"
-#~ "Memo:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Expense lines:\n"
-#~ " %s\n"
-#~ "Total: %s\n"
-#~ "\n"
-#~ "Best regards,\n"
-#~ "-- \n"
-#~ "Finnish scout's expense system\n"
-#~ msgstr ""
-#~ "Hei,\n"
-#~ "\n"
-#~ "Sinulle lähetettiin kopiona uusi kululasku organisaatiolle %s.\n"
-#~ "\n"
-#~ "Nimi:   %s\n"
-#~ "Kuvaus: %s\n"
-#~ "Lisätietoja:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Kulurivit:\n"
-#~ " %s\n"
-#~ "Yhteensä: %s\n"
-#~ "\n"
-#~ "Terveisin,\n"
-#~ "-- \n"
-#~ "Partion kululaskujärjestelmä\n"
-
-#~ msgid ""
-#~ "If entered, a notification about the expense application will be sent to "
-#~ "this address without personal details except name."
-#~ msgstr ""
-#~ "Jos täytetty, osoitteeseen lähetetään ilmoitus kululaskusta ilman muita "
-#~ "henkilötietoja kuin nimeä."
-
-#~ msgid "Finnish scouts' expense application system"
-#~ msgstr "Partion kululaskujärjestelmä"
-
-#~ msgid ""
-#~ "\n"
-#~ "  If you can't remember your details, you can\n"
-#~ "  <a href=\"%(reset_url)s\">reset your password</a>.\n"
-#~ "  "
-#~ msgstr ""
-#~ "\n"
-#~ "  Jos et muista tietojasi, voit\n"
-#~ "  <a href=\"%(reset_url)s\">palauttaa salasanasi</a>.\n"
-#~ "  "
-
-#~ msgid "Enter a valid IBAN without any spaces or dashes."
-#~ msgstr "Syötä kelvollinen IBAN-tilinumero ilman välilyöntejä ja -viivoja."
-
-#~ msgid "Enter a valid BIC without any spaces or dashes."
-#~ msgstr "Syötä kelvollinen BIC-koodi ilman välilyöntejä ja -viivoja."
-
-#~ msgid "Enter a Finnish BIC."
-#~ msgstr "Syötä suomalaisen pankin BIC-koodi."
-
-#~ msgid "Other expense"
-#~ msgstr "Muu kulu"
-
-#~ msgid "Advance"
-#~ msgstr "Ennakko"
-
-#~ msgid "The per price for the expense type"
-#~ msgstr "Kulutyypin á-hinta"
+msgstr ""

@@ -137,6 +137,13 @@ def expense(request, organisation_id):
           begin_at_time_input = request.POST.get("%sbegin_at_time" % line_prefix, None)
         except Exception as e:
           messages.error(request, _('Please verify that all information is correct.'))
+
+        try:
+          line_receipt = request.FILES.get("%sreceipt" % line_prefix)
+          if line_receipt:
+            tmp['receipt'] = {'label': _('Receipt'), 'url': None, 'filename': line_receipt.name}
+        except Exception as e:
+          messages.error(request, _('Please verify the given file.'))
           
         
         if(line.expensetype.requires_endtime):
@@ -182,9 +189,7 @@ def expense(request, organisation_id):
         tmp['sum']          = {'label': _('Sum'),           'value': line.sum(),}
         total_sum += line.sum()
       
-        line_receipt = request.FILES.get("%sreceipt" % line_prefix)
-        if line_receipt:
-          tmp['receipt'] = {'label': _('Receipt'), 'url': None, 'filename': line_receipt.name}
+        
         
         lines.append(tmp)
 

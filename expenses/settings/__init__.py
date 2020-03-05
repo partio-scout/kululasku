@@ -18,8 +18,18 @@ EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-DEBUG = False#os.getenv('DEBUG')
+DEBUG = False #os.getenv('DEBUG')
 TEMPLATE_DEBUG = DEBUG
+
+# 2.5MB - 2621440
+# 5MB - 5242880
+# 10MB - 10485760
+# 20MB - 20971520
+# 50MB - 5242880
+# 100MB 104857600
+# 250MB - 214958080
+# 500MB - 429916160
+MAX_UPLOAD_SIZE = 5242880
 
 ADMINS = ();
 # ADMINS = (
@@ -61,6 +71,10 @@ LANGUAGES = (
   ('sv-SE', _('Swedish')),
   ('en-EN', _('English')),
 )
+
+LOCALE_PATHS =  [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 SITE_ID = 1
 
@@ -243,5 +257,6 @@ except ImportError:
 
 DEFAULT_FROM_EMAIL="servicedesk@perfektio.fi"
 
-locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
+
+# locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
 #locale.setlocale(locale.LC_ALL, 'fi_FI.utf8')
