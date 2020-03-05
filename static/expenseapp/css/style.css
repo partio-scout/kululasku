@@ -170,6 +170,10 @@ body {
   margin: 0;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* If the screen size is 1201px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 1201px) {
   body {

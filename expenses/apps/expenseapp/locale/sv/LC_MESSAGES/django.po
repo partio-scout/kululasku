@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-05 11:17+0000\n"
+"POT-Creation-Date: 2020-03-05 12:48+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -329,8 +329,9 @@ msgstr ""
 
 #: models.py:262
 msgid ""
-"Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
-"tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja."
+"If you are creating an expense for a organisation, enter the Business ID of "
+"the organisation. Business IDs are not eligible for mileage allowance or per "
+"diem allowances."
 msgstr ""
 
 #: models.py:265

@@ -259,7 +259,7 @@ class Expense(models.Model):
   address = models.CharField(ugettext_lazy('Address'), max_length=255, validators=validators['address'])
   iban = IBANField(ugettext_lazy('Bank account no'))
   swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
-  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja.'))
+  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('If you are creating an expense for a organisation, enter the Business ID of the organisation. Business IDs are not eligible for mileage allowance or per diem allowances.'))
   user = models.ForeignKey(User,on_delete=models.CASCADE)
 
   description = models.CharField(ugettext_lazy('Purpose'), max_length=255)
@@ -373,4 +373,3 @@ class ExpenseAdmin(admin.ModelAdmin):
   actions = [open_katre_again,]
   #TODO
   #exclude = ('status')
-

@@ -49,12 +49,12 @@ class ExpenseLineForm(ModelForm):
   ended_at = forms.DateTimeField(widget=forms.HiddenInput, required=False)
   begin_at_date = forms.DateField(label=ugettext_lazy('Begin at date'), widget=DateInput(attrs={'placeholder':'DD.MM.YYYY', 'class':'short-input begin_at_date'}),
    input_formats=('%d.%m.%Y',), required=True)
-  begin_at_time = forms.TimeField(label=ugettext_lazy('Begin at time'), input_formats=('%H.%M',), widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'short-input begin_at_time'}), required=False)
+  begin_at_time = forms.TimeField(label=ugettext_lazy('Begin at time'), input_formats=('%H.%M',), widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'hidden-start short-input begin_at_time'}), required=False)
   ended_at_date = forms.DateField(label=ugettext_lazy('Ended at date'),
     input_formats=('%d.%m.%Y',),
-    required=False, widget=DateInput(attrs={'placeholder':'DD.MM.YYYY', 'class':'short-input ended_at_date'}))
+    required=False, widget=DateInput(attrs={'placeholder':'DD.MM.YYYY', 'class':'hidden-start short-input ended_at_date'}))
   ended_at_time = forms.TimeField(label=ugettext_lazy('Ended at time'),
-    input_formats=('%H.%M',), required=False, widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'short-input ended_at_time'}))
+    input_formats=('%H.%M',), required=False, widget=TimeInput(attrs={'placeholder':'HH.MM', 'class':'hidden-start short-input ended_at_time'}))
   basis = BasisField(required=True,
     widget=forms.TextInput(attrs={'data-regexp':'^-?\d+([\,,\.](\d){1,2})?$', 'localization': True}),
     label=ugettext_lazy('Amount'),

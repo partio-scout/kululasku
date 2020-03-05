@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-05 11:17+0000\n"
+"POT-Creation-Date: 2020-03-05 13:03+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -328,10 +328,11 @@ msgid "Copy of the expense will be sent to the email."
 msgstr ""
 
 #: models.py:262
-msgid ""
-"Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
+msgid "If you are creating an expense for a organisation, enter the Business ID of "
+"the organisation. Business IDs are not eligible for mileage allowance or per "
+"diem allowances."
+msgstr "Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
 "tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja."
-msgstr ""
 
 #: models.py:265
 msgid "Purpose"
