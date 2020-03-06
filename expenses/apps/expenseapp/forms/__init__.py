@@ -21,6 +21,9 @@ class ModelForm(inline_snippet.ModelForm):
         if isinstance(field, forms.DecimalField):
           field.localize = True
           field.widget.is_localized = True
+        # if isinstance(field, forms.FileField):
+        #   field.localize = True
+        #   field.widget.is_localized = True
     return new_class
 
 """
