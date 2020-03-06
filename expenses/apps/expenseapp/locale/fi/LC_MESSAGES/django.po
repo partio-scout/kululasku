@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 08:30+0000\n"
+"POT-Creation-Date: 2020-03-06 09:06+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,11 +91,11 @@ msgstr "Tämä kulutyyppi vaatii kuitin!"
 #, fuzzy
 #| msgid "Email"
 msgid "CC Email"
-msgstr "Sähköposti"
+msgstr "CC-Sähköposti"
 
 #: forms/__init__.py:130
 msgid "Copy of expense will be sent to the email."
-msgstr ""
+msgstr "Kopio kulusta lähetetään sähköpostiin."
 
 #: forms/__init__.py:146
 msgid "First name"
@@ -331,7 +331,7 @@ msgstr "Sähköpostiosoite kopiolle"
 
 #: models.py:257
 msgid "Copy of the expense will be sent to the email."
-msgstr ""
+msgstr "Kopio kulusta lähetetään sähköpostiin."
 
 #: models.py:262
 msgid ""

@@ -371,5 +371,3 @@ class ExpenseAdmin(admin.ModelAdmin):
   ]
   readonly_fields = ('created_at',)
   actions = [open_katre_again,]
-  #TODO
-  #exclude = ('status')
