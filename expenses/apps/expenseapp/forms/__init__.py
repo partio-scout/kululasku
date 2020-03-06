@@ -101,7 +101,6 @@ class ExpenseLineForm(ModelForm):
     ended_at = cleaned_data.get("ended_at")
     receipt = cleaned_data.get("receipt")
 
-    print(33333, receipt.__dict__)
 
     if receipt and receipt._size > MAX_UPLOAD_SIZE:
         self._errors["receipt"] = self.error_class([ugettext_lazy('Please choose smaller file. Size limit is 5MB and your file is %s' %  receipt._size)])
@@ -128,7 +127,7 @@ ExpenseLineFormset = inlineformset_factory(Expense, ExpenseLine, form=ExpenseLin
 class ExpenseForm(ModelForm):
   required_css_class = 'required'
   cc_email = forms.EmailField(label=ugettext_lazy('CC Email'), max_length=255, required=False, 
-  widget=forms.EmailInput(attrs={'placeholder':'Copy of expense will be sent to the email.'}))
+  widget=forms.EmailInput(attrs={'placeholder':ugettext_lazy('Copy of expense will be sent to the email.')}))
   class Meta:
     model = Expense
     exclude = ('status', 'katre_status')
@@ -150,11 +149,8 @@ class PersonForm(ModelForm):
 
   def clean_email(self):
    email = self.cleaned_data['email']
-   print(self.instance.__dict__)
    res = User.objects.filter(email=email).exclude(pk=self.instance.pk).exists()
-   #print(123456789, res)
    search = User.objects.filter(email=email)
-   print(search[0].__dict__)
    if User.objects.filter(email=email).exclude(pk=self.instance.user_id).exists():
        raise forms.ValidationError(ugettext_lazy("Email already exists"))
    return email
