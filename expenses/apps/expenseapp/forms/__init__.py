@@ -102,8 +102,8 @@ class ExpenseLineForm(ModelForm):
     receipt = cleaned_data.get("receipt")
 
 
-    if receipt and receipt._size > MAX_UPLOAD_SIZE:
-        self._errors["receipt"] = self.error_class([ugettext_lazy('Please choose smaller file. Size limit is 5MB and your file is %s' %  receipt._size)])
+    if receipt and receipt.size > MAX_UPLOAD_SIZE:
+        self._errors["receipt"] = self.error_class([ugettext_lazy('Please choose smaller file. Size limit is %s and your file is %s' % (MAX_UPLOAD_SIZE, receipt.size))])
 
     if expensetype and expensetype.requires_endtime and not ended_at_date:
         self._errors["ended_at_date"] = self.error_class([ugettext_lazy('This expense type requires an ending date!')])

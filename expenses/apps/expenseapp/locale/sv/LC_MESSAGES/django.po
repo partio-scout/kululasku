@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 07:14+0000\n"
+"POT-Creation-Date: 2020-03-06 08:30+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,60 +54,64 @@ msgstr "Antal kilometrar, dagar eller totala utgifterna"
 msgid "Organisation ID was not found."
 msgstr "Organisationsuppgifter har ej hittats."
 
-#: forms/__init__.py:107
+#: forms/__init__.py:106
 #, python-format
-msgid "Please choose smaller file. Size limit is 5MB and your file is %s"
-msgstr ""
+msgid "Please choose smaller file. Size limit is %s and your file is %s"
+msgstr "Välj mindre fil. Storleksgräns är% s och din fil är% s"
 
-#: forms/__init__.py:110
+#: forms/__init__.py:109
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires an ending date!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:113
+#: forms/__init__.py:112
 msgid "This expense type requires an ending time!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:116
+#: forms/__init__.py:115
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning date!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:119
+#: forms/__init__.py:118
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning time!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:122
+#: forms/__init__.py:121
 msgid "This expense type requires a receipt!"
 msgstr "Denna typ av omkostnad kräver kvitto!"
 
-#: forms/__init__.py:130
+#: forms/__init__.py:129
 #, fuzzy
 #| msgid "Email"
 msgid "CC Email"
 msgstr "E-post"
 
-#: forms/__init__.py:147
+#: forms/__init__.py:130
+msgid "Copy of expense will be sent to the email."
+msgstr ""
+
+#: forms/__init__.py:146
 msgid "First name"
 msgstr "Förnamn"
 
-#: forms/__init__.py:148
+#: forms/__init__.py:147
 msgid "Last name"
 msgstr "Efternamn"
 
-#: forms/__init__.py:149 views.py:114 views.py:235
+#: forms/__init__.py:148 views.py:114 views.py:235
 msgid "Email"
 msgstr "E-post"
 
-#: forms/__init__.py:159
+#: forms/__init__.py:155
 msgid "Email already exists"
 msgstr "E-postadress upptagen"
 
-#: forms/__init__.py:173 models.py:193 models.py:333
+#: forms/__init__.py:169 models.py:193 models.py:333
 msgid "Multiplier"
 msgstr "Koefficient"
 
