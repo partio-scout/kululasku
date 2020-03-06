@@ -259,7 +259,7 @@ class Expense(models.Model):
   address = models.CharField(ugettext_lazy('Address'), max_length=255, validators=validators['address'])
   iban = IBANField(ugettext_lazy('Bank account no'))
   swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
-  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('If you are creating an expense for a organisation, enter the Business ID of the organisation. Business IDs are not eligible for mileage allowance or per diem allowances.'))
+  personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('If you apply for an expense reimbursement for a local group, enter the group’s business ID here. Kilometric allowances and daily subsistence allowances can not be applied for with a business ID.'))
   user = models.ForeignKey(User,on_delete=models.CASCADE)
 
   description = models.CharField(ugettext_lazy('Purpose'), max_length=255)

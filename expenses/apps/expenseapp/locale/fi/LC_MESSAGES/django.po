@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-05 13:03+0000\n"
+"POT-Creation-Date: 2020-03-06 07:14+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -328,10 +328,12 @@ msgid "Copy of the expense will be sent to the email."
 msgstr ""
 
 #: models.py:262
-msgid "If you are creating an expense for a organisation, enter the Business ID of "
-"the organisation. Business IDs are not eligible for mileage allowance or per "
-"diem allowances."
-msgstr "Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
+msgid ""
+"If you apply for an expense reimbursement for a local group, enter the "
+"group’s business ID here. Kilometric allowances and daily subsistence "
+"allowances can not be applied for with a business ID."
+msgstr ""
+"Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
 "tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja."
 
 #: models.py:265
@@ -623,7 +625,7 @@ msgstr "Rekisteröidy"
 msgid "Submit application"
 msgstr "Lähetä hakemus"
 
-#: templates/expense-row-snippet.html:32
+#: templates/expense-row-snippet.html:29
 msgid "Delete"
 msgstr "Poista"
 

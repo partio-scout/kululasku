@@ -29,13 +29,13 @@ docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
 ```
 
-### Create translation files
+### Create translation files and apply them
 
 ```
-docker-compose exec web django-admin makemessages -a
+docker-compose exec web cd expenses/apps/expenseapp/ && django-admin makemessages -l=fi && django-admin makemessages -l=sv && django-admin compilemessages --use-fuzzy
 ```
 
 You can edit the translation files and whenever ready, run
 
 ```
-docker-compose exec web django-admin compilemessages
+docker-compose exec web cd expenses/apps/expenseapp/ && django-admin compilemessages --use-fuzzy
