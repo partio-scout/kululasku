@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 09:06+0000\n"
+"POT-Creation-Date: 2020-03-06 09:18+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,11 +24,19 @@ msgstr ""
 msgid "Begin at date"
 msgstr "Inleds"
 
+#: forms/__init__.py:50 forms/__init__.py:55
+msgid "DD.MM.YYYY"
+msgstr "dd.mm.åååå"
+
 #: forms/__init__.py:52
 #, fuzzy
 #| msgid "Begin at"
 msgid "Begin at time"
 msgstr "Inleds"
+
+#: forms/__init__.py:52 forms/__init__.py:57
+msgid "HH.MM"
+msgstr "tt.mm"
 
 #: forms/__init__.py:53
 #, fuzzy
