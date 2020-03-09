@@ -1,7 +1,36 @@
+/* @font-face {
+  font-family: "Tondu Beta";
+  src: url("assets/Tondu_Beta.ttf");
+  } */
 
 body {
   font-family: "PT Sans";
   background: #fff;
+  /* font-size: medium; */
+}
+
+input {
+  font-size: medium;
+}
+
+ul {
+  list-style: none;
+}
+
+.pure-g {
+  font-family: "PT Sans";
+  /* font-size: medium; */
+}
+
+.pure-g [class*=pure-u]{
+  font-family: "PT Sans";
+  /* font-size: medium; */
+}
+
+h1, h2, h3 {
+  font-family: "Tondu Beta";
+  font-weight: normal;
+  color: #253764;
 }
 
 #menu-toggle
@@ -10,9 +39,7 @@ body {
   position: absolute;
   top: 50px;
   right: 50px;
-  
   z-index: 1;
-  
   -webkit-user-select: none;
   user-select: none;
 }
@@ -121,6 +148,7 @@ body {
 }
 
 .pure-g {
+  font-family: "PT Sans";
   letter-spacing: normal;
 }
 
@@ -255,9 +283,13 @@ body {
   }
 
   #masthead {
+    width: 100vw;
+    left: 0;
     background: #253764;
     color: #fff;
     height: 84px;
+    top: 0;
+    position: absolute;
   }
 
   #masthead nav {
@@ -380,11 +412,6 @@ ul li a {
   padding: 5px;
 }
 
-h1, h2, h3 {
-  font-weight: normal;
-  color: #253764;
-}
-
 h2.pure-menu-heading {
   margin-bottom: 0;
 }
@@ -448,12 +475,13 @@ a:hover {
 }
 
 .pure-form .pure-button-primary {
+  color: white;
   border: 0;
   font-size: 100%;
   box-shadow: none;
 }
 
-.pure-form .pure-button-small {
+/* .pure-form .pure-button-small {
   font-size: 85%;
 }
 
@@ -462,7 +490,7 @@ a:hover {
 }
   .pure-form .pure-button-xsmall i {
     font-size: 115%;
-  }
+  } */
 
 .pure-form .required label:after {
   content: '*';
@@ -574,11 +602,20 @@ input[type=file] {
     width: auto;
   }
   
-/* .delete-expenseline,
-.delete-expensetype {
-  font-size: 90%;
-  
-}   */
+.delete-expenseline {
+  padding: 10px;
+  white-space: nowrap;
+}
+
+#preview-button {
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.pure-button, .secondary-blue {
+  padding: 10px;
+  white-space: nowrap;
+}
   
 /* #add-new-expenseline,
 #add-new-expensetype {
