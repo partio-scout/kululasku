@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-09 09:00+0000\n"
+"POT-Creation-Date: 2020-03-09 10:37+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -102,14 +102,6 @@ msgstr "CC-E-post"
 #: forms/__init__.py:138
 msgid "Copy of expense will be sent to the email."
 msgstr "Kopia av utgifterna skickas till e-postmeddelandet."
-
-#: forms/__init__.py:139 models.py:266 views.py:121 views.py:242
-msgid "Info"
-msgstr "Tillägsinformation"
-
-#: forms/__init__.py:140
-msgid "Cost Centre / Activity Sector"
-msgstr "Kostnadsställe/ Verksamhetsområde"
 
 #: forms/__init__.py:157
 msgid "First name"
@@ -361,9 +353,17 @@ msgstr ""
 msgid "Purpose"
 msgstr "Syfte"
 
+#: models.py:266 views.py:121 views.py:242
+msgid "Info"
+msgstr "Tillägsinformation"
+
 #: models.py:266
-msgid "eg. \"Partiokasvatus\" or \"Digitaalinen partio-ohjelma\""
-msgstr ""
+#, fuzzy
+#| msgid "Names of the additional passengers, people in the meeting etc."
+msgid ""
+"Eg. Names of the additional passengers, people in the meeting, cost centre "
+"or activity sector."
+msgstr "Namn på övriga passagerare och mötesdeltagare, kostnadsställe, verksamhetsområde m.m."
 
 #: models.py:268
 msgid "Status"
@@ -655,19 +655,19 @@ msgstr "Standard"
 msgid "Expense for %(organisation_name)s"
 msgstr "Kostnad för %(organisation_name)s"
 
-#: templates/expense.html:43 templates/showexpense.html:36
+#: templates/expense.html:40 templates/showexpense.html:36
 msgid "Expenses"
 msgstr "Kostnader"
 
-#: templates/expense.html:52 templates/organisationedit.html:55
+#: templates/expense.html:49 templates/organisationedit.html:55
 msgid "Add new row"
 msgstr "Lägg till en ny rad"
 
-#: templates/expense.html:64
+#: templates/expense.html:61
 msgid "Expense total"
 msgstr "Kostnader totalt"
 
-#: templates/expense.html:69
+#: templates/expense.html:66
 msgid "Preview application"
 msgstr "Granska ansökan"
 
@@ -793,8 +793,8 @@ msgstr "Profiluppgifterna har uppdaterats."
 msgid "Organisation details updated."
 msgstr "Organisationsuppgifter har uppdaterats."
 
-#~ msgid "Names of the additional passengers, people in the meeting etc."
-#~ msgstr "Namn på övriga passagerare och mötesdeltagare m.m."
+#~ msgid "Cost Centre / Activity Sector"
+#~ msgstr "Kostnadsställe/ Verksamhetsområde"
 
 #~ msgid ""
 #~ "Hi,\n"

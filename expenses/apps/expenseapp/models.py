@@ -263,7 +263,7 @@ class Expense(models.Model):
   user = models.ForeignKey(User,on_delete=models.PROTECT)
 
   description = models.CharField(ugettext_lazy('Purpose'), max_length=255)
-  memo = models.TextField(ugettext_lazy('Info'), help_text=ugettext_lazy('eg. "Partiokasvatus" or "Digitaalinen partio-ohjelma"'))
+  memo = models.TextField(ugettext_lazy('Info'),  help_text=ugettext_lazy('Eg. Names of the additional passengers, people in the meeting, cost centre or activity sector.'))
   organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
   status = models.IntegerField(ugettext_lazy('Status'), choices=APPLICATION_STATUSES, default=0)
   katre_status = models.IntegerField(ugettext_lazy('Katre status'), choices=KATRE_STATUSES, default=0)
