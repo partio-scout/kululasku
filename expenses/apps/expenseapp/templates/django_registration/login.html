@@ -4,7 +4,7 @@
 {% block content %}
 <h1 style="text-align: center;">{% trans 'Log In'%} </h1>
 
-<form style="text-align: center;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned">
+<form style="text-align: center;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned" data-parsley-validate>
   <div class="pure-g">
     {% csrf_token %}
     <div class="account-wrapper">

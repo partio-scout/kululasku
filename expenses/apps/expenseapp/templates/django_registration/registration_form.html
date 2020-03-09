@@ -4,7 +4,7 @@
 {% block content %}
 <h1 style="text-align: center;">{% trans 'Register' %}</h1>
 
-<form action="{% url 'django_registration_register' %}" method="POST" class="pure-form pure-form-aligned">
+<form action="{% url 'django_registration_register' %}" method="POST" class="pure-form pure-form-aligned" data-parsley-validate>
   <div class="pure-g">
   {% csrf_token %}
     <div class="account-wrapper">

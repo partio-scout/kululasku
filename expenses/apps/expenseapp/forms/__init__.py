@@ -44,8 +44,13 @@ free to fix it!
 """
 class BasisField(forms.CharField):
   def to_python(self, value):
-    value = value.replace(',', '.')
-    return super(BasisField, self).to_python(value)
+    try:
+      value = value.replace(',', '.')
+      return super(BasisField, self).to_python(value)
+    except Exception as e:
+      return 0
+
+    
 
 class ExpenseLineForm(ModelForm):
   begin_at = forms.DateTimeField(widget=forms.HiddenInput, required=False)
@@ -59,7 +64,7 @@ class ExpenseLineForm(ModelForm):
   ended_at_time = forms.TimeField(label=ugettext_lazy('Ended at time'),
     input_formats=('%H.%M',), required=False, widget=TimeInput(attrs={'placeholder':ugettext_lazy('HH.MM'), 'class':'hidden-start short-input ended_at_time'}))
   basis = BasisField(required=True,
-    widget=forms.TextInput(attrs={'data-regexp':'^-?\d+([\,,\.](\d){1,2})?$', 'localization': True}),
+    widget=forms.TextInput(attrs={'data-regexp':'^-?\d+([\,,\.](\d){1,2})?$', 'localization': True, 'data-parsley-maxlength': 1}),
     label=ugettext_lazy('Amount'),
     help_text=ugettext_lazy('Amount of kilometres, days or the sum of the expense'),
     localize=True)
@@ -131,6 +136,9 @@ class ExpenseForm(ModelForm):
   required_css_class = 'required'
   cc_email = forms.EmailField(label=ugettext_lazy('CC Email'), max_length=255, required=False, 
   widget=forms.EmailInput(attrs={'placeholder':ugettext_lazy('Copy of expense will be sent to the email.')}))
+  memo = forms.CharField(label=ugettext_lazy('Info'), max_length=255, required=False, 
+  widget=forms.TextInput(attrs={'placeholder':ugettext_lazy('Kustannuspaikka / Toiminnanala')}))
+  
   class Meta:
     model = Expense
     exclude = ('status', 'katre_status')

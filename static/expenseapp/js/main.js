@@ -49,6 +49,7 @@ $(function() {
           
       // Add validation to the new form
       var form = $('#expense-form');
+      form.parsley()
       clone.find("input, select").not(":disabled, input[type=hidden], input[type=file]")
         .each(function() {
           form.parsley( 'addItem', $(this));

@@ -115,7 +115,7 @@ class AccountDimension(models.Model):
   name = models.CharField(ugettext_lazy('Name'), max_length=255)
   code = models.CharField(ugettext_lazy('Account dimension code'), max_length=5, help_text=ugettext_lazy('Account dimension code(s). If multiple, separate with semicolons (;).'))
 
-  organisation = models.ForeignKey(Organisation, on_delete=models.CASCADE)
+  organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
 
   def __unicode__(self):
     return self.name
@@ -132,7 +132,7 @@ PERSONTYPE_CHOICES = (
 )
 
 class Person(models.Model):
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
+  user = models.OneToOneField(User, on_delete=models.PROTECT)
 
   phone = models.CharField(ugettext_lazy('Phone'), max_length=255, blank=True, null=True, validators=validators['phoneno'])
   address = models.CharField(ugettext_lazy('Address'), max_length=255, blank=True, null=True, validators=validators['address'])
@@ -197,7 +197,7 @@ class ExpenseType(models.Model):
   account = models.CharField(ugettext_lazy('Account'), max_length=20)
   unit = models.CharField(ugettext_lazy('Unit'), max_length=5, choices=UNITS)
 
-  organisation = models.ForeignKey(Organisation, on_delete=models.CASCADE)
+  organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
 
   def __unicode__(self):
         return self.name
@@ -260,11 +260,11 @@ class Expense(models.Model):
   iban = IBANField(ugettext_lazy('Bank account no'))
   swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
   personno = models.CharField(ugettext_lazy('Person number'), max_length=11, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('If you apply for an expense reimbursement for a local group, enter the group’s business ID here. Kilometric allowances and daily subsistence allowances can not be applied for with a business ID.'))
-  user = models.ForeignKey(User,on_delete=models.CASCADE)
+  user = models.ForeignKey(User,on_delete=models.PROTECT)
 
   description = models.CharField(ugettext_lazy('Purpose'), max_length=255)
-  memo = models.TextField(ugettext_lazy('Info'), help_text=ugettext_lazy('Names of the additional passengers, people in the meeting etc.'))
-  organisation = models.ForeignKey(Organisation, on_delete=models.CASCADE)
+  memo = models.TextField(ugettext_lazy('Info'), help_text=ugettext_lazy('eg. "Partiokasvatus" or "Digitaalinen partio-ohjelma"'))
+  organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
   status = models.IntegerField(ugettext_lazy('Status'), choices=APPLICATION_STATUSES, default=0)
   katre_status = models.IntegerField(ugettext_lazy('Katre status'), choices=KATRE_STATUSES, default=0)
 
@@ -320,10 +320,10 @@ class ExpenseLine(models.Model):
   begin_at = models.DateTimeField(ugettext_lazy('Begin at'))
   ended_at = models.DateTimeField(ugettext_lazy('Ended at'), blank=True, null=True)
 
-  expensetype = models.ForeignKey(ExpenseType, verbose_name=ugettext_lazy('Expense type'), on_delete=models.CASCADE)
-  accountdimension = models.ForeignKey(AccountDimension, verbose_name=ugettext_lazy('Cost centre'), blank=True, null=True, on_delete=models.CASCADE)
+  expensetype = models.ForeignKey(ExpenseType, verbose_name=ugettext_lazy('Expense type'), on_delete=models.PROTECT)
+  accountdimension = models.ForeignKey(AccountDimension, verbose_name=ugettext_lazy('Cost centre'), blank=True, null=True, on_delete=models.PROTECT)
   basis = models.DecimalField(ugettext_lazy('Amount'), max_digits=10, decimal_places=2, help_text=ugettext_lazy('Amount of kilometres, days or the sum of the expense'))
-  expense = models.ForeignKey(Expense, on_delete=models.CASCADE)
+  expense = models.ForeignKey(Expense, on_delete=models.PROTECT)
 
   receipt = models.FileField(ugettext_lazy('Receipt'), upload_to='receipts', blank=True, null=True, help_text=ugettext_lazy('A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
 
