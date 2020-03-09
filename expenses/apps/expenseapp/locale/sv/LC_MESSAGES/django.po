@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 09:20+0000\n"
+"POT-Creation-Date: 2020-03-09 09:00+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,108 +18,116 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.9\n"
 
-#: forms/__init__.py:50
+#: forms/__init__.py:58
 #, fuzzy
 #| msgid "Begin at"
 msgid "Begin at date"
 msgstr "Inleds"
 
-#: forms/__init__.py:50 forms/__init__.py:55
+#: forms/__init__.py:58 forms/__init__.py:63
 msgid "DD.MM.YYYY"
 msgstr "dd.mm.åååå"
 
-#: forms/__init__.py:52
+#: forms/__init__.py:60
 #, fuzzy
 #| msgid "Begin at"
 msgid "Begin at time"
 msgstr "Inleds"
 
-#: forms/__init__.py:52 forms/__init__.py:57
+#: forms/__init__.py:60 forms/__init__.py:65
 msgid "HH.MM"
 msgstr "tt.mm"
 
-#: forms/__init__.py:53
+#: forms/__init__.py:61
 #, fuzzy
 #| msgid "Ended at"
 msgid "Ended at date"
 msgstr "Avslutas"
 
-#: forms/__init__.py:56
+#: forms/__init__.py:64
 #, fuzzy
 #| msgid "Ended at"
 msgid "Ended at time"
 msgstr "Avslutas"
 
-#: forms/__init__.py:60 models.py:325 views.py:187 views.py:255
+#: forms/__init__.py:68 models.py:325 views.py:187 views.py:255
 msgid "Amount"
 msgstr "Summa"
 
-#: forms/__init__.py:61 models.py:325
+#: forms/__init__.py:69 models.py:325
 msgid "Amount of kilometres, days or the sum of the expense"
 msgstr "Antal kilometrar, dagar eller totala utgifterna"
 
-#: forms/__init__.py:78
+#: forms/__init__.py:86
 msgid "Organisation ID was not found."
 msgstr "Organisationsuppgifter har ej hittats."
 
-#: forms/__init__.py:106
+#: forms/__init__.py:114
 #, python-format
 msgid "Please choose smaller file. Size limit is %s and your file is %s"
 msgstr "Välj mindre fil. Storleksgräns är% s och din fil är% s"
 
-#: forms/__init__.py:109
+#: forms/__init__.py:117
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires an ending date!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:112
+#: forms/__init__.py:120
 msgid "This expense type requires an ending time!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:115
+#: forms/__init__.py:123
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning date!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:118
+#: forms/__init__.py:126
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning time!"
 msgstr "Denna typ av omkostnad kräver avslutningstid!"
 
-#: forms/__init__.py:121
+#: forms/__init__.py:129
 msgid "This expense type requires a receipt!"
 msgstr "Denna typ av omkostnad kräver kvitto!"
 
-#: forms/__init__.py:129
+#: forms/__init__.py:137
 #, fuzzy
 #| msgid "Email"
 msgid "CC Email"
 msgstr "CC-E-post"
 
-#: forms/__init__.py:130
+#: forms/__init__.py:138
 msgid "Copy of expense will be sent to the email."
 msgstr "Kopia av utgifterna skickas till e-postmeddelandet."
 
-#: forms/__init__.py:146
+#: forms/__init__.py:139 models.py:266 views.py:121 views.py:242
+msgid "Info"
+msgstr "Tillägsinformation"
+
+#: forms/__init__.py:140
+msgid "Cost Centre / Activity Sector"
+msgstr "Kostnadsställe/ Verksamhetsområde"
+
+#: forms/__init__.py:157
 msgid "First name"
 msgstr "Förnamn"
 
-#: forms/__init__.py:147
+#: forms/__init__.py:158
 msgid "Last name"
 msgstr "Efternamn"
 
-#: forms/__init__.py:148 views.py:114 views.py:235
+#: forms/__init__.py:159 views.py:114 views.py:235
 msgid "Email"
 msgstr "E-post"
 
-#: forms/__init__.py:155
+#: forms/__init__.py:166
 msgid "Email already exists"
 msgstr "E-postadress upptagen"
 
-#: forms/__init__.py:169 models.py:193 models.py:333
+#: forms/__init__.py:180 models.py:193 models.py:333
 msgid "Multiplier"
 msgstr "Koefficient"
 
@@ -353,13 +361,9 @@ msgstr ""
 msgid "Purpose"
 msgstr "Syfte"
 
-#: models.py:266 views.py:121 views.py:242
-msgid "Info"
-msgstr "Tillägsinformation"
-
 #: models.py:266
-msgid "Names of the additional passengers, people in the meeting etc."
-msgstr "Namn på övriga passagerare och mötesdeltagare m.m."
+msgid "eg. \"Partiokasvatus\" or \"Digitaalinen partio-ohjelma\""
+msgstr ""
 
 #: models.py:268
 msgid "Status"
@@ -651,19 +655,19 @@ msgstr "Standard"
 msgid "Expense for %(organisation_name)s"
 msgstr "Kostnad för %(organisation_name)s"
 
-#: templates/expense.html:42 templates/showexpense.html:36
+#: templates/expense.html:43 templates/showexpense.html:36
 msgid "Expenses"
 msgstr "Kostnader"
 
-#: templates/expense.html:51 templates/organisationedit.html:55
+#: templates/expense.html:52 templates/organisationedit.html:55
 msgid "Add new row"
 msgstr "Lägg till en ny rad"
 
-#: templates/expense.html:63
+#: templates/expense.html:64
 msgid "Expense total"
 msgstr "Kostnader totalt"
 
-#: templates/expense.html:68
+#: templates/expense.html:69
 msgid "Preview application"
 msgstr "Granska ansökan"
 
@@ -788,6 +792,9 @@ msgstr "Profiluppgifterna har uppdaterats."
 #: views.py:341
 msgid "Organisation details updated."
 msgstr "Organisationsuppgifter har uppdaterats."
+
+#~ msgid "Names of the additional passengers, people in the meeting etc."
+#~ msgstr "Namn på övriga passagerare och mötesdeltagare m.m."
 
 #~ msgid ""
 #~ "Hi,\n"

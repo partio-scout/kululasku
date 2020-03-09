@@ -20,9 +20,7 @@
         {{ field.label_tag }}
         {{ field }}
         {{ field.errors }}
-        {% if field.help_text != '' %}
-          {{ field.placeholder }}
-        {% endif %}
+
         {% if field.help_text != '' %}
           <p class="helptext">{{ field.help_text }}</p>
         {% endif %}

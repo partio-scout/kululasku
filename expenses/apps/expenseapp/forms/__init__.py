@@ -137,7 +137,7 @@ class ExpenseForm(ModelForm):
   cc_email = forms.EmailField(label=ugettext_lazy('CC Email'), max_length=255, required=False, 
   widget=forms.EmailInput(attrs={'placeholder':ugettext_lazy('Copy of expense will be sent to the email.')}))
   memo = forms.CharField(label=ugettext_lazy('Info'), max_length=255, required=False, 
-  widget=forms.TextInput(attrs={'placeholder':ugettext_lazy('Kustannuspaikka / Toiminnanala')}))
+  widget=forms.TextInput(attrs={'placeholder':ugettext_lazy('Cost Centre / Activity Sector')}))
   
   class Meta:
     model = Expense
