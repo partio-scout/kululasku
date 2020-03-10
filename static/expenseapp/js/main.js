@@ -2,19 +2,12 @@ $(function() {
   
   /* Create new expense -form */
   if($('#expenses').length) {
-        
-    var anytime_settings = {
-      format: "%d.%m.%Z %H.%i",
-      dayAbbreviations: ['Su', 'Ma', 'Ti', 'Ke', 'To', 'Pe', 'La'],
-      monthAbbreviations: ['Tam', 'Hel', 'Maa', 'Huh', 'Tou', 'Kes', 'Hei', 'Elo', 'Syy', 'Lok', 'Mar', 'Jou'],
-      firstDOW: 1,
-      labelTitle: 'Poimi ajankohta',
-      labelYear: 'Vuosi',
-      labelMonth: 'Kuukausi',
-      labelDayOfMonth: 'Päivä',
-      labelHour: "Tunnit", 
-      labelMinute: "Minuutit"
-    }
+
+    $(this).find(".datepicker").each(function() {
+      $(this).datepicker({
+        dateFormat: "dd.mm.yy"
+      })
+    })
     
     var fixIndexes = function() {
       $('#expenses .expenseline').each(function(i) {
@@ -36,16 +29,19 @@ $(function() {
       e.preventDefault();
       var clone = $('#empty-expenseline-form .expenseline')
         .clone();
-      
+
       // Add the cloned empty form to the form
       clone.appendTo('#expenses');
       
       // Fix indexes (to make the validation and s bind correctly)
       fixIndexes();
-      
+
       // Add datetimepickers to the new form
-      // clone.find(".field-begin_at_date input, .field-ended_at_date input")
-      //   .datepicker();
+      clone.find(".datepicker").each(function() {
+        $(this).removeClass('hasDatepicker').datepicker({
+          dateFormat: "dd.mm.yy"
+        })
+      })
           
       // Add validation to the new form
       var form = $('#expense-form');
@@ -71,11 +67,6 @@ $(function() {
     $('#expenses').on('click', '.delete-expenseline', function(e) {
       e.preventDefault();
       var line = $(this).closest('.expenseline');
-      
-      // Remove Datetimepickers
-      // line.find(".field-begin_at_date input, .field-ended_at_date input")
-      //     .AnyTime_noPicker()
-      //     .end()
       
       // Remove validations
       var form = $('#expense-form');
@@ -204,7 +195,12 @@ $(function() {
     });
     
     /* Init datetimepickers */
-    // $(".field-begin_at_date input, .field-ended_at_date input").datepicker();
+    //  $(".datepicker").each(function() {
+    //    console.log(123)
+    //   $(this).datepicker({
+    //     dateFormat: "dd.mm.yy"
+    //   })
+    //  })
     
     /* Make enter to submit the form instead of adding more rows */
     $(window).keydown(function(event){

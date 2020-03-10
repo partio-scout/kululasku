@@ -3,26 +3,31 @@
         <div class="wrapper-container">
     
     {% for field in expenselineform.visible_fields %}
-      <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %} {% if 'hidden-start' in field.field.widget.attrs.class %} visuallyhidden{% endif %} {% if field.errors %} error{% endif %}">
-        {{ field.label_tag }}
-        {% if field.help_text %}
-          <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>
-        {% endif %}
+      {% if 'begin_at_date' == field.name %}
+        <div style="margin: auto;">
+      {% endif %}
+
+        <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %} {% if 'hidden-start' in field.field.widget.attrs.class %} visuallyhidden{% endif %} {% if field.errors %} error{% endif %}">
+          {{ field.label_tag }}
+          {% if field.help_text %}
+            <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>
+          {% endif %}
+          
+          {{ field }}
+          
+          {{ field.errors }}
+          
+          {% if forloop.last %}
+            {% for hidden in expenselineform.hidden_fields %}
+              {{ hidden }}
+            {% endfor %}
+          {% endif %}
+        </div>
         
-        {{ field }}
-        
-        {{ field.errors }}
-        
-        {% if forloop.last %}
-          {% for hidden in expenselineform.hidden_fields %}
-            {{ hidden }}
-          {% endfor %}
-        {% endif %}
-      
-      </div>
-      
-      
-      
+      {% if 'ended_at_time' == field.name %}
+        </div>
+      {% endif %}
+
     {% endfor %}
       <div class="wrapper-container">
         <div class="pure-control-group">

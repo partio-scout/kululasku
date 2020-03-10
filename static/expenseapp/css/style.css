@@ -142,7 +142,7 @@ h1, h2, h3 {
 .pure-form-aligned .pure-control-group {
   letter-spacing: normal;
   display: inline-block;
-  margin: 10px;
+  margin: 10px auto;
   max-width: min-content;
   vertical-align: top;
 }
@@ -164,7 +164,7 @@ h1, h2, h3 {
 }
 
 .blue-bottom {
-  padding: 30px;
+  padding: 5vw 1vh;
   border-bottom: solid 2px #28AAE1;
 }
 
@@ -442,7 +442,7 @@ a {
 #main {
   margin: 0 auto;
   overflow: hidden;
-  padding: 80px 30px 30px;
+  padding: 5vh 5vw;
   background: #fff;
 }
 
@@ -456,7 +456,7 @@ a {
 }
 
 .arrow {
-  right: 0px;
+  right: 45px;
   position: absolute;
 }
 
