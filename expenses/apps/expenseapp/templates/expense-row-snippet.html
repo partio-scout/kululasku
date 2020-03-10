@@ -3,7 +3,7 @@
         <div class="wrapper-container">
     
     {% for field in expenselineform.visible_fields %}
-      <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %} {% if 'hidden-start' in field.field.widget.attrs.class %} hiddened{% endif %} {% if field.errors %} error{% endif %}">
+      <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %} {% if 'hidden-start' in field.field.widget.attrs.class %} visuallyhidden{% endif %} {% if field.errors %} error{% endif %}">
         {{ field.label_tag }}
         {% if field.help_text %}
           <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>

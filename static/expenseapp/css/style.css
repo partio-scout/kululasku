@@ -14,6 +14,7 @@ body {
 
 input {
   font-size: medium;
+  font-family: "PT Sans";
 }
 
 ul {
@@ -339,6 +340,19 @@ h1, h2, h3 {
     width: 70vw;
     border: 1px solid #ccc;
   }
+
+  .visuallyhidden {
+    position: absolute;
+  
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+  
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
   
 
   .logo {
@@ -447,7 +461,7 @@ a {
 }
 
 .orgitem {
-  padding: 15px;
+  margin: 15px;
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #D2D2D2;

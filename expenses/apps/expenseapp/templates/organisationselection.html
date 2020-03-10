@@ -4,7 +4,7 @@
 {% block content %}
 <h1 class="middle-headline">{% trans "Select your organisation to continue" %}</h1>
 <section class="pure-menu pure-menu-open">
-<ul class="pure-menu-list">
+<ul class="pure-menu-list" style="padding: 0;">
 {% for organisation in organisations %}
   <li class="pure-menu-item">
     <a href="{% url 'expense_new_form' organisation.id %}" class="orgitem">{{ organisation.name }} <span class="arrow">></span></a>
