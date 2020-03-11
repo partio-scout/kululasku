@@ -60,6 +60,7 @@ tr {
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 
@@ -70,12 +71,14 @@ ul {
 
 .pure-g {
   font-family: "PT Sans";
-  /* font-size: medium; */
 }
 
 .pure-g [class*=pure-u]{
   font-family: "PT Sans";
-  /* font-size: medium; */
+}
+
+.date-col, .total-col {
+  margin: 0 0 0 10vw;
 }
 
 h1, h2, h3 {
@@ -454,7 +457,6 @@ h1, h2, h3 {
 
 ul li a {
   display: block;
-  width: 100%;
   padding: 5px;
 }
 
