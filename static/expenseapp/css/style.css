@@ -25,6 +25,18 @@ body {
   overflow: hidden;
 }
 
+select {
+  font-size: 16px;
+}
+
+button {
+  font-size: 18px;
+}
+
+input[type=submit] {
+  font-size: 18px;
+}
+
 input {
   font-size: medium;
   font-family: "PT Sans";
@@ -53,10 +65,6 @@ ul {
 
 .ui-state-default, .ui-widget-content .ui-state-default {
   border: none;
-  /* background: #253764; */
-}
-
-.ui-widget-header {
   /* background: #253764; */
 }
 
@@ -366,7 +374,7 @@ h1, h2, h3 {
 /* If the screen size is 1000px wide or less, set the font-size of <div> to 16px */
 @media screen and (max-width: 1200px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, .pure-form select  {
@@ -381,7 +389,7 @@ h1, h2, h3 {
   }
 
   .wrapper-container {
-    text-align: center;
+    text-align: left;
   }
 
   .pure-control-group {
