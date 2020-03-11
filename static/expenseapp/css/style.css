@@ -12,13 +12,52 @@ body {
   /* font-size: medium; */
 }
 
+.visuallyhidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 input {
   font-size: medium;
   font-family: "PT Sans";
 }
 
+tr {
+  line-height: 30px;
+}
+
+.ui-datepicker {
+  width: 90vw;
+  height: 20em;
+  left: 5vw !important;
+  max-width: 500px;
+  position: absolute;
+  z-index: -1;
+}
+
+.ui-state-default {
+  text-align: center;
+}
+
 ul {
   list-style: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+  border: none;
+  /* background: #253764; */
+}
+
+.ui-widget-header {
+  /* background: #253764; */
 }
 
 .pure-g {
@@ -320,11 +359,6 @@ h1, h2, h3 {
   border: 1px solid #FFFFFF;
 }
 
-.wrapper-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .content {
   flex-wrap: wrap;
 }
@@ -340,20 +374,6 @@ h1, h2, h3 {
     width: 70vw;
     border: 1px solid #ccc;
   }
-
-  .visuallyhidden {
-    position: absolute;
-  
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-  
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
-  
 
   .logo {
     padding: 30px;
