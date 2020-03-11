@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-09 10:37+0000\n"
+"POT-Creation-Date: 2020-03-11 07:37+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Begin at"
 msgid "Begin at date"
-msgstr "Alkoi"
+msgstr "Aloituspäivä"
 
 #: forms/__init__.py:58 forms/__init__.py:63
 msgid "DD.MM.YYYY"
@@ -32,7 +32,7 @@ msgstr "PP.KK.VVVV"
 #, fuzzy
 #| msgid "Begin at"
 msgid "Begin at time"
-msgstr "Alkoi"
+msgstr "Aloitusaika"
 
 #: forms/__init__.py:60 forms/__init__.py:65
 msgid "HH.MM"
@@ -42,13 +42,13 @@ msgstr "TT.MM"
 #, fuzzy
 #| msgid "Ended at"
 msgid "Ended at date"
-msgstr "Päättyi"
+msgstr "Päättymispäivä"
 
 #: forms/__init__.py:64
 #, fuzzy
 #| msgid "Ended at"
 msgid "Ended at time"
-msgstr "Päättyi"
+msgstr "Päättymisaika"
 
 #: forms/__init__.py:68 models.py:325 views.py:187 views.py:255
 msgid "Amount"
@@ -364,7 +364,8 @@ msgstr "Lisätietoja"
 msgid ""
 "Eg. Names of the additional passengers, people in the meeting, cost centre "
 "or activity sector."
-msgstr "Esim. lisämatkustajat, kokousosanottajat, kustannuspaikka tai toiminnanala"
+msgstr ""
+"Esim. lisämatkustajat, kokousosanottajat, kustannuspaikka tai toiminnanala"
 
 #: models.py:268
 msgid "Status"
@@ -418,43 +419,43 @@ msgstr ""
 "Kuva kuitista. Kuvamuotoina kelpaavat mm. PDF, PNG ja JPG.Huomaa: Kuitista "
 "täytyy ilmetä selvästi mitä, milloin ja kuinka paljon on maksettu!"
 
-#: templates/base.html:36
+#: templates/base.html:38
 #, fuzzy
 #| msgid "Create a new expense application"
 msgid "New expense application"
 msgstr "Luo uusi kululasku"
 
-#: templates/base.html:37 templates/ownexpenses.html:5
+#: templates/base.html:39 templates/ownexpenses.html:5
 msgid "My expenses"
 msgstr "Omat kulut"
 
-#: templates/base.html:38
+#: templates/base.html:40
 msgid "User information"
 msgstr "Omat tiedot"
 
-#: templates/base.html:40
+#: templates/base.html:42
 msgid "Admin"
 msgstr "Ylläpito"
 
-#: templates/base.html:44
+#: templates/base.html:46
 #, fuzzy
 #| msgid "Site language"
 msgid "Languages"
 msgstr "Sivuston kieli"
 
-#: templates/base.html:61
+#: templates/base.html:63
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: templates/base.html:63 templates/django_registration/login.html:43
+#: templates/base.html:65 templates/django_registration/login.html:43
 msgid "Sign up"
 msgstr "Rekisteröidy"
 
-#: templates/base.html:64 templates/django_registration/login.html:39
+#: templates/base.html:66 templates/django_registration/login.html:39
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: templates/base.html:84
+#: templates/base.html:86
 msgid "Issues with the service?"
 msgstr "Ongelmia palvelun käytössä?"
 
@@ -643,7 +644,7 @@ msgstr "Rekisteröidy"
 msgid "Submit application"
 msgstr "Lähetä hakemus"
 
-#: templates/expense-row-snippet.html:29
+#: templates/expense-row-snippet.html:34
 msgid "Delete"
 msgstr "Poista"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-09 10:37+0000\n"
+"POT-Creation-Date: 2020-03-11 07:37+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -363,7 +363,9 @@ msgstr "Tillägsinformation"
 msgid ""
 "Eg. Names of the additional passengers, people in the meeting, cost centre "
 "or activity sector."
-msgstr "Namn på övriga passagerare och mötesdeltagare, kostnadsställe, verksamhetsområde m.m."
+msgstr ""
+"Namn på övriga passagerare och mötesdeltagare, kostnadsställe, "
+"verksamhetsområde m.m."
 
 #: models.py:268
 msgid "Status"
@@ -417,43 +419,43 @@ msgstr ""
 "Bild av kvittot. Godkända format är PDF, PNG och JPG. Obs: Av kvittot bör "
 "klart framgå vad, när och hur mycket som betalats!"
 
-#: templates/base.html:36
+#: templates/base.html:38
 #, fuzzy
 #| msgid "Create a new expense application"
 msgid "New expense application"
 msgstr "Skapa en ny redovisning"
 
-#: templates/base.html:37 templates/ownexpenses.html:5
+#: templates/base.html:39 templates/ownexpenses.html:5
 msgid "My expenses"
 msgstr "Tidigare redovisningar"
 
-#: templates/base.html:38
+#: templates/base.html:40
 msgid "User information"
 msgstr "Mina uppgifter"
 
-#: templates/base.html:40
+#: templates/base.html:42
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:44
+#: templates/base.html:46
 #, fuzzy
 #| msgid "Site language"
 msgid "Languages"
 msgstr "Språk"
 
-#: templates/base.html:61
+#: templates/base.html:63
 msgid "Log out"
 msgstr "Logga ut"
 
-#: templates/base.html:63 templates/django_registration/login.html:43
+#: templates/base.html:65 templates/django_registration/login.html:43
 msgid "Sign up"
 msgstr "Registrera dig här"
 
-#: templates/base.html:64 templates/django_registration/login.html:39
+#: templates/base.html:66 templates/django_registration/login.html:39
 msgid "Log in"
 msgstr "Logga in"
 
-#: templates/base.html:84
+#: templates/base.html:86
 msgid "Issues with the service?"
 msgstr "Problem med webbtjänst?"
 
@@ -642,7 +644,7 @@ msgstr "Registrera dig här"
 msgid "Submit application"
 msgstr "Sänd ansökan"
 
-#: templates/expense-row-snippet.html:29
+#: templates/expense-row-snippet.html:34
 msgid "Delete"
 msgstr "Radera"
 
