@@ -15,7 +15,7 @@
       
       {# Include the visible fields #}
       {% for field in form.visible_fields %}
-        <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}" style="margin: auto; vertical-align: top;">
+        <div class="pure-control-group{% if field.field.required %} required{% endif %}{% if field.errors %} error{% endif %}">
           {{ field.label_tag }}
           {{ field }}
           {{ field.errors }}

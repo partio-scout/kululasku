@@ -198,6 +198,7 @@ h1, h2, h3 {
 }
 
 .account-wrapper {
+  max-width: min-content;
   text-align: center;
   margin: auto;
 }
