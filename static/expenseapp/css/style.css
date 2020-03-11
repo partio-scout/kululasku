@@ -320,7 +320,7 @@ h1, h2, h3 {
   
   #menu-toggle {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 1;
     -webkit-user-select: none;
@@ -378,6 +378,16 @@ h1, h2, h3 {
 @media screen and (max-width: 1200px) {
   body {
     font-size: 18px;
+  }
+
+  #menu-toggle {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, .pure-form select  {
