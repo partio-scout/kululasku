@@ -203,7 +203,7 @@ h1, h2, h3 {
 }
 
 .blue-bottom {
-  padding: 5vw 1vh;
+  padding: 5vw 0;
   border-bottom: solid 2px #28AAE1;
 }
 
@@ -521,6 +521,10 @@ a:hover {
   font-size: 90%;
 }
 
+.pure-button {
+  border: none;
+}
+
 .pure-form .pure-button-primary {
   color: white;
   border: 0;
@@ -565,8 +569,8 @@ a:hover {
 
 .pure-form-aligned .pure-controls {
   border-top: 1px solid #ddd;
-  margin: 2vh;
-  padding: 2vh;
+  margin: 2vh 0;
+  padding: 2vh 0;
 }
   .pure-form-aligned .pure-controls h3 {
     margin-top: 0;
