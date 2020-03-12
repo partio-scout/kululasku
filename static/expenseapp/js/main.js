@@ -5,7 +5,8 @@ $(function() {
 
     $(this).find(".datepicker").each(function() {
       $(this).datepicker({
-        dateFormat: "dd.mm.yy"
+        dateFormat: "dd.mm.yy",
+        firstDay: 1
       })
     })
     
@@ -39,7 +40,8 @@ $(function() {
       // Add datetimepickers to the new form
       clone.find(".datepicker").each(function() {
         $(this).removeClass('hasDatepicker').datepicker({
-          dateFormat: "dd.mm.yy"
+          dateFormat: "dd.mm.yy",
+          firstDay: 1
         })
       })
           
@@ -193,14 +195,6 @@ $(function() {
       // Let the form to be submitted
       return true;
     });
-    
-    /* Init datetimepickers */
-    //  $(".datepicker").each(function() {
-    //    console.log(123)
-    //   $(this).datepicker({
-    //     dateFormat: "dd.mm.yy"
-    //   })
-    //  })
     
     /* Make enter to submit the form instead of adding more rows */
     $(window).keydown(function(event){

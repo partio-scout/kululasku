@@ -62,6 +62,7 @@ ul {
 
 .ui-state-default, .ui-widget-content .ui-state-default {
   border: none;
+  text-align: center;
 }
 
 .pure-g {
