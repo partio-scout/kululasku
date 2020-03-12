@@ -405,7 +405,7 @@ h2, h3 {
 
   .pure-form input[type=text], .pure-form input[type=email], .pure-form input[type=password], .pure-form textarea, .pure-form select  {
     display: block;
-    width: 70vw;
+    width: 90vw;
     border: 1px solid #ccc;
   }
 
@@ -427,7 +427,7 @@ h2, h3 {
   }
 
   .pure-form .pure-control-group .short-input {
-    width: 34vw;
+    width: 42vw;
   }
 
   .menu-list {
