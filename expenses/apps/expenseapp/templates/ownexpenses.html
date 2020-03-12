@@ -4,12 +4,15 @@
 {% block content %}
 <h1>{% trans "My expenses" %}</h1>
     <section class="pure-menu pure-menu-open">
-<ul class="pure-menu-list">
-  {% for expense in expenses %}
-    <li class="pure-menu-item">
-      <a href="{% url 'expense_view' expense_id=expense.id %}" class="orgitem">{{ expense.description }} <span class="date-col"> {{ expense.created_at | date:"j.n.Y H.i" }} </span> <span class="total-col">{{ expense.amount | floatformat:"2" }} €</span> <span class="arrow">></span></a>
-    </li>
-  {% endfor %}
-</ul>
+      <ul>
+        {% for expense in expenses %}
+
+          <li class="pure-menu-item orgitem">
+            <a href="{% url 'expense_view' expense_id=expense.id %}" class="expenses-grid" ><span class="desc-col">{{ expense.description }} </span>
+            <span class="date-col"> {{ expense.created_at | date:"j.n.Y" }} </span> <span class="total-col">{{ expense.amount | floatformat:"2" }} €</span>  </a>
+          </li>
+
+        {% endfor %}
+      </ul>
 </section>
 {% endblock %}

@@ -9,6 +9,7 @@
 body {
   font-family: "PT Sans";
   background: #fff;
+  margin: 0;
   /* font-size: medium; */
 }
 
@@ -28,6 +29,13 @@ body {
 input[type=submit], button, input, select, textarea {
   font-size: 18px;
   font-family: "PT Sans";
+}
+
+.expenses-grid {
+  display: grid;
+  gap: 0.1rem;
+  grid-template-rows: 1fr 1fr 0;
+  grid-template-columns: 2fr 1fr;
 }
 
 tr {
@@ -54,7 +62,6 @@ ul {
 
 .ui-state-default, .ui-widget-content .ui-state-default {
   border: none;
-  /* background: #253764; */
 }
 
 .pure-g {
@@ -66,14 +73,24 @@ ul {
 }
 
 .date-col, .total-col {
-  margin: 0 0 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
 }
 
-h1, h2, h3 {
-  font-family: "tondubeta";
+
+h1 {
+  font-family: "tondubeta", sans-serif;
   color: #253764;
   text-transform: uppercase;
   font-weight: 100;
+}
+
+h2, h3 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  color: #253764;
 }
 
 #menu-toggle
@@ -259,6 +276,13 @@ h1, h2, h3 {
     position: absolute;
   }
 
+  .expenses-grid {
+    display: grid;
+    gap: 0.1rem;
+    grid-template-rows: 1fr 0;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .dropdown {
     position: relative;
     display: inline-block;
@@ -327,13 +351,12 @@ h1, h2, h3 {
   }
 
   #masthead {
-    width: 100vw;
-    left: 0;
+    /* width: 100vw;
+    left: 0; */
     background: #253764;
     color: #fff;
     height: 84px;
-    top: 0;
-    position: absolute;
+    /* top: 0; */
   }
 
   #masthead nav {
@@ -444,6 +467,13 @@ h1, h2, h3 {
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
+.date-col, .total-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
 
 }
 .language-menu {
@@ -471,7 +501,7 @@ a {
 #main {
   margin: 0 auto;
   overflow: hidden;
-  padding: 5vh 5vw;
+  padding: 0 5vw;
   background: #fff;
 }
 
@@ -485,8 +515,11 @@ a {
 }
 
 .arrow {
-  right: 45px;
-  position: absolute;
+  left: 75vw;
+  top: -38px;
+  position: relative;
+  /* right: 45px;
+  position: absolute; */
 }
 
 .orgitem {

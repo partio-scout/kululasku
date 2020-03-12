@@ -2,7 +2,11 @@
 {% load i18n %}
 
 {% block content %}
-<h1>{% blocktrans with organisation_name=organisation.name %}Expense for {{ organisation_name }}{% endblocktrans %}</h1>
+  <div>
+    <h1>{% trans 'Expense for' %} </h1>
+    <h2>{{ organisation.name }}</h2>
+  </div>
+
 <form action="{% url 'expense_new_form' organisation.id %}" id="expense-form" method="post" class="pure-form pure-form-aligned" enctype="multipart/form-data" data-parsley-validate="">
   {% csrf_token %}
   <input type="hidden" name="preview" id="id_preview" value="1">
