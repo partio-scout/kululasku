@@ -14,3 +14,4 @@ staticfiles/*
 static/uploads/receipts/*
 expenses/uploads/receipts
 media/receipts/*
+maintenance_on.html
