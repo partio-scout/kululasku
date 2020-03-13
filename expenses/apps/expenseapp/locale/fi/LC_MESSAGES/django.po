@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 07:29+0000\n"
+"POT-Creation-Date: 2020-03-13 08:44+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr ""
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires an ending date!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr "Tämä kulutyyppi vaatii päättymispäivän!"
 
 #: forms/__init__.py:120
 msgid "This expense type requires an ending time!"
@@ -83,13 +83,13 @@ msgstr "Tämä kulutyyppi vaatii päättymisajan!"
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning date!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr "Tämä kulutyyppi vaatii aloituspäivän!"
 
 #: forms/__init__.py:126
 #, fuzzy
 #| msgid "This expense type requires an ending time!"
 msgid "This expense type requires a beginning time!"
-msgstr "Tämä kulutyyppi vaatii päättymisajan!"
+msgstr "Tämä kulutyyppi vaatii aloitussajan!"
 
 #: forms/__init__.py:129
 msgid "This expense type requires a receipt!"
@@ -293,13 +293,13 @@ msgstr ""
 #, fuzzy
 #| msgid "Requires ending time"
 msgid "Requires ending date and time"
-msgstr "Vaatii päättymisajan"
+msgstr "Vaatii päättymispäivän ja ajan"
 
 #: models.py:195 models.py:223
 #, fuzzy
 #| msgid "Requires ending time"
 msgid "Requires starting time"
-msgstr "Vaatii päättymisajan"
+msgstr "Vaatii aloitusajan"
 
 #: models.py:196
 msgid "Person type"
