@@ -16,6 +16,18 @@ docker-compose up
 docker-compose exec web python manage.py createsuperuser
 ```
 
+### Put the Maintenance mode on
+
+```
+mv maintenance_off.html maintenance_on.html
+```
+
+### Put the Maintenance mode off
+
+````
+mv maintenance_on.html maintenance_off.html
+```
+
 ### Create default user permission groups
 
 ```
