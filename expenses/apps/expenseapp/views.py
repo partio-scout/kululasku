@@ -69,7 +69,7 @@ def organisationselection(request):
 
 @login_required()
 def ownexpenses(request):
-  expenses = Expense.objects.filter(user=request.user)
+  expenses = Expense.objects.filter(user=request.user).order_by('-created_at')
 
   list = deque()
   for expense in expenses:
