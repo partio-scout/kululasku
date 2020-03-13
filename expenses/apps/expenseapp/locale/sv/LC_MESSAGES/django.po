@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-11 07:37+0000\n"
+"POT-Creation-Date: 2020-03-13 07:29+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -419,43 +419,44 @@ msgstr ""
 "Bild av kvittot. Godkända format är PDF, PNG och JPG. Obs: Av kvittot bör "
 "klart framgå vad, när och hur mycket som betalats!"
 
-#: templates/base.html:38
+#: templates/base.html:39
 #, fuzzy
 #| msgid "Create a new expense application"
 msgid "New expense application"
 msgstr "Skapa en ny redovisning"
 
-#: templates/base.html:39 templates/ownexpenses.html:5
+#: templates/base.html:40 templates/ownexpenses.html:5
 msgid "My expenses"
 msgstr "Tidigare redovisningar"
 
-#: templates/base.html:40
+#: templates/base.html:41
 msgid "User information"
 msgstr "Mina uppgifter"
 
-#: templates/base.html:42
+#: templates/base.html:43
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:46
+#: templates/base.html:47
 #, fuzzy
 #| msgid "Site language"
 msgid "Languages"
 msgstr "Språk"
 
-#: templates/base.html:63
+#: templates/base.html:64
 msgid "Log out"
 msgstr "Logga ut"
 
-#: templates/base.html:65 templates/django_registration/login.html:43
+#: templates/base.html:66 templates/django_registration/login.html:43
 msgid "Sign up"
 msgstr "Registrera dig här"
 
-#: templates/base.html:66 templates/django_registration/login.html:39
+#: templates/base.html:67 templates/django_registration/login.html:39
+#: templates/django_registration/registration_form.html:41
 msgid "Log in"
 msgstr "Logga in"
 
-#: templates/base.html:86
+#: templates/base.html:87
 msgid "Issues with the service?"
 msgstr "Problem med webbtjänst?"
 
@@ -546,6 +547,7 @@ msgid "Login failed."
 msgstr "Loggin misslyckades."
 
 #: templates/django_registration/login.html:52
+#: templates/django_registration/registration_form.html:49
 #, python-format
 msgid ""
 "\n"
@@ -640,7 +642,7 @@ msgstr ""
 msgid "Register"
 msgstr "Registrera dig här"
 
-#: templates/django_registration/registration_form.html:34
+#: templates/django_registration/registration_form.html:36
 msgid "Submit application"
 msgstr "Sänd ansökan"
 
@@ -652,24 +654,25 @@ msgstr "Radera"
 msgid "Default"
 msgstr "Standard"
 
-#: templates/expense.html:5 templates/showexpense.html:6
-#, python-format
-msgid "Expense for %(organisation_name)s"
-msgstr "Kostnad för %(organisation_name)s"
+#: templates/expense.html:6
+#, fuzzy
+#| msgid "Expenses"
+msgid "Expense for"
+msgstr "Kostnader för"
 
-#: templates/expense.html:40 templates/showexpense.html:36
+#: templates/expense.html:44 templates/showexpense.html:36
 msgid "Expenses"
 msgstr "Kostnader"
 
-#: templates/expense.html:49 templates/organisationedit.html:55
+#: templates/expense.html:53 templates/organisationedit.html:55
 msgid "Add new row"
 msgstr "Lägg till en ny rad"
 
-#: templates/expense.html:61
+#: templates/expense.html:65
 msgid "Expense total"
 msgstr "Kostnader totalt"
 
-#: templates/expense.html:66
+#: templates/expense.html:70
 msgid "Preview application"
 msgstr "Granska ansökan"
 
@@ -712,6 +715,11 @@ msgstr "Ändra lösen"
 #: templates/personinfo.html:42
 msgid "Organisation admin"
 msgstr "Organisationens admin"
+
+#: templates/showexpense.html:6
+#, python-format
+msgid "Expense for %(organisation_name)s"
+msgstr "Kostnad för %(organisation_name)s"
 
 #: templates/showexpense.html:10
 msgid "Ilmoittajan tiedot"

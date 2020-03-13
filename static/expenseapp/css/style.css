@@ -516,10 +516,12 @@ a {
 }
 
 .arrow {
-  left: 75vw;
+  left: 94%;
+  position: absolute;
+    /* left: 75vw;
   top: -38px;
   position: relative;
-  /* right: 45px;
+  right: 45px;
   position: absolute; */
 }
 
