@@ -104,7 +104,4 @@ class Command (BaseCommand):
       expenses.update(status=0)
 
       mail_admins("Invoice sending failed", "For some reason invoice sending failed in kululasku-system. Please check and fix.\n\n%s" % str(error))
-
-    #os.remove(o)
-
     self.stdout.write('Successfully sent %s invoices' % i)
