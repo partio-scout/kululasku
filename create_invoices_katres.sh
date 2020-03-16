@@ -1,4 +1,5 @@
 #!/bin/sh
-. /srv/django/kululasku/env/bin/activate
-/srv/django/kululasku/manage.py send_invoices
-/srv/django/kululasku/manage.py send_katre
+pwd
+#. /srv/django/kululasku/env/bin/activate
+python manage.py send_invoices
+python manage.py send_katre
