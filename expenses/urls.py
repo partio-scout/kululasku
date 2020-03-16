@@ -8,13 +8,7 @@ from django.contrib.flatpages import views as flatviews
 
 import os
 
-# Uncomment the next two lines to enable the admin:
-#from django.contrib import admin
-#admin.autodiscover()
-#app_name = 'expenseapp'
-
 urlpatterns =  [
-  # Uncomment the next line to enable the admin:
   path('admin/', admin.site.urls),
   path('personinfo/', views.personinfo, name='personinfo'),
   path('i18n/<str:lang>', views.language_activate, name='language_activate'),
@@ -27,8 +21,7 @@ urlpatterns =  [
   path('expense/<int:expense_id>/katre', views.katreexpense, name='expense_viewkatre'),
   path('expense/new/<int:organisation_id>', views.expense, name='expense_new_form'),
   path('receipt/<int:expenselineid>', views.receipt_fetch, name='receipt_fetch'),
-
-  #TODO this bad boy :D
+  #Left from old version for a reminder.
   #path(r'(?P<path>Finvoice.xsl)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
   #(r'(?P<path>Finvoice.css)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
   path('accounts/', include('django_registration.backends.activation.urls')),
@@ -38,28 +31,10 @@ urlpatterns =  [
   path('accounts/change-password/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_change_done.html'), name='auth_password_change_done'),
   path('accounts/password/reset/', auth_views.PasswordResetView.as_view(success_url='/accounts/password/reset/done/', template_name='django_registration/password_reset_form.html'), name="auth_password_reset"),
   path('accounts/password/reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_reset_done.html'), name='auth_password_reset_done'),
+  path('accounts/password/reset/<uidb64>/<token>/$',
+      auth_views.PasswordResetConfirmView.as_view(template_name='django_registration/password_reset_confirm.html'), name="password_reset_confirm"),
+  path('accounts/password/done/$',
+      auth_views.PasswordResetCompleteView.as_view(template_name='django_registration/password_reset_complete.html'), name='password_reset_complete'),
   path('', flatviews.flatpage, {'url': '/index/'}, name='index'),
-  path('', include('django.contrib.flatpages.urls')),
-  # Uncomment the admin/doc line below to enable admin documentation:
-  # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-#   path(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-#       'django.contrib.auth.views.password_reset_confirm',
-#       {'post_reset_redirect' : '/user/password/done/'},
-#       name='password_reset_confirm'),
-
-#   path(r'^user/password/done/$',
-#       'django.contrib.auth.views.password_reset_complete'),
-#   
-
+  path('', include('django.contrib.flatpages.urls'))
   ]
-    # Examples:
-    # url(r'^$', 'expenses.views.home', name='home'),
-    # url(r'^expenses/', include('expenses.foo.urls')),
-
-
-
-  #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# urlpatterns += patterns('',
-#   url(r'^', include('django.contrib.flatpages.urls')),
-# )

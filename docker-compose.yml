@@ -13,21 +13,10 @@ services:
     volumes:
       - .:/code
     environment:
-      - DJANGO_ENV=local
-      - SECRET_KEY=please_change_me
-      - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=postgres
-      - SQL_USER=postgres
-      - SQL_PASSWORD=postgres
-      - SQL_HOST=db
-      - SQL_PORT=5432
-      - DATABASE=postgres
       - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
     ports:
       - 8000:8000
     depends_on:
       - db
-    environment:
-      - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
 volumes:
   postgres_data:

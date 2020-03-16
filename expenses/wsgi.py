@@ -14,6 +14,7 @@ framework.
 
 """
 import os, site, sys
+from dotenv import load_dotenv
 
 # Tell wsgi to add the Python site-packages to it's path.
 site.addsitedir('/code/env/lib/python3.8/site-packages')
@@ -26,6 +27,8 @@ project = os.path.dirname(os.path.dirname(__file__))
 workspace = os.path.dirname(project)
 sys.path.append(project)
 sys.path.append(workspace)
+project_folder = os.path.expanduser('~/code')  # adjust as appropriate
+load_dotenv(os.path.join(project_folder, '.env'))
 
 #import os
 

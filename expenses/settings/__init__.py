@@ -10,15 +10,15 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__).replace('s
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+api_key = os.getenv('SENDGRID_API_KEY').strip()
+SENDGRID_API_KEY= api_key
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+SENDGRID_TRACK_EMAIL_OPENS=False
+SENDGRID_TRACK_CLICKS_HTML=False
+SENDGRID_TRACK_CLICKS_PLAIN=False
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-DEBUG = False #os.getenv('DEBUG')
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # 2.5MB - 2621440
@@ -254,10 +254,5 @@ try:
 except ImportError:
   pass
 
-#LOGIN_REDIRECT_URL = reverse('personinfo')
-
 DEFAULT_FROM_EMAIL="servicedesk@perfektio.fi"
 
-
-# locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
-#locale.setlocale(locale.LC_ALL, 'fi_FI.utf8')
