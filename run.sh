@@ -1,18 +1,7 @@
 #!/bin/sh
 
-# if [ "$DJANGO_ENV" = "production" ]
-# then
-#   echo prodsettings
-#   cp src/prodsettings.py src/settings.py
-#   ln -s /etc/nginx/sites-available/django_production_nginx.conf /etc/nginx/sites-enabled
-
-# else
 echo localsettings
-#cp src/localsettings.py src/settings.py
 ln -s /etc/nginx/sites-available/django_local_nginx.conf /etc/nginx/sites-enabled
-
-#rm /etc/nginx/sites-available/django_production_nginx.conf
-#fi
 
 python manage.py migrate --fake-initial
 python manage.py collectstatic --no-input
@@ -23,8 +12,8 @@ python manage.py collectstatic --no-input
 
 # User = get_user_model()
 
-# User.objects.filter(email='jonne.airaksinen@perfektio.fi').exists() or \
-#     User.objects.create_superuser('jonne.airaksinen@perfektio.fi', 'password')
+# User.objects.filter(email='john@smith.example').exists() or \
+#     User.objects.create_superuser('john@smith.example', 'password')
 # EOF
 
 mkdir /logs
