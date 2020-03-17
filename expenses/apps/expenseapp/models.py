@@ -325,7 +325,7 @@ class ExpenseLine(models.Model):
   basis = models.DecimalField(ugettext_lazy('Amount'), max_digits=10, decimal_places=2, help_text=ugettext_lazy('Amount of kilometres, days or the sum of the expense'))
   expense = models.ForeignKey(Expense, on_delete=models.PROTECT)
 
-  receipt = models.FileField(ugettext_lazy('Receipt'), upload_to='receipts', blank=True, null=True, help_text=ugettext_lazy('A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
+  receipt = models.FileField(ugettext_lazy('Receipt'), upload_to='uploads/receipts', blank=True, null=True, help_text=ugettext_lazy('A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
 
   # These are in the ExpenseType too, but need to be duplicated to make sure that the data is retained after types are edited
   expensetype_name = models.CharField(ugettext_lazy('Name'), max_length=255)

@@ -12,6 +12,8 @@ services:
     entrypoint: ["./wait_for_pg_and_start.sh", "./run.sh"]
     volumes:
       - .:/code
+      - /Users/samik/caset/partio/uploads/receipts:/media/uploads/receipts/
+    # - /mnt/storage/upload/receipts:/media/uploads/receipts/
     environment:
       - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
       - SECRET_KEY= ${SECRET_KEY}
@@ -19,6 +21,7 @@ services:
       - EMCE_SERVER= ${EMCE_SERVER}
       - EMCE_USERNAME= ${EMCE_USERNAME}
       - EMCE_PASSWORD= ${EMCE_PASSWORD}
+      - DEBUG= ${DEBUG}
     ports:
       - 8000:8000
     depends_on:
