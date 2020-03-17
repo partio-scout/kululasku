@@ -32,10 +32,9 @@ TEMPLATE_DEBUG = DEBUG
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = 16777216
 
-ADMINS = ();
-# ADMINS = (
-#     ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
-# )
+ADMINS = (
+    ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
+)
 
 MANAGERS = ADMINS
 
@@ -54,7 +53,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['partio-kulu.perfekt.io','localhost']
+ALLOWED_HOSTS = ['partio-kulu.perfekt.io']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -126,7 +125,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY='CHANGE_ME_PLEASE'
+#CHANGE THIS IN .ENV
+SECRET_KEY = os.getenv('SECRET_KEY').strip()
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
