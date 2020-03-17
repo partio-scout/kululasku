@@ -28,7 +28,7 @@ urlpatterns =  [
   path('accounts/login/', auth_views.LoginView.as_view(template_name='django_registration/login.html'), name='auth_login'),
   path('accounts/logout/', auth_views.LogoutView.as_view(template_name='django_registration/logout.html', next_page='/accounts/login/'), name='logout'),
   path('accounts/change-password/', auth_views.PasswordChangeView.as_view(template_name='django_registration/password_change_form.html'), name='auth_password_change'),
-  path('accounts/change-password/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_change_done.html'), name='auth_password_change_done'),
+  path('accounts/change-password/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_change_done.html'), name='password_change_done'),
   path('accounts/password/reset/', auth_views.PasswordResetView.as_view(success_url='/accounts/password/reset/done/', template_name='django_registration/password_reset_form.html'), name="auth_password_reset"),
   path('accounts/password/reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='django_registration/password_reset_done.html'), name='auth_password_reset_done'),
   path('accounts/password/reset/<uidb64>/<token>/$',
