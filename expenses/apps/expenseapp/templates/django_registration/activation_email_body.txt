@@ -1,2 +1,11 @@
-{% load i18n %}
-{% trans "This is body text" %}
+{% load i18n %}{% url 'registration_activate' activation_key=activation_key as url %}{% blocktrans with url=url %}Hi!
+
+Thank you for registering for the system. Visit this link to confirm your email address and activate your account:
+
+https://kululasku.partio.fi/accounts/activate/{{activation_key}}/
+
+If you didn't request the account, DO NOT click on the link. If you have any questions or concerns, you can reply to this email.
+
+Best regards,
+-- 
+Site administration{% endblocktrans %}

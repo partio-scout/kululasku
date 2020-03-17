@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 api_key = os.getenv('SENDGRID_API_KEY').strip()
-SENDGRID_API_KEY= api_key
+SENDGRID_API_KEY=api_key
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_TRACK_EMAIL_OPENS=False
 SENDGRID_TRACK_CLICKS_HTML=False
@@ -204,15 +204,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'localflavor',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
-    #'south',
     'expenseapp',
     'django.contrib.admin',
-    #'django_registration',
+    'django_registration',
     'django.contrib.flatpages',
-    #'request',
-    #'django_extensions',
     #'django_queue_mailer',
 )
 

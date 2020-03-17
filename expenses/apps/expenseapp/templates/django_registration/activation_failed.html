@@ -1,0 +1,6 @@
+{% extends "django_registration/base.html" %}{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Registration failed" %}</h1>
+<p>{% blocktrans %}An error has occured during activating your account. Please copy the link from the email again and make sure there is no spaces in.{% endblocktrans %}</p>
+{% endblock %}
