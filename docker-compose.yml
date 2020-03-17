@@ -14,6 +14,11 @@ services:
       - .:/code
     environment:
       - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
+      - SECRET_KEY= ${SECRET_KEY}
+      - EMCE_SERVER_ATTR= ${EMCE_SERVER_ATTR}
+      - EMCE_SERVER= ${EMCE_SERVER}
+      - EMCE_USERNAME= ${EMCE_USERNAME}
+      - EMCE_PASSWORD= ${EMCE_PASSWORD}
     ports:
       - 8000:8000
     depends_on:
