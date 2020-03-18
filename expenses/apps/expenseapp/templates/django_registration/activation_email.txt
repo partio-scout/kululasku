@@ -4,7 +4,7 @@ Thank you for registering for the system. Visit this link to confirm your email 
 
 https://kululasku.partio.fi{{ url }}
 
-If you didn't request the account, DO NOT click on the link. If you have any questions or concerns, you can reply to this email.
+If you didn't request the account, DO NOT click on the link. If you have any questions or concerns, please refer to https://www.partio.fi/partiolaiselle/apua-ja-ohjeita/jasenpalvelu/.
 
 Best regards,
 -- 
