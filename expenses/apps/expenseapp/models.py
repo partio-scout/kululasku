@@ -30,26 +30,31 @@ def validate_hetu(value):
     raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code.'))
   except InvalidFormat:
     pass
+  except Exception as e:
+    raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))
+
 
 def validate_hetu_or_businessid(value):
   import re
-  from stdnum.fi.hetu import is_valid, validate
+  from stdnum.fi import hetu
+  from stdnum.fi import ytunnus
   from stdnum.exceptions import InvalidChecksum, InvalidFormat
   
   errors = True
   
   try:
-    validate(value)
+    hetu.validate(value)
     errors = False
   except (InvalidChecksum, InvalidFormat):
     pass
-  
-  
-  business_id_regex = re.compile(r'^[0-9]{1,7}-[0-9]$')
-  is_valid_business_id = bool(business_id_regex.search(value))
+  except Exception as e:
+    raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))
 
-  if is_valid_business_id:
+  try:
+    ytunnus.validate(value)
     errors = False
+  except:
+    raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))
     
   if errors:
     raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))

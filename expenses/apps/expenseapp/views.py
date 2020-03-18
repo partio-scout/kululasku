@@ -85,17 +85,21 @@ def expense(request, organisation_id):
   if not (organisation.active == True or request.user.has_perm('expenseapp.change_expense')):
     return redirect('/accounts/login/?next=%s' % request.path)
 
-  initial = {
-    'organisation': organisation_id,
-    'name': request.user.person.name(),
-    'email': request.user.email,
-    'address': request.user.person.address,
-    'personno': request.user.person.personno,
-    'iban': request.user.person.iban,
-    'swift_bic': request.user.person.swift_bic,
-    'phone': request.user.person.phone,
-    'user': request.user.id,
-  }
+  try:
+    initial = {
+      'organisation': organisation_id,
+      'name': request.user.person.name(),
+      'email': request.user.email,
+      'address': request.user.person.address,
+      'personno': request.user.person.personno,
+      'iban': request.user.person.iban,
+      'swift_bic': request.user.person.swift_bic,
+      'phone': request.user.person.phone,
+      'user': request.user.id,
+    }
+  except Exception as e:
+    messages.error(request, _('Please verify your personal information is correct.'))
+
 
   expense_form = ExpenseForm((request.POST or None),
       (request.FILES or None),
