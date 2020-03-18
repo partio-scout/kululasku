@@ -267,6 +267,13 @@ h2, h3 {
 
 /* If the screen size is 1201px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 1201px) {
+  #main {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 5vw;
+    background: #fff;
+  }
+
   body {
     font-size: 18px;
   }
@@ -389,6 +396,14 @@ h2, h3 {
 
 /* If the screen size is 1000px wide or less, set the font-size of <div> to 16px */
 @media screen and (max-width: 1200px) {
+
+  #main {
+    margin: 40px auto 0;
+    overflow: hidden;
+    padding: 0 5vw;
+    background: #fff;
+  }
+
   body {
     font-size: 18px;
   }
@@ -499,12 +514,12 @@ a {
   text-decoration: none;
 }
 
-#main {
+/* #main {
   margin: 0 auto;
   overflow: hidden;
   padding: 0 5vw;
   background: #fff;
-}
+} */
 
 .main-column {
   float: left;
@@ -834,7 +849,8 @@ dd {
 }
 
 .support {
-  margin-top: 50px;
+  margin-top: 80px;
+  margin-bottom: 80px;
   text-align: center;
 }
 .support a {
