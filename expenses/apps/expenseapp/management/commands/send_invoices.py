@@ -23,7 +23,7 @@ class Command (BaseCommand):
       import zipfile, io
       
       date_str = datetime.now().strftime("%Y-%m-%d-%H-%M")
-      o = os.path.join("/tmp", date_str + '.zip')
+      o = os.path.join("/code/tmp/zips", date_str + '.zip')
       
       self.stdout.write('Creating package %s' % o)
 
@@ -50,7 +50,7 @@ class Command (BaseCommand):
                 continue
               if not im:
                 continue
-              receiptpath = '/tmp/receipttemp_' + str(j) + '.pdf'
+              receiptpath = '/code/tmp/zips/receipttemp_' + str(j) + '.pdf'
               # ValueError might mean that PIL doesn't know how to strip alpha off the image:
               # http://www.daniweb.com/software-development/python/threads/253957/converting-an-image-file-png-to-a-bitmap-file
               try:
@@ -72,25 +72,25 @@ class Command (BaseCommand):
 
       self.stdout.write('Packaging done.')
       
-      # import paramiko
-      # USERNAME = os.getenv('EMCE_USERNAME').strip()
-      # PASSWORD = os.getenv('EMCE_PASSWORD').strip()
-      # SERVER_ADDRESS = os.getenv('EMCE_SERVER').strip()
-      # SERVER_ATTR = os.getenv('EMCE_SERVER_ATTR').strip()
+      import paramiko
+      USERNAME = os.getenv('EMCE_USERNAME').strip()
+      PASSWORD = os.getenv('EMCE_PASSWORD').strip()
+      SERVER_ADDRESS = os.getenv('EMCE_SERVER').strip()
+      SERVER_ATTR = os.getenv('EMCE_SERVER_ATTR').strip()
       
-      # transport = paramiko.Transport((SERVER_ADDRESS, SERVER_ATTR))
-      # transport.connect(username=USERNAME, password=PASSWORD)
-      # sftp = paramiko.SFTPClient.from_transport(transport)
+      transport = paramiko.Transport((SERVER_ADDRESS, SERVER_ATTR))
+      transport.connect(username=USERNAME, password=PASSWORD)
+      sftp = paramiko.SFTPClient.from_transport(transport)
 
-      # output_file_name = str(time.time()) + '.zip'
-      # self.stdout.write('Sending %s...' % output_file_name)
+      output_file_name = str(time.time()) + '.zip'
+      self.stdout.write('Sending %s...' % output_file_name)
 
-      # sftp.chdir('siirto')
-      # sftp.put(o, output_file_name)
+      sftp.chdir('siirto')
+      sftp.put(o, output_file_name)
 
-      # self.stdout.write('Package sent, closing connection...')
+      self.stdout.write('Package sent, closing connection...')
 
-      # transport.close()
+      transport.close()
 
       self.stdout.write('Done.')
 
