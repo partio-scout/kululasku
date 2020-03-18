@@ -54,7 +54,7 @@ def validate_hetu_or_businessid(value):
     ytunnus.validate(value)
     errors = False
   except:
-    raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))
+    pass
     
   if errors:
     raise ValidationError(ugettext_lazy('Enter a valid Finnish personal identity code or Finnish business ID.'))
