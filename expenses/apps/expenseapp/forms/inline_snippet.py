@@ -1,7 +1,7 @@
 from django import forms
 from django.forms.models import ModelFormMetaclass
 from django.forms.models import inlineformset_factory
-from expenseapp.models import ExpenseLine
+from expenseapp.models import ExpenseLine, Expense
 from datetime import datetime
 
 
@@ -85,6 +85,11 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
 
     def save(self, *args, **kwargs):
         instance = super().save(*args, **kwargs)
+        result = isinstance(instance, Expense)
+        if(result):
+            if(instance.personno):
+                instance.personno = instance.personno.upper()
+                instance.save()
         if hasattr(self._forms, 'inlines'):
             for key, FormSet in list(self._forms.inlines.items()):
                 fset = FormSet(self.data, self.files, prefix=self._get_formset_prefix(key),
