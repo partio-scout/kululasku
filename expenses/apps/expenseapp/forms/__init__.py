@@ -130,7 +130,7 @@ class ExpenseLineForm(ModelForm):
 
     return cleaned_data
 
-ExpenseLineFormset = inlineformset_factory(Expense, ExpenseLine, form=ExpenseLineForm, extra=1, can_delete=False)
+ExpenseLineFormset = inlineformset_factory(Expense, ExpenseLine, form=ExpenseLineForm, min_num=1, can_delete=False, extra=0)
 
 class ExpenseForm(ModelForm):
   required_css_class = 'required'

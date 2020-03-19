@@ -3,6 +3,20 @@ $(function() {
   /* Create new expense -form */
   if($('#expenses').length) {
 
+    if($('.delete-expenseline').length > 1) {
+      $('.delete-expenseline').css('background-color','#253764');
+    }
+
+    if($('.delete-expenseline').length <= 2) {
+      $('.delete-expenseline').css('background-color','grey');
+  }
+
+  /* Prevent removing the last expenseline. 1 button is hidden for copying -> length ==2 */
+    // if($('.delete-expenseline').length == 2) {
+    //   $('.delete-expenseline button').first().prop('hidden')
+    //   $('.delete-expenseline').first().prop('disabled', true)
+    // }
+
     $(this).find(".datepicker").each(function() {
       $(this).datepicker({
         dateFormat: "dd.mm.yy",
@@ -28,6 +42,10 @@ $(function() {
     /* Add new expenseline*/
     $('#add-new-expenseline').on('click', function(e) {
       e.preventDefault();
+      console.log($('.delete-expenseline').length)
+      if($('.delete-expenseline').length > 1) {
+        $('.delete-expenseline').css('background-color','#253764');
+      }
       var clone = $('#empty-expenseline-form .expenseline')
         .clone();
 
@@ -65,11 +83,15 @@ $(function() {
       return correct;
     }
     
-    /* Delete single expenselines */
+    /* Delete single expenselines without removing all of them*/
     $('#expenses').on('click', '.delete-expenseline', function(e) {
       e.preventDefault();
       var line = $(this).closest('.expenseline');
-      
+
+      if($('.delete-expenseline').length <= 2) {
+        return;
+      }
+
       // Remove validations
       var form = $('#expense-form');
       line.find("input, select").not(":disabled, input[type=hidden], input[type=file]")
@@ -78,7 +100,12 @@ $(function() {
         });
       
       // Remove the actual element
+
       line.remove();
+
+      if($('.delete-expenseline').length <= 2) {
+          $('.delete-expenseline').css('background-color','grey');
+      }
     });
     
     /* Calculate single row total */
@@ -273,7 +300,7 @@ $(function() {
       $('#id_organisationform_EXPENSETYPES-TOTAL_FORMS').val($('#expensetypes .expensetype').length);
     }
     
-    /* Add new expenseline*/
+    /* Add new expensetype*/
     $('#add-new-expensetype').on('click', function(e) {
       e.preventDefault();
       var clone = $('#empty-expensetype-form .expensetype')
