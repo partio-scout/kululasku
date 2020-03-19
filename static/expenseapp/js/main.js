@@ -42,7 +42,6 @@ $(function() {
     /* Add new expenseline*/
     $('#add-new-expenseline').on('click', function(e) {
       e.preventDefault();
-      console.log($('.delete-expenseline').length)
       if($('.delete-expenseline').length > 1) {
         $('.delete-expenseline').css('background-color','#253764');
       }
