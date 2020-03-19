@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 api_key = os.getenv('SENDGRID_API_KEY').strip()
-SENDGRID_API_KEY=api_key
+SENDGRID_API_KEY=api_key # ei toimi, vaihda!
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_TRACK_EMAIL_OPENS=False
 SENDGRID_TRACK_CLICKS_HTML=False
@@ -30,7 +30,7 @@ TEMPLATE_DEBUG = DEBUG
 # 100MB 104857600
 # 250MB - 214958080
 # 500MB - 429916160
-MAX_UPLOAD_SIZE = 16777216
+MAX_UPLOAD_SIZE = 20971520
 
 ADMINS = (
     ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
@@ -96,7 +96,7 @@ MEDIA_ROOT = '/media/'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/uploads/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -249,5 +249,5 @@ try:
 except ImportError:
   pass
 
-DEFAULT_FROM_EMAIL="servicedesk@perfektio.fi"
+DEFAULT_FROM_EMAIL="no-reply@partio.fi"
 

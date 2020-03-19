@@ -58,3 +58,9 @@ docker-compose exec web cd expenses/apps/expenseapp/ && django-admin compilemess
 docker-compose exec  db psql -U postgres
 update expenseapp_expensetype set requires_start_time = True where requires_endtime = True;
 ```
+
+### Tietokannan restoraus
+
+```
+docker-compose down && docker-compose up -d db && docker-compose exec db sh -c "dropdb -U postgres postgres" && docker-compose exec db createdb -U postgres -T template0 postgres && docker-compose exec -T db psql -U postgres postgres < tmp/db_dumps/DUMPPI_FFILU.sql
+```
