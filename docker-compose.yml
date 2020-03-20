@@ -13,7 +13,9 @@ services:
     volumes:
       - .:/code
       - /Users/samik/caset/partio/uploads/receipts:/media/uploads/receipts/
-    # - /mnt/storage/upload/receipts:/media/uploads/receipts/
+    #  - /Users/samik/caset/partio/uploads/zips:/tmp/zips/
+    #  - /mnt/storage/upload/receipts:/media/uploads/receipts/
+    #  - /mnt/storage/upload/zips:/tmp/zips/
     environment:
       - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
       - SECRET_KEY= ${SECRET_KEY}

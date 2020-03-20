@@ -23,7 +23,7 @@ class Command (BaseCommand):
       import zipfile, io
       
       date_str = datetime.now().strftime("%Y-%m-%d-%H-%M")
-      o = os.path.join("/code/tmp/zips", date_str + '.zip')
+      o = os.path.join("/tmp/zips", date_str + '.zip')
       
       self.stdout.write('Creating package %s' % o)
 
@@ -47,10 +47,11 @@ class Command (BaseCommand):
                 im = Image.open(line.receipt.path)
               except IOError:
                 self.stdout.write('Not able to convert receipt ' + line.receipt.path)
+                mail_admins("File handling failed", "Not able to convert receipt" + line.receipt.path "in kululasku-system.")
                 continue
               if not im:
                 continue
-              receiptpath = '/code/tmp/zips/receipttemp_' + str(j) + '.pdf'
+              receiptpath = '/tmp/zips/receipttemp_' + str(j) + '.pdf'
               # ValueError might mean that PIL doesn't know how to strip alpha off the image:
               # http://www.daniweb.com/software-development/python/threads/253957/converting-an-image-file-png-to-a-bitmap-file
               try:

@@ -27,8 +27,8 @@ class Command (BaseCommand):
       import zipfile, io
 
       date_str = datetime.now().strftime("%Y-%m-%d-%H-%M")
-      o = os.path.join('/code/tmp/zips', 'katre_' + date_str + '.zip')
-      h = os.path.join('/code/tmp/zips', 'katre_hapa_' + date_str + '.zip')
+      o = os.path.join('/tmp/zips', 'katre_' + date_str + '.zip')
+      h = os.path.join('/tmp/zips', 'katre_hapa_' + date_str + '.zip')
       
       self.stdout.write('Creating katre package %s' % o)
 
