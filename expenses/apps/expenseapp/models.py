@@ -141,7 +141,7 @@ class Person(models.Model):
 
   phone = models.CharField(ugettext_lazy('Phone'), max_length=255, blank=True, null=True, validators=validators['phoneno'])
   address = models.CharField(ugettext_lazy('Address'), max_length=255, blank=True, null=True, validators=validators['address'])
-  iban = IBANField(ugettext_lazy('Bank account no'))
+  iban = IBANField(ugettext_lazy('Bank account no'), , blank=True, null=True)
   swift_bic = BICField(ugettext_lazy('BIC no'), blank=True, null=True)
   personno = models.CharField(ugettext_lazy('Person number'), max_length=11, blank=True, null=True, validators=validators['hetu_or_businessid'], help_text=ugettext_lazy('Person number is required for every expense application for annual announcements to the tax authority. If you don\'t want to save it here, you can enter it to each expense application separately.'))
   type = models.IntegerField(ugettext_lazy('Type'), choices=PERSONTYPE_CHOICES, default=1)
