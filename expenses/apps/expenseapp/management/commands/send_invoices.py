@@ -47,7 +47,7 @@ class Command (BaseCommand):
                 im = Image.open(line.receipt.path)
               except IOError:
                 self.stdout.write('Not able to convert receipt ' + line.receipt.path)
-                mail_admins("File handling failed", "Not able to convert receipt" + line.receipt.path "in kululasku-system.")
+                mail_admins("File handling failed", "Not able to convert receipt" + line.receipt.path + "in kululasku-system.")
                 continue
               if not im:
                 continue
