@@ -3,11 +3,13 @@ version: "3.7"
 services:
   db:
     image: postgres:12.0-alpine
+    restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      #- /mnt/storage/db_dumps/:/db_dumps/
       - ./tmp/db_dumps/:/db_dumps/
   web:
-    restart: always
+    restart: unless-stopped
     build: .
     entrypoint: ["./wait_for_pg_and_start.sh", "./run.sh"]
     volumes:
