@@ -31,7 +31,7 @@ TEMPLATE_DEBUG = DEBUG
 # 250MB - 214958080
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = 20971520
-
+#Vaihda Admin (Nimi, email) halutuksi. Virheilmoitukset lähetetään sähköpostiin.)
 ADMINS = (
     ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
 )
@@ -180,7 +180,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'expenseapp.middleware.setlanguage.ExpenseAppSetLanguageMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    #'django_request_local.middleware.RequestLocal',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -207,8 +206,7 @@ INSTALLED_APPS = (
     'expenseapp',
     'django.contrib.admin',
     'django_registration',
-    'django.contrib.flatpages',
-    #'django_queue_mailer',
+    'django.contrib.flatpages'
 )
 
 ACCOUNT_ACTIVATION_DAYS = 14
