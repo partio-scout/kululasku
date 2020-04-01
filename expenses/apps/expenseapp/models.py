@@ -308,13 +308,6 @@ class Expense(models.Model):
 
     return createKatreReport(expense, expenselines)
 
-# def receipt_path(path):
-#   def wrapper(instance, filename):
-#     import os
-#     filename = filename.encode('ascii', 'ignore')
-#     return os.path.join(path, filename)
-#   return wrapper
-
 def receipt_path(path, filename):
     import os
     filename = str(filename.encode('ascii', 'ignore'))

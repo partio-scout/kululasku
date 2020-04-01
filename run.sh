@@ -6,16 +6,6 @@ ln -s /etc/nginx/sites-available/django_local_nginx.conf /etc/nginx/sites-enable
 python manage.py migrate --fake-initial
 python manage.py collectstatic --no-input
 
-# Remote Django shell not available in production, create an initial superuser account
-# cat <<EOF | python manage.py shell
-# from django.contrib.auth import get_user_model
-
-# User = get_user_model()
-
-# User.objects.filter(email='john@smith.example').exists() or \
-#     User.objects.create_superuser('john@smith.example', 'password')
-# EOF
-
 mkdir /logs
 touch /logs/gunicorn.log
 touch /logs/access.log

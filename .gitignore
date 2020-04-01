@@ -2,6 +2,8 @@ kululasku.sqlite
 testikanta.sqlite
 .env
 *.sql
+docker-compose-local.yml
+docker-compose-prod.yml
 
 */__pycache__/
 __pycache__

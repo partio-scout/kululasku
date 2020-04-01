@@ -24,7 +24,6 @@ RUN locale -a
 RUN export LOCALE_PATHS="/usr/share/i18n"
 
 COPY ./django_local_nginx.conf /etc/nginx/sites-available/
-#COPY ./django_production_nginx.conf /etc/nginx/sites-available/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 EXPOSE 8000

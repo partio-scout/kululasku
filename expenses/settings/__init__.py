@@ -9,15 +9,17 @@ from django.utils.translation import ugettext_lazy as _
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__).replace('settings', ''), ''))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#VAIHDA
 api_key = os.getenv('SENDGRID_API_KEY').strip()
-SENDGRID_API_KEY=api_key # ei toimi, vaihda!
+#SENDGRID_API_KEY=api_key  ei toimi, vaihda!
+
+#SENDGRID_API_KEY='asdfghjklö' toimii
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_TRACK_EMAIL_OPENS=False
 SENDGRID_TRACK_CLICKS_HTML=False
 SENDGRID_TRACK_CLICKS_PLAIN=False
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
-
+#VAIHDA LOKAALIIN
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -31,7 +33,7 @@ TEMPLATE_DEBUG = DEBUG
 # 250MB - 214958080
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = 20971520
-#Vaihda Admin (Nimi, email) halutuksi. Virheilmoitukset lähetetään sähköpostiin.)
+#VAIHDA Admin (Nimi, email) halutuksi. Virheilmoitukset lähetetään sähköpostiin.)
 ADMINS = (
     ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
 )
@@ -46,6 +48,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
         #'PASSWORD': '',
+        # Docker-composesta viittaus
         'HOST': 'db',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -53,6 +56,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+#VAIHDA
 ALLOWED_HOSTS = ['kululasku.partio.fi']
 
 # Local time zone for this installation. Choices can be found here:
@@ -125,14 +129,13 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-#CHANGE THIS IN .ENV
-SECRET_KEY = os.getenv('SECRET_KEY').strip()
+#VAIHDA
+SECRET_KEY = 'asdfghjklöä'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 LOGIN_REDIRECT_URL = '/expense/'
@@ -166,7 +169,6 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                #'django.template.context_processors.request'
             ],
         },
     },
@@ -247,5 +249,6 @@ try:
 except ImportError:
   pass
 
+#VAIHDA
 DEFAULT_FROM_EMAIL="no-reply@partio.fi"
 

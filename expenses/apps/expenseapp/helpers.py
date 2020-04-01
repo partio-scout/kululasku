@@ -46,6 +46,7 @@ Best regards,
 -- 
 Finnish scout's expense system
 """)
+#VAIHDA lähettäjä email
     send_mail(ugettext('New expense CC\'d to you'),
       body % (instance.organisation.name, instance.name, instance.description, instance.memo, rows, str(locale.currency(instance.amount(), False))),
       'no-reply@partio.fi', [instance.cc_email], fail_silently=False)

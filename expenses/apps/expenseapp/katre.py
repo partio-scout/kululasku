@@ -12,7 +12,6 @@ NAMESPACES = {
   'wrtir': 'http://www.tulorekisteri.fi/2017/1/WageReportsToIR',
 }
 
-
 def createKatreReport(expense, expenselines):
   attr_qname = etree.QName("http://www.w3.org/2001/XMLSchema-instance", "schemaLocation")
 
@@ -66,7 +65,8 @@ def createKatreReport(expense, expenselines):
   sd.text = expense.created_at.strftime('%Y-%m-%d')
   ed = SubElement(pp, 'EndDate')
   ed.text = expense.created_at.strftime('%Y-%m-%d')
-
+  
+  #VAIHDA
   cp = SubElement(top, 'ContactPersons')
   cpp = SubElement(cp, 'ContactPerson')
   cpn = SubElement(cpp, 'Name')

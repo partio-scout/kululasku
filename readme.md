@@ -1,3 +1,30 @@
+Kululaskujärjestelmä on Suomen Partiolaisten käyttämä verkkopalvelu kululaskujen käsittelyyn.
+
+Tech stack:
+- Python3
+- Django 2.2.x LTS
+- nginx
+- gunicorn
+- Docker
+- Sendgrid
+
+Huomioitavaa
+- Palvelu on integroitu EmCe palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua EmCen kanssa.
+
+Käyttöönottoa varten
+- Tarkista .env file kuntoon, esimerkkinä toimii env_example
+- Tarkista docker-compose.yml filen volumet kuntoon
+- vaihda settings/__init__.py tiedoston allowed hosts asianmukaiseksi
+
+Tarkista seuraavat tiedot erityisen tarkasti
+- settings/__init__.py tiedosto
+- sähköpostien templatejen muuttujat
+- Käännösten tekstisisällöt
+- send_invoices.py
+- send_katre.py
+- katre.py muuttujat
+- Jokainen #VAIHDA kohta repossa
+
 ### To apply changes
 
 ```
@@ -24,7 +51,7 @@ mv maintenance_off.html maintenance_on.html
 
 ### Put the Maintenance mode off
 
-````
+```
 mv maintenance_on.html maintenance_off.html
 ```
 
