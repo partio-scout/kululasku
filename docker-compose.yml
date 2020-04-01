@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      #Tarkista polut kuntoon omalle ympäristöllesi
       #- /mnt/storage/db_dumps/:/db_dumps/
       - ./tmp/db_dumps/:/db_dumps/
   web:
@@ -14,8 +15,9 @@ services:
     entrypoint: ["./wait_for_pg_and_start.sh", "./run.sh"]
     volumes:
       - .:/code
+        #Tarkista polut kuntoon omalle ympäristöllesi
       - /Users/samik/caset/partio/uploads/receipts:/media/uploads/receipts/
-    #  - /Users/samik/caset/partio/uploads/zips:/tmp/zips/
+      - /Users/samik/caset/partio/uploads/zips:/tmp/zips/
     #  - /mnt/storage/upload/receipts:/media/uploads/receipts/
     #  - /mnt/storage/upload/zips:/tmp/zips/
     environment:

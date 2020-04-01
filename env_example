@@ -1,0 +1,6 @@
+SENDGRID_API_KEY=qwertyuiop
+SECRET_KEY=qwertyuiop
+EMCE_SERVER_ATTR=1234
+EMCE_SERVER=esim.server.ex
+EMCE_USERNAME=emce_kayttaja_esimerkki
+EMCE_PASSWORD=taysin_turvallinen_salasana
