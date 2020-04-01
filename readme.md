@@ -10,6 +10,7 @@ Tech stack:
 
 Huomioitavaa
 - Palvelu on integroitu EmCe palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua EmCen kanssa.
+- Jos integroit EmCeen aseta crontab esimerkin tapaan, crontab -e komennolla
 
 Käyttöönottoa varten
 - Tarkista .env file kuntoon, esimerkkinä toimii env_example

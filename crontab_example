@@ -1,0 +1,1 @@
+30 17 * * * cd /polkuprojektiin && bash run_emce.sh >> /polku_logeihin/logs/emce_logs.txt
