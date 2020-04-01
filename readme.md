@@ -9,7 +9,7 @@ Tech stack:
 - Sendgrid
 
 Huomioitavaa
-- Palvelu on integroitu EmCe palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua EmCen kanssa.
+- Palvelu on integroitu <a href="https://www.emce.fi/">EmCen</a> palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua <a href="https://www.emce.fi/">EmCen</a> kanssa.
 - Jos integroit EmCeen aseta crontab esimerkin tapaan, crontab -e komennolla
 
 Käyttöönottoa varten
