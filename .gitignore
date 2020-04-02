@@ -4,6 +4,7 @@ testikanta.sqlite
 *.sql
 docker-compose-local.yml
 docker-compose-prod.yml
+texts.txt
 
 */__pycache__/
 __pycache__
