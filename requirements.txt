@@ -16,3 +16,4 @@ pytz
 gunicorn
 django-sendgrid-v5
 python-dotenv
+django-environ
