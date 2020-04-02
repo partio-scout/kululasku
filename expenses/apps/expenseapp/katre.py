@@ -6,11 +6,10 @@ from lxml.etree import Element, SubElement, Comment, tostring, ElementTree
 import lxml.etree as etree
 import uuid
 import environ
-
 env = environ.Env(
-    # set casting, default value
-    CONTACT_NAME=(str, 'CFO')
-    CONTACT_NUM=(str, '')
+  # set casting, default value
+  CONTACT_NAME=(str, 'CFO'),
+  CONTACT_NUM=(str, '')
 )
 # reading .env file
 environ.Env.read_env()
