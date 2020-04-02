@@ -70,9 +70,9 @@ def createKatreReport(expense, expenselines):
   cp = SubElement(top, 'ContactPersons')
   cpp = SubElement(cp, 'ContactPerson')
   cpn = SubElement(cpp, 'Name')
-  cpn.text = u'***REMOVED***'
+  cpn.text = ***REMOVED***
   cpt = SubElement(cpp, 'Telephone')
-  cpt.text = u'***REMOVED***'
+  cpt.text = ***REMOVED***
   cprc = SubElement(cpp, 'ResponsibilityCode')
   cprc.text = '1'
 

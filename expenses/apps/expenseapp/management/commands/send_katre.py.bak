@@ -66,8 +66,8 @@ class Command (BaseCommand):
       
       if katrecount > 0 or hapacount > 0:
         import paramiko
-        transport = paramiko.Transport(('***REMOVED***', 22))
-        transport.connect(username='***REMOVED***', password='***REMOVED***')
+        transport = paramiko.Transport((***REMOVED***, 22))
+        transport.connect(username=***REMOVED***, password=***REMOVED***)
         sftp = paramiko.SFTPClient.from_transport(transport)
         sftp.chdir('siirto')
         sftp.chdir('katre')

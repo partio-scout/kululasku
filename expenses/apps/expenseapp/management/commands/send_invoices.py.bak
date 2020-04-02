@@ -73,8 +73,8 @@ class Command (BaseCommand):
       self.stdout.write('Packaging done.')
       
       # import paramiko
-      # transport = paramiko.Transport(('***REMOVED***', 22))
-      # transport.connect(username='***REMOVED***', password='***REMOVED***')
+      # transport = paramiko.Transport((***REMOVED***, 22))
+      # transport.connect(username=***REMOVED***, password=***REMOVED***)
       # sftp = paramiko.SFTPClient.from_transport(transport)
 
       # output_file_name = str(time.time()) + '.zip'
