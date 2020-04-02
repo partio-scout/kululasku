@@ -8,6 +8,7 @@ from PIL import Image
 from datetime import date, datetime
 from django.conf import settings
 from django.core.mail import mail_admins
+import environ
 
 class Command (BaseCommand):
   help = 'Sends new invoices as XML to handling'
@@ -74,10 +75,20 @@ class Command (BaseCommand):
       self.stdout.write('Packaging done.')
       
       import paramiko
-      USERNAME = os.getenv('EMCE_USERNAME').strip()
-      PASSWORD = os.getenv('EMCE_PASSWORD').strip()
-      SERVER_ADDRESS = os.getenv('EMCE_SERVER').strip()
-      SERVER_ATTR = os.getenv('EMCE_SERVER_ATTR').strip()
+      env = environ.Env(
+          # set casting, default value
+          EMCE_USERNAME=(str, 'EMCE_USERNAME_not_set')
+          EMCE_PASSWORD=(str, 'EMCE_PASSWORD_not_set')
+          EMCE_SERVER=(str, 'EMCE_SERVER_not_set')
+          EMCE_SERVER_ATTR=(str, 'EMCE_SERVER_ATTR_not_set')
+      )
+      # reading .env file
+      environ.Env.read_env()
+
+      USERNAME = env('EMCE_USERNAME')
+      PASSWORD = env('EMCE_PASSWORD')
+      SERVER_ADDRESS = env('EMCE_SERVER')
+      SERVER_ATTR = env('EMCE_SERVER_ATTR')
       
       transport = paramiko.Transport((SERVER_ADDRESS, SERVER_ATTR))
       transport.connect(username=USERNAME, password=PASSWORD)

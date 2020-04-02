@@ -25,6 +25,8 @@ services:
       - EMCE_USERNAME= ${EMCE_USERNAME}
       - EMCE_PASSWORD= ${EMCE_PASSWORD}
       - DEBUG= ${DEBUG}
+      - CONTACT_NAME= ${CONTACT_NAME}
+      - CONTACT_NUM= ${CONTACT_NUM}
     ports:
       - 8000:8000
     depends_on:

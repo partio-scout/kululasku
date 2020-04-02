@@ -5,6 +5,18 @@ from datetime import datetime
 from lxml.etree import Element, SubElement, Comment, tostring, ElementTree
 import lxml.etree as etree
 import uuid
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    CONTACT_NAME=(str, 'CFO')
+    CONTACT_NUM=(str, '')
+)
+# reading .env file
+environ.Env.read_env()
+
+# False if not in os.environ
+DEBUG = env('DEBUG')
 
 NAMESPACES = {
   'ds': 'http://www.w3.org/2000/09/xmldsig#',
@@ -70,9 +82,9 @@ def createKatreReport(expense, expenselines):
   cp = SubElement(top, 'ContactPersons')
   cpp = SubElement(cp, 'ContactPerson')
   cpn = SubElement(cpp, 'Name')
-  cpn.text = '***REMOVED***'
+  cpn.text = env('CONTACT_NAME')
   cpt = SubElement(cpp, 'Telephone')
-  cpt.text = '***REMOVED***'
+  cpt.text = env('CONTACT_NUM')
   cprc = SubElement(cpp, 'ResponsibilityCode')
   cprc.text = '1'
 

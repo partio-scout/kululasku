@@ -4,3 +4,5 @@ EMCE_SERVER_ATTR=1234
 EMCE_SERVER=esim.server.ex
 EMCE_USERNAME=emce_kayttaja_esimerkki
 EMCE_PASSWORD=taysin_turvallinen_salasana
+CONTACT_NAME=Matti Meikäläinen
+CONTACT_NUM=+123456789
