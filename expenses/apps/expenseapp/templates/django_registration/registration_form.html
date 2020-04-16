@@ -46,12 +46,10 @@
 <div style="text-align: center;">
   <p >
     <small>{% url 'auth_password_reset' as reset_url %}
-    {% blocktrans %}
-    Forgot your password?</small>
+    {% trans 'Forgot your password?'%}</small>
   </p>
 
-  <a href="{{ reset_url }}" style="text-decoration: underline;"><strong>Reset your password</strong></a>.
-  {% endblocktrans %}
+  <a href="{{ reset_url }}" style="text-decoration: underline;"><strong>{% trans 'Reset your password'%}</strong></a>.
 </div>
 
 {% endblock %}
