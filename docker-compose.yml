@@ -18,15 +18,16 @@ services:
       #- /haluttupolku/uploads/receipts:/media/uploads/receipts/
       #- /haluttupolku/uploads/zips:/tmp/zips/
     environment:
-      - SENDGRID_API_KEY= ${SENDGRID_API_KEY}
-      - SECRET_KEY= ${SECRET_KEY}
-      - EMCE_SERVER_ATTR= ${EMCE_SERVER_ATTR}
-      - EMCE_SERVER= ${EMCE_SERVER}
-      - EMCE_USERNAME= ${EMCE_USERNAME}
-      - EMCE_PASSWORD= ${EMCE_PASSWORD}
-      - DEBUG= ${DEBUG}
-      - CONTACT_NAME= ${CONTACT_NAME}
-      - CONTACT_NUM= ${CONTACT_NUM}
+      #Change the values here
+      - SENDGRID_API_KEY= CHANGE_ME
+      - SECRET_KEY= CHANGE_ME
+      - EMCE_SERVER_ATTR= CHANGE_ME
+      - EMCE_SERVER= CHANGE_ME
+      - EMCE_USERNAME= CHANGE_ME
+      - EMCE_PASSWORD= CHANGE_ME
+      - DEBUG= CHANGE_ME
+      - CONTACT_NAME= CHANGE_ME
+      - CONTACT_NUM= CHANGE_ME
     ports:
       - 8000:8000
     depends_on:

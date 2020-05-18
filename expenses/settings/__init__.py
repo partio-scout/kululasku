@@ -11,9 +11,7 @@ sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #VAIHDA
 api_key = os.getenv('SENDGRID_API_KEY').strip()
-#SENDGRID_API_KEY=api_key  ei toimi, vaihda!
-
-#SENDGRID_API_KEY='asdfghjklö' toimii
+SENDGRID_API_KEY=api_key
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_TRACK_EMAIL_OPENS=False
 SENDGRID_TRACK_CLICKS_HTML=False
