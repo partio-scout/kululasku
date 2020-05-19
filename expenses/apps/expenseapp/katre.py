@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 from locale import currency
 from django.utils import timezone
 from datetime import datetime

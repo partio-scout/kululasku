@@ -9,16 +9,19 @@ from django.utils.translation import ugettext_lazy as _
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__).replace('settings', ''), ''))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#VAIHDA
-api_key = os.getenv('SENDGRID_API_KEY').strip()
+
+#VAIHDA muuttujat .env tiedostoon juureen
+api_key = os.getenv('SENDGRID_API_KEY')
+DEBUG = os.getenv('DEBUG')
+ALLOWED_HOSTS = list(os.getenv('ALLOWED_HOSTS_STRING').split(','))
+SECRET_KEY=os.getenv('SECRET_KEY')
+
 SENDGRID_API_KEY=api_key
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 SENDGRID_TRACK_EMAIL_OPENS=False
 SENDGRID_TRACK_CLICKS_HTML=False
 SENDGRID_TRACK_CLICKS_PLAIN=False
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
-#VAIHDA LOKAALIIN
-DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # 2.5MB - 2621440
@@ -54,8 +57,6 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-#VAIHDA
-ALLOWED_HOSTS = ['kululasku.partio.fi']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -125,10 +126,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-#VAIHDA
-SECRET_KEY = 'asdfghjklöä'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

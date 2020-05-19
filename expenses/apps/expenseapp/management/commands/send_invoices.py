@@ -17,9 +17,9 @@ class Command (BaseCommand):
     if not expenses:
       self.stdout.write('No invoices to send.')
       return
-
+    else:
+      self.stdout.write("Found %s expenses to be handled as invoice" % str(len(expenses)))
     try:
-
       import zipfile, io
       
       date_str = datetime.now().strftime("%Y-%m-%d-%H-%M")
@@ -64,9 +64,6 @@ class Command (BaseCommand):
             zf.write(receiptpath, 'liite_' + str(expense.id) + '_' + str(j).zfill(3) + os.path.splitext(str(receiptpath))[1])
           j = j + 1
 
-        expense.status = 1
-        expense.save()
-
         i = i + 1
 
       zf.close()
@@ -75,13 +72,13 @@ class Command (BaseCommand):
       
       import paramiko
 
-      USERNAME = os.getenv('USERNAME')
-      PASSWORD = os.getenv('PASSWORD')
-      SERVER_ADDRESS = os.getenv('SERVER_ADDRESS')
-      SERVER_ATTR = os.getenv('SERVER_ATTR')
+      EMCE_USERNAME = os.getenv('EMCE_USERNAME')
+      EMCE_PASSWORD = os.getenv('EMCE_PASSWORD')
+      EMCE_SERVER = os.getenv('EMCE_SERVER')
+      EMCE_SERVER_PORT = os.getenv('EMCE_SERVER_PORT')
       
-      transport = paramiko.Transport((SERVER_ADDRESS, SERVER_ATTR))
-      transport.connect(username=USERNAME, password=PASSWORD)
+      transport = paramiko.Transport((EMCE_SERVER, EMCE_SERVER_PORT))
+      transport.connect(username=EMCE_USERNAME, password=EMCE_PASSWORD)
       sftp = paramiko.SFTPClient.from_transport(transport)
 
       output_file_name = str(time.time()) + '.zip'
@@ -94,16 +91,11 @@ class Command (BaseCommand):
 
       transport.close()
 
-      self.stdout.write('Done.')
-
       expenses.update(status=1)
+      self.stdout.write('Successfully sent %s invoices' % i)
 
     except Exception as error:
-
-      print("Package sending failed: %s" % str(error))
-
+      self.stdout.write("Package sending failed: %s" % str(error))
       # Mark expenses unsent in case sending failed
       expenses.update(status=0)
-
       mail_admins("Invoice sending failed", "For some reason invoice sending failed in kululasku-system. Please check and fix.\n\n%s" % str(error))
-    self.stdout.write('Successfully sent %s invoices' % i)

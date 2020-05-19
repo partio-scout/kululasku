@@ -17,17 +17,7 @@ services:
       #Tarkista polut kuntoon omalle ympäristöllesi
       #- /haluttupolku/uploads/receipts:/media/uploads/receipts/
       #- /haluttupolku/uploads/zips:/tmp/zips/
-    environment:
-      #Change the values here
-      - SENDGRID_API_KEY= CHANGE_ME
-      - SECRET_KEY= CHANGE_ME
-      - EMCE_SERVER_ATTR= CHANGE_ME
-      - EMCE_SERVER= CHANGE_ME
-      - EMCE_USERNAME= CHANGE_ME
-      - EMCE_PASSWORD= CHANGE_ME
-      - DEBUG= CHANGE_ME
-      - CONTACT_NAME= CHANGE_ME
-      - CONTACT_NUM= CHANGE_ME
+    env_file: .env
     ports:
       - 8000:8000
     depends_on:

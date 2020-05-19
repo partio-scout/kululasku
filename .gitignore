@@ -1,6 +1,6 @@
 kululasku.sqlite
 testikanta.sqlite
-.env
+.env*
 *.sql
 docker-compose-local.yml
 docker-compose-prod.yml

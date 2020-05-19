@@ -15,12 +15,14 @@ class Command (BaseCommand):
     expenses = Expense.objects.filter(
       katre_status=0,
       organisation__send_active=1, 
-      created_at__gte=datetime(2019, 1, 1, tzinfo=timezone.utc)
+      created_at__gte=datetime(2020, 1, 1, tzinfo=timezone.utc)
     )
 
     if not expenses:
-      self.stdout.write('No invoices to send.')
+      self.stdout.write('No katres to send.')
       return
+    else:
+      self.stdout.write("Found %s expenses to be handled as katre" % str(len(expenses)))
 
     try:
 
@@ -44,7 +46,7 @@ class Command (BaseCommand):
 
         if expense.needsKatre():
           xml = expense.katre()
-
+          #Hämeenpartiopiirin y-tunnus, Muokattava jos halutaan muille käyttöön
           if expense.organisation.katre_cert_business_id == '0288930-9':
             hapa_zip.writestr('katre_hapa_' + str(expense.id) + '.xml', xml)
             hapacount = hapacount + 1
@@ -57,8 +59,6 @@ class Command (BaseCommand):
         else:
           expense.katre_status = 1
 
-        expense.save()
-
       katre_zip.close()
       hapa_zip.close()
 
@@ -66,15 +66,13 @@ class Command (BaseCommand):
       
       if katrecount > 0 or hapacount > 0:
         import paramiko
-        # reading .env file
+        EMCE_USERNAME = os.getenv('EMCE_USERNAME')
+        EMCE_PASSWORD = os.getenv('EMCE_PASSWORD')
+        EMCE_SERVER = os.getenv('EMCE_SERVER')
+        EMCE_SERVER_PORT = os.getenv('EMCE_SERVER_PORT')
 
-        USERNAME = os.getenv('USERNAME')
-        PASSWORD = os.getenv('PASSWORD')
-        SERVER_ADDRESS = os.getenv('SERVER_ADDRESS')
-        SERVER_ATTR = os.getenv('SERVER_ATTR')
-
-        transport = paramiko.Transport((SERVER_ADDRESS, SERVER_ATTR))
-        transport.connect(username=USERNAME, password=PASSWORD)
+        transport = paramiko.Transport((EMCE_SERVER, EMCE_SERVER_PORT))
+        transport.connect(username=EMCE_USERNAME, password=EMCE_PASSWORD)
         sftp = paramiko.SFTPClient.from_transport(transport)
         sftp.chdir('siirto')
         sftp.chdir('katre')
@@ -93,12 +91,15 @@ class Command (BaseCommand):
         self.stdout.write('Packages sent, closing connection...')
 
         transport.close()
-
-      self.stdout.write('Done.')
+      #Save the changes to DB. Value calculated earlier, so needs save not update.
+      for expense in expenses:
+        expense.save()
+            
+      self.stdout.write('Successfully sent %s katres' % str(katrecount + hapacount))
 
     except Exception as error:
 
-      print("Package sending failed: %s" % str(error))
+      self.stdout.write("Package sending failed: %s" % str(error))
 
       # Mark expenses unsent in case sending failed
       expenses.update(katre_status=0)
@@ -107,4 +108,3 @@ class Command (BaseCommand):
 
     #os.remove(o)
 
-    self.stdout.write('Successfully sent %s invoices' % str(katrecount + hapacount))
