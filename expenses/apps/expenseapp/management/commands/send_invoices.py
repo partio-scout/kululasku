@@ -75,7 +75,7 @@ class Command (BaseCommand):
       EMCE_USERNAME = os.getenv('EMCE_USERNAME')
       EMCE_PASSWORD = os.getenv('EMCE_PASSWORD')
       EMCE_SERVER = os.getenv('EMCE_SERVER')
-      EMCE_SERVER_PORT = os.getenv('EMCE_SERVER_PORT')
+      EMCE_SERVER_PORT = int(os.getenv('EMCE_SERVER_PORT'))
       
       transport = paramiko.Transport((EMCE_SERVER, EMCE_SERVER_PORT))
       transport.connect(username=EMCE_USERNAME, password=EMCE_PASSWORD)
