@@ -5,5 +5,5 @@ docker-compose exec -T web bash -c "python manage.py send_invoices" >> /mnt/stor
 echo invoice script over
 
 echo start sending katres, $now
-docker-compose exec -T web bash -c "python manage.py send_katre"
+docker-compose exec -T web bash -c "python manage.py send_katre" >> /mnt/storage/logs/emce_logs.txt
 echo katre script over
