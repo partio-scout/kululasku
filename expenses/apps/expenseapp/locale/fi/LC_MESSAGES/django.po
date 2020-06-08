@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-18 13:53+0000\n"
+"POT-Creation-Date: 2020-06-08 12:47+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,44 +419,44 @@ msgstr ""
 "Kuva kuitista. Kuvamuotoina kelpaavat mm. PDF, PNG ja JPG.Huomaa: Kuitista "
 "täytyy ilmetä selvästi mitä, milloin ja kuinka paljon on maksettu!"
 
-#: templates/base.html:35
+#: templates/base.html:37
 #, fuzzy
 #| msgid "Create a new expense application"
 msgid "New expense application"
 msgstr "Luo uusi kululasku"
 
-#: templates/base.html:36 templates/ownexpenses.html:5
+#: templates/base.html:38 templates/ownexpenses.html:5
 msgid "My expenses"
 msgstr "Omat kulut"
 
-#: templates/base.html:37
+#: templates/base.html:39
 msgid "User information"
 msgstr "Omat tiedot"
 
-#: templates/base.html:39
+#: templates/base.html:41
 msgid "Admin"
 msgstr "Ylläpito"
 
-#: templates/base.html:43
+#: templates/base.html:45
 #, fuzzy
 #| msgid "Site language"
 msgid "Languages"
 msgstr "Sivuston kieli"
 
-#: templates/base.html:60
+#: templates/base.html:62
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: templates/base.html:62 templates/django_registration/login.html:49
+#: templates/base.html:64 templates/django_registration/login.html:49
 msgid "Sign up"
 msgstr "Rekisteröidy"
 
-#: templates/base.html:63 templates/django_registration/login.html:45
+#: templates/base.html:65 templates/django_registration/login.html:45
 #: templates/django_registration/registration_form.html:41
 msgid "Log in"
 msgstr "Kirjaudu sisään"
 
-#: templates/base.html:83
+#: templates/base.html:85
 msgid "Issues with the service?"
 msgstr "Ongelmia palvelun käytössä?"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-18 13:53+0000\n"
+"POT-Creation-Date: 2020-06-08 12:47+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -419,44 +419,44 @@ msgstr ""
 "Bild av kvittot. Godkända format är PDF, PNG och JPG. Obs: Av kvittot bör "
 "klart framgå vad, när och hur mycket som betalats!"
 
-#: templates/base.html:35
+#: templates/base.html:37
 #, fuzzy
 #| msgid "Create a new expense application"
 msgid "New expense application"
 msgstr "Skapa en ny redovisning"
 
-#: templates/base.html:36 templates/ownexpenses.html:5
+#: templates/base.html:38 templates/ownexpenses.html:5
 msgid "My expenses"
 msgstr "Tidigare redovisningar"
 
-#: templates/base.html:37
+#: templates/base.html:39
 msgid "User information"
 msgstr "Mina uppgifter"
 
-#: templates/base.html:39
+#: templates/base.html:41
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/base.html:43
+#: templates/base.html:45
 #, fuzzy
 #| msgid "Site language"
 msgid "Languages"
 msgstr "Språk"
 
-#: templates/base.html:60
+#: templates/base.html:62
 msgid "Log out"
 msgstr "Logga ut"
 
-#: templates/base.html:62 templates/django_registration/login.html:49
+#: templates/base.html:64 templates/django_registration/login.html:49
 msgid "Sign up"
 msgstr "Registrera dig här"
 
-#: templates/base.html:63 templates/django_registration/login.html:45
+#: templates/base.html:65 templates/django_registration/login.html:45
 #: templates/django_registration/registration_form.html:41
 msgid "Log in"
 msgstr "Logga in"
 
-#: templates/base.html:83
+#: templates/base.html:85
 msgid "Issues with the service?"
 msgstr "Problem med webbtjänst?"
 
@@ -624,7 +624,7 @@ msgstr "Har du glömt ditt lösen?"
 #, fuzzy
 #| msgid "Reset Password"
 msgid "Reset your password"
-msgstr "Reset lösen"
+msgstr "Återställ lösenord"
 
 #: templates/django_registration/logout.html:5
 msgid "Logged Out"
@@ -662,7 +662,7 @@ msgstr "Nu kan du <a href=\"%(login_url)s\">logga in</a>."
 
 #: templates/django_registration/password_reset_confirm.html:4
 msgid "Reset Password"
-msgstr "Reset lösen"
+msgstr "Återställ lösenord"
 
 #: templates/django_registration/password_reset_confirm.html:24
 #: templates/django_registration/password_reset_form.html:27
@@ -691,7 +691,7 @@ msgstr "Länken för ett nytt lösen har skickats per e-post"
 
 #: templates/django_registration/password_reset_form.html:4
 msgid "Password Reset"
-msgstr "Reset lösen"
+msgstr "Återställ lösenord"
 
 #: templates/django_registration/registration_complete.html:6
 msgid ""
