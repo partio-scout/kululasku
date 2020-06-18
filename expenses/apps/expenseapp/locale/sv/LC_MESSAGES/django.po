@@ -355,7 +355,7 @@ msgstr "Syfte"
 
 #: models.py:271 views.py:125 views.py:246
 msgid "Info"
-msgstr "Tillägsinformation"
+msgstr "Tilläggsinformation"
 
 #: models.py:271
 #, fuzzy
@@ -790,11 +790,11 @@ msgstr "Kostnad för %(organisation_name)s"
 
 #: templates/showexpense.html:10
 msgid "Ilmoittajan tiedot"
-msgstr ""
+msgstr "Personliga uppgifter"
 
 #: templates/showexpense.html:26
 msgid "Kululaskun tiedot"
-msgstr ""
+msgstr "Redovisningens uppgifter"
 
 #: templates/showexpense.html:39
 #, fuzzy
@@ -820,33 +820,33 @@ msgstr "Sänd ansökan för granskning"
 #, fuzzy
 #| msgid "Please verify that all information is correct."
 msgid "Please verify your personal information is correct."
-msgstr "Vänligen kontrollera att all informtion är korrekt."
+msgstr "Vänligen kontrollera att all information är korrekt."
 
 #: views.py:117
 msgid "Applicant Name"
-msgstr ""
+msgstr "Namn"
 
 #: views.py:143 views.py:314
 msgid "Please verify that all information is correct."
-msgstr "Vänligen kontrollera att all informtion är korrekt."
+msgstr "Vänligen kontrollera att all information är korrekt."
 
 #: views.py:150
 #, fuzzy
 #| msgid "Please verify that all information is correct."
 msgid "Please verify the given file."
-msgstr "Vänligen kontrollera att all informtion är korrekt."
+msgstr "Vänligen kontrollera att all information är korrekt."
 
 #: views.py:163
 #, fuzzy
 #| msgid "Please verify that all information is correct."
 msgid "Please verify ending dates are correct."
-msgstr "Vänligen kontrollera att all informtion är korrekt."
+msgstr "Vänligen kontrollera att all information är korrekt."
 
 #: views.py:177
 #, fuzzy
 #| msgid "Please verify that all information is correct."
 msgid "Please verify dates are correct."
-msgstr "Vänligen kontrollera att all informtion är korrekt."
+msgstr "Vänligen kontrollera att all information är korrekt."
 
 #: views.py:193 views.py:261
 msgid "Sum"
@@ -861,7 +861,7 @@ msgid ""
 "Please verify that all information is correct before submitting the "
 "application for review"
 msgstr ""
-"Vänligen kontrollera att all informtion är korrekt innan du sänder den "
+"Vänligen kontrollera att all information är korrekt innan du sänder den "
 "vidare för granskning"
 
 #: views.py:222
