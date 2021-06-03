@@ -12,7 +12,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #VAIHDA muuttujat .env tiedostoon juureen
 api_key = os.getenv('SENDGRID_API_KEY')
-DEBUG = os.getenv('DEBUG')
+# Python vaatii tekstin converttauksen booleaniksi toimiakseen
+DEBUG = os.getenv('DEBUG') == 'True'
 ALLOWED_HOSTS = list(os.getenv('ALLOWED_HOSTS_STRING').split(','))
 SECRET_KEY=os.getenv('SECRET_KEY')
 
