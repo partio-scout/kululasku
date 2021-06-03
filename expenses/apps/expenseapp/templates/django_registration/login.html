@@ -4,10 +4,10 @@
 {% block content %}
 <h1 style="text-align: center;">{% trans 'Log In'%} </h1>
 
-<!-- <div style="text-align: center;">
+<div style="text-align: center;">
   <p>Olemme resetoineet käyttäjien salasanat järjestelmäpäivityksen yhteydessä.</p>
   <p>Palautathan salasanasi käyttämällä <a href="/accounts/password/reset/">Unohditko salasanasi</a> ominaisuutta.</p>
-</div> -->
+</div>
 
 
 <form style="text-align: center;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned" data-parsley-validate>
