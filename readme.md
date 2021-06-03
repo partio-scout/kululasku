@@ -1,6 +1,11 @@
+# Partio Kululaskujärjestelmä
+
+## Kuvaus
+
 Kululaskujärjestelmä on Suomen Partiolaisten käyttämä verkkopalvelu kululaskujen käsittelyyn.
 
 Tech stack:
+
 - Python3
 - Django 2.2.x LTS
 - nginx
@@ -8,17 +13,20 @@ Tech stack:
 - Docker
 - Sendgrid
 
-Huomioitavaa
+## Huomioitavaa
+
 - Palvelu on integroitu <a href="https://www.emce.fi/">EmCen</a> palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua <a href="https://www.emce.fi/">EmCen</a> kanssa.
 - Jos integroit EmCeen aseta crontab esimerkin tapaan, crontab -e komennolla
 
-Käyttöönottoa varten
+## Käyttöönottoa varten
+
 - Tarkista .env file kuntoon, esimerkkinä toimii env_example
 - Tarkista docker-compose.yml filen volumet kuntoon
-- vaihda settings/__init__.py tiedoston allowed hosts asianmukaiseksi
+- vaihda settings/**init**.py tiedoston allowed hosts asianmukaiseksi
 
-Tarkista seuraavat tiedot erityisen tarkasti
-- settings/__init__.py tiedosto
+#Tarkista seuraavat tiedot erityisen tarkasti
+
+- settings/**init**.py tiedosto
 - sähköpostien templatejen muuttujat
 - Käännösten tekstisisällöt
 - send_invoices.py
@@ -56,12 +64,6 @@ mv maintenance_off.html maintenance_on.html
 mv maintenance_on.html maintenance_off.html
 ```
 
-### Create default user permission groups
-
-```
-docker-compose exec web python manage.py create-permission-groups
-```
-
 ### Django migrations
 
 ```
@@ -82,6 +84,7 @@ docker-compose exec web cd expenses/apps/expenseapp/ && django-admin compilemess
 ```
 
 ### SQL query to force start times for expensetypes that have requires_endtime = True;
+
 ```
 docker-compose exec  db psql -U postgres
 update expenseapp_expensetype set requires_start_time = True where requires_endtime = True;

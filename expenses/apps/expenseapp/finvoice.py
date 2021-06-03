@@ -12,7 +12,9 @@ def createFinvoice(expense, expenselines):
 
   sp = SubElement(top, 'SellerPartyDetails')
   spi = SubElement(sp, 'SellerPartyIdentifier')
-  spi.text = expense.personno.upper()
+  # Instead of HeTu we use user ID as a identifier
+  spi.text = str(expense.user.id)
+
   spn = SubElement(sp, 'SellerOrganisationName')
   spn.text = expense.name
 

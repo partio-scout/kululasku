@@ -7,6 +7,11 @@ from django.contrib.auth.admin import UserAdmin
 
 class UserAdmin(UserAdmin):
   inlines = (PersonInline,)
+  
+def get_username_id(self):
+    return '%s (%s)' % (self.username, str(self.id))
+
+User.add_to_class("__str__", get_username_id)
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
