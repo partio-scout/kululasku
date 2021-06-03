@@ -24,6 +24,7 @@ SENDGRID_TRACK_CLICKS_HTML=False
 SENDGRID_TRACK_CLICKS_PLAIN=False
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 TEMPLATE_DEBUG = DEBUG
+locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
 
 # 2.5MB - 2621440
 # 5MB - 5242880
