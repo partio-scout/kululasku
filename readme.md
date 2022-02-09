@@ -95,3 +95,13 @@ update expenseapp_expensetype set requires_start_time = True where requires_endt
 ```
 docker-compose down && docker-compose up -d db && docker-compose exec db sh -c "dropdb -U postgres postgres" && docker-compose exec db createdb -U postgres -T template0 postgres && docker-compose exec -T db psql -U postgres postgres < tmp/db_dumps/DUMPPI_FFILU.sql
 ```
+
+### Tietokannan kopiointi
+
+```
+docker-compose exec db  pg_dump -U $DB_USER $DB_NAME > ./dump_$DATESTAMP.sql
+```
+
+### Testien ajaminen
+
+`docker-compose up -d && docker-compose exec web bash -c "python manage.py test expenseapp" && docker-compose down`

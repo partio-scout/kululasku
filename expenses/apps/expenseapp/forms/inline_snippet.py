@@ -4,6 +4,8 @@ from django.forms.models import inlineformset_factory
 from expenseapp.models import ExpenseLine, Expense
 from datetime import datetime
 
+from expenses.settings import TIME_ZONE
+
 
 # Inline formset-snippet:
 # Copyright (c) 2010, Stanislas Guerra.
@@ -15,11 +17,13 @@ class ModelFormOptions(object):
     def __init__(self, options=None):
         self.inlines = getattr(options, 'inlines', {})
 
+
 class ModelFormMetaclass(ModelFormMetaclass):
     def __new__(cls, name, bases, attrs):
         new_class = super().__new__(cls, name, bases, attrs)
         new_class._forms = ModelFormOptions(getattr(new_class, 'Forms', None))
         return new_class
+
 
 class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
     """
@@ -36,7 +40,7 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
     >>> class ImageProgram(models.Model):
     ...     image = models.ImageField('image')
     ...     program = models.ForeignKey(Programm)
-    
+
     >>> class Ringtone(models.Model):
     ...     sound = models.FileField('sound')
     ...     program = models.ForeignKey(Programm)
@@ -80,7 +84,8 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
             self.inlineformsets = {}
             for key, FormSet in list(self._forms.inlines.items()):
                 self.inlineformsets[key] = FormSet(self.data or None, self.files or None,
-                                                   prefix=self._get_formset_prefix(key),
+                                                   prefix=self._get_formset_prefix(
+                                                       key),
                                                    instance=self.instance)
 
     def save(self, *args, **kwargs):
@@ -111,25 +116,29 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
                             else:
                                 if(ended_at_time_input == None):
                                     ended_at_time_str = "00:00:00"
-                                    ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_str)
-                                    ended_at = datetime.strptime(ended_at_str, '%Y-%m-%d %H:%M:%S')
+                                    ended_at_str = '%s %s' % (
+                                        ended_at_date_input, ended_at_time_str)
+                                    ended_at = datetime.strptime(
+                                        ended_at_str, '%Y-%m-%d %H:%M:%S')
                                 else:
-                                    ended_at_str = '%s %s' % (ended_at_date_input, ended_at_time_input)
-                                    ended_at = datetime.strptime(ended_at_str, '%Y-%m-%d %H:%M:%S')
-                            
+                                    ended_at_str = '%s %s' % (
+                                        ended_at_date_input, ended_at_time_input)
+                                    ended_at = datetime.strptime(
+                                        ended_at_str, '%Y-%m-%d %H:%M:%S')
+
                             if(begin_at_date_input == None):
                                 return HttpResponse("<script>window.top.$('#id_preview').val(0); window.top.$('#expense-form').off('submit.open_preview').attr('target', '').submit();</script>")
                             else:
                                 if(begin_at_time_input == None):
                                     begin_at_time_input = "00:00:00"
 
-                                
-                            begin_at_str = '%s %s' % (begin_at_date_input, begin_at_time_input)
-                            begin_at = datetime.strptime(begin_at_str, '%Y-%m-%d %H:%M:%S')
-                        
+                            begin_at_str = '%s %s' % (
+                                begin_at_date_input, begin_at_time_input)
+                            begin_at = datetime.strptime(
+                                begin_at_str, '%Y-%m-%d %H:%M:%S')
 
                             res = form.save(commit=False)
-                            res.begin_at = begin_at_str
+                            res.begin_at = begin_at
                             res.ended_at = ended_at
                             res.save()
                     fset.save()
@@ -156,6 +165,7 @@ class ModelForm(forms.ModelForm, metaclass=ModelFormMetaclass):
             for i in range(0, fset.total_form_count()):
                 f = fset.forms[i]
                 if f.errors:
-                    self._errors['_%s_%d' %(fset.prefix, i)] = f.non_field_errors
+                    self._errors['_%s_%d' %
+                                 (fset.prefix, i)] = f.non_field_errors
 
 # Endofsnippet

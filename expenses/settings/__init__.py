@@ -4,24 +4,25 @@ import os
 import sys
 from django.urls import reverse
 import locale
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__).replace('settings', ''), ''))
+PROJECT_ROOT = os.path.abspath(os.path.join(
+    os.path.dirname(__file__).replace('settings', ''), ''))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-#VAIHDA muuttujat .env tiedostoon juureen
+# VAIHDA muuttujat .env tiedostoon juureen
 api_key = os.getenv('SENDGRID_API_KEY')
 # Python vaatii tekstin converttauksen booleaniksi toimiakseen
 DEBUG = os.getenv('DEBUG') == 'True'
 ALLOWED_HOSTS = list(os.getenv('ALLOWED_HOSTS_STRING').split(','))
-SECRET_KEY=os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-SENDGRID_API_KEY=api_key
-SENDGRID_SANDBOX_MODE_IN_DEBUG=False
-SENDGRID_TRACK_EMAIL_OPENS=False
-SENDGRID_TRACK_CLICKS_HTML=False
-SENDGRID_TRACK_CLICKS_PLAIN=False
+SENDGRID_API_KEY = api_key
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+SENDGRID_TRACK_EMAIL_OPENS = False
+SENDGRID_TRACK_CLICKS_HTML = False
+SENDGRID_TRACK_CLICKS_PLAIN = False
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 TEMPLATE_DEBUG = DEBUG
 locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
@@ -36,7 +37,7 @@ locale.setlocale(locale.LC_ALL, 'fi_FI.UTF-8')
 # 250MB - 214958080
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = 20971520
-#VAIHDA Admin (Nimi, email) halutuksi. Virheilmoitukset lähetetään sähköpostiin.)
+# VAIHDA Admin (Nimi, email) halutuksi. Virheilmoitukset lähetetään sähköpostiin.)
 ADMINS = (
     ('Perfektio Webmaster', 'sami.lindqvist@perfektio.fi'),
 )
@@ -46,13 +47,16 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'postgres',                      # Or path to database file if using sqlite3.
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql',
+        # Or path to database file if using sqlite3.
+        'NAME': 'postgres',
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
-        #'PASSWORD': '',
+        # 'PASSWORD': '',
         # Docker-composesta viittaus
-        'HOST': 'db',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'HOST': 'db',
         'PORT': '5432',                      # Set to empty string for default.
     }
 }
@@ -72,12 +76,12 @@ LANGUAGE_CODE = 'fi-Fi'
 #LANGUAGE_CODE = 'fi'
 
 LANGUAGES = (
-  ('fi-FI', _('Finnish')),
-  ('sv-SE', _('Swedish')),
-  ('en-EN', _('English')),
+    ('fi-FI', _('Finnish')),
+    ('sv-SE', _('Swedish')),
+    ('en-EN', _('English')),
 )
 
-LOCALE_PATHS =  [
+LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
@@ -126,7 +130,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # List of callables that know how to import templates from various sources.
@@ -251,10 +255,9 @@ LOGGING = {
 EMAIL_SUBJECT_PREFIX = '[Kululasku] '
 
 try:
-  from .local import *
+    from .local import *
 except ImportError:
-  pass
+    pass
 
-#VAIHDA
-DEFAULT_FROM_EMAIL="no-reply@partio.fi"
-
+# VAIHDA
+DEFAULT_FROM_EMAIL = "no-reply@partio.fi"

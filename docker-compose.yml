@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   db:
-    image: postgres:12.0-alpine
+    image: postgres:12.9-alpine
     restart: unless-stopped
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -15,7 +15,6 @@ services:
     volumes:
       - .:/code
       #Tarkista polut kuntoon omalle ympäristöllesi
-      #- /haluttupolku/uploads/receipts:/media/uploads/receipts/
       #- /haluttupolku/uploads/zips:/tmp/zips/
     env_file: .env
     ports:

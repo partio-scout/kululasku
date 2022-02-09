@@ -4,6 +4,7 @@ from django.utils import translation
 from expenseapp.models import Person
 from expenses import settings
 
+
 class ExpenseAppSetLanguageMiddleware(object):
     def process_request(self, request):
         if not request.user.is_authenticated():

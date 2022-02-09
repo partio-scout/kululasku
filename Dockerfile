@@ -8,6 +8,7 @@ RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
 RUN mkdir media static logs
+#ENV PYTHONWARNINGS="always"
 
 RUN pip install -r requirements.txt
 ADD . /code

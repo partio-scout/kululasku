@@ -5,11 +5,14 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.admin import UserAdmin
 
+
 class UserAdmin(UserAdmin):
-  inlines = (PersonInline,)
-  
+    inlines = (PersonInline,)
+
+
 def get_username_id(self):
     return '%s (%s)' % (self.username, str(self.id))
+
 
 User.add_to_class("__str__", get_username_id)
 
