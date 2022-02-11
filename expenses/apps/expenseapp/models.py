@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from django.db import models
 from django.contrib import admin
 from django.conf import settings
@@ -9,13 +8,10 @@ from django.contrib.auth.models import User
 from django.contrib.admin import DateFieldListFilter
 from django_registration.signals import user_registered
 from django.utils.translation import gettext_lazy
-from locale import currency
 from django.contrib.auth.models import Permission
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
 from localflavor.generic.models import IBANField, BICField
-from django.template import defaultfilters
-from django.utils import timezone
 
 from .finvoice import createFinvoice
 from .katre import createKatreReport
@@ -38,7 +34,6 @@ def validate_hetu(value):
 
 
 def validate_hetu_or_businessid(value):
-    import re
     from stdnum.fi import hetu
     from stdnum.fi import ytunnus
     from stdnum.exceptions import InvalidChecksum, InvalidFormat
@@ -97,6 +92,41 @@ validators = {
         MaxLengthValidator(255),
     ],
 }
+
+
+class InfoMessage(TranslatableModel):
+    title_fi = models.CharField(gettext_lazy("Otsikko"), max_length=200),
+    description_fi = models.CharField(
+        gettext_lazy("Selite"), max_length=2000)
+
+    title_se = models.CharField(gettext_lazy("Title"), max_length=200),
+    description_se = models.CharField(
+        gettext_lazy("Description"), max_length=2000)
+
+    title_en = models.CharField(gettext_lazy("Title"), max_length=200),
+    description_en = models.CharField(
+        gettext_lazy("Description"), max_length=2000)
+
+    start_date = models.DateTimeField(
+        gettext_lazy('Visible from'), )
+    end_date = models.DateTimeField(
+        gettext_lazy('Visible to'), blank=False)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = " Kululaskut"
+
+
+class InfoMessageAdmin(TranslatableAdmin):
+    list_display = ['id', 'title_fi', 'title_se', 'title_en'
+                    'description_fi', 'description_se', 'description_en', 'start_date', 'end_date']
+    search_fields = ('title_fi', 'description_fi')
+
+    # def set_type(self, request, queryset):
+    #     queryset.update(type=1)
+    # set_type.short_description = "Vaihda luottamushenkilöksi"
 
 
 class Organisation(models.Model):
