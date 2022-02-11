@@ -12,6 +12,9 @@ from django.contrib.auth.models import Permission
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
 from localflavor.generic.models import IBANField, BICField
+from parler.models import TranslatableModel, TranslatedFields
+from parler.admin import TranslatableAdmin
+
 
 from .finvoice import createFinvoice
 from .katre import createKatreReport
@@ -94,23 +97,28 @@ validators = {
 }
 
 
-class InfoMessage(TranslatableModel):
-    title_fi = models.CharField(gettext_lazy("Otsikko"), max_length=200),
+class InfoMessage(models.Model):
+    title_fi = models.CharField(gettext_lazy(
+        "Otsikko"), max_length=200, default="Tiedoksi", blank=True),
     description_fi = models.CharField(
-        gettext_lazy("Selite"), max_length=2000)
+        gettext_lazy("Selite"), max_length=2000, blank=True)
 
-    title_se = models.CharField(gettext_lazy("Title"), max_length=200),
+    title_se = models.CharField(gettext_lazy(
+        "Title"), max_length=200, blank=True),
     description_se = models.CharField(
         gettext_lazy("Description"), max_length=2000)
 
-    title_en = models.CharField(gettext_lazy("Title"), max_length=200),
+    title_en = models.CharField(gettext_lazy(
+        "Title"), max_length=200, blank=True),
     description_en = models.CharField(
-        gettext_lazy("Description"), max_length=2000)
+        gettext_lazy("Description"), max_length=2000, blank=True)
 
     start_date = models.DateTimeField(
-        gettext_lazy('Visible from'), )
+        gettext_lazy('Visible from'), blank=True)
     end_date = models.DateTimeField(
-        gettext_lazy('Visible to'), blank=False)
+        gettext_lazy('Visible to'), blank=True)
+    created_at = models.DateTimeField(gettext_lazy('Sent'), auto_now_add=True)
+    updated_at = models.DateTimeField(gettext_lazy('Edited'), auto_now=True)
 
     def __str__(self):
         return self.title
@@ -119,8 +127,8 @@ class InfoMessage(TranslatableModel):
         verbose_name_plural = " Kululaskut"
 
 
-class InfoMessageAdmin(TranslatableAdmin):
-    list_display = ['id', 'title_fi', 'title_se', 'title_en'
+class InfoMessageAdmin(admin.ModelAdmin):
+    list_display = ['id', 'title_fi', 'title_se', 'title_en',
                     'description_fi', 'description_se', 'description_en', 'start_date', 'end_date']
     search_fields = ('title_fi', 'description_fi')
 
@@ -386,6 +394,9 @@ class Expense(models.Model):
 
         return createKatreReport(expense, expenselines)
 
+    class Meta:
+        verbose_name_plural = " Kululaskut"
+
 
 def receipt_path(path, filename):
     import os
@@ -465,3 +476,6 @@ class ExpenseAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ('created_at',)
     actions = [open_katre_again, ]
+
+    class Meta:
+        verbose_name_plural = " Kululaskut"
