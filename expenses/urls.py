@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from expenseapp import views
 from django.contrib.flatpages import views as flatviews
+admin.site.site_header = 'Kululasku palvelun ylläpito'
 
 urlpatterns = [
     path('admin/', admin.site.urls),

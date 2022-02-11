@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %} {% block extrahead %} {% load static %}
+<link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}" />
+{% endblock %} {% block extrastyle %}{{ block.super }}
+<style>
+  :root {
+    --primary: #253764;
+    --secondary: #253764;
+    --accent: #fff
+    {% comment %} --link-fg: #7c449b;
+    --link-selected-fg: #8f5bb2; {% endcomment %}
+  }
+</style>
+{% endblock %}
