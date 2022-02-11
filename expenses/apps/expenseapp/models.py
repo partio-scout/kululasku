@@ -9,13 +9,10 @@ from django.contrib.auth.models import User
 from django.contrib.admin import DateFieldListFilter
 from django_registration.signals import user_registered
 from django.utils.translation import gettext_lazy
-from locale import currency
 from django.contrib.auth.models import Permission
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
 from localflavor.generic.models import IBANField, BICField
-from django.template import defaultfilters
-from django.utils import timezone
 
 from .finvoice import createFinvoice
 from .katre import createKatreReport
@@ -119,6 +116,10 @@ class Organisation(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Organisaatio"
+        verbose_name_plural = " Organisaatiot"
+
 
 def organisation_edited(sender, instance, created, **kwargs):
     codename = 'change_organisation_' + str(instance.id)
@@ -139,6 +140,10 @@ class AccountDimension(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Kustannuspaikan koodi'
+        verbose_name_plural = 'Kustannuspaikat'
 
 
 class AccountDimensionInline(admin.TabularInline):
@@ -174,7 +179,10 @@ class Person(models.Model):
         return self.user.first_name + ' ' + self.user.first_name
 
     def __unicode__(self):
-        return self.name()
+        return f'{self.name()} – {self.user.email}'
+
+    class Meta:
+        verbose_name_plural = "Henkilötiedot"  # 2 spaces
 
 
 def createPerson(sender, user, request, **kwargs):
@@ -273,6 +281,12 @@ class ExpenseTypeInline(admin.TabularInline):
     can_delete = False
     fields = ('name', 'active', 'type', 'persontype', 'multiplier', 'requires_receipt',
               'requires_endtime', 'requires_start_time', 'account', 'unit',)
+    list_filter = (
+        ('default_expense_type', admin.RelatedOnlyFieldListFilter),
+    )
+
+    def __unicode__(self):
+        return f'{self.name} 2'
 
 
 class OrganisationAdmin(admin.ModelAdmin):
@@ -281,6 +295,13 @@ class OrganisationAdmin(admin.ModelAdmin):
         ExpenseTypeInline,
         AccountDimensionInline,
     ]
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        organisation_id = request.resolver_match.kwargs.get('object_id')
+        if db_field.name == "default_expense_type":
+            kwargs["queryset"] = ExpenseType.objects.filter(
+                organisation=organisation_id)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
 APPLICATION_STATUSES = (
@@ -332,7 +353,10 @@ class Expense(models.Model):
         return sum
 
     def __unicode__(self):
-        return self.name + ': ' + self.description + ' (' + str(self.amount()) + ' e)'
+        return self.name + ': ' + self.description + ' (' + str(round(self.amount(), 2)) + ' €)'
+
+    def __str__(self):
+        return self.name + ': ' + self.description + ' (' + str(round(self.amount(), 2)) + ' €)'
 
     def finvoice(self):
         expense = self
@@ -355,6 +379,10 @@ class Expense(models.Model):
         expenselines = ExpenseLine.objects.filter(expense=expense)
 
         return createKatreReport(expense, expenselines)
+
+    class Meta:
+        verbose_name_plural = " Kululaskut"  # 2 spaces
+        verbose_name = "Kululaskua"
 
 
 def receipt_path(path, filename):
@@ -435,3 +463,7 @@ class ExpenseAdmin(admin.ModelAdmin):
     ]
     readonly_fields = ('created_at',)
     actions = [open_katre_again, ]
+
+    class Meta:
+        verbose_name_plural = "Kululaskut"  # 2 spaces
+        verbose_name = "Kululasku"  # 2 spaces
