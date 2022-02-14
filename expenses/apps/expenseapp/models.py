@@ -176,7 +176,7 @@ class Person(models.Model):
         'Site language'), max_length=6, blank=True, null=True, choices=settings.LANGUAGES)
 
     def name(self):
-        return self.user.first_name + ' ' + self.user.first_name
+        return self.user.first_name + ' ' + self.user.last_name
 
     def __unicode__(self):
         return f'{self.name()} – {self.user.email}'
