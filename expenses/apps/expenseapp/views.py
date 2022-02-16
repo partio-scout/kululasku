@@ -189,7 +189,6 @@ def expense(request, organisation_id):
                             ended_at = datetime.strptime(
                                 ended_at_str, "%d.%m.%Y %H.%M")
                     except Exception as e:
-                        print('111, dates')
                         messages.error(request, _(
                             'Please verify ending dates are correct.'))
                 else:
@@ -257,12 +256,13 @@ def expense(request, organisation_id):
         # Send the email
         cc_expense(expense)
         messages.success(request, _('Expense information saved.'))
-        return render(request, 'expense.html', {
-            'page_title': _("Expense for"),
-            'exp_form': expense_form,
-            'organisation': organisation,
-            'expense_id': expense.id
-        })
+        return HttpResponseRedirect(reverse('expense_view', kwargs={'expense_id': expense.id}))
+        # return render(request, 'expense.html', {
+        #     'page_title': _("Expense for"),
+        #     'exp_form': expense_form,
+        #     'organisation': organisation,
+        #     'expense_id': expense.id
+        # })
     return render(request, 'expense.html', {
         'page_title': _("Expense for"),
         'exp_form': expense_form,
@@ -401,7 +401,7 @@ def organisationedit(request, organisation_id):
         return HttpResponseRedirect(reverse('organisation_edit', kwargs={'organisation_id': organisation.id}))
 
     return render(request, 'organisationedit.html', {
-        'page_title': 'TODO',
+        'page_title': 'Muokkaa organisaatiota',
         'form': form,
         'years': years,
         'orgid': organisation_id,
