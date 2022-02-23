@@ -1,4 +1,4 @@
-from django.urls import include, path, re_path
+from django.urls import include, path
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from expenseapp import views
@@ -24,8 +24,6 @@ urlpatterns = [
     path('receipt/<int:expenselineid>',
          views.receipt_fetch, name='receipt_fetch'),
     # Left from old version for a reminder.
-    #path(r'(?P<path>Finvoice.xsl)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
-    #(r'(?P<path>Finvoice.css)$', 'django.views.static.serve', {'document_root': os.path.join(settings.PROJECT_ROOT, 'apps/expenseapp/static')}),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(
         template_name='django_registration/login.html'), name='auth_login'),

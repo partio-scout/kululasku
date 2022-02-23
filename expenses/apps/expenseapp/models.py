@@ -11,9 +11,8 @@ from django.utils.translation import gettext_lazy
 from django.contrib.auth.models import Permission
 from django.db.models.signals import post_save
 from django.contrib.contenttypes.models import ContentType
+from datetime import datetime, timezone
 from localflavor.generic.models import IBANField, BICField
-from parler.models import TranslatableModel, TranslatedFields
-from parler.admin import TranslatableAdmin
 
 
 from .finvoice import createFinvoice
@@ -21,7 +20,7 @@ from .katre import createKatreReport
 
 
 def validate_hetu(value):
-    from stdnum.fi.hetu import is_valid, validate
+    from stdnum.fi.hetu import validate
     from stdnum.exceptions import InvalidChecksum, InvalidFormat
 
     try:
@@ -98,43 +97,99 @@ validators = {
 
 
 class InfoMessage(models.Model):
-    title_fi = models.CharField(gettext_lazy(
-        "Otsikko"), max_length=200, default="Tiedoksi", blank=True),
-    description_fi = models.CharField(
+    app_label = 'expenseapp'
+    title_fi = models.CharField("Otsikko", max_length=200, blank=True)
+    description_fi = models.TextField(
         gettext_lazy("Selite"), max_length=2000, blank=True)
 
-    title_se = models.CharField(gettext_lazy(
-        "Title"), max_length=200, blank=True),
-    description_se = models.CharField(
-        gettext_lazy("Description"), max_length=2000)
+    title_se = models.CharField("Rubrik", max_length=200, blank=True)
+    description_se = models.TextField(
+        'Förklaring', max_length=2000, blank=True)
 
-    title_en = models.CharField(gettext_lazy(
-        "Title"), max_length=200, blank=True),
-    description_en = models.CharField(
-        gettext_lazy("Description"), max_length=2000, blank=True)
+    title_en = models.CharField("Title", max_length=200, blank=True)
+    description_en = models.TextField("Content", max_length=2000, blank=True)
 
     start_date = models.DateTimeField(
-        gettext_lazy('Visible from'), blank=True)
+        gettext_lazy('Näkyvissä alkaen'), blank=True)
     end_date = models.DateTimeField(
-        gettext_lazy('Visible to'), blank=True)
+        gettext_lazy('Päättyy'), blank=True)
     created_at = models.DateTimeField(gettext_lazy('Sent'), auto_now_add=True)
     updated_at = models.DateTimeField(gettext_lazy('Edited'), auto_now=True)
 
     def __str__(self):
-        return self.title
+        return self.title_fi
+
+    def languaged(self, LANGUAGE_CODE):
+        copy = self
+        copy.title = self.title(LANGUAGE_CODE)
+        copy.description = self.description(LANGUAGE_CODE)
+        return copy
+
+    def title(self, LANGUAGE_CODE):
+        if LANGUAGE_CODE == 'fi-fi':
+            if self.title_fi:
+                return self.title_fi
+            if self.title_en:
+                return self.title_en
+            return self.title_se
+
+        if LANGUAGE_CODE == 'sv-se':
+            if self.title_se:
+                return self.title_se
+            if self.title_fi:
+                return self.title_fi
+            return self.title_en
+
+        if LANGUAGE_CODE == 'en-en':
+            if self.title_en:
+                return self.title_en
+            if self.title_fi:
+                return self.title_fi
+            return self.title_se
+        return self.title_fi
+
+    def description(self, LANGUAGE_CODE):
+        if LANGUAGE_CODE == 'fi-fi':
+            if self.description_fi:
+                return self.description_fi
+            if self.description_en:
+                return self.description_en
+            return self.description_se
+
+        if LANGUAGE_CODE == 'sv-se':
+            if self.description_se:
+                return self.description_se
+            if self.description_fi:
+                return self.description_fi
+            return self.description_en
+
+        if LANGUAGE_CODE == 'en-en':
+            if self.description_en:
+                return self.description_en
+            if self.description_fi:
+                return self.description_fi
+            return self.description_se
+        return self.description_fi
 
     class Meta:
-        verbose_name_plural = " Kululaskut"
+        verbose_name_plural = "Tiedoksiannot"
 
 
 class InfoMessageAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title_fi', 'title_se', 'title_en',
-                    'description_fi', 'description_se', 'description_en', 'start_date', 'end_date']
+    readonly_fields = ('is_active',)
+    fields = ('title_fi', 'title_se', 'title_en',
+              'description_fi', 'description_se', 'description_en',
+              'start_date', 'end_date')
+    list_display = ['is_active', 'title_fi', 'title_se',
+                    'title_en', 'start_date', 'end_date', 'id']
     search_fields = ('title_fi', 'description_fi')
+    ordering = ('title_fi', 'title_se', 'title_en',
+                'description_fi', 'description_se', 'description_en',
+                'start_date', 'end_date')
 
-    # def set_type(self, request, queryset):
-    #     queryset.update(type=1)
-    # set_type.short_description = "Vaihda luottamushenkilöksi"
+    def is_active(self, obj):
+        now = datetime.now(timezone.utc)
+        return 'Näkyy sivuilla' if (now.isoformat() >= obj.start_date.isoformat()) and (now.isoformat() <= obj.end_date.isoformat()) else 'Ei näy'
 
 
 class Organisation(models.Model):

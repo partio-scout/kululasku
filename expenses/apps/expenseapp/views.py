@@ -1,16 +1,11 @@
-from http.client import HTTPResponse
-import logging
-from functools import partial
-from turtle import title
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import ExpenseForm, ExpenseLineForm, PersonForm, OrganisationForm
-from .models import Expense, ExpenseLine, ExpenseType, Organisation, Person
+from .forms import ExpenseForm, PersonForm, OrganisationForm
+from .models import Expense, ExpenseLine, ExpenseType, InfoMessage, Organisation, Person
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-from django.db.models import Q
 from collections import OrderedDict
 from collections import deque
 from django.urls import reverse
@@ -66,9 +61,16 @@ def organisationselection(request):
         if types.exists():
             orgs.append(organisation)
 
+    now = datetime.now()
+    infoMessage = InfoMessage.objects.filter(
+        start_date__lte=now, end_date__gte=now).first()
+    if infoMessage:
+        infoMessage = infoMessage.languaged(request.LANGUAGE_CODE)
+
     return render(request, 'organisationselection.html', {
         'page_title': _('Select your organisation to continue'),
         'organisations': orgs,
+        'info_message': infoMessage
     })
 
 
