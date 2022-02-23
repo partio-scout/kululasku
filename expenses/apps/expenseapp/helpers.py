@@ -49,11 +49,11 @@ Expense lines:
 Total: %s
 
 Best regards,
--- 
+--
 Finnish scout's expense system
 """)
 # VAIHDA lähettäjä email
-        send_mail(gettext_lazy('New expense CC\'d to you'),
+        send_mail(str(gettext_lazy('New expense CC\'d to you')),
                   body % (instance.organisation.name, instance.name, instance.description,
-                          instance.memo, rows, str(locale.currency(instance.amount(), False))),
-                  'no-reply@partio.fi', [instance.cc_email], fail_silently=False)
+                          instance.memo, str(rows), str(locale.currency(instance.amount()))),
+                  'no-reply@partio.fi', [instance.cc_email], False)
