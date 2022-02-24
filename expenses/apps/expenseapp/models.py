@@ -188,7 +188,7 @@ class InfoMessageAdmin(admin.ModelAdmin):
                 'description_fi', 'description_se', 'description_en',
                 'start_date', 'end_date')
 
-    def aktiivinen(self, obj):
+    def status(self, obj):
         now = datetime.now(timezone.utc)
         return 'Näkyy sivuilla' if (now.isoformat() >= obj.start_date.isoformat()) and (now.isoformat() <= obj.end_date.isoformat()) else 'Ei näy'
 
