@@ -48,14 +48,14 @@
               <a href="#" class="pure-menu-allow-hover">{% trans 'Languages' %}</a>
               <ul class="dropdown-content" style="list-style: none; padding-left: 0px;">
                 {% get_current_language as LANGUAGE_CODE %}
-                {% if LANGUAGE_CODE != 'fi-fi' %}
+                {% if LANGUAGE_CODE != 'fi-FI' %}
                   <li class="drop-item"><a href="/i18n/fi" class="drop-item-link">suomeksi</a></li>
                 {% endif %}
 
-                {% if LANGUAGE_CODE != 'sv-se' %}
+                {% if LANGUAGE_CODE != 'sv-SE' %}
                   <li class="drop-item"><a href="/i18n/sv" class="drop-item-link">på svenska</a></li>
                 {% endif %}
-                {% if LANGUAGE_CODE != 'en-en' %}
+                {% if LANGUAGE_CODE != 'en-EN' %}
                   <li class="drop-item"><a href="/i18n/en" class="drop-item-link">in English</a></li>
                 {% endif %}
               </ul>

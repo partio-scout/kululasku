@@ -126,21 +126,21 @@ class InfoMessage(models.Model):
         return copy
 
     def title(self, LANGUAGE_CODE):
-        if LANGUAGE_CODE == 'fi-fi':
+        if LANGUAGE_CODE == 'fi-FI':
             if self.title_fi:
                 return self.title_fi
             if self.title_en:
                 return self.title_en
             return self.title_se
 
-        if LANGUAGE_CODE == 'sv-se':
+        if LANGUAGE_CODE == 'sv-SE':
             if self.title_se:
                 return self.title_se
             if self.title_fi:
                 return self.title_fi
             return self.title_en
 
-        if LANGUAGE_CODE == 'en-en':
+        if LANGUAGE_CODE == 'en-EN':
             if self.title_en:
                 return self.title_en
             if self.title_fi:
@@ -149,21 +149,21 @@ class InfoMessage(models.Model):
         return self.title_fi
 
     def description(self, LANGUAGE_CODE):
-        if LANGUAGE_CODE == 'fi-fi':
+        if LANGUAGE_CODE == 'fi-FI':
             if self.description_fi:
                 return self.description_fi
             if self.description_en:
                 return self.description_en
             return self.description_se
 
-        if LANGUAGE_CODE == 'sv-se':
+        if LANGUAGE_CODE == 'sv-SE':
             if self.description_se:
                 return self.description_se
             if self.description_fi:
                 return self.description_fi
             return self.description_en
 
-        if LANGUAGE_CODE == 'en-en':
+        if LANGUAGE_CODE == 'en-EN':
             if self.description_en:
                 return self.description_en
             if self.description_fi:
@@ -188,7 +188,7 @@ class InfoMessageAdmin(admin.ModelAdmin):
                 'description_fi', 'description_se', 'description_en',
                 'start_date', 'end_date')
 
-    def status(self, obj):
+    def aktiivinen(self, obj):
         now = datetime.now(timezone.utc)
         return 'Näkyy sivuilla' if (now.isoformat() >= obj.start_date.isoformat()) and (now.isoformat() <= obj.end_date.isoformat()) else 'Ei näy'
 
