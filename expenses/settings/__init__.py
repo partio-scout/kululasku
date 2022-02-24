@@ -2,7 +2,6 @@
 
 import os
 import sys
-from django.urls import reverse
 import locale
 from django.utils.translation import gettext_lazy as _
 
@@ -72,7 +71,7 @@ TIME_ZONE = 'Europe/Helsinki'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'fi-Fi'
+LANGUAGE_CODE = 'fi-FI'
 #LANGUAGE_CODE = 'fi'
 
 LANGUAGES = (
@@ -171,6 +170,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'expenseapp.context_processors.infobanner_processor.info_message'
             ],
         },
     },
@@ -210,7 +210,7 @@ INSTALLED_APPS = (
     'expenseapp',
     'django.contrib.admin',
     'django_registration',
-    'django.contrib.flatpages'
+    'django.contrib.flatpages',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 14
