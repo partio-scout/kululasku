@@ -172,22 +172,23 @@ class InfoMessage(models.Model):
         return self.description_fi
 
     class Meta:
+        verbose_name = "Tiedoksianto"
         verbose_name_plural = "Tiedoksiannot"
 
 
 class InfoMessageAdmin(admin.ModelAdmin):
-    readonly_fields = ('is_active',)
+    readonly_fields = ('status',)
     fields = ('title_fi', 'title_se', 'title_en',
               'description_fi', 'description_se', 'description_en',
               'start_date', 'end_date')
-    list_display = ['is_active', 'title_fi', 'title_se',
+    list_display = ['status', 'title_fi', 'title_se',
                     'title_en', 'start_date', 'end_date', 'id']
     search_fields = ('title_fi', 'description_fi')
     ordering = ('title_fi', 'title_se', 'title_en',
                 'description_fi', 'description_se', 'description_en',
                 'start_date', 'end_date')
 
-    def is_active(self, obj):
+    def status(self, obj):
         now = datetime.now(timezone.utc)
         return 'Näkyy sivuilla' if (now.isoformat() >= obj.start_date.isoformat()) and (now.isoformat() <= obj.end_date.isoformat()) else 'Ei näy'
 
