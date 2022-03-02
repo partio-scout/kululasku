@@ -139,8 +139,8 @@ def expense(request, organisation_id):
                 'Person number'),   'value': expense_form.cleaned_data['personno'], }
             fields['description'] = {'label': _(
                 'Description'),     'value': expense_form.cleaned_data['description'], }
-            fields['memo'] = {'label': _(
-                'Info'),            'value': expense_form.cleaned_data['memo'], }
+            # fields['memo'] = {'label': _(
+            #     'Info'),            'value': expense_form.cleaned_data['memo'], }
             fields['date'] = {'label': _('Sent'),
                               'value': datetime.now(), }
 
@@ -290,7 +290,7 @@ def showexpense(request, expense_id):
         'Person number'), 'value': expense.personno, }
     fields['description'] = {'label': _(
         'Description'), 'value': expense.description, }
-    fields['memo'] = {'label': _('Info'), 'value': expense.memo, }
+    # fields['memo'] = {'label': _('Info'), 'value': expense.memo, }
     fields['date'] = {'label': _('Sent'), 'value': expense.created_at, }
     fields['total'] = {'label': _('Total'), 'value': expense.amount(), }
 

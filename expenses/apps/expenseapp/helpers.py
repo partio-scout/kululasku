@@ -41,8 +41,6 @@ You were CC'd in a new expense application for %s.
 
 Name:        %s
 Description: %s
-Memo:
-%s
 
 Expense lines:
  %s

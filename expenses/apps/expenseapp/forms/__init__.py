@@ -2,13 +2,12 @@ import re
 import json
 
 from django import forms
-from django.forms import SplitDateTimeWidget, DateInput, TimeInput
+from django.forms import DateInput, TimeInput
 from django.contrib import messages
 from django.forms.models import inlineformset_factory
 from crum import get_current_request
 from django.utils.translation import gettext_lazy
 from django.db.models import Q
-from localflavor.generic.forms import BICFormField, IBANFormField
 from expenses.settings import MAX_UPLOAD_SIZE
 
 from expenseapp.forms import inline_snippet
@@ -76,6 +75,10 @@ class ExpenseLineForm(ModelForm):
                        localize=True)
     expensetype_data = forms.CharField(widget=forms.HiddenInput,
                                        required=False)
+
+    description = forms.CharField(label=gettext_lazy('Description'),
+                                  required=True, localize=True, help_text=gettext_lazy(
+        'Description of the expense, eg. the route of the journey (travel expenses) or purpose of the purchased goods'))
 
     class Meta:
         model = ExpenseLine
@@ -161,9 +164,11 @@ class ExpenseForm(ModelForm):
     class Meta:
         model = Expense
         exclude = ('status', 'katre_status')
+        # Prevent user from changing organisation or creator info. Hide memo field too
         widgets = {
             'organisation': forms.HiddenInput,
-            'user': forms.HiddenInput
+            'user': forms.HiddenInput,
+            'memo': forms.HiddenInput
         }
 
     class Forms:

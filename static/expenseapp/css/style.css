@@ -55,6 +55,19 @@ tr {
   z-index: -1;
 }
 
+.ui-datepicker .ui-datepicker-next {
+  background: white;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+  background: white;
+}
+
+.ui-widget-header {
+  color: white;
+  background: #253764 !important;
+}
+
 .ui-state-default {
   text-align: center;
 }
