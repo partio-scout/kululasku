@@ -15,7 +15,7 @@
           
           {{ field }}
 
-          {% if field.help_text %}
+          {% if field.help_text and field.name != 'description' %}
             <p class="helptext">{{ field.help_text }}</p>
           {% endif %}
           

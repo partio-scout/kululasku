@@ -29,7 +29,7 @@ $(function () {
     }
 
     if (!$row.find('.description-text').length) {
-      $row.find('input[id$=description]').after($('<span class="description-text"/>'));
+      $row.find('input[id$=description]').after($('<p class="description-text helptext"/>'));
     }
 
     var $type = $row.find('[id$="expensetype"] :selected'),
