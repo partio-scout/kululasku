@@ -3,12 +3,9 @@ from expenseapp.models import Expense, ExpenseLine
 import os
 import time
 import os.path
-import random
-import string
 import time
 from PIL import Image
-from datetime import date, datetime
-from django.conf import settings
+from datetime import datetime
 from django.core.mail import mail_admins
 
 
