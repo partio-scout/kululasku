@@ -74,13 +74,13 @@ docker-compose exec web python manage.py migrate
 ### Create translation files and apply them
 
 ```
-docker-compose exec web bash -c cd expenses/apps/expenseapp/ && django-admin makemessages -l=fi && django-admin makemessages -l=sv && django-admin compilemessages --use-fuzzy
+docker-compose exec web bash -c "cd expenses/apps/expenseapp/ && django-admin makemessages -l=fi && django-admin makemessages -l=sv && django-admin compilemessages --use-fuzzy"
 ```
 
 ### You can edit the translation files and whenever ready, run
 
 ```
-docker-compose exec web cd expenses/apps/expenseapp/ && django-admin compilemessages --use-fuzzy
+docker-compose exec web bash -c "cd expenses/apps/expenseapp/ && django-admin compilemessages --use-fuzzy"
 ```
 
 ### SQL query to force start times for expensetypes that have requires_endtime = True;

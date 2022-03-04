@@ -357,8 +357,8 @@ class ExpenseType(models.Model):
             'unit': self.unit,
             'requires_endtime': self.requires_endtime,
             'requires_start_time': self.requires_start_time,
-            'basis_text': str(gettext_lazy('Attention. Add the travel route and the passengers')) if self.type == 'T' else str(gettext_lazy(
-                'Explanation for the expense eg. attendees or the purpose for the goods.'))
+            'basis_text': str(gettext_lazy('Attention. Route and extra passengers')) if self.type == 'T' else str(gettext_lazy(
+                'Description of cost, for example route, participants, or use of products.'))
         }
 
     def __unicode__(self):
@@ -433,8 +433,8 @@ class Expense(models.Model):
         'If you apply for an expense reimbursement for a local group, enter the group’s business ID here. Kilometric allowances and daily subsistence allowances can not be applied for with a business ID.'))
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     # TODO: vaihda Kululaskun kohdistus ja help_text
-    description = models.CharField(gettext_lazy('Kululaskun kohdistus'), help_text=gettext_lazy(
-        'Esim. tapahtuma, kustannuspaikka, toiminnanala tai vastuutyöntekijä'), max_length=255)
+    description = models.CharField(gettext_lazy('Allocation of cost'), help_text=gettext_lazy(
+        'For example name of event, cost centre, activity area, or responsible employee'), max_length=255)
     memo = models.TextField(gettext_lazy('Info'), help_text=gettext_lazy(
         'Eg. Names of the additional passengers, people in the meeting, cost centre or activity sector.'), blank=True, null=True)
     organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
