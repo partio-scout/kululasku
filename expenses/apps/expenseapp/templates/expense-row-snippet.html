@@ -9,11 +9,15 @@
 
         <div class="pure-control-group field-{{ field.name }}{% if field.field.required %} required{% endif %} {% if 'hidden-start' in field.field.widget.attrs.class %} visuallyhidden{% endif %} {% if field.errors %} error{% endif %}">
           {{ field.label_tag }}
-          {% if field.help_text %}
+          {% comment %} {% if field.help_text %}
             <i class="inline-help-text icon-question-sign"><span>{{ field.help_text }}</span></i>
-          {% endif %}
+          {% endif %} {% endcomment %}
           
           {{ field }}
+
+          {% if field.help_text and field.name != 'description' %}
+            <p class="helptext">{{ field.help_text }}</p>
+          {% endif %}
           
           {{ field.errors }}
           

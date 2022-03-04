@@ -82,8 +82,8 @@ def createFinvoice(expense, expenselines):
     ivra.text = '0'
     iftd = SubElement(i, 'InvoiceFreeText')
     iftd.text = expense.description
-    iftm = SubElement(i, 'InvoiceFreeText')
-    iftm.text = expense.memo
+    # iftm = SubElement(i, 'InvoiceFreeText')
+    # iftm.text = expense.memo
 
     for line in expenselines:
         row = SubElement(top, 'InvoiceRow')

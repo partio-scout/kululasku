@@ -41,8 +41,6 @@ You were CC'd in a new expense application for %s.
 
 Name:        %s
 Description: %s
-Memo:
-%s
 
 Expense lines:
  %s
@@ -54,6 +52,6 @@ Finnish scout's expense system
 """)
 # VAIHDA lähettäjä email
         send_mail(str(gettext_lazy('New expense CC\'d to you')),
-                  body % (instance.organisation.name, instance.name, instance.description,
-                          instance.memo, str(rows), str(locale.currency(instance.amount()))),
+                  body % (instance.organisation.name, instance.name, instance.description, str(
+                      rows), str(locale.currency(instance.amount()))),
                   'no-reply@partio.fi', [instance.cc_email], False)

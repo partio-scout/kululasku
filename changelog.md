@@ -1,3 +1,9 @@
+# Changes made in March 4 2022
+
+- Removed expenses memo object from visual fields. DB and model still contains the info for easier backward compatibility
+- expense form has new translations
+- expenseline formset has new JS-feature: show basis_text depending on the chosen expense type
+
 # Changes made in Feb 23 2022
 
 - sendgrid package update
