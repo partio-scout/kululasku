@@ -4,10 +4,8 @@ from expenses.apps.expenseapp.models import InfoMessage
 
 
 def ExpenseAppSetInfobannerMiddleware(get_response):
-    print(666)
 
     def middleware(request):
-        print(666)
         now = datetime.now()
         infoMessage = InfoMessage.objects.filter(
             start_date__lte=now, end_date__gte=now).first()

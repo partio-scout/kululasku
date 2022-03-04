@@ -5,7 +5,6 @@ from ..models import InfoMessage
 
 
 def info_message(request):
-    print(222, request.path)
     if ('expense/new' in request.path):
         return {}
     now = datetime.now()
