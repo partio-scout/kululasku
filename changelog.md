@@ -4,6 +4,7 @@
 - new management task: remove_unactive_users. A crontab command run once a month, 10th day of the month. Removes the users whom have been alarmed a month ago.
 - removed old, unused db table: registration_registrationprofile.
 - removed old, unused db table: parsley_student.
+- Added model level valdiations for receipts.
 
 # Changes made in March 4 2022
 
