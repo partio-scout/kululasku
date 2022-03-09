@@ -2,8 +2,6 @@ from django.core.management.base import BaseCommand
 from datetime import timedelta
 from django.contrib.auth.models import User
 from django.utils.timezone import now
-from django.template.loader import render_to_string
-from sendgrid.helpers.mail import HtmlContent
 
 
 def cc_expense(email):
@@ -33,7 +31,7 @@ def cc_expense(email):
         <p>Mikäli et halua, että tilisi poistetaan, kirjaudu kululaskupalveluun 30 vuorokauden sisällä.</p>
         <h2><a href="https://kululasku.partio.fi/">KIRJAUDU KULULASKUPALVELUUN</a></h2>
         <h3>Jos et enää tarvitse käyttäjätiliäsi, sinun ei tarvitse tehdä mitään.</h3>
-        <p>Yli [kaksi vuotta] vanhat tilit poistetaan automaattisesti 30 päivää tämän viestin lähettämisestä.</p>
+        <p>Yli kaksi vuotta vanhat tilit poistetaan automaattisesti 30 päivää tämän viestin lähettämisestä.</p>
         <p>Voit milloin tahansa luoda uuden käyttäjätilin osoitteessa <a href="https://kululasku.partio.fi/accounts/register/">https://kululasku.partio.fi/accounts/register/</a></p>
         <p>Terveisin,</p>
 
