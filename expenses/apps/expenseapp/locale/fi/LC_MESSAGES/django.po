@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-04 09:13+0000\n"
+"POT-Creation-Date: 2022-03-09 15:37+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,20 +50,20 @@ msgstr "Päättymispäivä"
 msgid "Ended at time"
 msgstr "Päättymisaika"
 
-#: forms/__init__.py:72 models.py:506 views.py:229 views.py:307
+#: forms/__init__.py:72 models.py:516 views.py:229 views.py:307
 msgid "Amount"
 msgstr "Summa"
 
-#: forms/__init__.py:74 models.py:507
+#: forms/__init__.py:74 models.py:517
 msgid "Amount of kilometres, days or the sum of the expense"
 msgstr "Kilometrien tai päivien määrä tai muun kulun summa"
 
-#: forms/__init__.py:79 models.py:496 views.py:141 views.py:227 views.py:292
+#: forms/__init__.py:79 models.py:506 views.py:141 views.py:227 views.py:292
 #: views.py:306
 msgid "Description"
 msgstr "Kuvaus"
 
-#: forms/__init__.py:81 models.py:497
+#: forms/__init__.py:81 models.py:507
 msgid ""
 "Description of the expense, eg. the route of the journey (travel expenses) "
 "or purpose of the purchased goods"
@@ -134,7 +134,7 @@ msgstr "Sähköposti"
 msgid "Email already exists"
 msgstr "Sähköpostiosoite on jo käytössä"
 
-#: forms/__init__.py:205 models.py:333 models.py:517
+#: forms/__init__.py:205 models.py:343 models.py:527
 msgid "Multiplier"
 msgstr "Kerroin"
 
@@ -146,110 +146,118 @@ msgstr "Pvm\t\tTyyppi\t\tMäärä\n"
 msgid "New expense CC'd to you"
 msgstr "Kululasku lähetetty kopiona sinulle"
 
-#: models.py:30 models.py:68
+#: models.py:30 models.py:78
 msgid "Enter a valid Finnish personal identity code."
 msgstr "Syötä kelvollinen suomalainen henkilötunnus."
 
-#: models.py:35 models.py:52 models.py:62
+#: models.py:35 models.py:62 models.py:72
 msgid "Enter a valid Finnish personal identity code or Finnish business ID."
 msgstr "Syötä kelvollinen suomalainen henkilötunnus tai Y-tunnus."
 
-#: models.py:73
+#: models.py:45
+msgid ""
+"Supported image formats are PDF, JPG, PNG or HEIC formats. If you have a ."
+"docx file, print to PDF."
+msgstr ""
+"Tuetut kuvaformaatit ovat PDF, JPG, PNG tai HEIC tyypit. Jos käsittelet .doc "
+"tiedosta, tallenna se PDF:nä."
+
+#: models.py:83
 msgid "Enter a valid Finnish business ID."
 msgstr "Syötä kelvollinen suomalainen Y-tunnus."
 
-#: models.py:85
+#: models.py:95
 msgid "Enter a valid phone number without any spaces or dashes."
 msgstr "Syötä kelvollinen puhelinnumero ilman välilyöntejä ja -viivoja."
 
-#: models.py:92
+#: models.py:102
 msgid "Enter your first and last name."
 msgstr "Syötä etu- ja sukunimesi"
 
-#: models.py:103
+#: models.py:113
 msgid "Selite"
 msgstr ""
 
-#: models.py:113
+#: models.py:123
 msgid "Näkyvissä alkaen"
 msgstr ""
 
-#: models.py:115
+#: models.py:125
 msgid "Päättyy"
 msgstr ""
 
-#: models.py:116 models.py:409 models.py:415 models.py:446 views.py:144
+#: models.py:126 models.py:419 models.py:425 models.py:456 views.py:144
 #: views.py:294
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: models.py:117 models.py:447
+#: models.py:127 models.py:457
 msgid "Edited"
 msgstr "Muokattu"
 
-#: models.py:197 models.py:232 models.py:327 models.py:421 models.py:514
+#: models.py:207 models.py:242 models.py:337 models.py:431 models.py:524
 #: views.py:283
 msgid "Name"
 msgstr "Nimi"
 
-#: models.py:199
+#: models.py:209
 msgid "Business ID"
 msgstr "Y-tunnus"
 
-#: models.py:201
+#: models.py:211
 msgid "EmCe yritystunnus"
 msgstr ""
 
-#: models.py:203
+#: models.py:213
 msgid "Katre-varmenteen Y-tunnus"
 msgstr ""
 
-#: models.py:204
+#: models.py:214
 msgid "Selectable"
 msgstr "Valittavissa"
 
-#: models.py:205
+#: models.py:215
 msgid "Send active"
 msgstr "Lähetetään eräajossa"
 
-#: models.py:233
+#: models.py:243
 msgid "Account dimension code"
 msgstr "Kustannuspaikan koodi"
 
-#: models.py:234
+#: models.py:244
 msgid "Account dimension code(s). If multiple, separate with semicolons (;)."
 msgstr ""
 "Kustannuspaikan tai -paikkojen koodit. Jos useampi, erota puolipisteellä (;)."
 
-#: models.py:254
+#: models.py:264
 msgid "Trustee"
 msgstr "Luottamushenkilö"
 
-#: models.py:255
+#: models.py:265
 msgid "Employee"
 msgstr "Työntekijä"
 
-#: models.py:263 models.py:427 views.py:131 views.py:285
+#: models.py:273 models.py:437 views.py:131 views.py:285
 msgid "Phone"
 msgstr "Puhelin"
 
-#: models.py:265 models.py:429 views.py:133 views.py:286
+#: models.py:275 models.py:439 views.py:133 views.py:286
 msgid "Address"
 msgstr "Osoite"
 
-#: models.py:266 models.py:430 views.py:135 views.py:287
+#: models.py:276 models.py:440 views.py:135 views.py:287
 msgid "Bank account no"
 msgstr "Tilinumero"
 
-#: models.py:267 models.py:431 views.py:137 views.py:288
+#: models.py:277 models.py:441 views.py:137 views.py:288
 msgid "BIC no"
 msgstr "BIC-koodi"
 
-#: models.py:268 models.py:432 views.py:139 views.py:290
+#: models.py:278 models.py:442 views.py:139 views.py:290
 msgid "Person number"
 msgstr "Henkilötunnus"
 
-#: models.py:269
+#: models.py:279
 msgid ""
 "Person number is required for every expense application for annual "
 "announcements to the tax authority. If you don't want to save it here, you "
@@ -259,63 +267,63 @@ msgstr ""
 "varten. Mikäli et halua tallentaa sitä omiin tietoihisi, voit syöttää sen "
 "jokaiseen kululaskuun erikseen."
 
-#: models.py:271 models.py:330 models.py:516
+#: models.py:281 models.py:340 models.py:526
 msgid "Type"
 msgstr "Tyyppi"
 
-#: models.py:273
+#: models.py:283
 msgid "Site language"
 msgstr "Sivuston kieli"
 
-#: models.py:310
+#: models.py:320
 msgid "Mileage"
 msgstr "Kilometrikorvaus"
 
-#: models.py:311
+#: models.py:321
 msgid "Full per diem"
 msgstr "Kokopäiväraha"
 
-#: models.py:312
+#: models.py:322
 msgid "Partial per diem"
 msgstr "Osapäiväraha"
 
-#: models.py:313
+#: models.py:323
 msgid "Foreign per diem"
 msgstr "Ulkomaan päiväraha"
 
-#: models.py:314
+#: models.py:324
 msgid "Meal allowance"
 msgstr "Ateriakorvaus"
 
-#: models.py:315
+#: models.py:325
 msgid "Other"
 msgstr "Muu"
 
-#: models.py:319
+#: models.py:329
 msgid "km"
 msgstr "km"
 
-#: models.py:320
+#: models.py:330
 msgid "days"
 msgstr "pv"
 
-#: models.py:321
+#: models.py:331
 msgid "pieces"
 msgstr "kpl"
 
-#: models.py:322
+#: models.py:332
 msgid "€"
 msgstr "€"
 
-#: models.py:328
+#: models.py:338
 msgid "Active"
 msgstr "Valittavissa"
 
-#: models.py:332 models.py:366
+#: models.py:342 models.py:376
 msgid "Requires receipt"
 msgstr "Vaatii kuitin"
 
-#: models.py:334 models.py:518
+#: models.py:344 models.py:528
 msgid ""
 "The per price for the expense type (mileage: € per km, other expenses: 1, "
 "advances: -1)"
@@ -323,66 +331,66 @@ msgstr ""
 "Kulutyypin yksikköhinta (kilometrikorvauksissa km-taksa, muissa kuluissa 1, "
 "ennakoissa -1)"
 
-#: models.py:336
+#: models.py:346
 #, fuzzy
 #| msgid "Requires ending time"
 msgid "Requires ending date and time"
 msgstr "Vaatii päättymispäivän ja ajan"
 
-#: models.py:338 models.py:370
+#: models.py:348 models.py:380
 #, fuzzy
 #| msgid "Requires ending time"
 msgid "Requires starting time"
 msgstr "Vaatii aloitusajan"
 
-#: models.py:340
+#: models.py:350
 msgid "Person type"
 msgstr "Henkilön tyyppi"
 
-#: models.py:341
+#: models.py:351
 msgid "Account"
 msgstr "Tili"
 
-#: models.py:342
+#: models.py:352
 msgid "Unit"
 msgstr "Yksikkö"
 
-#: models.py:360
+#: models.py:370
 msgid "Attention. Route and extra passengers"
 msgstr "HUOM. Matkareitti ja lisämatkustajat"
 
-#: models.py:361
+#: models.py:371
 msgid ""
 "Description of cost, for example route, participants, or use of products."
 msgstr ""
 "Kuvaus kulusta, esim. matkareitti, osallistujat tai tuotteiden "
 "käyttötarkoitus."
 
-#: models.py:368
+#: models.py:378
 msgid "Requires ending time"
 msgstr "Vaatii päättymisajan"
 
-#: models.py:408 models.py:413
+#: models.py:418 models.py:423
 msgid "Open"
 msgstr "Avoin"
 
-#: models.py:414
+#: models.py:424
 msgid "Not needed"
 msgstr "Ei tarvita"
 
-#: models.py:423
+#: models.py:433
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
-#: models.py:424
+#: models.py:434
 msgid "CC email address"
 msgstr "Sähköpostiosoite kopiolle"
 
-#: models.py:425
+#: models.py:435
 msgid "Copy of the expense will be sent to the email."
 msgstr "Kopio kulusta lähetetään sähköpostiin."
 
-#: models.py:433
+#: models.py:443
 msgid ""
 "If you apply for an expense reimbursement for a local group, enter the "
 "group’s business ID here. Kilometric allowances and daily subsistence "
@@ -391,21 +399,21 @@ msgstr ""
 "Jos haet kulukorvausta lippukunnalle, syötä tähän lippukunnan Y-tunnus. Y-"
 "tunnuksella ei voi hakea kilometrikorvausta tai päivärahoja."
 
-#: models.py:436
+#: models.py:446
 msgid "Allocation of cost"
 msgstr "Kululaskun kohdistus"
 
-#: models.py:437
+#: models.py:447
 msgid ""
 "For example name of event, cost centre, activity area, or responsible "
 "employee"
 msgstr "Esim. tapahtuma, kustannuspaikka, toiminnanala tai vastuutyöntekijä"
 
-#: models.py:438
+#: models.py:448
 msgid "Info"
 msgstr "Lisätietoja"
 
-#: models.py:439
+#: models.py:449
 #, fuzzy
 #| msgid "Names of the additional passengers, people in the meeting etc."
 msgid ""
@@ -414,35 +422,35 @@ msgid ""
 msgstr ""
 "Esim. lisämatkustajat, kokousosanottajat, kustannuspaikka tai toiminnanala"
 
-#: models.py:442
+#: models.py:452
 msgid "Status"
 msgstr "Tila"
 
-#: models.py:444
+#: models.py:454
 msgid "Katre status"
 msgstr ""
 
-#: models.py:498 views.py:224 views.py:303
+#: models.py:508 views.py:224 views.py:303
 msgid "Begin at"
 msgstr "Alkoi"
 
-#: models.py:500 views.py:226 views.py:304
+#: models.py:510 views.py:226 views.py:304
 msgid "Ended at"
 msgstr "Päättyi"
 
-#: models.py:503 views.py:232 views.py:309
+#: models.py:513 views.py:232 views.py:309
 msgid "Expense type"
 msgstr "Kulutyyppi"
 
-#: models.py:505
+#: models.py:515
 msgid "Cost centre"
 msgstr "Kustannuspaikka"
 
-#: models.py:510 views.py:176 views.py:314
+#: models.py:520 views.py:176 views.py:314
 msgid "Receipt"
 msgstr "Kuitti"
 
-#: models.py:511
+#: models.py:521
 msgid ""
 "A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. "
 "Note: The receipt must clearly show what, when and how much has been paid!"

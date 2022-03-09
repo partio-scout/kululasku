@@ -35,6 +35,16 @@ def validate_hetu(value):
             'Enter a valid Finnish personal identity code or Finnish business ID.'))
 
 
+def validate_file_extension(value):
+    import os
+    ext = os.path.splitext(value.name)[1]
+    valid_extensions = ['.pdf', '.jpg', '.jpeg',
+                        '.png', '.heic', '.gif', '.GIF']
+    if not ext in valid_extensions:
+        raise ValidationError(gettext_lazy(
+            'Supported image formats are PDF, JPG, PNG or HEIC formats. If you have a .docx file, print to PDF.'))
+
+
 def validate_hetu_or_businessid(value):
     from stdnum.fi import hetu
     from stdnum.fi import ytunnus
@@ -507,7 +517,7 @@ class ExpenseLine(models.Model):
         'Amount of kilometres, days or the sum of the expense'))
     expense = models.ForeignKey(Expense, on_delete=models.PROTECT)
 
-    receipt = models.FileField(gettext_lazy('Receipt'), upload_to='uploads/receipts', blank=True, null=True, help_text=gettext_lazy(
+    receipt = models.FileField(gettext_lazy('Receipt'), upload_to='uploads/receipts', blank=True, null=True, validators=[validate_file_extension], help_text=gettext_lazy(
         'A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. Note: The receipt must clearly show what, when and how much has been paid!'))
 
     # These are in the ExpenseType too, but need to be duplicated to make sure that the data is retained after types are edited
