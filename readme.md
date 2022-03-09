@@ -17,6 +17,7 @@ Tech stack:
 
 - Palvelu on integroitu <a href="https://www.emce.fi/">EmCen</a> palveluun, joka on ulkoinen suljettu järjestelmä, minkä vuoksi palvelun kokonaan käyttöönotettavaksi vaatii yhteydenottoa ja neuvottelua <a href="https://www.emce.fi/">EmCen</a> kanssa.
 - Jos integroit EmCeen aseta crontab esimerkin tapaan, crontab -e komennolla
+- Crontab toteuttaa myös ylläpidollisia toimia, kuten tietokannan puhdistamista epäaktiivisista käyttäjistä
 
 ## Käyttöönottoa varten
 

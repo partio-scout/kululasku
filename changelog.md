@@ -1,3 +1,10 @@
+# Changes made in March 9 2022
+
+- new management task: alarm_unactive_users. A crontab command run once a month, 10th day of the month. Sends email for users whom have not been logged in for 2 years.
+- new management task: remove_unactive_users. A crontab command run once a month, 10th day of the month. Removes the users whom have been alarmed a month ago.
+- removed old, unused db table: registration_registrationprofile.
+- removed old, unused db table: parsley_student.
+
 # Changes made in March 4 2022
 
 - Removed expenses memo object from visual fields. DB and model still contains the info for easier backward compatibility
