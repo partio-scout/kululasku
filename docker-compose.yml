@@ -15,7 +15,8 @@ services:
     volumes:
       - .:/code
       #Tarkista polut kuntoon omalle ympäristöllesi
-      #- /haluttupolku/uploads/zips:/tmp/zips/
+      - ./storage/uploads/receipts:/media/uploads/receipts/
+      - ./storage/uploads/zips:/tmp/zips/
     env_file: .env
     ports:
       - 8000:8000
