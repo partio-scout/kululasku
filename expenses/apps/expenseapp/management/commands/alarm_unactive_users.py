@@ -86,8 +86,8 @@ def alarm_user(email):
 
 # VAIHDA lähettäjä email
         try:
-            send_mail('Ilmoitus kululasku.partio.fi:sta | Meddelande från kululasku.partio.fi | Notice from kululasku.partio.fi',
-                      """
+            result = send_mail('Ilmoitus kululasku.partio.fi:sta | Meddelande från kululasku.partio.fi | Notice from kululasku.partio.fi',
+                               """
                   Hei, 
 Huomasimme, että edellisestä kirjautumisestasi kululaskujärjestelmään on kulunut yli kaksi vuotta.
 Poistamme palvelusta epäaktiiviset käyttäjät.
@@ -137,9 +137,10 @@ Suomen Partiolaiset – Finlands Scouter ry
 Töölönkatu 55, 00250 Helsinki
 www.partio.fi
 palvelu@partio.fi""",
-                      'no-reply@partio.fi', [email], False, html_message=html_text)
+                               'no-reply@partio.fi', [email], False, html_message=html_text)
+            print(f"Result for {email}: {result}")
         except Exception as e:
-            print(f"failed sending {email}. Error: {e}")
+            print(f"Failed sending {email}. Error: {e}")
 
 
 class Command (BaseCommand):
