@@ -72,7 +72,7 @@ def alarm_user(email):
         <p>If you want to keep your account active, sign in to the invoice expense system within 30 days from the date of this message.</p>
         <h2><a href="https://kululasku.partio.fi/">SIGN IN</a></h2>
         <h3>If you no longer need your account, you don’t have to do anything.</h3>
-        <p>Accounts that have been inactive for more than [two years] will be deleted automatically 30 days from the date of this message.</p>
+        <p>Accounts that have been inactive for more than two years will be deleted automatically 30 days from the date of this message.</p>
         <p>You can create a new account at any time at: <a href="https://kululasku.partio.fi/accounts/register/">https://kululasku.partio.fi/accounts/register/</a></p>
         <p>Best regards,</p>
 
