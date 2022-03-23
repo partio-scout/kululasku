@@ -34,6 +34,7 @@ def remove_users_data(user):
     person = Person.objects.filter(user=user)
     if person.exists():
         person.delete()
+    print(f"removed {user.email}")
     user.delete()
 
 
