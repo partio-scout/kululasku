@@ -554,7 +554,14 @@ def open_katre_again(modeladmin, request, queryset):
         expense.save()
 
 
+def open_invoice_again(modeladmin, request, queryset):
+    for expense in queryset:
+        expense.status = 0
+        expense.save()
+
+
 open_katre_again.short_description = 'Siirrä Katre-ilmoitus avoimeksi'
+open_invoice_again.short_description = 'Siirrä Tila avoimeksi'
 
 
 class ExpenseAdmin(admin.ModelAdmin):
@@ -573,7 +580,7 @@ class ExpenseAdmin(admin.ModelAdmin):
         ExpenseLineInline,
     ]
     readonly_fields = ('created_at',)
-    actions = [open_katre_again, ]
+    actions = [open_katre_again, open_invoice_again]
 
     class Meta:
         verbose_name_plural = "Kululaskut"  # 2 spaces
