@@ -150,8 +150,7 @@ class Command (BaseCommand):
         today = now()
         print(f'Start alarming unactive users, timestamp: {today}')
         inactiveusers = User.objects.filter(
-            last_login__lte=today - timedelta(days=365*2))
-
+            last_login__lte=(today - timedelta(days=365*2)))
         print(f'Users to be alarmed timestamp: {inactiveusers.count()}')
 
         for user in inactiveusers:

@@ -43,10 +43,9 @@ class Command (BaseCommand):
 
     def handle(self, *args, **options):
         today = now()
-        inactiveusers = User.objects.filter(
-            last_login__lte=today - timedelta(days=(365*2 + 30)))
+        inactiveusers = User.objects.filter(is_active=False)
 
-        print(f'Start removing unactive users, timestamp: {today}')
+        print(f'Start removing deactivated users, timestamp: {today}')
         print(f'Prepare to remove {inactiveusers.count()} users')
 
         for user in inactiveusers:
