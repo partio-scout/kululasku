@@ -463,6 +463,14 @@ class Expense(models.Model):
             sum += line.sum()
         return sum
 
+    def accounts(self):
+        lines = ExpenseLine.objects.filter(expense=self)
+        return [{
+            'sum': str(x.sum()),
+            'account_code': x.expensetype.account,
+            'description': x.expensetype.name + ': ' + x.description
+        } for x in lines]
+
     def __unicode__(self):
         return self.name + ': ' + self.description + ' (' + str(round(self.amount(), 2)) + ' €)'
 

@@ -19,3 +19,4 @@ expenses/uploads/receipts
 media/receipts/*
 tmp/zips/*
 maintenance_on.html
+fennoa_credentials.json

@@ -9,3 +9,7 @@ CONTACT_NUM=+123456789
 DEBUG=True
 #comma separated list, eg: localhost,other_domain OR single domain eg. localhost
 ALLOWED_HOSTS_STRING=localhost
+
+FENNOA_APIURL=https://app.fennoa.com/api
+FENNOA_USERNAME=perfektio
+FENNOA_TOKEN=test123
