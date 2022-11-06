@@ -4,6 +4,8 @@ services:
   db:
     image: postgres:12.9-alpine
     restart: unless-stopped
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - postgres_data:/var/lib/postgresql/data
       #Tarkista polut kuntoon omalle ympäristöllesi

@@ -4,13 +4,13 @@
 {% block content %}
 <h1 style="text-align: center;">{% trans 'Log In'%} </h1>
 
+
 <div style="text-align: center;">
-  <p>Olemme resetoineet käyttäjien salasanat järjestelmäpäivityksen yhteydessä.</p>
-  <p>Palautathan salasanasi käyttämällä <a href="/accounts/password/reset/">Unohditko salasanasi</a> ominaisuutta.</p>
+
 </div>
 
 
-<form style="text-align: center;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned" data-parsley-validate>
+<form style="text-align: center; margin-bottom: 20px;" action="{% url 'auth_login' %}" method="POST" class="pure-form pure-form-aligned" data-parsley-validate>
   <div class="pure-g">
     {% csrf_token %}
     <div class="account-wrapper">
@@ -30,10 +30,6 @@
             {{ field }}
           </div>
         {% endfor %}
-
-        
-      <div style="padding: 30px;">
-      </div>
       
       <input type="hidden" name="next" value="{{ next }}" />
     </div>
@@ -42,23 +38,28 @@
   <div class="pure-controls" style="text-align: center;">
     <div>
       <span class="submit-button-wrapper">
-        <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary" style="margin: 20px;">
+        <input type='submit' value='{% trans "Log in" %}' class="pure-button pure-button-primary" style="width: 200px;margin: 20px;">
       </span>
+
+      <div style="text-align: center;">
+        <a href="{{ reset_url }}" style="color: rgba(0, 0, 0, 0.8);text-decoration: underline;">{% trans 'Forgot your password?'%}</a>.
+      </div>
     </div>
-    
-    <a href="/accounts/register/" style="text-decoration: underline;"><strong>{% trans "Sign up" %}</a></strong>
-    <input type="hidden" name="next" value="{{ next }}" />
+
+  </div>
+  <div>
+    <div>
+      <h1 style="text-align: center;">{% trans 'Uusi käyttäjä'%} </h1>
+      <p>
+        Jos et ole aiemmin käyttänyt Partion kululaskua, rekisteröi itsellesi käyttäjätunnus.
+      </p>
+      <p>
+        <strong>Huom!</strong> Partio-ID ei toimi kululaskussa.
+      </p>
+      <a href="/accounts/register/" style="box-sizing: border-box; width: 200px; display:inline-block;" class="pure-button pure-button-primary" style="">{% trans "Sign up" %}</a>
+      <input type="hidden" name="next" value="{{ next }}" />
+    </div>
  </div>
 </form>
-
-
-<div style="text-align: center;">
-  <p >
-    <small>{% url 'auth_password_reset' as reset_url %}
-    {% trans 'Forgot your password?'%}</small>
-  </p>
-
-  <a href="{{ reset_url }}" style="text-decoration: underline;"><strong>{% trans 'Reset your password'%}</strong></a>.
-</div>
 
 {% endblock %}

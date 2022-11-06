@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-09 15:56+0000\n"
+"POT-Creation-Date: 2022-11-06 12:56+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,20 +50,20 @@ msgstr "Päättymispäivä"
 msgid "Ended at time"
 msgstr "Päättymisaika"
 
-#: forms/__init__.py:72 models.py:516 views.py:229 views.py:307
+#: forms/__init__.py:72 models.py:524 views.py:229 views.py:307
 msgid "Amount"
 msgstr "Summa"
 
-#: forms/__init__.py:74 models.py:517
+#: forms/__init__.py:74 models.py:525
 msgid "Amount of kilometres, days or the sum of the expense"
 msgstr "Kilometrien tai päivien määrä tai muun kulun summa"
 
-#: forms/__init__.py:79 models.py:506 views.py:141 views.py:227 views.py:292
+#: forms/__init__.py:79 models.py:514 views.py:141 views.py:227 views.py:292
 #: views.py:306
 msgid "Description"
 msgstr "Kuvaus"
 
-#: forms/__init__.py:81 models.py:507
+#: forms/__init__.py:81 models.py:515
 msgid ""
 "Description of the expense, eg. the route of the journey (travel expenses) "
 "or purpose of the purchased goods"
@@ -134,7 +134,7 @@ msgstr "Sähköposti"
 msgid "Email already exists"
 msgstr "Sähköpostiosoite on jo käytössä"
 
-#: forms/__init__.py:205 models.py:343 models.py:527
+#: forms/__init__.py:205 models.py:343 models.py:535
 msgid "Multiplier"
 msgstr "Kerroin"
 
@@ -195,7 +195,7 @@ msgstr "Lähetetty"
 msgid "Edited"
 msgstr "Muokattu"
 
-#: models.py:207 models.py:242 models.py:337 models.py:431 models.py:524
+#: models.py:207 models.py:242 models.py:337 models.py:431 models.py:532
 #: views.py:283
 msgid "Name"
 msgstr "Nimi"
@@ -267,7 +267,7 @@ msgstr ""
 "varten. Mikäli et halua tallentaa sitä omiin tietoihisi, voit syöttää sen "
 "jokaiseen kululaskuun erikseen."
 
-#: models.py:281 models.py:340 models.py:526
+#: models.py:281 models.py:340 models.py:534
 msgid "Type"
 msgstr "Tyyppi"
 
@@ -323,7 +323,7 @@ msgstr "Valittavissa"
 msgid "Requires receipt"
 msgstr "Vaatii kuitin"
 
-#: models.py:344 models.py:528
+#: models.py:344 models.py:536
 msgid ""
 "The per price for the expense type (mileage: € per km, other expenses: 1, "
 "advances: -1)"
@@ -430,27 +430,27 @@ msgstr "Tila"
 msgid "Katre status"
 msgstr ""
 
-#: models.py:508 views.py:224 views.py:303
+#: models.py:516 views.py:224 views.py:303
 msgid "Begin at"
 msgstr "Alkoi"
 
-#: models.py:510 views.py:226 views.py:304
+#: models.py:518 views.py:226 views.py:304
 msgid "Ended at"
 msgstr "Päättyi"
 
-#: models.py:513 views.py:232 views.py:309
+#: models.py:521 views.py:232 views.py:309
 msgid "Expense type"
 msgstr "Kulutyyppi"
 
-#: models.py:515
+#: models.py:523
 msgid "Cost centre"
 msgstr "Kustannuspaikka"
 
-#: models.py:520 views.py:176 views.py:314
+#: models.py:528 views.py:176 views.py:314
 msgid "Receipt"
 msgstr "Kuitti"
 
-#: models.py:521
+#: models.py:529
 msgid ""
 "A scan or picture of the receipt. Accepted formats include PDF, PNG and JPG. "
 "Note: The receipt must clearly show what, when and how much has been paid!"

@@ -25,7 +25,7 @@ Tech stack:
 - Tarkista docker-compose.yml filen volumet kuntoon
 - vaihda settings/**init**.py tiedoston allowed hosts asianmukaiseksi
 
-#Tarkista seuraavat tiedot erityisen tarkasti
+# Tarkista seuraavat tiedot erityisen tarkasti
 
 - settings/**init**.py tiedosto
 - sähköpostien templatejen muuttujat
