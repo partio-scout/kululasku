@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-06 12:56+0000\n"
+"POT-Creation-Date: 2022-11-06 21:27+0000\n"
 "PO-Revision-Date: 2016-05-03 13:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -486,11 +486,11 @@ msgstr "Sivuston kieli"
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: templates/base.html:67 templates/django_registration/login.html:49
+#: templates/base.html:67 templates/django_registration/login.html:59
 msgid "Sign up"
 msgstr "Rekisteröidy"
 
-#: templates/base.html:68 templates/django_registration/login.html:45
+#: templates/base.html:68 templates/django_registration/login.html:41
 #: templates/django_registration/registration_form.html:41
 msgid "Log in"
 msgstr "Kirjaudu sisään"
@@ -633,10 +633,8 @@ msgid "Activate your account"
 msgstr "Aktivoi käyttäjätunnuksesi"
 
 #: templates/django_registration/activation_failed.html:4
-#, fuzzy
-#| msgid "Registration complete"
 msgid "Registration failed"
-msgstr "Rekisteröinti valmis"
+msgstr "Rekisteröityminen epäonnistui"
 
 #: templates/django_registration/activation_failed.html:5
 msgid ""
@@ -653,17 +651,30 @@ msgstr "Kirjaudu sisään"
 msgid "Login failed."
 msgstr "Sisäänkirjautuminen epäonnistui."
 
-#: templates/django_registration/login.html:58
+#: templates/django_registration/login.html:45
 #: templates/django_registration/registration_form.html:49
 msgid "Forgot your password?"
 msgstr "Unohditko salasanasi?"
 
-#: templates/django_registration/login.html:61
-#: templates/django_registration/registration_form.html:52
-#, fuzzy
-#| msgid "Reset Password"
-msgid "Reset your password"
-msgstr "Palauta salasana"
+#: templates/django_registration/login.html:52
+msgid "New user"
+msgstr "Uusi käyttäjä"
+
+#: templates/django_registration/login.html:54
+msgid ""
+"If you have not used the Finnish scout's expense system before, please "
+"register."
+msgstr ""
+"Jos et ole aiemmin käyttänyt Partion kululaskua, rekisteröi itsellesi "
+"käyttäjätunnus."
+
+#: templates/django_registration/login.html:57
+msgid "Note!"
+msgstr "Huom!"
+
+#: templates/django_registration/login.html:57
+msgid "Scout-ID does not work in the expense application."
+msgstr "Partio-ID ei toimi kululaskussa."
 
 #: templates/django_registration/logout.html:5
 msgid "Logged Out"
@@ -748,6 +759,12 @@ msgstr ""
 #: templates/django_registration/registration_form.html:36
 msgid "Register"
 msgstr "Rekisteröidy"
+
+#: templates/django_registration/registration_form.html:52
+#, fuzzy
+#| msgid "Reset Password"
+msgid "Reset your password"
+msgstr "Palauta salasana"
 
 #: templates/expense-row-snippet.html:39
 msgid "Delete"
@@ -912,6 +929,9 @@ msgstr "Profiilitiedot päivitetty."
 #: views.py:402
 msgid "Organisation details updated."
 msgstr "Organisaatiotiedot päivitetty."
+
+#~ msgid "Create a new expense application"
+#~ msgstr "Luo uusi kululasku"
 
 #~ msgid "Purpose"
 #~ msgstr "Tarkoitus"

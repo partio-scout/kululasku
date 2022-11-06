@@ -49,12 +49,12 @@
   </div>
   <div>
     <div>
-      <h1 style="text-align: center;">{% trans 'Uusi käyttäjä'%} </h1>
+      <h1 style="text-align: center;">{% trans 'New user'%} </h1>
       <p>
-        Jos et ole aiemmin käyttänyt Partion kululaskua, rekisteröi itsellesi käyttäjätunnus.
+        {% trans "If you have not used the Finnish scout's expense system before, please register." %}
       </p>
       <p>
-        <strong>Huom!</strong> Partio-ID ei toimi kululaskussa.
+        <strong>{% trans 'Note!' %}</strong> {% trans 'Scout-ID does not work in the expense application.' %}
       </p>
       <a href="/accounts/register/" style="box-sizing: border-box; width: 200px; display:inline-block;" class="pure-button pure-button-primary" style="">{% trans "Sign up" %}</a>
       <input type="hidden" name="next" value="{{ next }}" />

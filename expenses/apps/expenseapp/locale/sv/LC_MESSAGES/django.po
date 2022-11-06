@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kululasku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-06 12:56+0000\n"
+"POT-Creation-Date: 2022-11-06 21:27+0000\n"
 "PO-Revision-Date: 2016-05-03 14:01+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -486,11 +486,11 @@ msgstr "Språk"
 msgid "Log out"
 msgstr "Logga ut"
 
-#: templates/base.html:67 templates/django_registration/login.html:49
+#: templates/base.html:67 templates/django_registration/login.html:59
 msgid "Sign up"
 msgstr "Registrera dig här"
 
-#: templates/base.html:68 templates/django_registration/login.html:45
+#: templates/base.html:68 templates/django_registration/login.html:41
 #: templates/django_registration/registration_form.html:41
 msgid "Log in"
 msgstr "Logga in"
@@ -633,10 +633,8 @@ msgid "Activate your account"
 msgstr "Aktivera ditt lösen"
 
 #: templates/django_registration/activation_failed.html:4
-#, fuzzy
-#| msgid "Registration complete"
 msgid "Registration failed"
-msgstr "Registreringen är färdig"
+msgstr "Registreringen misslyckades"
 
 #: templates/django_registration/activation_failed.html:5
 msgid ""
@@ -653,17 +651,29 @@ msgstr "Logga in"
 msgid "Login failed."
 msgstr "Loggin misslyckades."
 
-#: templates/django_registration/login.html:58
+#: templates/django_registration/login.html:45
 #: templates/django_registration/registration_form.html:49
 msgid "Forgot your password?"
 msgstr "Har du glömt ditt lösen?"
 
-#: templates/django_registration/login.html:61
-#: templates/django_registration/registration_form.html:52
-#, fuzzy
-#| msgid "Reset Password"
-msgid "Reset your password"
-msgstr "Återställ lösenord"
+#: templates/django_registration/login.html:52
+msgid "New user"
+msgstr "Ny användare"
+
+#: templates/django_registration/login.html:54
+msgid ""
+"If you have not used the Finnish scout's expense system before, please "
+"register."
+msgstr ""
+"Om du inte har använt Scouternas redovisningssystem, vänligen registrera."
+
+#: templates/django_registration/login.html:57
+msgid "Note!"
+msgstr "Obs!"
+
+#: templates/django_registration/login.html:57
+msgid "Scout-ID does not work in the expense application."
+msgstr "Scout-ID fungerar inte i redovisningssystem"
 
 #: templates/django_registration/logout.html:5
 msgid "Logged Out"
@@ -748,6 +758,12 @@ msgstr ""
 #: templates/django_registration/registration_form.html:36
 msgid "Register"
 msgstr "Registrera dig här"
+
+#: templates/django_registration/registration_form.html:52
+#, fuzzy
+#| msgid "Reset Password"
+msgid "Reset your password"
+msgstr "Återställ lösenord"
 
 #: templates/expense-row-snippet.html:39
 msgid "Delete"
@@ -912,6 +928,9 @@ msgstr "Profiluppgifterna har uppdaterats."
 #: views.py:402
 msgid "Organisation details updated."
 msgstr "Organisationsuppgifter har uppdaterats."
+
+#~ msgid "Create a new expense application"
+#~ msgstr "Skapa en ny redovisning"
 
 #~ msgid "Purpose"
 #~ msgstr "Syfte"
