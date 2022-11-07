@@ -2,7 +2,7 @@ FROM python:3
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y nginx netcat net-tools gettext
+RUN apt-get install -y nginx netcat net-tools gettext wkhtmltopdf
 
 RUN mkdir /code
 WORKDIR /code

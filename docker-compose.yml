@@ -18,6 +18,7 @@ services:
       - .:/code
       #Tarkista polut kuntoon omalle ympäristöllesi
       #- /haluttupolku/uploads/zips:/tmp/zips/
+      - ./tmp/pdfs:/tmp/pdfs
     env_file: .env
     ports:
       - 8000:8000
