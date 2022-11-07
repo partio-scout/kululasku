@@ -98,6 +98,7 @@ class Command (BaseCommand):
                     **purchase_data,
                     **supplier_data
                 }
+                self.stdout.write(f'{USER} {TOKEN}')
                 self.stdout.write(f'{purchase_payload}')
                 purchase_request = requests.post(
                     f'{BASEURL}/purchases_api/add',
