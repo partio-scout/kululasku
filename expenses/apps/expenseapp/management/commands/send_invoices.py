@@ -1,4 +1,3 @@
-from socket import send_fds
 from django.core.management.base import BaseCommand, CommandError
 from expenseapp.models import Expense, ExpenseLine
 import os
