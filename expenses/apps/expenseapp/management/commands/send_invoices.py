@@ -13,22 +13,12 @@ from PIL import Image
 from schwifty import IBAN
 from django.core.mail import mail_admins
 
-class DecimalEncoder(json.JSONEncoder):
-    def default(self, obj):
-        # 👇️ if passed in object is instance of Decimal
-        # convert it to a string
-        if isinstance(obj, Decimal):
-            return str(obj)
-        # 👇️ otherwise use the default behavior
-        return json.JSONEncoder.default(self, obj)
-
 class Command (BaseCommand):
     help = 'Sends new invoices as XML to handling'
     
     def fetch_supplier(self, url, auth, supplier_id):
         page = 1
         while True:
-            self.stdout.write(f'fetching suppliers page {page}')
             suppliers_request = requests.get(
                 f'{url}/purchases_api/get/suppliers?page={page}',
                 auth=auth
@@ -36,8 +26,7 @@ class Command (BaseCommand):
 
             status = suppliers_request.status_code
             data =  suppliers_request.json()['data']
-            self.stdout.write(f'supplierdata {len(data)}')
-            self.stdout.write(f'{type(data)}')
+
             if status == 200 and type(data) is list and len(data) > 0:
                 filtered = [s for s in data if s['PurchaseSupplier']['business_id'] == supplier_id]
                 if len(filtered) > 0:
@@ -50,7 +39,7 @@ class Command (BaseCommand):
 
     def handle(self, *args, **options):
         BASEURL = os.getenv('FENNOA_APIURL')
-        #CREDENTIALS_MAP = json.load(open('fennoa_credentials.json'))
+        CREDENTIALS_MAP = json.load(open('fennoa_credentials.json'))
 
         expenses = Expense.objects.filter(
             status=0, organisation__send_active=1)
@@ -63,11 +52,11 @@ class Command (BaseCommand):
         try:
             i = 0
             for expense in expenses:
-                #CREDS = CREDENTIALS_MAP[expense.organisation.business_id]
-                USER = 'partio' #CREDS["user"]
-                TOKEN = 'Uu2YLbNb7L0GXkuZoYbRtUl0KLLqfg' #CREDS["token"]
+                CREDS = CREDENTIALS_MAP[expense.organisation.business_id]
+                USER = CREDS["user"]
+                TOKEN = CREDS["token"]
                 basic = HTTPBasicAuth(USER, TOKEN)
-                self.stdout.write(f'haloo')
+
                 supplier = self.fetch_supplier(
                     BASEURL,
                     basic,
@@ -75,7 +64,6 @@ class Command (BaseCommand):
                 )
 
                 j = 1
-                # self.stdout.write('Packaging expense %s...' % expense.pk)
 
                 purchase_data = {
                     'purchase_invoice_type_id': 1,
@@ -108,14 +96,12 @@ class Command (BaseCommand):
                     **purchase_data,
                     **supplier_data
                 }
-                self.stdout.write(f'{purchase_payload}')
+
                 purchase_request = requests.post(
                     f'{BASEURL}/purchases_api/add',
                     json=purchase_payload,
                     auth=basic
                 )
-                self.stdout.write(f'purchase_request status: {purchase_request.status_code}')
-                self.stdout.write(f'{purchase_request.json()}')
 
                 if purchase_request.status_code == 200:
                     expense.status = 1
@@ -127,13 +113,13 @@ class Command (BaseCommand):
                         invoice_id = purchase_res_data['id']
 
                     self.stdout.write('Created purchase invoice for expense %s.' % expense.pk)
-                    accounts = json.dumps(
-                        expense.accounts()
-                    )
+
                     tags_payload = {
-                        'json': accounts
+                        'json': json.dumps(
+                            expense.accounts()
+                        )
                     }
-                    self.stdout.write(f'{tags_payload}')
+
                     tags_request = requests.post(
                         f'{BASEURL}/purchases_api/do/set_tags/{invoice_id}',
                         json=tags_payload,
@@ -144,7 +130,6 @@ class Command (BaseCommand):
                         self.stdout.write('Created tags for expense %s...' % expense.pk)
                     else:
                         self.stdout.write('Failed creating tags for expense %s...' % expense.pk)
-                        self.stdout.write(f'{tags_request.json()}')
                     
                     lines = ExpenseLine.objects.filter(expense=expense)
                     
@@ -187,10 +172,8 @@ class Command (BaseCommand):
                                         "PDF",
                                         resolution=200.0
                                     )
-                            self.stdout.write(receiptpath)
-                            self.stdout.write(os.path.splitext(str(receiptpath))[1])
+
                             filename = f'liite_{str(expense.id)}_{str(j).zfill(3)}{os.path.splitext(str(receiptpath))[1]}'
-                            self.stdout.write(filename)
                             files = {
                                 'file': (
                                     filename,
