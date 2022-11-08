@@ -133,7 +133,7 @@ class Command (BaseCommand):
 
                 if purchase_request.status_code == 200:
                     expense.status = 1
-                    expense.save
+                    expense.save()
                     purchase_res_data = purchase_request.json()
                     if 'saved_ids' in purchase_res_data:
                         invoice_id = purchase_res_data['saved_ids']['purchase_invoice_id']
