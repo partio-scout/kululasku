@@ -543,7 +543,7 @@ class ExpenseLine(models.Model):
         super(ExpenseLine, self).save()
 
     def sum(self):
-        return self.basis * self.expensetype.multiplier
+        return round(self.basis * self.expensetype.multiplier, 2)
 
     def __unicode__(self):
         return self.description + ' (' + str(self.sum()) + ' e)'
