@@ -14,7 +14,7 @@ django-sendgrid-v5==1.2.0
 flup==1.0.3
 future==0.18.2
 gunicorn==20.1.0
-lxml==4.6.5
+lxml==4.9.1
 ordereddict==1.1
 Pillow==9.0.1
 psycopg2==2.8.6
