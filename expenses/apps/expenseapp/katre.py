@@ -5,6 +5,7 @@ from django.utils import timezone
 from datetime import datetime
 from lxml.etree import Element, SubElement, Comment, tostring, ElementTree
 import lxml.etree as etree
+from signxml import XMLSigner, SignatureConstructionMethod, SignatureMethod, DigestAlgorithm, CanonicalizationMethod
 import uuid
 
 CONTACT_NAME = os.getenv('CONTACT_NAME')
@@ -34,7 +35,7 @@ def createKatreReport(expense, expenselines):
     ts.text = now.strftime('%Y-%m-%dT%H:%M:%S') + 'Z'
 
     s = SubElement(top, 'Source')
-    s.text = 'EmCe'
+    s.text = 'Partio Kululasku'
 
     ddt = SubElement(top, 'DeliveryDataType')
     ddt.text = '100'
@@ -172,5 +173,16 @@ def createKatreReport(expense, expenselines):
             da = SubElement(tr, 'DailyAllowance')
             dat = SubElement(da, 'AllowanceCode')
             dat.text = diemtypecodes[diemtype]
+
+    cert = open("vero_sftp.cert").read()
+    key = open("vero-key-test.pem").read()
+    signed_root = XMLSigner(
+        method=SignatureConstructionMethod.enveloped,
+        signature_algorithm=SignatureMethod.RSA_SHA256,
+        digest_algorithm=DigestAlgorithm.SHA256,
+        c14n_algorithm=CanonicalizationMethod.CANONICAL_XML_1_0
+    ).sign(root, key=key, cert=cert)
+    signature = SubElement(root, 'Signature')
+    signature.text = signed_root
 
     return tostring(root.getroottree(), encoding='UTF-8', xml_declaration=True, pretty_print=True)
