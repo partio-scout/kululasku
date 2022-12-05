@@ -14,7 +14,7 @@ class Command (BaseCommand):
 
     def handle(self, *args, **options):
         end = date.today().replace(day=1) - timedelta(days=1)
-        datetime(end)
+
         expenses = Expense.objects.filter(
             katre_status=0,
             organisation__send_active=1,
