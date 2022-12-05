@@ -35,8 +35,6 @@ class Command (BaseCommand):
                 "Found %s expenses to be handled as katre" % str(len(expenses)))
 
         try:
-            self.stdout.write('Creating katre package %s' % o)
-
             katrecount = 0
 
             IR_USER = os.getenv('IR_USER')
