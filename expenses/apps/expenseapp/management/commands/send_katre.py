@@ -64,7 +64,6 @@ class Command (BaseCommand):
                     name = f'100_{expense.id}'
                     res = sftp.putfo(
                         fl=data,
-                        size=data.tell(),
                         remotepath=f'IN/{name}.tmp',
                         confirm=True
                     )
