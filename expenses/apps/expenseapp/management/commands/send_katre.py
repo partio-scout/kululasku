@@ -63,7 +63,8 @@ class Command (BaseCommand):
                     name = f'100_{expense.id}'
                     sftp.putfo(
                         fl=data,
-                        remotepath=f'IN/{name}.tmp'
+                        remotepath=f'IN/{name}.tmp',
+                        confirm=False
                     )
                     stat = sftp.stat(f'IN/{name}.tmp')
                     if stat.st_size > 0:
