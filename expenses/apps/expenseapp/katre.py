@@ -177,6 +177,7 @@ def createKatreReport(expense, expenselines):
 
     der = open("vero_sftp.cert", "rb").read()
     cert = crypto.load_certificate(crypto.FILETYPE_ASN1, der)
+    pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
     key = open("vero-key-test.pem").read()
     signed_root = XMLSigner(
         method=SignatureConstructionMethod.enveloped,
@@ -190,9 +191,9 @@ def createKatreReport(expense, expenselines):
             os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'),
             'utf-8'
         ),
-        cert=cert
+        cert=pem
     )
     # signature = SubElement(root, 'Signature')
     # signature.text = signed_root
 
-    return tostring(signed_root, encoding='UTF-8', xml_declaration=True
+    return tostring(signed_root, encoding='UTF-8', xml_declaration=True)
