@@ -1,11 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from expenseapp.models import Expense, ExpenseLine
 import os
-import time
-import os.path
-import random
-import string
-from datetime import date, datetime
+from datetime import datetime
 from django.conf import settings
 from django.core.mail import mail_admins
 from django.utils import timezone
@@ -57,7 +53,7 @@ class Command (BaseCommand):
                 if expense.needsKatre():
                     xml = expense.katre()
                     data = io.StringIO(xml.decode())
-                    name = f'100_{expense.id}.'
+                    name = f'100_{expense.id}'
                     res = sftp.putfo(
                         fl=data,
                         remotepath=f'IN/{name}.tmp',
@@ -75,22 +71,16 @@ class Command (BaseCommand):
                         self.stdout.write(f"SFTP failed for expense {expense.id}")
                 else:
                     expense.katre_status = 1
+                    expense.save()
 
-
-            # for expense in expenses:
-            #     expense.save()
-
-            self.stdout.write('Successfully sent %s katres' %
-                              str(katrecount + hapacount))
+            self.stdout.write(f'Successfully sent {katrecount} katres')
 
         except Exception as error:
 
-            self.stdout.write("Sending expenses to tulorekisteri failed: %s" % str(error))
+            self.stdout.write(f'Sending expenses to tulorekisteri failed: {str(error)}')
 
             # Mark expenses unsent in case sending failed
             # expenses.update(katre_status=0)
 
-            mail_admins("Katre sending failed",
-                        "For some reason katre sending failed in kululasku-system. Please check and fix.\n\n%s" % str(error))
-
-        # os.remove(o)
+            mail_admins('Katre sending failed',
+                        f'For some reason katre sending failed in kululasku-system. Please check and fix.\n\n{str(error)}')
