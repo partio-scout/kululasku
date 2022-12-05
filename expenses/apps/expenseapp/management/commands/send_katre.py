@@ -1,22 +1,30 @@
 from django.core.management.base import BaseCommand, CommandError
 from expenseapp.models import Expense, ExpenseLine
 import os
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from django.conf import settings
 from django.core.mail import mail_admins
 from django.utils import timezone
 import paramiko
 import io
 
+
 class Command (BaseCommand):
     help = 'Sends Katre XML to handling'
 
     def handle(self, *args, **options):
+        end = date.today().replace(day=1) - timedelta(days=1)
+        datetime(end)
         expenses = Expense.objects.filter(
             katre_status=0,
             organisation__send_active=1,
             created_at__gte=datetime(2020, 1, 1, tzinfo=timezone.utc),
-            created_at__lte=datetime(2022, 11, 30, tzinfo=timezone.utc)
+            created_at__lte=datetime(
+                end.year,
+                end.month,
+                end.day,
+                tzinfo=timezone.utc
+            )
         )
 
         if not expenses:
@@ -34,7 +42,8 @@ class Command (BaseCommand):
             IR_USER = os.getenv('IR_USER')
             IR_SERVER = os.getenv('IR_SERVER')
             IR_PORT = 22
-            key = paramiko.RSAKey.from_private_key_file('vero-key-test.pem', password=os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'))
+            key = paramiko.RSAKey.from_private_key_file(
+                'vero-key-test.pem', password=os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'))
 
             transport = paramiko.Transport((
                 IR_SERVER,
@@ -68,7 +77,8 @@ class Command (BaseCommand):
                         expense.katre_status = 2
                         expense.save()
                     else:
-                        self.stdout.write(f"SFTP failed for expense {expense.id}")
+                        self.stdout.write(
+                            f"SFTP failed for expense {expense.id}")
                 else:
                     expense.katre_status = 1
                     expense.save()
@@ -77,7 +87,8 @@ class Command (BaseCommand):
 
         except Exception as error:
 
-            self.stdout.write(f'Sending expenses to tulorekisteri failed: {str(error)}')
+            self.stdout.write(
+                f'Sending expenses to tulorekisteri failed: {str(error)}')
 
             # Mark expenses unsent in case sending failed
             # expenses.update(katre_status=0)
