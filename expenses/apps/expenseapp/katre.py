@@ -7,6 +7,7 @@ from lxml.etree import Element, SubElement, Comment, tostring, ElementTree
 import lxml.etree as etree
 from signxml import XMLSigner, SignatureConstructionMethod, SignatureMethod, DigestAlgorithm, CanonicalizationMethod
 import uuid
+from OpenSSL import crypto
 
 CONTACT_NAME = os.getenv('CONTACT_NAME')
 CONTACT_NUM = os.getenv('CONTACT_NUM')
@@ -174,7 +175,8 @@ def createKatreReport(expense, expenselines):
             dat = SubElement(da, 'AllowanceCode')
             dat.text = diemtypecodes[diemtype]
 
-    cert = open("vero_sftp.cert").read()
+    der = open("vero_sftp.cert", "rb").read()
+    cert = crypto.load_certificate(crypto.FILETYPE_ASN1, der)
     key = open("vero-key-test.pem").read()
     signed_root = XMLSigner(
         method=SignatureConstructionMethod.enveloped,
