@@ -183,7 +183,12 @@ def createKatreReport(expense, expenselines):
         signature_algorithm=SignatureMethod.RSA_SHA256,
         digest_algorithm=DigestAlgorithm.SHA256,
         c14n_algorithm=CanonicalizationMethod.CANONICAL_XML_1_0
-    ).sign(root, key=key, cert=cert)
+    ).sign(
+        root,
+        key=key,
+        passphrase=os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'),
+        cert=cert
+    )
     signature = SubElement(root, 'Signature')
     signature.text = signed_root
 
