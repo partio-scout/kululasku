@@ -192,7 +192,7 @@ def createKatreReport(expense, expenselines):
         ),
         cert=cert
     )
-    signature = SubElement(root, 'Signature')
-    signature.text = signed_root
+    # signature = SubElement(root, 'Signature')
+    # signature.text = signed_root
 
-    return tostring(root.getroottree(), encoding='UTF-8', xml_declaration=True, pretty_print=True)
+    return tostring(signed_root, encoding='UTF-8', xml_declaration=True
