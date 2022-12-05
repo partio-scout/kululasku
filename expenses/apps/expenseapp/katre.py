@@ -186,7 +186,10 @@ def createKatreReport(expense, expenselines):
     ).sign(
         root,
         key=key,
-        passphrase=os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'),
+        passphrase=bytes(
+            os.getenv('VERO_PRIVATE_KEY_PASSPHRASE'),
+            'utf-8'
+        ),
         cert=cert
     )
     signature = SubElement(root, 'Signature')

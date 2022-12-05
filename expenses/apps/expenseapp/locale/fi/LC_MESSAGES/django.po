@@ -243,7 +243,7 @@ msgstr "Puhelin"
 
 #: models.py:275 models.py:439 views.py:133 views.py:286
 msgid "Address"
-msgstr "Osoite"
+msgstr "Katuosoite ja postitoimipaikka"
 
 #: models.py:276 models.py:440 views.py:135 views.py:287
 msgid "Bank account no"
