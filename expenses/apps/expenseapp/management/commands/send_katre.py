@@ -56,31 +56,33 @@ class Command (BaseCommand):
             for expense in expenses:
 
                 self.stdout.write('Packaging expense %s...' % expense.pk)
-
-                if expense.needsKatre():
-                    xml = expense.katre()
-                    data = io.StringIO(xml.decode())
-                    name = f'100_{expense.id}'
-                    sftp.putfo(
-                        fl=data,
-                        remotepath=f'IN/{name}.tmp',
-                        confirm=False
-                    )
-                    stat = sftp.stat(f'IN/{name}.tmp')
-                    if stat.st_size > 0:
-                        sftp.rename(
-                            f'IN/{name}.tmp',
-                            f'IN/{name}.xml'
+                try:
+                    if expense.needsKatre():
+                        xml = expense.katre()
+                        data = io.StringIO(xml.decode())
+                        name = f'100_{expense.id}'
+                        sftp.putfo(
+                            fl=data,
+                            remotepath=f'IN/{name}.tmp'
                         )
-                        katrecount = katrecount + 1
-                        expense.katre_status = 2
-                        expense.save()
+                        stat = sftp.stat(f'IN/{name}.tmp')
+                        if stat.st_size > 0:
+                            self.stdout.write(f'Renaming {name}.tmp')
+                            sftp.rename(
+                                f'IN/{name}.tmp',
+                                f'IN/{name}.xml'
+                            )
+                            katrecount = katrecount + 1
+                            expense.katre_status = 2
+                            expense.save()
+                        else:
+                            self.stdout.write(
+                                f"SFTP failed for expense {expense.id}")
                     else:
-                        self.stdout.write(
-                            f"SFTP failed for expense {expense.id}")
-                else:
-                    expense.katre_status = 1
-                    expense.save()
+                        expense.katre_status = 1
+                        expense.save()
+                except Exception as error:
+                    self.stdout.write(f'SFTP put failed for {expense.id} {str(error)}')
 
             self.stdout.write(f'Successfully sent {katrecount} katres')
 
