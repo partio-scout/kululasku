@@ -59,15 +59,14 @@ class Command (BaseCommand):
 
                 if expense.needsKatre():
                     xml = expense.katre()
-                    data = io.StringIO()
-                    data.write(xml.decode())
+                    data = io.StringIO(xml.decode())
                     name = f'100_{expense.id}'
-                    res = sftp.putfo(
+                    sftp.putfo(
                         fl=data,
-                        remotepath=f'IN/{name}.tmp',
-                        confirm=True
+                        remotepath=f'IN/{name}.tmp'
                     )
-                    if res.st_size > 0:
+                    stat = sftp.stat(f'IN/{name}.tmp')
+                    if stat.st_size > 0:
                         sftp.rename(
                             f'IN/{name}.tmp',
                             f'IN/{name}.xml'
