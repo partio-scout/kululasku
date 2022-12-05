@@ -2,7 +2,7 @@ FROM python:3
 ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install --fix-missing -y nginx netcat net-tools gettext wkhtmltopdf
+RUN apt-get install --fix-missing -y nginx netcat net-tools gettext python3-openssl python3-lxml wkhtmltopdf
 
 RUN mkdir /code
 WORKDIR /code
