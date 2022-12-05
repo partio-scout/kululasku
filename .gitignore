@@ -2,6 +2,8 @@ kululasku.sqlite
 testikanta.sqlite
 .env*
 *.sql
+*.cert
+*.pem
 docker-compose-local.yml
 docker-compose-prod.yml
 texts.txt
