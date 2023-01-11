@@ -13,9 +13,10 @@ from PIL import Image
 from schwifty import IBAN
 from django.core.mail import mail_admins
 
+
 class Command (BaseCommand):
     help = 'Sends new invoices to Fennoa API'
-    
+
     def fetch_supplier(self, url, auth, supplier_id):
         page = 1
         while True:
@@ -26,11 +27,12 @@ class Command (BaseCommand):
             )
 
             status = suppliers_request.status_code
-            data =  suppliers_request.json()['data']
+            data = suppliers_request.json()['data']
 
             if status == 200 and type(data) is list and len(data) > 0:
                 self.stdout.write(f'{data}')
-                filtered = [s for s in data if s['PurchaseSupplier']['business_id'] == supplier_id]
+                filtered = [s for s in data if s['PurchaseSupplier']
+                            ['business_id'] == supplier_id]
                 if len(filtered) > 0:
                     self.stdout.write(f'Found existing supplier {supplier_id}')
                     return filtered[0]['PurchaseSupplier']
@@ -59,7 +61,7 @@ class Command (BaseCommand):
             self.stdout.write(f'Successfully uploaded file {filename}')
         else:
             self.stdout.write(f'Failed uploading file {filename}')
-        
+
         return file_request
 
     def handle(self, *args, **options):
@@ -90,9 +92,10 @@ class Command (BaseCommand):
 
                 j = 1
                 self.stdout.write(f'Sending expense {expense.pk} data')
+                invoice_type = 1 if expense.amount() > 0 else 2
 
                 purchase_data = {
-                    'purchase_invoice_type_id': 1,
+                    'purchase_invoice_type_id': invoice_type,
                     'invoice_number': expense.id,
                     'invoice_date': expense.created_at.strftime('%Y-%m-%d'),
                     'due_date': expense.created_at.strftime('%Y-%m-%d'),
@@ -128,7 +131,8 @@ class Command (BaseCommand):
                     json=purchase_payload,
                     auth=basic
                 )
-                self.stdout.write(f'purchase_request status: {purchase_request.status_code}')
+                self.stdout.write(
+                    f'purchase_request status: {purchase_request.status_code}')
                 self.stdout.write(f'{purchase_request.json()}')
 
                 if purchase_request.status_code == 200:
@@ -140,7 +144,8 @@ class Command (BaseCommand):
                     else:
                         invoice_id = purchase_res_data['id']
 
-                    self.stdout.write(f'Created purchase invoice for expense {expense.pk}.')
+                    self.stdout.write(
+                        f'Created purchase invoice for expense {expense.pk}.')
                     accounts = json.dumps(
                         expense.accounts()
                     )
@@ -155,18 +160,21 @@ class Command (BaseCommand):
                     )
 
                     if tags_request.status_code == 200:
-                        self.stdout.write(f'Created tags for expense {expense.pk}.')
+                        self.stdout.write(
+                            f'Created tags for expense {expense.pk}.')
                     else:
-                        self.stdout.write(f'Failed creating tags for expense {expense.pk}.')
+                        self.stdout.write(
+                            f'Failed creating tags for expense {expense.pk}.')
                         self.stdout.write(f'{tags_request.json()}')
-                    
-                    parser = etree.XMLParser(ns_clean=True, recover=True, encoding='utf-8')
+
+                    parser = etree.XMLParser(
+                        ns_clean=True, recover=True, encoding='utf-8')
                     h = etree.fromstring(expense.finvoice(), parser=parser)
                     xslt = etree.parse('static/Finvoice.xsl')
                     transform = etree.XSLT(xslt)
                     newdom = transform(h)
                     a = etree.tostring(newdom, pretty_print=True)
-                    options = { 'enable-local-file-access': '' }
+                    options = {'enable-local-file-access': ''}
                     invoice_pdf_name = f'lasku_{str(expense.id)}.pdf'
                     invoice_pdf_path = f'/tmp/pdfs/{invoice_pdf_name}'
                     html_string = a.decode('utf-8').replace('\n', '')
@@ -185,7 +193,7 @@ class Command (BaseCommand):
                     )
 
                     lines = ExpenseLine.objects.filter(expense=expense)
-                    
+
                     for line in lines:
                         if line.receipt:
                             receiptpath = line.receipt.path
@@ -194,13 +202,13 @@ class Command (BaseCommand):
                                     im = Image.open(line.receipt.path)
                                 except IOError:
                                     self.stdout.write(
-                                        'Not able to convert receipt ' + \
+                                        'Not able to convert receipt ' +
                                         line.receipt.path
                                     )
                                     mail_admins(
                                         "File handling failed",
-                                        "Not able to convert receipt" + \
-                                        line.receipt.path + \
+                                        "Not able to convert receipt" +
+                                        line.receipt.path +
                                         "in kululasku-system."
                                     )
                                     continue
@@ -240,7 +248,8 @@ class Command (BaseCommand):
 
                     i = i + 1
                 else:
-                    self.stdout.write(f'Failed to create purchase invoice for expense {expense.pk}')
+                    self.stdout.write(
+                        f'Failed to create purchase invoice for expense {expense.pk}')
 
             self.stdout.write(f'Successfully sent {i} invoices')
 
