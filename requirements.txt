@@ -1,7 +1,7 @@
 bcrypt==3.2.0
 cffi==1.15.0
 confusable-homoglyphs==3.2.0
-cryptography==38.0.4
+cryptography==39.0.1
 Django==3.2.13
 django-countries==7.2.1
 django-crum==0.7.9
