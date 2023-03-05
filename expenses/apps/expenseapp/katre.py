@@ -71,9 +71,16 @@ def createKatreReport(expense, expenselines):
     pd = SubElement(pp, 'PaymentDate')
     pd.text = now.strftime('%Y-%m-%d')
     sd = SubElement(pp, 'StartDate')
-    sd.text = expense.created_at.strftime('%Y-%m-%d')
+    
+    earliest_start = [x.begin_at for x in expenselines.order_by('begin_at')][0]
+    latest_end = [x.ended_at for x in expenselines.order_by('ended_at')][-1]
+
+    if latest_end == None:
+        latest_end = earliest_start
+
+    sd.text = earliest_start.strftime('%Y-%m-%d')
     ed = SubElement(pp, 'EndDate')
-    ed.text = expense.created_at.strftime('%Y-%m-%d')
+    ed.text = latest_end.strftime('%Y-%m-%d')
 
     # VAIHDA
     cp = SubElement(top, 'ContactPersons')

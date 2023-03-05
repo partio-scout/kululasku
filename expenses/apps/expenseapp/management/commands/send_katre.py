@@ -77,7 +77,7 @@ class Command (BaseCommand):
                             expense.save()
                         else:
                             self.stdout.write(
-                                f"SFTP failed for expense {expense.id}")
+                                f"SFTP failed for expense {expense.id} item size is 0")
                     else:
                         expense.katre_status = 1
                         expense.save()
