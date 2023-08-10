@@ -17,7 +17,7 @@ from django.core.mail import mail_admins
 class Command (BaseCommand):
     help = 'Sends new invoices to Fennoa API'
 
-    def fetch_supplier(self, url, auth, supplier_id):
+    def fetch_supplier(self, url, auth, supplier_id, supplier_name):
         page = 1
         while True:
             self.stdout.write(f'fetching suppliers page {page}')
@@ -30,14 +30,14 @@ class Command (BaseCommand):
             data = suppliers_request.json()['data']
 
             if status == 200 and type(data) is list and len(data) > 0:
-                self.stdout.write(f'{data}')
+                # self.stdout.write(f'{data}')
                 filtered = [s for s in data if s['PurchaseSupplier']
-                            ['business_id'] == supplier_id]
+                            ['name'] == supplier_name]
                 if len(filtered) > 0:
-                    self.stdout.write(f'Found existing supplier {supplier_id}')
+                    self.stdout.write(f'Found existing supplier {supplier_id} {supplier_name}')
                     return filtered[0]['PurchaseSupplier']
             else:
-                self.stdout.write(f'Found no supplier {supplier_id}')
+                self.stdout.write(f'Found no supplier {supplier_id} {supplier_name}')
                 break
             page = page + 1
 
@@ -87,7 +87,8 @@ class Command (BaseCommand):
                 supplier = self.fetch_supplier(
                     BASEURL,
                     basic,
-                    str(expense.user.id)
+                    str(expense.user.id),
+                    expense.name
                 )
 
                 j = 1
@@ -107,7 +108,7 @@ class Command (BaseCommand):
                     supplier_data = {
                         'purchase_supplier_id': supplier['id'],
                         'supplier_name': supplier['name'],
-                        'supplier_business_id': supplier['business_id'],
+                        # 'supplier_business_id': supplier['business_id'],
                         'bank_account': supplier['bank_account'],
                         'bank_bic': supplier['bank_bic'],
                         'supplier_country': supplier['country_id'],
@@ -115,7 +116,7 @@ class Command (BaseCommand):
                 else:
                     supplier_data = {
                         'supplier_name': expense.name,
-                        'supplier_business_id': expense.user.id,
+                        # 'supplier_business_id': expense.user.id,
                         'bank_account': expense.iban,
                         'bank_bic': str(IBAN(expense.iban).bic),
                         'supplier_country': 'FI'
