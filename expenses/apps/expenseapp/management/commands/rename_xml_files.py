@@ -25,4 +25,7 @@ class Command (BaseCommand):
         filenames = sftp.listdir(f'IN')
         for filename in filenames:
             if 'tmp' in filename:
-                sftp.rename(filename, filename.replace('tmp', 'xml'))
+                sftp.rename(
+                    f'IN/{filename}',
+                    f'IN/{filename.replace("tmp", "xml")}'
+                )
