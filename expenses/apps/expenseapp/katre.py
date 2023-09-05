@@ -147,8 +147,8 @@ def createKatreReport(expense, expenselines):
             totals['km'] += line.basis
             totals['kmsum'] += line.sum()
 
-            # Account 6200 == Employee and 4400 == Employee
-            if line.expensetype.account == '6200' or line.expensetype.account == '4400':
+            # Persontype 2 == Employee
+            if line.expensetype.persontype == 2:
                 km_transaction_code = '311'
 
         if line.expensetype_type in diemtypes:
